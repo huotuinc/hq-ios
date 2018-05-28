@@ -15,6 +15,9 @@
 		1205BC0020BBA96900032F3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205BBFF20BBA96900032F3C /* main.m */; };
 		1205BC0A20BBA96A00032F3C /* haoQuanLianMengTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205BC0920BBA96A00032F3C /* haoQuanLianMengTests.m */; };
 		1205BC1520BBA96A00032F3C /* haoQuanLianMengUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205BC1420BBA96A00032F3C /* haoQuanLianMengUITests.m */; };
+		130E5F3BD03683754BB3E7F6 /* libPods-haoQuanLianMengTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7FD69868A9687DC3A3DFF14 /* libPods-haoQuanLianMengTests.a */; };
+		57D35B5820C31CE537244A24 /* libPods-haoQuanLianMengUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE23F7F3DE706762C8319FB /* libPods-haoQuanLianMengUITests.a */; };
+		E86F392991485C8CD57942DE /* libPods-haoQuanLianMeng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AB067DC668220566B37977 /* libPods-haoQuanLianMeng.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FC5BEC33109AC889A2FB178 /* Pods-haoQuanLianMengUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haoQuanLianMengUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-haoQuanLianMengUITests/Pods-haoQuanLianMengUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1205BBED20BBA96600032F3C /* haoQuanLianMeng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haoQuanLianMeng.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1205BBF020BBA96600032F3C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1205BBF120BBA96600032F3C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +55,15 @@
 		1205BC1020BBA96A00032F3C /* haoQuanLianMengUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = haoQuanLianMengUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1205BC1420BBA96A00032F3C /* haoQuanLianMengUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = haoQuanLianMengUITests.m; sourceTree = "<group>"; };
 		1205BC1620BBA96A00032F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1205BC2520BBCFC600032F3C /* haoQuanLianMeng.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = haoQuanLianMeng.pch; sourceTree = "<group>"; };
+		24AF3FAF7288201E5D624048 /* Pods-haoQuanLianMeng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haoQuanLianMeng.debug.xcconfig"; path = "Pods/Target Support Files/Pods-haoQuanLianMeng/Pods-haoQuanLianMeng.debug.xcconfig"; sourceTree = "<group>"; };
+		4CFE66B6BBE5394E777F8A18 /* Pods-haoQuanLianMengUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haoQuanLianMengUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-haoQuanLianMengUITests/Pods-haoQuanLianMengUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		84AB067DC668220566B37977 /* libPods-haoQuanLianMeng.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-haoQuanLianMeng.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		86AA0DB34B132FB1965D400F /* Pods-haoQuanLianMengTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haoQuanLianMengTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-haoQuanLianMengTests/Pods-haoQuanLianMengTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8DE23F7F3DE706762C8319FB /* libPods-haoQuanLianMengUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-haoQuanLianMengUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4D242A19BFFE87DB9993141 /* Pods-haoQuanLianMeng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haoQuanLianMeng.release.xcconfig"; path = "Pods/Target Support Files/Pods-haoQuanLianMeng/Pods-haoQuanLianMeng.release.xcconfig"; sourceTree = "<group>"; };
+		D7FD69868A9687DC3A3DFF14 /* libPods-haoQuanLianMengTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-haoQuanLianMengTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E97E916367BDE2CD9284264B /* Pods-haoQuanLianMengTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-haoQuanLianMengTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-haoQuanLianMengTests/Pods-haoQuanLianMengTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E86F392991485C8CD57942DE /* libPods-haoQuanLianMeng.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				130E5F3BD03683754BB3E7F6 /* libPods-haoQuanLianMengTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57D35B5820C31CE537244A24 /* libPods-haoQuanLianMengUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +101,8 @@
 				1205BC0820BBA96A00032F3C /* haoQuanLianMengTests */,
 				1205BC1320BBA96A00032F3C /* haoQuanLianMengUITests */,
 				1205BBEE20BBA96600032F3C /* Products */,
+				9349043D5ED802D82DE131C5 /* Pods */,
+				78193B13D0BCF5F2F1F47083 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +119,7 @@
 		1205BBEF20BBA96600032F3C /* haoQuanLianMeng */ = {
 			isa = PBXGroup;
 			children = (
-				1205BBF020BBA96600032F3C /* AppDelegate.h */,
-				1205BBF120BBA96600032F3C /* AppDelegate.m */,
-				1205BBF320BBA96600032F3C /* ViewController.h */,
-				1205BBF420BBA96600032F3C /* ViewController.m */,
-				1205BBF620BBA96600032F3C /* Main.storyboard */,
+				1205BC2220BBCDC500032F3C /* classes */,
 				1205BBF920BBA96900032F3C /* Assets.xcassets */,
 				1205BBFB20BBA96900032F3C /* LaunchScreen.storyboard */,
 				1205BBFE20BBA96900032F3C /* Info.plist */,
@@ -132,6 +146,58 @@
 			path = haoQuanLianMengUITests;
 			sourceTree = "<group>";
 		};
+		1205BC2220BBCDC500032F3C /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				1205BC2420BBCFA900032F3C /* other */,
+				1205BC2320BBCDD900032F3C /* main */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		1205BC2320BBCDD900032F3C /* main */ = {
+			isa = PBXGroup;
+			children = (
+				1205BBF320BBA96600032F3C /* ViewController.h */,
+				1205BBF420BBA96600032F3C /* ViewController.m */,
+				1205BBF620BBA96600032F3C /* Main.storyboard */,
+				1205BBF020BBA96600032F3C /* AppDelegate.h */,
+				1205BBF120BBA96600032F3C /* AppDelegate.m */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		1205BC2420BBCFA900032F3C /* other */ = {
+			isa = PBXGroup;
+			children = (
+				1205BC2520BBCFC600032F3C /* haoQuanLianMeng.pch */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		78193B13D0BCF5F2F1F47083 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84AB067DC668220566B37977 /* libPods-haoQuanLianMeng.a */,
+				D7FD69868A9687DC3A3DFF14 /* libPods-haoQuanLianMengTests.a */,
+				8DE23F7F3DE706762C8319FB /* libPods-haoQuanLianMengUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9349043D5ED802D82DE131C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24AF3FAF7288201E5D624048 /* Pods-haoQuanLianMeng.debug.xcconfig */,
+				A4D242A19BFFE87DB9993141 /* Pods-haoQuanLianMeng.release.xcconfig */,
+				86AA0DB34B132FB1965D400F /* Pods-haoQuanLianMengTests.debug.xcconfig */,
+				E97E916367BDE2CD9284264B /* Pods-haoQuanLianMengTests.release.xcconfig */,
+				4CFE66B6BBE5394E777F8A18 /* Pods-haoQuanLianMengUITests.debug.xcconfig */,
+				0FC5BEC33109AC889A2FB178 /* Pods-haoQuanLianMengUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1205BC1920BBA96A00032F3C /* Build configuration list for PBXNativeTarget "haoQuanLianMeng" */;
 			buildPhases = (
+				E93A3D1997A4BBD1BC1BFAF6 /* [CP] Check Pods Manifest.lock */,
 				1205BBE920BBA96600032F3C /* Sources */,
 				1205BBEA20BBA96600032F3C /* Frameworks */,
 				1205BBEB20BBA96600032F3C /* Resources */,
+				ED8454204FCD88A675F874B1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,6 +224,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1205BC1C20BBA96A00032F3C /* Build configuration list for PBXNativeTarget "haoQuanLianMengTests" */;
 			buildPhases = (
+				792B429AB5908E94F8BA84BD /* [CP] Check Pods Manifest.lock */,
 				1205BC0120BBA96A00032F3C /* Sources */,
 				1205BC0220BBA96A00032F3C /* Frameworks */,
 				1205BC0320BBA96A00032F3C /* Resources */,
@@ -174,6 +243,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1205BC1F20BBA96A00032F3C /* Build configuration list for PBXNativeTarget "haoQuanLianMengUITests" */;
 			buildPhases = (
+				DD9B1F98F70230320FE895F5 /* [CP] Check Pods Manifest.lock */,
 				1205BC0C20BBA96A00032F3C /* Sources */,
 				1205BC0D20BBA96A00032F3C /* Frameworks */,
 				1205BC0E20BBA96A00032F3C /* Resources */,
@@ -256,6 +326,83 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		792B429AB5908E94F8BA84BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-haoQuanLianMengTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD9B1F98F70230320FE895F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-haoQuanLianMengUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E93A3D1997A4BBD1BC1BFAF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-haoQuanLianMeng-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED8454204FCD88A675F874B1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-haoQuanLianMeng/Pods-haoQuanLianMeng-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/iRate/iRate/iRate.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/iRate.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-haoQuanLianMeng/Pods-haoQuanLianMeng-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1205BBE920BBA96600032F3C /* Sources */ = {
@@ -431,10 +578,13 @@
 		};
 		1205BC1A20BBA96A00032F3C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24AF3FAF7288201E5D624048 /* Pods-haoQuanLianMeng.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EBUKM38G9D;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/haoQuanLianMeng/classes/other/haoQuanLianMeng.pch";
 				INFOPLIST_FILE = haoQuanLianMeng/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,10 +598,13 @@
 		};
 		1205BC1B20BBA96A00032F3C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4D242A19BFFE87DB9993141 /* Pods-haoQuanLianMeng.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EBUKM38G9D;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/haoQuanLianMeng/classes/other/haoQuanLianMeng.pch";
 				INFOPLIST_FILE = haoQuanLianMeng/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -465,6 +618,7 @@
 		};
 		1205BC1D20BBA96A00032F3C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86AA0DB34B132FB1965D400F /* Pods-haoQuanLianMengTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -484,6 +638,7 @@
 		};
 		1205BC1E20BBA96A00032F3C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E97E916367BDE2CD9284264B /* Pods-haoQuanLianMengTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -503,6 +658,7 @@
 		};
 		1205BC2020BBA96A00032F3C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4CFE66B6BBE5394E777F8A18 /* Pods-haoQuanLianMengUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EBUKM38G9D;
@@ -521,6 +677,7 @@
 		};
 		1205BC2120BBA96A00032F3C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FC5BEC33109AC889A2FB178 /* Pods-haoQuanLianMengUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EBUKM38G9D;
