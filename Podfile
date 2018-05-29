@@ -15,9 +15,11 @@ target 'haoQuanLianMeng' do
 	#pod 'MKNetworkKit'
 	pod 'MJRefresh'
 	pod 'MJExtension'
-	#pod 'PNChart', '~> 0.8.8'
+    pod 'SVProgressHUD'
+    pod 'YYCache'
+    pod 'SDCycleScrollView'
 	#pod 'NJKWebViewProgress'
-  pod 'Masonry'
+    pod 'Masonry'
   target 'haoQuanLianMengTests' do
     inherit! :search_paths
     # Pods for testing
