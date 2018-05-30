@@ -20,6 +20,9 @@
 #import <UIView+BlocksKit.h>
 #import <SDCycleScrollView.h>
 
+
+#import "HTArticleModel.h"
+#import "UITableViewCell+CreateCell.h"
 #import "Const.h"
 #import "HomeViewController.h"
 #import "LWNavigationController.h"
@@ -34,6 +37,7 @@
 #import "HTTool.h"
 #import "MD5Encryption.h"
 #import "HTAFHTTPSessionManager.h"
-
+#import "HTArticleTableViewCell.h"
+#import "HTArticleCellModel.h"
 
 #endif /* haoQuanLianMeng_pch */

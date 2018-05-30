@@ -43,4 +43,15 @@ return shared##classname;                           \
 /**屏幕宽度*/
 #define KScreenWidth [[UIScreen mainScreen] bounds].size.width
 
+#define kNavigationBar_HEIGHT ((KScreenHeight == 812.0) ? 88 : 64)
+#define kStatusBar_Height  ([UIApplication sharedApplication].statusBarFrame.size.height)
+#define KScreenWidthRatio  (KScreenWidth / 375.0)
+#define kScreenHeightRatio (((KScreenHeight == 812 ? 667 : KScreenHeight) - 64) / 603.0)
+#define kAdaptedWidth(x)  ceilf((x) * KScreenWidthRatio)
+#define kAdaptedHeight(x) ceilf((x) * kScreenHeightRatio)
+#define kAdaptedFontSize(R)  kCHINESE_SYSTEM(kAdaptedWidth(R))
+#define kCHINESE_SYSTEM(x) [UIFont systemFontOfSize:x]
+
+
+
 #endif /* HTComment_h */
