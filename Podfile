@@ -20,6 +20,7 @@ target 'haoQuanLianMeng' do
     pod 'SDCycleScrollView'
 	#pod 'NJKWebViewProgress'
     pod 'Masonry'
+    pod 'JPush'
   target 'haoQuanLianMengTests' do
     inherit! :search_paths
     # Pods for testing

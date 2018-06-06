@@ -10,9 +10,11 @@
 #define HTComment_h
 
 #ifdef DEBUG
+#define Production NO
 #define LWLog(...) NSLog(__VA_ARGS__)
 #else
 #define LWLog(...)
+#define Production YES
 #endif
 
 

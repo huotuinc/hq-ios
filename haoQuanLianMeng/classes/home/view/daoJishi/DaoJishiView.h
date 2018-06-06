@@ -1,0 +1,24 @@
+//
+//  DaoJishiView.h
+//  haoQuanLianMeng
+//
+//  Created by 罗海波 on 2018/6/4.
+//  Copyright © 2018年 HT. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "HomeProduct.h"
+
+
+
+
+@interface DaoJishiView : UIView
+
+
+
++ (instancetype)DaoJishiViewShare:(NSString *)time andProduct:(NSArray <HomeProduct *>*)products;
+
+
+- (CGFloat)getHeight;
+
+@end

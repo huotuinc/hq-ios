@@ -150,4 +150,6 @@
 - (void)removeCookie;
 
 
+- (CGFloat)titleHeightWithFont:(int)font;
+
 @end

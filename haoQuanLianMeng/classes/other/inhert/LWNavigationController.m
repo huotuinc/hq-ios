@@ -98,7 +98,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    self.hidesBarsOnSwipe = YES;
+//    self.hidesBarsOnSwipe = YES;
 //    self.interactivePopGestureRecognizer.delegate = self;
 }
 

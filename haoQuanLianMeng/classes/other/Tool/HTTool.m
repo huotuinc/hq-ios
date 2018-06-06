@@ -16,6 +16,13 @@
 
 static HTTool * _htTool;
 
+
+- (CGFloat)titleHeightWithFont:(int)font{
+    NSString *titleContent = @"亲，欢迎您";
+    CGSize titleSize = [titleContent boundingRectWithSize:CGSizeMake(KScreenWidth - 30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kAdaptedFontSize(font)} context:nil].size;
+    return titleSize.height;
+}
+
 + (instancetype)HTToolShare{
     
     static dispatch_once_t onceToken;

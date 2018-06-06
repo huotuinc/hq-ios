@@ -7,56 +7,58 @@
 //
 
 #import "HomeViewController.h"
-#import "HomeBannerView.h"
-#import "HomeFourItem.h"
+#import "ShuListTableViewCell.h"
+#import "HomeContainerView.h"
 
 
-@interface HomeViewController ()<SDCycleScrollViewDelegate>
+@interface HomeViewController ()
 
-@property (nonatomic,strong) HomeBannerView  * homeBannerView;
 
-@property (nonatomic,strong) HomeFourItem * homeFourItem;
 
-@property (nonatomic,strong) UIView * headContainer;
+
+//透视图
+@property (nonatomic,strong) HomeContainerView * headContainer;
+
+
+
 
 @end
 
 @implementation HomeViewController
 
-- (UIView *)headContainer{
+- (HomeContainerView *)headContainer{
     if (_headContainer == nil) {
-        _headContainer = [[UIView alloc] init];
-        [_headContainer addSubview:self.homeBannerView];
-        [_headContainer addSubview:self.homeFourItem];
+        _headContainer = [[HomeContainerView alloc] init];
     }
     return _headContainer;
 }
 
 
 
-- (HomeFourItem *)homeFourItem{
-    if (_homeFourItem == nil) {
-        _homeFourItem = [[HomeFourItem alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.homeBannerView.frame) + 10, KScreenWidth, 200)];
-        _headContainer.frame = CGRectMake(0, 0, KScreenWidth, CGRectGetMaxY(self.homeFourItem.frame));
-    }
-    return _homeFourItem;
-}
 
-
-- (HomeBannerView *)homeBannerView{
-    if (_homeBannerView == nil) {
-        _homeBannerView = [HomeBannerView cycleScrollViewWithFrame:CGRectMake(0, 0, KScreenWidth, 150) delegate:self placeholderImage:nil];
-        _homeBannerView.autoScrollTimeInterval = 3.0f;
-    }
-    return _homeBannerView;
-}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
+ 
+    self.tableView.contentInset = UIEdgeInsetsMake(kAdaptedWidth(40), 0, 110, 0);
+    
     self.tableView.tableHeaderView = self.headContainer;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 500;
+//    [self.tableView registerClass:[HomeRowTableViewCell class] forCellReuseIdentifier:@"HomeRowTableViewCell"];
+    [self.tableView registerClass:[ShuListTableViewCell class] forCellReuseIdentifier:@"ShuListTableViewCell"];
+//    [self.tableView registerClass:[FeedFocusonTableViewCell class] forCellReuseIdentifier:@"FeedFocusonTableViewCell"];
+    
+    
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
+   
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -73,23 +75,33 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return 6;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
-    
-    return cell;
+//    if (indexPath.section == 0) {
+//        HomeRowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeRowTableViewCell" forIndexPath:indexPath];
+//        return cell;
+//    }else if (indexPath.section == 1){
+//
+//        FeedFocusonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedFocusonTableViewCell" forIndexPath:indexPath];
+//        return cell;
+//
+//    }else{
+        ShuListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ShuListTableViewCell" forIndexPath:indexPath];
+        return cell;
+//    }
+
+   
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
