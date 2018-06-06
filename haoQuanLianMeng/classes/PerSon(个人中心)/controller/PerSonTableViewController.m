@@ -51,12 +51,17 @@
     return _perHeadContainer;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.tableView.tableHeaderView = self.perHeadContainer;
     
-    [self.navigationController setNavigationBarHidden:YES];
+    
     self.tableView.backgroundColor = [UIColor whiteColor];
 
 //    self.tableView.rowHeight = 48;

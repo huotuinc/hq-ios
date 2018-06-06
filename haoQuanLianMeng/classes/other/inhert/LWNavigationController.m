@@ -72,11 +72,15 @@
     //设置标题样式
     NSMutableDictionary * textAttr = [NSMutableDictionary dictionary];
     
-    textAttr[NSForegroundColorAttributeName] = LWColor(226, 151, 43);
+    textAttr[NSForegroundColorAttributeName] = [UIColor blackColor];
 //    //取消阴影
 //    textAttr[UITextAttributeTextShadowOffset]=[NSValue valueWithUIOffset:UIOffsetZero];
     textAttr[NSFontAttributeName] =  [UIFont fontWithName:@"Helvetica-Bold" size:20];
     [NavBar setTitleTextAttributes:textAttr];
+    
+    [NavBar setTintColor:[UIColor blackColor]];
+    
+//    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)forBarMetrics:UIBarMetricsDefault];
 //
 //    [NavBar setBackgroundColor:[UIColor colorWithRed:0.898 green:0.447 blue:0.173 alpha:1.000]];
 
@@ -100,6 +104,8 @@
     
 //    self.hidesBarsOnSwipe = YES;
 //    self.interactivePopGestureRecognizer.delegate = self;
+    self.navigationBar.topItem.title = @"";
+    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor blackColor]];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated

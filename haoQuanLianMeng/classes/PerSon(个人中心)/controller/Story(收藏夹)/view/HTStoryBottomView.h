@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol HTStoryBottomViewDelegate <NSObject>
+
+- (void)shareClick;
+@end
+
+
 @interface HTStoryBottomView : UIView
+
+
+- (void)setNumber:(int)num;
+
+
+@property (nonatomic,weak) id <HTStoryBottomViewDelegate> delegate;
+
 
 @end

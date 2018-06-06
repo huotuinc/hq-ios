@@ -8,7 +8,7 @@
 
 #import "HTPersonTableViewCell.h"
 #import "MessageContainViewController.h"
-
+#import "HTStoryViewController.h"
 
 @interface HTPersonTableViewCell ()
 
@@ -85,7 +85,10 @@
 - (void)cellClickAT:(NSIndexPath *) index andVC:(UIViewController *)vc{
     
     LWLog(@"%ld",(long)index.row);
-    if (index.row == 2) {
+    if(index.row == 1){
+        HTStoryViewController * vcc = [[HTStoryViewController alloc] init];
+        [vc.navigationController pushViewController:vcc animated:YES];
+    }else if (index.row == 2) {
         MessageContainViewController * vcc = [[MessageContainViewController alloc] init];
         [vc.navigationController pushViewController:vcc animated:YES];
     }
