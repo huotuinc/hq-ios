@@ -9,8 +9,12 @@
 #import "HaoTickContainerViewController.h"
 #import "XTSegmentControl.h"
 #import "HaoQuanListController.h"
+#import "HomeCateModel.h"
+
+
 
 @interface HaoTickContainerViewController ()<UIScrollViewDelegate>
+
 
 
 @property (nonatomic, strong) NSArray * titleItems;
@@ -31,12 +35,12 @@
 
 
 
-- (NSArray *)titleItems {
-    if(_titleItems == nil){
-        _titleItems = @[@"爆款必发",@"圈粉文案",@"吃货必备",@"清凉一夏"];
-    }
-    return _titleItems;
-}
+//- (NSArray *)titleItems {
+//    if(_titleItems == nil){
+//        _titleItems = @[@"爆款必发",@"圈粉文案",@"吃货必备",@"清凉一夏"];
+//    }
+//    return _titleItems;
+//}
 
 - (void)setupScrollView
 {
@@ -62,7 +66,14 @@
 {
     
     
-    self.segmentControl = [[XTSegmentControl alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth , kAdaptedWidth(40)) Items:self.titleItems andSelectColor:[UIColor orangeColor] andDefault:[UIColor blackColor] selectedBlock:^(NSInteger index) {
+    NSMutableArray * t = [NSMutableArray array];
+    for (int i = 0; i < self.titleItems.count; i++) {
+        
+        HomeCateModel * model = self.titleItems[i];
+        [t addObject:model.title];
+    }
+    
+    self.segmentControl = [[XTSegmentControl alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth , kAdaptedWidth(40)) Items:[t copy] andSelectColor:[UIColor orangeColor] andDefault:[UIColor blackColor] selectedBlock:^(NSInteger index) {
         
         //        [self selectCurrentOption:index];
     }];
@@ -92,28 +103,67 @@
 
 - (void)setupChildViewControllers
 {
+    LWLog(@"xxxxx");
     for(int i = 0; i<  self.titleItems.count; i++){
         HaoQuanListController * homeViewController = [[HaoQuanListController alloc] initWithStyle:UITableViewStylePlain];
-        homeViewController.type = i;
+        HomeCateModel * model = self.titleItems[i];
+        homeViewController.type = model.typeId;
         [self addChildViewController:homeViewController];
     }
 }
 
 
 
+- (void)get{
+    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+    
+    
+
+    LWLog(@"1111111111");
+    [HTNetworkingTool HTNetworkingToolGet:@"Material/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        //sleep(10);
+//        LWLog(@"%@",json);
+        LWLog(@"222222222");
+        NSArray * titles =  [HomeCateModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
+        self.titleItems = titles;
+        [self setUpInit];
+        dispatch_semaphore_signal(sema);
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        dispatch_semaphore_signal(sema);
+    }];
+    
+    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    
+    LWLog(@"333333333");
+    
+}
+
+
+- (void)setUpInit{
+        self.navigationItem.title = @"好券联盟";
+    
+        [self setupChildViewControllers];
+
+        [self setupScrollView];
+
+        [self setupTitlesView];
+
+        [self addChildVcView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.navigationItem.title = @"好券联盟";
-    [self setupChildViewControllers];
-    
-    [self setupScrollView];
-    
-    [self setupTitlesView];
-    
-    [self addChildVcView];
-    
+    LWLog(@"1111111111");
+    [HTNetworkingTool HTNetworkingToolGet:@"Material/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        NSArray * titles =  [HomeCateModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
+        self.titleItems = titles;
+        [self setUpInit];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+    LWLog(@"333333333");
 }
 
 

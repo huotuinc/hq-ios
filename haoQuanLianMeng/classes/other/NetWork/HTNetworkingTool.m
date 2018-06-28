@@ -54,18 +54,19 @@ static HTNetworkingTool * _HTNetworkingTool;
         [SVProgressHUD showWithStatus:nil];
     }
     LWLog(@"api url %@",url);
-    [manager GET:url parameters:[[HTTool HTToolShare] HTToolSignWithParame:params] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:url parameters:[[HTTool HTToolShare] HTToolSignWithParame:params] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         LWLog(@"%@",task);
         [SVProgressHUD dismiss];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        LWLog(@"%@",json);
-        if([[json objectForKey:@"resultCode"] integerValue] == 4003){
-            [self showLogin:[json objectForKey:@"resultMsg"]];
+//        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+        //LWLog(@"%@",json);
+        LWLog(@"%@",task);
+        if([[responseObject objectForKey:@"resultCode"] integerValue] == 4003){
+            [self showLogin:[responseObject objectForKey:@"resultMsg"]];
         }else{
-            LWLog(@"%@",json);
-            success(json);
+            //LWLog(@"%@",json);
+            success(responseObject);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -98,18 +99,18 @@ static HTNetworkingTool * _HTNetworkingTool;
     if (isHud) { // 是否显示loading
        [SVProgressHUD showWithStatus:nil];
     }
-    [manager POST:url parameters:[[HTTool HTToolShare] HTToolSignWithParame:params] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager POST:url parameters:[[HTTool HTToolShare] HTToolSignWithParame:params] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         LWLog(@"%@",task);
         [SVProgressHUD dismiss];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         
-        if([[json objectForKey:@"resultCode"] integerValue] == 4003){
-            [self showLogin:[json objectForKey:@"resultMsg"]];
+        if([[responseObject objectForKey:@"resultCode"] integerValue] == 4003){
+            [self showLogin:[responseObject objectForKey:@"resultMsg"]];
             failure(nil);
         }else{
-            LWLog(@"%@",json);
-            success(json);
+            LWLog(@"%@",responseObject);
+            success(responseObject);
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

@@ -25,11 +25,35 @@
 
 @property (nonatomic, strong) UIImageView * rightIcon;
 
+
+
+@property (nonatomic,strong) UIButton * leftBtn;
+
 @end
 
 @implementation HomeSegementViewController
 
 
+- (UIButton *)leftBtn{
+    if (_leftBtn == nil) {
+        UIButton *leftBtn = [[UIButton alloc] init];
+        [leftBtn setTitle:@"拼多多" forState:UIControlStateNormal];
+        [leftBtn setImage:[UIImage imageNamed:@"home_left"] forState:UIWindowLevelNormal];
+        leftBtn.titleLabel.font = kAdaptedFontSize(13);
+        leftBtn.frame = CGRectMake(0, 0, 40, 44);
+        leftBtn.showsTouchWhenHighlighted = YES;
+        leftBtn.contentEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
+        // 重点位置开始
+        leftBtn.imageEdgeInsets = UIEdgeInsetsMake(0, leftBtn.titleLabel.width + 2.5, 0, -leftBtn.titleLabel.width - 2.5);
+        leftBtn.titleEdgeInsets = UIEdgeInsetsMake(0, -leftBtn.currentImage.size.width, 0, leftBtn.currentImage.size.width);
+        // 重点位置结束
+        leftBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        
+       
+    }
+    
+    return _leftBtn;
+}
 
 - (UIImageView *)rightIcon {
     if (_rightIcon == nil){
@@ -126,6 +150,9 @@
     [self setupTitlesView];
 
     [self addChildVcView];
+    
+    UIBarButtonItem *leftItemBtn = [[UIBarButtonItem alloc] initWithCustomView:self.leftBtn];
+    self.navigationItem.leftBarButtonItem = leftItemBtn;
 
 }
 

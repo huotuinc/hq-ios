@@ -1,0 +1,23 @@
+//
+//  MiFangAccountTableViewCell.h
+//  haoQuanLianMeng
+//
+//  Created by 罗海波 on 2018/6/19.
+//  Copyright © 2018年 HT. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+
+@protocol MiFangAccountTableViewDelegate <NSObject>
+
+- (void)MiFangAccountClick:(NSUInteger)index;
+
+@end
+
+
+@interface MiFangAccountTableViewCell : UITableViewCell
+
+
+@property (nonatomic,weak) id  <MiFangAccountTableViewDelegate> delegate;
+@end

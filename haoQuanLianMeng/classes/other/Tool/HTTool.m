@@ -17,6 +17,25 @@
 static HTTool * _htTool;
 
 
+
+- (NSString *)HTToolGetTimeStap{
+    NSDate * dateNow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[dateNow timeIntervalSince1970]*1000];
+    return timeSp;
+}
+
+
+- (CGFloat)titleHeightWithFont:(int)font withTitle:(NSString *)title {
+    if (!title || !title.length) {
+        return 0;
+    }
+    //NSString *titleContent = @"亲，欢迎您";
+    CGSize titleSize = [title boundingRectWithSize:CGSizeMake(KScreenWidth -  (kAdaptedWidth(10) + kAdaptedWidth(40) + kAdaptedWidth(16) + kAdaptedWidth(15)), MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kAdaptedFontSize(font)} context:nil].size;
+    return titleSize.height;
+}
+
+
+
 - (CGFloat)titleHeightWithFont:(int)font{
     NSString *titleContent = @"亲，欢迎您";
     CGSize titleSize = [titleContent boundingRectWithSize:CGSizeMake(KScreenWidth - 30, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:kAdaptedFontSize(font)} context:nil].size;
@@ -265,15 +284,15 @@ static HTTool * _htTool;
     if (parame == nil) {
         parame = [NSMutableDictionary dictionary];
     }
-    parame[@"merchantId"] = ServiceMerchantId;
+    //parame[@"merchantId"] = ServiceMerchantId;
     HTUserModel * usermodel = (HTUserModel *)[[HTTool HTToolShare] HTToolUnArchiveObject:@"HTUserModel"];
     if(usermodel == nil){
         parame[@"userToken"] = @"";
-        parame[@"userId"] = @"0";
+        //parame[@"userId"] = @"0";
         
     }else{
-        parame[@"userToken"] = usermodel.userToken;
-        parame[@"userId"] = @(usermodel.userId);
+        parame[@"userToken"] = usermodel.token;
+        //parame[@"userId"] = @(usermodel.userId);
     }
 
     

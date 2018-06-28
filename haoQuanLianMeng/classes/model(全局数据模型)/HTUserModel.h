@@ -13,7 +13,10 @@
  */
 @interface HTUserModel : NSObject
 
-@property (nonatomic,copy) NSString  * userToken;
+@property (nonatomic,copy) NSString  * nickName;
+@property (nonatomic,copy) NSString  * token;
+@property (nonatomic,copy) NSString  * userHead;
 @property (nonatomic,assign) int userId;
+
 
 @end

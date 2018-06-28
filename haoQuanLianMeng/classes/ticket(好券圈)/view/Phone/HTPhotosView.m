@@ -10,6 +10,8 @@
 #import "PhoneViewCell.h"
 #import <UIImageView+WebCache.h>
 #import "MJPhotoBrowser.h"
+#import "SDPhotoBrowser.h"
+#import "MJPhoto.h"
 
 #define  kPhotoSize      kAdaptedWidth(90)
 #define  kPhotoSizeSingle  kAdaptedWidth(200)
@@ -17,7 +19,7 @@
 
 static NSString* const kIdentifier = @"Identifier";
 
-@interface HTPhotosView () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface HTPhotosView () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,SDPhotoBrowserDelegate>
 @property (strong, nonatomic) UICollectionView *collectionView;
 @property (nonatomic, strong)UICollectionViewFlowLayout *collectionViewLayout;
 
@@ -43,6 +45,7 @@ static NSString* const kIdentifier = @"Identifier";
         _collectionView.showsHorizontalScrollIndicator = false;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+//        _collectionView.backgroundColor = []
         _collectionView.backgroundColor = [UIColor clearColor];
         [_collectionView registerClass:[PhoneViewCell class] forCellWithReuseIdentifier:kIdentifier];
     }
@@ -71,18 +74,37 @@ static NSString* const kIdentifier = @"Identifier";
 }
 - (void)setupView
 {
-    self.backgroundColor = [UIColor clearColor];
+//    self.backgroundColor = [UIColor clearColor];
     [self addSubview:self.collectionView];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self);
+        make.top.mas_equalTo(self.mas_top);
+        make.left.mas_equalTo(self.mas_left);
         make.width.mas_equalTo(0);
         make.height.mas_equalTo(0);
     }];
+    LWLog(@"xxxx");
+}
+
+
+- (void)setPhotosArray:(NSArray<NSString*>*)photosArray
+{
+    _photosArray = photosArray;
+    CGSize size = [self getItemSize];
+    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(size.width);
+        make.height.mas_equalTo(size.height);
+    }];
+    [self.collectionView reloadData];
+    
 }
 
 
 - (void)configArticleView:(HTArticleCellModel *)model{
     _model = model;
+    
+    self.smallPhotosArray = model.article.SmallImageUrls;
+    self.photosArray = model.article.ImageUrls;
+    [self.collectionView reloadData];
 }
 
 
@@ -91,7 +113,9 @@ static NSString* const kIdentifier = @"Identifier";
 #pragma mark - collectionview
 - (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.photosArray.count;
+    
+    LWLog(@"%lu",(unsigned long)self.smallPhotosArray.count);
+    return self.smallPhotosArray.count;
 }
 
 - (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath
@@ -106,38 +130,32 @@ static NSString* const kIdentifier = @"Identifier";
 - (void)configureCell:(PhoneViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
     
+    LWLog(@"%@",self.smallPhotosArray[indexPath.row]);
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.smallPhotosArray[indexPath.row]] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
     //cell.imageView.tag = indexPath.row;
 }
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    //    SDPhotoBrowser* browser = [[SDPhotoBrowser alloc] init];
-    //    browser.sourceImagesContainerView = self.collectionView;
-    //    browser.imageCount = self.photosArray.count;
-    //    browser.currentImageIndex = indexPath.row;
-    //    browser.delegate = self;
-    //    [browser show];
-    //PhotoCollectionViewCell *cell = ( *)[collectionView cellForItemAtIndexPath:indexPath];
-//    MJPhotoBrowser *brower = [[MJPhotoBrowser alloc] init];
+    MJPhotoBrowser *brower = [[MJPhotoBrowser alloc] init];
+    brower.showSaveBtn = NO;
+    //2.告诉图片浏览器显示所有的图片
+    NSMutableArray *photos = [NSMutableArray array];
+    for (int i = 0 ; i < self.photosArray.count; i++) {
+        NSString * filePath = self.photosArray[i];
+        //传递数据给浏览器
+        MJPhoto *photo = [[MJPhoto alloc] init];
+        photo.url = [NSURL URLWithString:filePath];
+        PhoneViewCell *cell = (PhoneViewCell *)[collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+        photo.srcImageView = cell.imageView; //设置来源哪一个UIImageView
+        [photos addObject:photo];
+    }
+    brower.photos = photos;
     
-//    //2.告诉图片浏览器显示所有的图片
-//    NSMutableArray *photos = [NSMutableArray array];
-//    for (int i = 0 ; i < self.photosArray.count; i++) {
-//        NSString * filePath = self.photosArray[i];
-//        //传递数据给浏览器
-//        MJPhoto *photo = [[MJPhoto alloc] init];
-//        photo.url = [NSURL URLWithString:filePath];
-//        PhotoCollectionViewCell *cell = (PhotoCollectionViewCell *)[collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
-//        photo.srcImageView = cell.imageView; //设置来源哪一个UIImageView
-//        [photos addObject:photo];
-//    }
-//    brower.photos = photos;
-//
-//    //3.设置默认显示的图片索引
-//    brower.currentPhotoIndex = indexPath.row;
-//
-//    //4.显示浏览器
-//    [brower show];
+    //3.设置默认显示的图片索引
+    brower.currentPhotoIndex = indexPath.row;
+    
+    //4.显示浏览器
+    [brower show];
     
     
     

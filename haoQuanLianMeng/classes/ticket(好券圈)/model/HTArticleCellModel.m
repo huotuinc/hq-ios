@@ -10,6 +10,11 @@
 #import "HTPhoneTableViewCell.h"
 #import "HTViedoTableViewCell.h"
 
+@interface HTArticleCellModel ()
+
+
+
+@end
 
 @implementation HTArticleCellModel
 
@@ -33,6 +38,11 @@
     switch (type) {
        
         case HTArticleTypeMoreImage:
+            
+//            cell = [tableView dequeueReusableCellWithIdentifier:@"HTArticleTableViewCell"];
+//            if (cell == nil) {
+//                cell = [[HTArticleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HTArticleTableViewCell"];
+//            }
             cell = (HTArticleTableViewCell *)[HTPhoneTableViewCell cellGetTableView:tableView];
             break;
         case HTArticleTypeVideo:
@@ -55,13 +65,16 @@
 //服务端转换的数据进行本地化转换
 + (HTArticleType)configArticleTypeWithArticle:(HTArticleModel *)article{
     //为什么要转化防止服务器改变游戏规则  但是转化之后XZArticleType的游戏规则就是我们自己定  如果他改变游戏规则 我们可以改这个config
-    switch (article.type) {
+    
+    //int    0:普通 1:图片 2:视频
+
+    switch (article.Type) {
         case 0:
             return HTArticleTypeLink;
         case 1:
             return HTArticleTypeMoreImage;
         case 2:
-            return HTArticleTypeVideo;
+            return  HTArticleTypeVideo;
         default:
             return HTArticleTypeNotKnow;
     }

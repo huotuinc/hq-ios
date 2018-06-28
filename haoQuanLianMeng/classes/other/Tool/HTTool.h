@@ -16,6 +16,13 @@
 
 + (instancetype)HTToolShare;
 
+
+
+/**
+ * 获取时间戳
+ **/
+- (NSString *)HTToolGetTimeStap;
+
 /**
  * 获取设置型号
  **/
@@ -150,6 +157,11 @@
 - (void)removeCookie;
 
 
+
 - (CGFloat)titleHeightWithFont:(int)font;
+
+
+
+- (CGFloat)titleHeightWithFont:(int)font withTitle:(NSString *)title;
 
 @end

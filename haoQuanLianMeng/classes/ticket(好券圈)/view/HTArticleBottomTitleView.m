@@ -26,6 +26,9 @@
 - (UILabel *)upLable{
     if (_upLable == nil) {
         _upLable = [[UILabel alloc] init];
+        _upLable.textColor = LWColor(133, 133, 133);
+//        _upLable.text = @"dasdasidasoid";
+        _upLable.font = kAdaptedFontSize(13);
     }
     return _upLable;
 }
@@ -33,6 +36,8 @@
 - (UILabel *)downLable{
     if (_downLable == nil) {
         _downLable = [[UILabel alloc] init];
+        _downLable.textColor = LWColor(133, 133, 133);
+        _downLable.font = kAdaptedFontSize(13);
     }
     return _downLable;
 }
@@ -50,16 +55,20 @@
 - (void)setupInit{
     
     [self addSubview:self.upLable];
+//    self.upLable.backgroundColor = [UIColor blueColor];
+    
     [self.upLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.mas_top).mas_offset(20);
-        make.left.mas_equalTo(self.mas_left).mas_offset(100);
+        make.top.mas_equalTo(self.mas_top).mas_offset(kAdaptedWidth(10));
+        make.left.mas_equalTo(self.mas_left);
     }];
     
     [self addSubview:self.downLable];
+//    self.downLable.backgroundColor = [UIColor blueColor];
+//    self.downLable.text = @"dasdasdas等哈是多久啊dasidasoid";
     [self.downLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.mas_top).mas_offset(20);
-        make.left.mas_equalTo(self.mas_left).mas_offset(100);
-        make.bottom.mas_offset(self.mas_bottom).mas_offset(-18);
+        make.top.mas_equalTo(self.upLable.mas_bottom).mas_offset(kAdaptedWidth(5));
+        make.left.mas_equalTo(self.upLable.mas_left);
+        make.bottom.mas_equalTo(self.mas_bottom).mas_offset(-kAdaptedWidth(10));
     }];
     
     
@@ -68,7 +77,14 @@
 
 - (void)configArticleView:(HTArticleCellModel *)cellModel{
     _model = cellModel;
-#warning luohaibo
+    
+    self.upLable.text = [NSString stringWithFormat:@"%@       已被转发%d次",cellModel.article.Time,cellModel.article.TurnAmount];
+    
+    NSString *text = [NSString stringWithFormat:@"可赚利润: %@元",cellModel.article.Profit];
+    NSMutableAttributedString *attributeStr = [[NSMutableAttributedString alloc] initWithString:text];
+    [attributeStr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(5, text.length - 5)];
+    self.downLable.attributedText = attributeStr;
+    
     
 }
 

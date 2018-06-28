@@ -35,6 +35,10 @@ return shared##classname;                           \
 #define KWeakSelf(type)  __weak typeof(type) weak##type = type;
 
 
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+#define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
+
+
 /*** 颜色 ***/
 #define LWColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 /*** 颜色 ***/
@@ -55,5 +59,10 @@ return shared##classname;                           \
 #define kCHINESE_SYSTEM(x) [UIFont systemFontOfSize:x]
 
 
+#define AppName @"觅方"
+#define WXAppID @"wx0aba629032d0ed6c"
+#define WXAPPSecret @"5b09c81e595800f6d23048d4386ea373"
+//#define WX_REFRESH_TOKEN @"wx_REFRESH_TOKEN"
+//#define OPENID @"openID"
 
 #endif /* HTComment_h */

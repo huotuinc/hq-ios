@@ -7,7 +7,7 @@
 //
 
 #import "HTMessageListTableViewController.h"
-#import "HTMessageTableViewCell.h"
+//#import "HTMessageTableViewCell.h"
 
 
 @interface HTMessageListTableViewController ()
@@ -27,7 +27,7 @@
     
     
     
-    self.tableView.contentInset = UIEdgeInsetsMake(kAdaptedWidth(50), 0, 75, 0);
+//    self.tableView.contentInset = UIEdgeInsetsMake(kAdaptedWidth(50), 0, 75, 0);
     
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -35,7 +35,7 @@
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    [self.tableView registerClass:[HTMessageTableViewCell class] forCellReuseIdentifier:@"HTMessageTableViewCell"];
+//    [self.tableView registerClass:[HTMessageTableViewCell class] forCellReuseIdentifier:@"HTMessageTableViewCell"];
     
     self.tableView.backgroundColor = LWColor(241, 242, 243);
     // Uncomment the following line to preserve selection between presentations.
@@ -60,10 +60,10 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HTMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HTMessageTableViewCell" forIndexPath:indexPath];
-    return cell;
-}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    HTMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HTMessageTableViewCell" forIndexPath:indexPath];
+//    return cell;
+//}
 
 
 /*

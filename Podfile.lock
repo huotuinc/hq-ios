@@ -29,6 +29,7 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - IQKeyboardManager (6.0.2)
   - iRate (1.10.3)
   - JCore (1.1.9)
   - JPush (3.0.9):
@@ -42,11 +43,13 @@ PODS:
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
   - SVProgressHUD (2.2.5)
+  - WechatOpenSDK (1.8.2)
   - YYCache (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
   - BlocksKit (= 2.2.5)
+  - IQKeyboardManager
   - iRate (~> 1.10.3)
   - JPush
   - Masonry
@@ -55,12 +58,14 @@ DEPENDENCIES:
   - SDCycleScrollView
   - SDWebImage
   - SVProgressHUD
+  - WechatOpenSDK
   - YYCache
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - BlocksKit
+    - IQKeyboardManager
     - iRate
     - JCore
     - JPush
@@ -70,11 +75,13 @@ SPEC REPOS:
     - SDCycleScrollView
     - SDWebImage
     - SVProgressHUD
+    - WechatOpenSDK
     - YYCache
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  IQKeyboardManager: c49d59e358aeeffaa0280aa305093c2b194d2607
   iRate: 724a3e080d5b0681e50a57d6cef1a81f83c23df3
   JCore: 27598485098d0db99d2812cba048003457d08cfb
   JPush: 003d9eaef8ba2df76de32573d0c8aa62b92b3c82
@@ -84,8 +91,9 @@ SPEC CHECKSUMS:
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 63d7c139fc047c412d0bc941f8be75efd6907a0a
+PODFILE CHECKSUM: 88b5f6fb1e510b4d23efd4e8bd692c4394de4eb6
 
 COCOAPODS: 1.5.0

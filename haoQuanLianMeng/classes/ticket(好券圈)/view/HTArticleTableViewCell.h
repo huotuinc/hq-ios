@@ -19,7 +19,7 @@
 //资讯数据模型
 @property (nonatomic,strong) HTArticleCellModel * htArticleModel;
 //
-@property (nonatomic, strong) UILabel * titleLabel;
+@property (nonatomic, strong) UILabel * iTitleLabel;
 //
 @property (nonatomic, strong) UIImageView *headView;
 //

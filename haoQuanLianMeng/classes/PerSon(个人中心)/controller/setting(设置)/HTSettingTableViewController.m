@@ -7,18 +7,19 @@
 //
 
 #import "HTSettingTableViewController.h"
+#import "MfBangDingTableViewController.h"
 
 @interface HTSettingTableViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *phoneLable;
+
 @property (weak, nonatomic) IBOutlet UILabel *cacheLable;
 
-@property (weak, nonatomic) IBOutlet UILabel *versionLable;
+@property (weak, nonatomic) IBOutlet UILabel *banBenLable;
 
-@property (weak, nonatomic) IBOutlet UILabel *accountLable;
+@property (weak, nonatomic) IBOutlet UILabel *payPass;
 
-@property (weak, nonatomic) IBOutlet UILabel *bindLable;
-
-@property (weak, nonatomic) IBOutlet UILabel *shangJiLable;
+@property (weak, nonatomic) IBOutlet UISwitch *openPayPass;
 
 @property (weak, nonatomic) IBOutlet UIButton *accountBtn;
 
@@ -30,10 +31,16 @@
     [super viewDidLoad];
     
     
+
+    NSUInteger size =  [[SDImageCache sharedImageCache] getSize];
+    LWLog(@"%lul",(unsigned long)size);
+    
+    self.cacheLable.text = [NSString stringWithFormat:@"%.2fM",size / 1024.0 /1024.0];
+    self.banBenLable.text = [NSString stringWithFormat:@"v %@",AppVersion];
     self.accountBtn.layer.cornerRadius = 5;
     self.accountBtn.layer.masksToBounds = YES;
     
-    self.tableView.contentInset = UIEdgeInsetsMake(-40, 0, 0, 0 );
+    self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0 );
     [self.navigationController setNavigationBarHidden:NO];
     
     self.navigationItem.title = @"设置";
@@ -44,6 +51,20 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [HTNetworkingTool HTNetworkingToolGet:@"user/setting" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
+        self.phoneLable.text = [json[@"data"] objectForKey:@"UserMobile"];
+        self.payPass.text = ([[json[@"data"] objectForKey:@"PayPassworded"] intValue] ? @"已重置" : @"未重置");
+        [self.openPayPass setOn:([[json[@"data"] objectForKey:@"PayPasswordStatus"] intValue]) animated:YES];
+//        self.openPayPass.isOn = ([[json[@"data"] objectForKey:@"PayPasswordStatus"] intValue]);
+        
+        LWLog(@"%@",json);
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+}
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -54,6 +75,14 @@
     
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        
+        MfBangDingTableViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MfBangDingTableViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

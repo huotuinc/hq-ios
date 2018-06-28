@@ -8,7 +8,16 @@
 
 #import "HTArticleTableViewCell.h"
 
-@interface HTArticleTableViewCell()
+@interface HTArticleTableViewCell()<HTMenuViewDelegate>
+
+
+@property (nonatomic,strong) UIView  * sliderView;
+
+
+@property (nonatomic,strong) UILabel  * souqi;
+
+
+@property (nonatomic,assign) bool  isOpen;
 
 
 @end
@@ -18,16 +27,37 @@
 
 @synthesize centerView = _centerView;
 
-- (UILabel *)titleLabel{
-    if (_titleLabel == nil) {
-        _titleLabel = [[UILabel alloc] init];
+
+- (UILabel *)souqi{
+    if (_souqi == nil) {
+        _souqi = [[UILabel alloc] init];
     }
-    return _titleLabel;
+    return _souqi;
+}
+
+- (UIView *)sliderView{
+    if (_sliderView == nil) {
+        _sliderView = [[UIView alloc] init];
+        _sliderView.backgroundColor = LWColor(242, 242, 242);
+    }
+    return _sliderView;
+}
+
+- (UILabel *)iTitleLabel{
+    if (_iTitleLabel == nil) {
+        _iTitleLabel = [[UILabel alloc] init];
+        _iTitleLabel.numberOfLines = 0;
+        _iTitleLabel.font = kAdaptedFontSize(17);
+        _iTitleLabel.textColor = LWColor(117, 158, 224);
+    }
+    return _iTitleLabel;
 }
 
 - (UILabel *)contextlabel{
     if (_contextlabel == nil) {
         _contextlabel = [[UILabel alloc] init];
+        _contextlabel.numberOfLines = 0;
+        _contextlabel.font = kAdaptedFontSize(15);
     }
     return _contextlabel;
 }
@@ -41,8 +71,9 @@
 }
 
 
-- (instancetype)init{
-    if (self = [super init]) {
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.isOpen = NO;
         [self setUpInit];
     }
     return self;
@@ -75,43 +106,60 @@
     [self setupDefault];
     
     
-    //设置中间视图
+//    //设置中间视图
     [self setupArticleView];
-    
-    //设置底部文字
+//
+//    //设置底部文字
     [self setBottomTitleView];
-    
-    
-    //设置底部工具栏
+//
+//
+//    LWLog(@"ssssssss");
+//    //设置底部工具栏
     [self setBottomMenuView];
     
+    
+    [self setSliderView];
+
 }
 
 - (void)setupDefault{
     
+    
     [self.contentView addSubview:self.headView];
+    self.headView.contentMode = UIViewContentModeScaleAspectFit;
+//    self.headView.backgroundColor = [UIColor redColor];
     [self.headView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(kAdaptedHeight(22));
-        make.left.equalTo(self.contentView).offset(kAdaptedWidth(22));
-        make.height.width.mas_equalTo(kAdaptedWidth(30));
+        make.top.equalTo(self.contentView.mas_top).offset(kAdaptedHeight(10));
+        make.left.equalTo(self.contentView.mas_left).offset(kAdaptedWidth(10));
+        make.height.width.mas_equalTo(kAdaptedWidth(40));
     }];
     
-    [self.contentView addSubview:self.titleLabel];
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.contentView).offset(kAdaptedHeight(15));
-        make.height.mas_equalTo(kAdaptedWidth(20));
-        make.right.equalTo(self.contentView).offset(kAdaptedWidth(-15));
+    [self.contentView addSubview:self.iTitleLabel];
+//    self.iTitleLabel.textColor = [UIColor redColor];
+    [self.iTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.headView.mas_top);
+//make.height.mas_equalTo(kAdaptedWidth(20));
+        make.right.equalTo(self.contentView.mas_right).offset(kAdaptedWidth(-15));
         make.left.equalTo(self.headView.mas_right).offset(kAdaptedWidth(16));
     }];
     
     [self.contentView addSubview:self.contextlabel];
     [self.contextlabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(kAdaptedHeight(15));
-        make.right.equalTo(self.titleLabel.mas_right);
-        make.left.equalTo(self.titleLabel);
-        make.height.mas_equalTo(100);//先定50
+        make.top.equalTo(self.iTitleLabel.mas_bottom).offset(kAdaptedWidth(5));
+        make.right.equalTo(self.iTitleLabel.mas_right);
+        make.left.equalTo(self.iTitleLabel);
+//        make.height.mas_equalTo(0);//先定50
         
     }];
+    
+//    [self.contentView addSubview:self.souqi];
+//    [self.souqi mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.contextlabel.mas_bottom).offset(kAdaptedWidth(5));
+//        //make.right.equalTo(self.iTitleLabel.mas_right);
+//        make.left.equalTo(self.iTitleLabel);
+//        //make.height.mas_equalTo(100);//先定50
+//
+//    }];
     
 }
 
@@ -121,8 +169,8 @@
     [self.contentView addSubview:self.centerView];
     [self.centerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contextlabel.mas_bottom).offset(kAdaptedWidth(5));
-        make.right.equalTo(self.titleLabel.mas_right);//.offset(kAdaptedWidth(-15));
-        make.left.equalTo(self.titleLabel);
+        make.right.equalTo(self.iTitleLabel.mas_right);//.offset(kAdaptedWidth(-15));
+        make.left.equalTo(self.iTitleLabel);
         make.height.mas_equalTo([self.centerView getHeight]);
         
     }];
@@ -133,16 +181,60 @@
 //设置底部文字
 - (void)setBottomTitleView{
     [self.contentView addSubview:self.htArticleBottomTitleView];
+//    self.htArticleBottomTitleView.backgroundColor = [UIColor redColor];
     [self.htArticleBottomTitleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.centerView.mas_bottom);
-        make.right.equalTo(self.titleLabel.mas_right);
-        make.left.equalTo(self.titleLabel);
-        make.height.mas_equalTo(58);//先定50
+        make.right.equalTo(self.iTitleLabel.mas_right);
+        make.left.equalTo(self.iTitleLabel);
+//        make.height.mas_equalTo(58);//先定50
+//        make.bottom.mas_equalTo(self.contentView.mas_bottom);
     }];
     
 }
 
-
+- (void)getHeight:(NSString *)title{
+    
+    //文字的具体高度
+    //CGFloat height =  [[HTTool HTToolShare] titleHeightWithFont:15 withTitle:title];
+    CGFloat witdth =  KScreenWidth -  (kAdaptedWidth(10) + kAdaptedWidth(40) + kAdaptedWidth(16) + kAdaptedWidth(15));
+                     
+    //LWLog(@"%@",NSStringFromCGRect(self.contextlabel.frame));
+    
+    CGFloat labelHeight = [self.contextlabel sizeThatFits:CGSizeMake(witdth, 6)].height;
+    NSInteger count = (labelHeight) / self.contextlabel.font.lineHeight;
+    LWLog(@"%ld",(long)count);
+    if (count > 6) {
+        self.souqi.text = @"全文";
+        [self.contextlabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(self.contextlabel.font.lineHeight * 6);
+        }];
+    }else{
+        self.souqi.text = @"";
+        [self.contextlabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(labelHeight);
+        }];
+    }
+    
+    self.souqi.userInteractionEnabled = YES;
+    __weak typeof(self) weakself = self;
+    [self.souqi bk_whenTapped:^{
+        if (weakself.isOpen) {  //关闭
+            weakself.souqi.text = @"全文";
+            [weakself.contextlabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(self.contextlabel.font.lineHeight * 6);
+            }];
+        }else{//打开
+            weakself.souqi.text = @"收起";
+            [weakself.contextlabel mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(labelHeight);
+            }];
+            
+        }
+        weakself.isOpen = !weakself.isOpen;
+    }];
+    
+    
+}
 
 - (void)setBottomMenuView{
     
@@ -152,13 +244,24 @@
         make.right.equalTo(self);
         make.left.equalTo(self);
         make.height.mas_equalTo(40);//先定50
+        //make.bottom.equalTo(self.contentView.mas_bottom).mas_offset(5);
     }];
     
 }
 
+- (void)setSliderView{
+    [self.contentView addSubview:self.sliderView];
+    [self.sliderView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.htArticleMenuView.mas_bottom);
+        make.right.equalTo(self);
+        make.left.equalTo(self);
+        make.height.mas_equalTo(10);//先定50
+        make.bottom.equalTo(self.contentView.mas_bottom).mas_offset(5);
+    }];
+}
 
 - (void)configCellWithCellModel:(HTArticleCellModel *)model{
-    self.htArticleModel = model;
+    _htArticleModel = model;
     [self updateCell];
 }
 
@@ -166,6 +269,16 @@
 - (void)updateCell{
     
 #warning luohaibo
+    
+    
+    
+    [self.headView sd_setImageWithURL:[NSURL URLWithString:self.htArticleModel.article.logo]];
+    self.iTitleLabel.text = self.htArticleModel.article.Title;
+    self.contextlabel.text = self.htArticleModel.article.Content;
+//    [self getHeight:self.htArticleModel.article.Content];
+    
+    
+    
 //    NSString * contentString = [self.htArticleModel stringForCoreText];
 //    self.contextlabel.text =  contentString;
 //    [self.contextlabel mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -176,11 +289,15 @@
     //配置中间视图
     [self.centerView configArticleView:self.htArticleModel];
     
+    
+    
+    LWLog(@"xxxxxx");
+    
     //更新文字
     [self.htArticleBottomTitleView configArticleView:self.htArticleModel];
     
     
-    
+    [self.htArticleMenuView configArticleView:self.htArticleModel withDelegate:self];
     
 }
 
@@ -201,5 +318,10 @@
     return ceilf(20);
 }
 
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+}
 
 @end

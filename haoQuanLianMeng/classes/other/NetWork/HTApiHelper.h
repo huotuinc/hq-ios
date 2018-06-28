@@ -10,7 +10,7 @@
 #define HTApiHelper_h
 
 #ifdef DEBUG  //测试地址
-#define HTMainIpAddress @"http://zhengxin2.51morecash.com/api"
+#define HTMainIpAddress @"http://api.mingshz.com/mock/65/"
 #else //正式地址
 #define HTMainIpAddress @"http://zhengxin2.51morecash.com/api"
 #endif
@@ -19,9 +19,9 @@
 
 
 #define AppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
-#define UUIDString @""
-#define OSVersion @""
-#define ServiceMerchantId @"" //服务端商户ID
+#define UUIDString [[UIDevice currentDevice].identifierForVendor UUIDString]
+#define OSVersion [[UIDevice currentDevice] systemVersion]
+#define ServiceMerchantId @"4886" //服务端商户ID
 
 #define HTSecretKey @"" //网络请求的Key
 

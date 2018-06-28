@@ -7,12 +7,15 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LWLaunchViewController.h"
 #import "JPUSHService.h"
 // iOS10注册APNs所需头文件
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
+#import "WXLoginShare.h"
+
+#include <WXApi.h>
 
 
 @interface AppDelegate ()<JPUSHRegisterDelegate>
@@ -22,7 +25,7 @@
 @implementation AppDelegate
 
 
-- (void)setUpinit{
+- (void)setUpInit:(NSDictionary *)launchOptions{
     
     // 3.0.0及以后版本注册可以这样写，也可以继续用旧的注册方式
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
@@ -32,7 +35,7 @@
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
 
     
-    [JPUSHService setupWithOption:nil appKey:@"" channel:nil apsForProduction:Production advertisingIdentifier:nil];
+    [JPUSHService setupWithOption:launchOptions appKey:@"" channel:nil apsForProduction:Production advertisingIdentifier:nil];
     
     [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
         if(resCode == 0){
@@ -49,8 +52,29 @@
     // Override point for customization after application launch.
     
     
+    //[self InitShareSdk];
+
+
+    
+    self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+    self.window.backgroundColor = [UIColor whiteColor];
+    LWLaunchViewController * vc = [[LWLaunchViewController alloc] init];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+
+
+    
+
     //注册远程通知
-    [self setUpinit];
+    [self setUpInit:launchOptions];
+    
+    if (launchOptions) {//是从退出状态进入APP的
+        NSDictionary * userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if(userInfo)
+        {
+            [self logDic:userInfo];
+        }
+    }
     
     return YES;
 }
@@ -88,8 +112,15 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [application setApplicationIconBadgeNumber:0];
     
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+
+    #ifdef NSFoundationVersionNumber_iOS_9_x_Max
+        [[UNUserNotificationCenter currentNotificationCenter] removeAllPendingNotificationRequests];
+    #else
+        [application cancelAllLocalNotifications];
+    #endif
+    
 }
 
 
@@ -103,62 +134,91 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 }
 
 
-#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+
+- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
+    
+    NSLog(@"Calling Application Bundle ID: %@", options[UIApplicationOpenURLOptionsSourceApplicationKey]);
+    
+    NSLog(@"URL scheme: %@", [url scheme]);
+    
+    NSLog(@"URL query: %@", [url query]);
+    
+    [WXApi handleOpenURL:url delegate:(id)[WXLoginShare shareInstance]];
+    
+    return YES;
+    
+}
+
 #pragma mark- JPUSHRegisterDelegate
 
-//- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
-//    NSDictionary * userInfo = notification.request.content.userInfo;
-//    
-//    UNNotificationRequest *request = notification.request; // 收到推送的请求
-//    UNNotificationContent *content = request.content; // 收到推送的消息内容
-//    
-//    NSNumber *badge = content.badge;  // 推送消息的角标
-//    NSString *body = content.body;    // 推送消息体
-//    UNNotificationSound *sound = content.sound;  // 推送消息的声音
-//    NSString *subtitle = content.subtitle;  // 推送消息的副标题
-//    NSString *title = content.title;  // 推送消息的标题
-//    
-//    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-//        [JPUSHService handleRemoteNotification:userInfo];
-//        NSLog(@"iOS10 前台收到远程通知:%@", [self logDic:userInfo]);
-//        
-//        [rootViewController addNotificationCount];
-//        
-//    }
-//    else {
-//        // 判断为本地通知
-//        NSLog(@"iOS10 前台收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo);
-//    }
-//    completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
-//}
-//
-//- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
-//    
-//    NSDictionary * userInfo = response.notification.request.content.userInfo;
-//    UNNotificationRequest *request = response.notification.request; // 收到推送的请求
-//    UNNotificationContent *content = request.content; // 收到推送的消息内容
-//    
-//    NSNumber *badge = content.badge;  // 推送消息的角标
-//    NSString *body = content.body;    // 推送消息体
-//    UNNotificationSound *sound = content.sound;  // 推送消息的声音
-//    NSString *subtitle = content.subtitle;  // 推送消息的副标题
-//    NSString *title = content.title;  // 推送消息的标题
-//    
-//    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-//        [JPUSHService handleRemoteNotification:userInfo];
-//        NSLog(@"iOS10 收到远程通知:%@", [self logDic:userInfo]);
-//        [rootViewController addNotificationCount];
-//        
-//    }
-//    else {
-//        // 判断为本地通知
-//        NSLog(@"iOS10 收到本地通知:{\nbody:%@，\ntitle:%@,\nsubtitle:%@,\nbadge：%@，\nsound：%@，\nuserInfo：%@\n}",body,title,subtitle,badge,sound,userInfo);
-//    }
-//    
-//    completionHandler();  // 系统要求执行这个方法
-//}
+
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#pragma mark- JPUSHRegisterDelegate
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [self logDic:userInfo];
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    else {
+        // 判断为本地通知
+        LWLog(@"iOS10 前台收到本地通知");
+    }
+    completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
+}
+
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [self logDic:userInfo];
+        [JPUSHService handleRemoteNotification:userInfo];
+        //NSLog(@"iOS10 收到远程通知:%@", [self logDic:userInfo]);
+    }
+    else {
+        // 判断为本地通知
+        NSLog(@"iOS10 收到本地通");
+    }
+    completionHandler();  // 系统要求执行这个方法
+}
+#else
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    [self logDic:userInfo];
+    // Required, iOS 7 Support
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
 #endif
 
+
+- (NSString *)logDic:(NSDictionary *)dic {
+    if (![dic count]) {
+        return nil;
+    }
+    
+    
+    
+    UIAlertAction * action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertController * aler = [UIAlertController alertControllerWithTitle:@"sdasd" message:[dic mj_JSONString] preferredStyle:UIAlertControllerStyleAlert];
+    [aler addAction:action];
+    [self.window.rootViewController presentViewController:aler animated:YES completion:^{
+        
+    }];
+    
+    NSString *tempStr1 =
+    [[dic description] stringByReplacingOccurrencesOfString:@"\\u"
+                                                 withString:@"\\U"];
+    NSString *tempStr2 =
+    [tempStr1 stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    NSString *tempStr3 =
+    [[@"\"" stringByAppendingString:tempStr2] stringByAppendingString:@"\""];
+    NSData *tempData = [tempStr3 dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *str = [NSPropertyListSerialization propertyListWithData:tempData options:NSPropertyListImmutable format:nil error:nil];
+
+    return str;
+}
 
 
 @end

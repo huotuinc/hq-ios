@@ -7,6 +7,7 @@
 //
 
 #import "HTViedoView.h"
+#import "WCSPreviewViewController.h"
 
 @interface HTViedoView ()
 
@@ -19,12 +20,27 @@
 
 @implementation HTViedoView
 
+
+- (void)btnPay{
+    NSString * url =  [self.model.article.VideoUrls firstObject];
+    WCSPreviewViewController *vc  =[[WCSPreviewViewController alloc] init];
+    vc.videoURL = [NSURL URLWithString:url];
+    
+    [self.viewContainingController presentViewController:vc animated:YES completion:^{
+        
+    }];
+}
+
 - (UIImageView *)videoView
 {
     if (!_videoView) {
         _videoView = [[UIImageView alloc] init];
-#warning luohaibo 设置视频前面小图标
         _videoView.image = [UIImage imageNamed:@"play"];
+        _videoView.userInteractionEnabled = YES;
+        __weak typeof(self) wself = self;
+        [_videoView bk_whenTapped:^{
+            [wself btnPay];
+        }];
     }
     return _videoView;
 }
@@ -66,9 +82,14 @@
 }
 
 
+
+
 - (void)configArticleView:(HTArticleCellModel *)model{
     _model = model;
-#warning luohaibi  设置视频图片
+    NSString * url =  [model.article.VideoPictureUrls firstObject];
+//#warning luohaibi  设置视频图片
+    
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:url]];
 }
 
 - (CGFloat)getHeight

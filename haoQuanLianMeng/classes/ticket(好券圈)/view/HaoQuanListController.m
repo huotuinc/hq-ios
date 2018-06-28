@@ -8,11 +8,18 @@
 
 #import "HaoQuanListController.h"
 
-@interface HaoQuanListController ()
+@interface HaoQuanListController ()<HTArticleCenterViewDelegate>
 
 @end
 
 @implementation HaoQuanListController
+
+
+- (void)articleTableViewCell:(HTArticleTableViewCell *)tableViewCell selectedVideoWithDataModel:(HTArticleCellModel *)cellModel{
+    
+    LWLog(@"xxxxxxx");
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -20,8 +27,22 @@
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"typeId"] = @"1";
+    dict[@"pageIndex"] = @"1";
+    [HTNetworkingTool HTNetworkingToolPost:@"Material/list" parame:dict isHud:YES isHaseCache:YES success:^(id json) {
+        NSArray * dataArray = [HTArticleModel mj_objectArrayWithKeyValuesArray:[json objectForKey:@"data"]];
+        [self.dataArray removeAllObjects];
+        [self.dataArray addObjectsFromArray:dataArray];
+        [self.tableView reloadData];
+        LWLog(@"%@",json);
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
     
+//    Material/list
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -40,13 +61,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 0;
+    return self.dataArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    HTArticleModel * a = [[HTArticleModel alloc] init];
+    HTArticleModel * a = [self.dataArray objectAtIndex:indexPath.row];
     return [HTArticleCellModel confirmCellWithArticle:a isDiscover:NO slideType:self.type WithTableView:tableView witdDelegate:self];
    
 }

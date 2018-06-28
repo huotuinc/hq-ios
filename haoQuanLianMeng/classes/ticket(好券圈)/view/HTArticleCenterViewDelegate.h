@@ -13,6 +13,8 @@
 
 @protocol HTArticleCenterViewDelegate <NSObject>
 
+
+@optional
 - (void)articleTableViewCell:(HTArticleTableViewCell *)tableViewCell selectedVideoWithDataModel:(HTArticleCellModel *)cellModel;
 
 - (void)articleTableViewCell:(HTArticleTableViewCell *)tableViewCell saveVideoWithDataModel:(HTArticleCellModel *)cellModel;

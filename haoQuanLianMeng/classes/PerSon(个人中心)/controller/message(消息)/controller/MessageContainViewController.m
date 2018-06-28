@@ -47,7 +47,7 @@
 
 - (NSArray *)titleItems {
     if(_titleItems == nil){
-        _titleItems = @[@"业务通知",@"系统通知"];
+        _titleItems = @[@"全部",@"系统消息",@"注册通知",@"支付通知"];
     }
     return _titleItems;
 }

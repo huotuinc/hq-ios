@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LWTableViewController.h"
 
-@interface HaoQuanListController : UITableViewController
+
+@interface HaoQuanListController : LWTableViewController
 
 
 @property (nonatomic,assign) int type;
