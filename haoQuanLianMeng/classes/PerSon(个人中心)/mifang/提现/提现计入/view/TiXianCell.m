@@ -29,8 +29,9 @@
 - (UILabel *)moneyLable{
     if (_moneyLable == nil) {
         _moneyLable = [[UILabel alloc] init];
-        _moneyLable.font = kAdaptedFontSize(15);
+//        _moneyLable.font = kAdaptedFontSize(15);
         _moneyLable.text = @"1000";
+        [_moneyLable setFont:[UIFont fontWithName:@"Helvetica-Bold" size:kAdaptedWidth(18)]];
         
     }
     return _moneyLable;
@@ -50,6 +51,7 @@
         _nameLable = [[UILabel alloc] init];
         _nameLable.font = kAdaptedFontSize(15);
         _nameLable.text = @"小米";
+        [_nameLable setFont:[UIFont fontWithName:@"Helvetica-Bold" size:kAdaptedWidth(18)]];
     }
     return _nameLable;
 }
@@ -58,6 +60,7 @@
     if (_accountLable == nil) {
         _accountLable = [[UILabel alloc] init];
         _accountLable.font = kAdaptedFontSize(12);
+        _accountLable.textColor = LWColor(120, 120, 120);
         _accountLable.text = @"13123123";
     }
     return _accountLable;
@@ -68,6 +71,7 @@
         _timeLable = [[UILabel alloc] init];
         _timeLable.font = kAdaptedFontSize(12);
         _timeLable.text = @"2013-12-12";
+        _timeLable.textColor = LWColor(120, 120, 120);
     }
     return _timeLable;
 }
@@ -87,7 +91,7 @@
     
     [self.contentView addSubview:self.moneyLable];
     [self.moneyLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.contentView.mas_top).mas_offset(20);
+        make.top.mas_equalTo(self.contentView.mas_top).mas_offset(15);
         make.left.mas_equalTo(kAdaptedWidth(25));
     }];
     
@@ -115,7 +119,7 @@
     [self.contentView addSubview:self.nameLable];
     [self.nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(self.contentView.mas_right).mas_offset(-15);
-        make.bottom.mas_equalTo(self.accountLable.mas_top);
+        make.bottom.mas_equalTo(self.accountLable.mas_top).mas_offset(-2);
     }];
     
     
@@ -124,9 +128,18 @@
     [self.contentView addSubview:self.timeLable];
     [self.timeLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.mas_equalTo(self.contentView.mas_right).mas_offset(-15);
-        make.top.mas_equalTo(self.accountLable.mas_bottom);
+        make.top.mas_equalTo(self.accountLable.mas_bottom).mas_offset(2);
     }];
     
+}
+
+- (void)setModel:(MTiXianModel *)model{
+    _model = model;
+    self.moneyLable.text = [NSString stringWithFormat:@"%.2f",model.ApplyMoney];
+    self.statusLable.text = model.ApplyStatus;
+    self.nameLable.text = model.RealName;
+    self.accountLable.text = model.AccountInfo;
+    self.timeLable.text = model.ApplyTime;
 }
 
 @end

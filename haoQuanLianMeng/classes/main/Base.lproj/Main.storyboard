@@ -186,14 +186,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rLj-A5-PFW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gx_select" translatesAutoresizingMaskIntoConstraints="NO" id="rLj-A5-PFW">
                                 <rect key="frame" x="20" y="80.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="RPd-iv-6gi"/>
                                     <constraint firstAttribute="height" constant="25" id="neh-yo-eyc"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j4y-I8-Vu6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gx_default" translatesAutoresizingMaskIntoConstraints="NO" id="j4y-I8-Vu6">
                                 <rect key="frame" x="104" y="80.5" width="25" height="25"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="反馈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzT-GI-Qsq">
@@ -241,7 +241,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmo-Fb-3Vw">
-                                <rect key="frame" x="166.5" y="388.5" width="42" height="21"/>
+                                <rect key="frame" x="166.5" y="393.5" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -252,7 +252,7 @@
                             <constraint firstItem="rLj-A5-PFW" firstAttribute="top" secondItem="976-Ho-lTn" secondAttribute="bottom" constant="20" id="1wI-gm-aLC"/>
                             <constraint firstItem="j4y-I8-Vu6" firstAttribute="width" secondItem="rLj-A5-PFW" secondAttribute="width" id="2X0-pG-oeO"/>
                             <constraint firstItem="Pmo-Fb-3Vw" firstAttribute="centerX" secondItem="X9x-rg-hYc" secondAttribute="centerX" id="4TX-xc-Vlp"/>
-                            <constraint firstItem="Pmo-Fb-3Vw" firstAttribute="top" secondItem="byV-tg-VsI" secondAttribute="bottom" constant="5" id="CT8-ee-GCi"/>
+                            <constraint firstItem="Pmo-Fb-3Vw" firstAttribute="top" secondItem="byV-tg-VsI" secondAttribute="bottom" constant="10" id="CT8-ee-GCi"/>
                             <constraint firstItem="dRI-Cu-uzE" firstAttribute="top" secondItem="rLj-A5-PFW" secondAttribute="bottom" constant="20" id="Hlk-fv-tsm"/>
                             <constraint firstItem="DzT-GI-Qsq" firstAttribute="centerY" secondItem="rLj-A5-PFW" secondAttribute="centerY" id="Jic-pb-C5g"/>
                             <constraint firstItem="dRI-Cu-uzE" firstAttribute="leading" secondItem="rLj-A5-PFW" secondAttribute="leading" id="MYh-C7-uhA"/>
@@ -291,4 +291,8 @@
             <point key="canvasLocation" x="-1338.4000000000001" y="251.42428785607197"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gx_default" width="19" height="19"/>
+        <image name="gx_select" width="19" height="19"/>
+    </resources>
 </document>

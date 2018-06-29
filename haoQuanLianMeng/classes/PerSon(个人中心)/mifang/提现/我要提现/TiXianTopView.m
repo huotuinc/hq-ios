@@ -60,4 +60,10 @@
     }];
 }
 
+- (void)configure:(WoYaoTiXian *)model{
+    
+    self.nameLable.text = model.UserRealName;
+    self.accountLable.text = model.AccountInfo;
+}
+
 @end

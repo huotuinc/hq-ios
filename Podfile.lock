@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
@@ -48,6 +49,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Aspects
   - BlocksKit (= 2.2.5)
   - IQKeyboardManager
   - iRate (~> 1.10.3)
@@ -64,6 +66,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
+    - Aspects
     - BlocksKit
     - IQKeyboardManager
     - iRate
@@ -80,6 +83,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   IQKeyboardManager: c49d59e358aeeffaa0280aa305093c2b194d2607
   iRate: 724a3e080d5b0681e50a57d6cef1a81f83c23df3
@@ -94,6 +98,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 88b5f6fb1e510b4d23efd4e8bd692c4394de4eb6
+PODFILE CHECKSUM: 5636e9e371b7c9ad2805ee0d51440dd0cf98f37e
 
 COCOAPODS: 1.5.0

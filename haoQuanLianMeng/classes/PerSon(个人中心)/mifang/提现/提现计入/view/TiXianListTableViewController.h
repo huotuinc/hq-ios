@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LWTableViewController.h"
 
-@interface TiXianListTableViewController : UITableViewController
+@interface TiXianListTableViewController : LWTableViewController
 
 @end

@@ -8,7 +8,7 @@
 
 #import "TiXianListTableViewController.h"
 #import "TiXianCell.h"
-
+#import "MTiXianModel.h"
 
 @interface TiXianListTableViewController ()
 
@@ -19,12 +19,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.navigationItem.title = @"提现记录";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
     
     
     [self.tableView registerClass:[TiXianCell class] forCellReuseIdentifier:@"TiXianCell"];
+    
+    self.tableView.backgroundColor = LWColor(239, 239, 244);
+    
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"pageIndex"] = @"1";
+    dict[@"pageSize"] = @"10";
+    
+    [HTNetworkingTool HTNetworkingToolGet:@"user/ApplyList" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+       NSArray * data =  [MTiXianModel mj_objectArrayWithKeyValuesArray:[[json objectForKey:@"data"] objectForKey:@"list"]];
+        [self.dataArray addObjectsFromArray:data];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -43,13 +60,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return self.dataArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TiXianCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TiXianCell" forIndexPath:indexPath];
-    
+    cell.model = [self.dataArray objectAtIndex:indexPath.row];
     // Configure the cell...
     
     return cell;

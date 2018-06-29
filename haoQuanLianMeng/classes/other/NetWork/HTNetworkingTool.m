@@ -72,7 +72,10 @@ static HTNetworkingTool * _HTNetworkingTool;
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         LWLog(@"%@",error);
         [SVProgressHUD dismiss];
-        failure(error);
+        if(failure){
+           failure(error);
+        }
+        
     }];
 }
 

@@ -67,10 +67,18 @@
     return _setLabel;
 }
 
+
+- (void)erweiMaClick{
+    if ([self.delegate respondsToSelector:@selector(MFPersonHeaderViewClick:)]) {
+        [self.delegate MFPersonHeaderViewClick:1];
+    }
+}
+
 - (UIButton *)erButton{
     if (_erButton == nil) {
         _erButton = [[UIButton alloc] init];
-        [_erButton setImage:[UIImage imageNamed:@"select"] forState:UIControlStateNormal];
+        [_erButton setImage:[UIImage imageNamed:@"er"] forState:UIControlStateNormal];
+        [_erButton addTarget:self action:@selector(erweiMaClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _erButton;
 }

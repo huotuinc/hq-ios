@@ -14,6 +14,8 @@
 		1205BC0020BBA96900032F3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205BBFF20BBA96900032F3C /* main.m */; };
 		1205BC0A20BBA96A00032F3C /* haoQuanLianMengTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205BC0920BBA96A00032F3C /* haoQuanLianMengTests.m */; };
 		1205BC1520BBA96A00032F3C /* haoQuanLianMengUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205BC1420BBA96A00032F3C /* haoQuanLianMengUITests.m */; };
+		1206B4BB20E5DF18000FB0D0 /* ErWeiMaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1206B4BA20E5DF18000FB0D0 /* ErWeiMaView.m */; };
+		1206B4BF20E6152D000FB0D0 /* WoYaoTiXian.m in Sources */ = {isa = PBXBuildFile; fileRef = 1206B4BE20E6152D000FB0D0 /* WoYaoTiXian.m */; };
 		1207327F20C545810057AB66 /* DaoJishiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1225BFD120C52C490078D8D0 /* DaoJishiView.m */; };
 		1207328320C558590057AB66 /* RowItemContainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1207328220C558590057AB66 /* RowItemContainView.m */; };
 		120CC15420BCEA5A00251FC0 /* HTNetworkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 120CC14D20BCEA5A00251FC0 /* HTNetworkingTool.m */; };
@@ -91,6 +93,9 @@
 		121B5CC520C690790049F87F /* TuiGuangViewDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 121B5CC420C690790049F87F /* TuiGuangViewDownView.m */; };
 		121F1B3920CFFD3F0072A12E /* WXLoginShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 121F1B3820CFFD3F0072A12E /* WXLoginShare.m */; };
 		12217AFE20E477800085B85E /* MfBangDingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12217AFD20E477800085B85E /* MfBangDingTableViewController.m */; };
+		12217B0120E4B15F0085B85E /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12217B0020E4B15F0085B85E /* WKWebViewController.m */; };
+		12217B0520E4CE140085B85E /* MTiXianModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12217B0420E4CE140085B85E /* MTiXianModel.m */; };
+		12217B0820E4E0670085B85E /* MPBannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12217B0720E4E0670085B85E /* MPBannerTableViewCell.m */; };
 		1225BFBE20C5114B0078D8D0 /* HTMoneyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1225BFBD20C5114B0078D8D0 /* HTMoneyListTableViewCell.m */; };
 		1225BFC220C51AB20078D8D0 /* HTDuiHuanTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1225BFC120C51AB20078D8D0 /* HTDuiHuanTableViewController.m */; };
 		1225BFC520C521BC0078D8D0 /* HTAddAliPayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1225BFC420C521BC0078D8D0 /* HTAddAliPayTableViewController.m */; };
@@ -259,6 +264,10 @@
 		1205BC1420BBA96A00032F3C /* haoQuanLianMengUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = haoQuanLianMengUITests.m; sourceTree = "<group>"; };
 		1205BC1620BBA96A00032F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1205BC2520BBCFC600032F3C /* haoQuanLianMeng.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = haoQuanLianMeng.pch; sourceTree = "<group>"; };
+		1206B4B920E5DF18000FB0D0 /* ErWeiMaView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErWeiMaView.h; sourceTree = "<group>"; };
+		1206B4BA20E5DF18000FB0D0 /* ErWeiMaView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErWeiMaView.m; sourceTree = "<group>"; };
+		1206B4BD20E6152D000FB0D0 /* WoYaoTiXian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WoYaoTiXian.h; sourceTree = "<group>"; };
+		1206B4BE20E6152D000FB0D0 /* WoYaoTiXian.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WoYaoTiXian.m; sourceTree = "<group>"; };
 		1207328120C558590057AB66 /* RowItemContainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RowItemContainView.h; sourceTree = "<group>"; };
 		1207328220C558590057AB66 /* RowItemContainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RowItemContainView.m; sourceTree = "<group>"; };
 		120CC14B20BCEA5A00251FC0 /* HTAFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTAFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -420,6 +429,12 @@
 		121F1B3820CFFD3F0072A12E /* WXLoginShare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXLoginShare.m; sourceTree = "<group>"; };
 		12217AFC20E477800085B85E /* MfBangDingTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MfBangDingTableViewController.h; sourceTree = "<group>"; };
 		12217AFD20E477800085B85E /* MfBangDingTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MfBangDingTableViewController.m; sourceTree = "<group>"; };
+		12217AFF20E4B15F0085B85E /* WKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
+		12217B0020E4B15F0085B85E /* WKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
+		12217B0320E4CE140085B85E /* MTiXianModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTiXianModel.h; sourceTree = "<group>"; };
+		12217B0420E4CE140085B85E /* MTiXianModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTiXianModel.m; sourceTree = "<group>"; };
+		12217B0620E4E0670085B85E /* MPBannerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPBannerTableViewCell.h; sourceTree = "<group>"; };
+		12217B0720E4E0670085B85E /* MPBannerTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPBannerTableViewCell.m; sourceTree = "<group>"; };
 		1225BFBC20C5114B0078D8D0 /* HTMoneyListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTMoneyListTableViewCell.h; sourceTree = "<group>"; };
 		1225BFBD20C5114B0078D8D0 /* HTMoneyListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTMoneyListTableViewCell.m; sourceTree = "<group>"; };
 		1225BFC020C51AB20078D8D0 /* HTDuiHuanTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTDuiHuanTableViewController.h; sourceTree = "<group>"; };
@@ -787,6 +802,8 @@
 		1205BC2320BBCDD900032F3C /* main */ = {
 			isa = PBXGroup;
 			children = (
+				12217AFF20E4B15F0085B85E /* WKWebViewController.h */,
+				12217B0020E4B15F0085B85E /* WKWebViewController.m */,
 				1205BBF620BBA96600032F3C /* Main.storyboard */,
 				1205BBF020BBA96600032F3C /* AppDelegate.h */,
 				1205BBF120BBA96600032F3C /* AppDelegate.m */,
@@ -809,6 +826,15 @@
 				120CC16820BCF75100251FC0 /* HTComment.h */,
 			);
 			path = other;
+			sourceTree = "<group>";
+		};
+		1206B4BC20E61511000FB0D0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1206B4BD20E6152D000FB0D0 /* WoYaoTiXian.h */,
+				1206B4BE20E6152D000FB0D0 /* WoYaoTiXian.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		1207328020C5582D0057AB66 /* RowItemCell */ = {
@@ -1211,6 +1237,7 @@
 		1214688C20DA309E00E54048 /* 提现计入 */ = {
 			isa = PBXGroup;
 			children = (
+				12217B0220E4C8B90085B85E /* model */,
 				1214688D20DA30A600E54048 /* view */,
 			);
 			path = "提现计入";
@@ -1230,6 +1257,7 @@
 		1214689120DA35AA00E54048 /* 我要提现 */ = {
 			isa = PBXGroup;
 			children = (
+				1206B4BC20E61511000FB0D0 /* model */,
 				1214689220DA365900E54048 /* TiXianViewController.h */,
 				1214689320DA365900E54048 /* TiXianViewController.m */,
 				1214689520DA367500E54048 /* TiXianTopView.h */,
@@ -1330,6 +1358,15 @@
 			path = "绑定手机";
 			sourceTree = "<group>";
 		};
+		12217B0220E4C8B90085B85E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				12217B0320E4CE140085B85E /* MTiXianModel.h */,
+				12217B0420E4CE140085B85E /* MTiXianModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		1225BFBF20C519FA0078D8D0 /* duihuan(兑换) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1406,6 +1443,10 @@
 				12DAB7B020E37E9700387104 /* model */,
 				1250507820D26595006E30C4 /* MFPersonTableViewController.h */,
 				1250507920D26595006E30C4 /* MFPersonTableViewController.m */,
+				12217B0620E4E0670085B85E /* MPBannerTableViewCell.h */,
+				12217B0720E4E0670085B85E /* MPBannerTableViewCell.m */,
+				1206B4B920E5DF18000FB0D0 /* ErWeiMaView.h */,
+				1206B4BA20E5DF18000FB0D0 /* ErWeiMaView.m */,
 			);
 			path = "person(个人中心)";
 			sourceTree = "<group>";
@@ -2286,6 +2327,7 @@
 				1256F02220D3B30800BFE766 /* MyWalletTitleView.m in Sources */,
 				121468A320DA542500E54048 /* TiXianListTableViewController.m in Sources */,
 				12DAB7AF20E3309000387104 /* WKMovieRecorder.m in Sources */,
+				12217B0120E4B15F0085B85E /* WKWebViewController.m in Sources */,
 				120CC18B20BD3F9000251FC0 /* HomeBannerView.m in Sources */,
 				1205BBF220BBA96600032F3C /* AppDelegate.m in Sources */,
 				12A997DB20E0EFC1003FAA89 /* saveImageView.m in Sources */,
@@ -2329,6 +2371,7 @@
 				120CC19820BD4CDC00251FC0 /* FocusonViewCollectionViewCell.m in Sources */,
 				120CC20020BE756400251FC0 /* HTViedoTableViewCell.m in Sources */,
 				120CC20A20BE805300251FC0 /* HTArticleCellModel.m in Sources */,
+				1206B4BB20E5DF18000FB0D0 /* ErWeiMaView.m in Sources */,
 				12DAB78E20E21DD600387104 /* MJPhoto.m in Sources */,
 				12DE337420DCF46B00374AA3 /* TuiGuangCenter.m in Sources */,
 				12F141A320D8EC9400FDC9CA /* MiFangYaoViewController.m in Sources */,
@@ -2348,6 +2391,7 @@
 				12DE337720DCF7A200374AA3 /* TuiGuangBottom.m in Sources */,
 				120CC1C620BE3C6000251FC0 /* HTArticleBottomTitleView.m in Sources */,
 				121B5CA620C633400049F87F /* HomeIconTitleView.m in Sources */,
+				12217B0520E4CE140085B85E /* MTiXianModel.m in Sources */,
 				120CC1B020BD4FC000251FC0 /* Const.m in Sources */,
 				120CC17820BD018100251FC0 /* LHBCountDownManager.m in Sources */,
 				127ED8D320C5447C0071C1FE /* DaoJishiTopView.m in Sources */,
@@ -2442,7 +2486,9 @@
 				120CC19D20BD4D0800251FC0 /* FocusonModel.m in Sources */,
 				12FCDA3820C2402B00D0582B /* HTPersonTableViewCell.m in Sources */,
 				12DAB7AC20E3309000387104 /* WKMovieWriter.m in Sources */,
+				12217B0820E4E0670085B85E /* MPBannerTableViewCell.m in Sources */,
 				120CC1C920BE47A600251FC0 /* HTArticleMenuView.m in Sources */,
+				1206B4BF20E6152D000FB0D0 /* WoYaoTiXian.m in Sources */,
 				1250505920D20F69006E30C4 /* LWTableView.m in Sources */,
 				120CC21F20BF89BC00251FC0 /* XTSegmentControl.m in Sources */,
 				1281D91520DB78AC008A255B /* BuyAccountCenTableViewCell.m in Sources */,

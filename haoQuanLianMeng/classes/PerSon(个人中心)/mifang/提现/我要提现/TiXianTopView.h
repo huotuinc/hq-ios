@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WoYaoTiXian.h"
 
 @interface TiXianTopView : UITableViewCell
+
+
+- (void)configure:(WoYaoTiXian *)model;
 
 @end

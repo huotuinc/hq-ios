@@ -114,19 +114,20 @@
        viewController.hidesBottomBarWhenPushed = YES;
         
         // 左上角
-        UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
-        [backButton setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
-//        [backButton setImage:[UIImage imageNamed:@"Nav_Left_Return_Back"] forState:UIControlStateNormal];
-        [backButton setImage:[UIImage imageNamed:@"Nav_Left_Return_White_Back"] forState:UIControlStateNormal];
-//        [backButton setTitle:@"返回" forState:UIControlStateNormal];
+//        UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+//        [backButton setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
+////        [backButton setImage:[UIImage imageNamed:@"Nav_Left_Return_Back"] forState:UIControlStateNormal];
+//        [backButton setImage:[UIImage imageNamed:@"Nav_Left_Return_White_Back"] forState:UIControlStateNormal];
+////        [backButton setTitle:@"返回" forState:UIControlStateNormal];
+//        
+//        [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+////        [backButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+//        [backButton sizeToFit];
+//        // 这句代码放在sizeToFit后面
+//        
+//        [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         
-        [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//        [backButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-        [backButton sizeToFit];
-        // 这句代码放在sizeToFit后面
-        
-        [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Nav_Left_Return_White_Back"] style:UIBarButtonItemStyleBordered target:self action:@selector(back)];//[[UIBarButtonItem alloc] initWithCustomView:backButton];
 //
 //        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_more" hightIcon:@"navigationbar_more_highlighted" target:self action:@selector(more)];
         

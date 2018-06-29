@@ -27,7 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.navigationItem.title = @"我的钱包";
+    self.tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
     self.tixuan.layer.cornerRadius = 5;
     self.tixuan.layer.masksToBounds = YES;
     // Uncomment the following line to preserve selection between presentations.
@@ -37,6 +38,21 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+//    user/MyWallet
+    [HTNetworkingTool HTNetworkingToolGet:@"user/MyWallet" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+        self.youhuiquan.text = [NSString stringWithFormat:@"%d",[json[@"data"][@"CouponNum"] intValue]];
+        self.midou.text = [NSString stringWithFormat:@"%d",[json[@"data"][@"UserMBean"] intValue]];
+        self.yue.text = [NSString stringWithFormat:@"%d",[json[@"data"][@"UserIntegral"] intValue] / 1000];
+        self.daijiesuan.text = [NSString stringWithFormat:@"%d",[json[@"data"][@"UserTempIntegral"] intValue] / 1000];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

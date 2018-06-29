@@ -17,6 +17,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *sub;
 
+
+@property (nonatomic,assign) int type;
+
 @end
 
 @implementation YiJianViewController
@@ -25,10 +28,57 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    self.navigationItem.title = @"反馈与建议";
+    self.type = 0;
     self.content.layer.borderWidth = 0.8f;
     self.content.layer.borderColor = LWColor(238, 238, 238).CGColor;
     self.content.delegate = self;
+    
+    
+    [self setUpInit];
 }
+
+/**
+ * 初始化设置
+ */
+- (void)setUpInit{
+    
+    
+    
+    
+    NSMutableAttributedString * str = [[NSMutableAttributedString alloc] initWithString:@"若有其它需求了解,可以联系****联系" attributes:@{NSUnderlineStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]}];
+    self.sub.attributedText = str;
+    
+    
+    self.btn.layer.cornerRadius = 5;
+    self.btn.layer.masksToBounds = YES;
+    
+    KWeakSelf(self);
+    self.fankui.userInteractionEnabled = YES;
+    [self.fankui bk_whenTapped:^{
+        if (!weakself.type) {
+            return ;
+        }else{
+            weakself.jianyi.image = [UIImage imageNamed:@"gx_default"];
+            weakself.fankui.image = [UIImage imageNamed:@"gx_select"];
+            weakself.type = 0;
+        }
+    }];
+    
+    self.jianyi.userInteractionEnabled = YES;
+    [self.jianyi bk_whenTapped:^{
+        if (weakself.type) {
+            return ;
+        }else{
+            weakself.jianyi.image = [UIImage imageNamed:@"gx_select"];
+            weakself.fankui.image = [UIImage imageNamed:@"gx_default"];
+            weakself.type = 1;
+        }
+    }];
+    
+}
+
 
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
@@ -53,6 +103,8 @@
 */
 
 - (IBAction)btnClick:(id)sender {
+    
+    LWLog(@"sdsds");
 }
 
 

@@ -43,9 +43,14 @@
 
 - (void)setUpInit{
     
+    self.backgroundColor = [UIColor clearColor];
     self.btn = [[UIButton alloc] initWithFrame:CGRectMake(14, 20, KScreenWidth-28, 44)];
+    [self.btn setTitle:@"提现" forState:UIControlStateNormal];
+    self.btn.layer.cornerRadius = 5;
+    self.btn.layer.masksToBounds = YES;
     [self.btn setBackgroundColor:[UIColor redColor]];
     [self addSubview:self.btn];
+    [self.btn addTarget:self.delegate action:@selector(TiXianBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     self.tixianLable = [[UILabel alloc] init];
     self.tixianLable.userInteractionEnabled = YES;

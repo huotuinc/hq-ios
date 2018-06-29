@@ -21,6 +21,9 @@
 #import "TuiGuangViewController.h"
 #import "DianZhuViewController.h"
 #import "MiFangUserCenterModel.h"
+#import "ErWeiMaView.h"
+#import "MPBannerTableViewCell.h"
+
 
 @interface MFPersonTableViewController ()<MFPersonHeaderViewDelegate,MyWalletTableViewDelegate,VipTimeTableViewDelegate>
 
@@ -29,11 +32,31 @@
 
 @property (nonatomic,strong) MiFangUserCenterModel * model;
 
+
+@property (nonatomic,strong) ErWeiMaView * erView;
+
+
+@property (nonatomic,strong) NSMutableArray * bannerList;
+
 @end
 
 @implementation MFPersonTableViewController
 
 
+
+- (NSMutableArray *)bannerList{
+    if (_bannerList == nil) {
+        _bannerList = [NSMutableArray array];
+    }
+    return _bannerList;
+}
+
+- (ErWeiMaView *)erView{
+    if (_erView == nil) {
+        _erView = [[ErWeiMaView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+    }
+    return _erView;
+}
 
 
 - (MFPersonHeaderView *)mpPersonHeaderView{
@@ -49,9 +72,16 @@
 
 - (void)MFPersonHeaderViewClick:(int)opetion{
     
-    HTSettingTableViewController * vc = [[UIStoryboard storyboardWithName:@"Person" bundle:nil] instantiateViewControllerWithIdentifier:@"HTSettingTableViewController"];
-    [self.navigationController pushViewController:vc animated:YES];
-    
+    if (!opetion) {
+        HTSettingTableViewController * vc = [[UIStoryboard storyboardWithName:@"Person" bundle:nil] instantiateViewControllerWithIdentifier:@"HTSettingTableViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        
+//        UIView * a = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+//        a.backgroundColor = [UIColor co];
+        [self.view.window addSubview:self.erView];
+        
+    }
     LWLog(@"%d",opetion);
 }
 
@@ -64,6 +94,34 @@
     self.model = model;
     [self.tableView reloadData];
 }
+
+
+- (void)viewWillAppear:(BOOL)animate{
+    [super viewWillAppear:animate];
+    
+    [self aspect_hookSelector:@selector(MFPersonHeaderViewClick:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo)
+     {
+         //NSLog(@"viewDidLoad调用了 --- %@ --- %@ --- %@",aspectInfo.instance,aspectInfo.arguments, aspectInfo.originalInvocation);
+         
+         
+         if (aspectInfo) {
+             if (aspectInfo.arguments[0]) {
+                 [HTNetworkingTool HTNetworkingToolGet:@"user/getqrcode" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+                     LWLog(@"%@",json);
+                     self.erView.url = json[@"data"][@"QRCodeImgURL"];
+                 } failure:nil];
+             }
+         }
+         /**
+          *  添加我们要执行的代码，由于withOptions是AspectPositionAfter。
+          *  所以每个控制器的viewDidLoad触发都会执行下面的方法
+          */
+//         [self doSomethings];
+     } error:NULL];
+    
+}
+    
+  
 
 - (void)viewDidLoad {
     
@@ -88,6 +146,7 @@
     [self.tableView registerClass:[VipTimeTableViewCell class] forCellReuseIdentifier:@"VipTimeTableViewCell"];
     [self.tableView registerClass:[MyWalletTableViewCell class] forCellReuseIdentifier:@"MyWalletTableViewCell"];
     [self.tableView registerClass:[EightTableViewCell class] forCellReuseIdentifier:@"EightTableViewCell"];
+    [self.tableView registerClass:[MPBannerTableViewCell class] forCellReuseIdentifier:@"MPBannerTableViewCell"];
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
@@ -108,11 +167,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+    if (section == 2 ) {
+        
+        return self.model.ADList.count ? 1 : 0;
+        //return 0;
+    }
     return 1;
 }
 
@@ -129,6 +193,11 @@
 
             MyWalletTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyWalletTableViewCell" forIndexPath:indexPath];
             cell.delegate = self;
+            [cell configWithData:self.model];
+            return cell;
+        }else if(indexPath.section == 2){
+            
+            MPBannerTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MPBannerTableViewCell" forIndexPath:indexPath];
             [cell configWithData:self.model];
             return cell;
         }else{

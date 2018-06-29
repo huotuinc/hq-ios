@@ -34,6 +34,7 @@
     if (_nameLable == nil) {
         _nameLable = [[UILabel alloc] init];
         _nameLable.text = @"可提额度";
+        _nameLable.textColor = LWColor(110, 110, 110);
     }
     return _nameLable;
 }
@@ -50,10 +51,17 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setUpInit];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
 
+- (int)getTixinMoney{
+    
+    LWLog(@"xssss%@",self.money.text);
+    //self.money.text
+    return [self.money.text intValue];
+}
 
 - (void)setUpInit{
     
@@ -61,6 +69,7 @@
     [self.nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_offset(kAdaptedWidth(19));
         make.left.mas_equalTo(14);
+        make.width.mas_equalTo(80);
         make.bottom.mas_offset(-kAdaptedWidth(19));
     }];
     
@@ -81,8 +90,12 @@
         make.right.mas_equalTo(self.btn.mas_left);
     }];
     
-    
-    
 }
 
+
+- (void)configure:(WoYaoTiXian *)model{
+    
+    
+    self.money.text = [NSString stringWithFormat:@"%d",[model.UserIntegral intValue] / 1000];
+}
 @end

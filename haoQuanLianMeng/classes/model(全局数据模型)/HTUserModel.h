@@ -18,5 +18,7 @@
 @property (nonatomic,copy) NSString  * userHead;
 @property (nonatomic,assign) int userId;
 
+//是否开启快捷支付
+@property (nonatomic,assign) int paySwichStudent;
 
 @end

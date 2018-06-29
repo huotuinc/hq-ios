@@ -14,6 +14,9 @@
 
 - (void)TiXianListClick;
 
+//提现点击
+- (void)TiXianBtnClick;
+
 @end
 
 @interface TiXianFooterView : UIView

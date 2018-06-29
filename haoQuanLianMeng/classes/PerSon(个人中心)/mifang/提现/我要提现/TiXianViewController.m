@@ -13,11 +13,17 @@
 #import "TiXianFooterView.h"
 #import "TiXianListTableViewController.h"
 #import "AccountListController.h"
+#import "WoYaoTiXian.h"
+
 
 @interface TiXianViewController ()<TiXianFooterViewDelegate>
 
 
 @property (nonatomic,strong) TiXianFooterView * footer;
+
+@property (nonatomic,strong) WoYaoTiXian * model;
+
+
 @end
 
 @implementation TiXianViewController
@@ -40,10 +46,33 @@
     LWLog(@"xxx");
 }
 
+//提现记录
+- (void)TiXianBtnClick{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
+    TiXianBottomTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"TiXianBottomTableViewCell" forIndexPath:indexPath];
+    int a =  [cell getTixinMoney];
+    LWLog(@"%p",&cell);
+}
+
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [HTNetworkingTool HTNetworkingToolGet:@"user/ApplyIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        WoYaoTiXian * model = [WoYaoTiXian mj_objectWithKeyValues:json[@"data"]];
+        LWLog(@"%@",[model mj_keyValues]);
+        self.model = model;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.navigationItem.title = @"我要提现";
     self.tableView.contentInset = UIEdgeInsetsMake(-25, 0,0, 0);
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
@@ -75,14 +104,17 @@
     
     if (indexPath.section == 0){
         TiXianTopView * cell = [tableView dequeueReusableCellWithIdentifier:@"TiXianTopView" forIndexPath:indexPath];
+        [cell configure:self.model];
         return cell;
     } else if(indexPath.section == 1 && indexPath.row == 0){
         
         TiXianCenterCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TiXianCenterCell" forIndexPath:indexPath];
+        [cell configure:self.model];
         return cell;
     }else{
         TiXianBottomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TiXianBottomTableViewCell" forIndexPath:indexPath];
-
+        [cell configure:self.model];
+        LWLog(@"%p",&cell);
         return cell;
         
     }

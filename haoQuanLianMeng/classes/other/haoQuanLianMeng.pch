@@ -24,6 +24,7 @@
 #import <AFNetworking.h>
 #import <IQKeyboardManager.h>
 #import "MBProgressHUD+MJ.h"
+#import <Aspects.h>
 
 #import "HTNetworkingTool.h"
 #import "WXLoginShare.h"

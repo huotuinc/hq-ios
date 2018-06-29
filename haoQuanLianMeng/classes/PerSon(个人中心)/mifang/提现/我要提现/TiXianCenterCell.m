@@ -36,10 +36,23 @@
 }
 
 
+- (void)configure:(WoYaoTiXian *)model{
+    
+    NSString * tt =  [NSString stringWithFormat:@"¥ %@",model.BaseMoney];
+    NSMutableAttributedString * str = [[NSMutableAttributedString alloc] initWithString:tt];
+    
+    [str addAttribute:NSFontAttributeName
+                value:kAdaptedFontSize(40)
+                range:NSMakeRange(2 , tt.length - 2)];
+    self.accountLable.attributedText = str;
+}
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         [self setUpInit];
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -59,11 +72,6 @@
         make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(-kAdaptedWidth(23));
     }];
     
-    NSMutableAttributedString * str = [[NSMutableAttributedString alloc] initWithString:@"¥ 33"];
     
-    [str addAttribute:NSFontAttributeName
-                value:kAdaptedFontSize(40)
-                range:NSMakeRange(2 , [NSString stringWithFormat:@"¥ 33"].length - 2)];
-    self.accountLable.attributedText = str;
 }
 @end

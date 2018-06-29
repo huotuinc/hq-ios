@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WoYaoTiXian.h"
 
 @interface TiXianBottomTableViewCell : UITableViewCell
+
+- (void)configure:(WoYaoTiXian *)model;
+
+
+- (int)getTixinMoney;
 
 @end

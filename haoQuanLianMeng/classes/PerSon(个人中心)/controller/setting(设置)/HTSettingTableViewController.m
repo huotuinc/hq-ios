@@ -32,6 +32,7 @@
     
     
 
+    [self.openPayPass addTarget:self action:@selector(openPassWordStatus:) forControlEvents:UIControlEventValueChanged];
     NSUInteger size =  [[SDImageCache sharedImageCache] getSize];
     LWLog(@"%lul",(unsigned long)size);
     
@@ -75,6 +76,24 @@
     
 }
 
+
+- (void)openPassWordStatus:(UISwitch *)sw{
+    
+    LWLog(@"%d",sw.isOn);
+//    user/updatePayPasswordStatus
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"status"] = @(sw.isOn);
+    [HTNetworkingTool HTNetworkingToolPost:@"user/updatePayPasswordStatus" parame:dict isHud:NO isHaseCache:NO success:^(id json) {
+        if (sw.isOn) {
+          [MBProgressHUD showSuccess:@"开启成功"];
+        }else{
+           [MBProgressHUD showSuccess:@"关闭成功"];
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
