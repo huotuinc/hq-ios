@@ -120,7 +120,7 @@
     
 
     LWLog(@"1111111111");
-    [HTNetworkingTool HTNetworkingToolGet:@"Material/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Material/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         //sleep(10);
 //        LWLog(@"%@",json);
         LWLog(@"222222222");
@@ -156,7 +156,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     LWLog(@"1111111111");
-    [HTNetworkingTool HTNetworkingToolGet:@"Material/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Material/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         NSArray * titles =  [HomeCateModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
         self.titleItems = titles;
         [self setUpInit];

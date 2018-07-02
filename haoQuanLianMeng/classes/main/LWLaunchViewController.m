@@ -134,10 +134,10 @@
     parame[@"unionId"] = dict[@"unionid"];
     parame[@"nickName"] = dict[@"nickname"];
     parame[@"userHead"] = dict[@"headimgurl"];
-    [HTNetworkingTool HTNetworkingToolGet:@"user/loginByUnionId" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/loginByUnionId" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
         
         LWLog(@"%@",json);
-        LWTabBarController * vc =  [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LWTabBarController"];
+        LWTabBarController * vc = [[LWTabBarController alloc] init];// [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LWTabBarController"];
         
         [UIApplication sharedApplication].keyWindow.rootViewController = vc;
         LWLog(@"%@",dict);

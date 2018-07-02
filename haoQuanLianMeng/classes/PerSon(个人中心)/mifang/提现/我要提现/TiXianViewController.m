@@ -60,7 +60,7 @@
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     dict[@"AccountId"] = @(self.model.AccountId);
     dict[@""] = @(a * 1000);
-    [HTNetworkingTool HTNetworkingToolPost:@"user/SubmitApply" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/SubmitApply" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
     } failure:nil];
 }
@@ -70,7 +70,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [HTNetworkingTool HTNetworkingToolGet:@"user/ApplyIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/ApplyIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         WoYaoTiXian * model = [WoYaoTiXian mj_objectWithKeyValues:json[@"data"]];
         LWLog(@"%@",[model mj_keyValues]);
         self.model = model;

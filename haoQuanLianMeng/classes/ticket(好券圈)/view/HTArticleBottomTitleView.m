@@ -54,6 +54,7 @@
 
 - (void)setupInit{
     
+    
     [self addSubview:self.upLable];
 //    self.upLable.backgroundColor = [UIColor blueColor];
     

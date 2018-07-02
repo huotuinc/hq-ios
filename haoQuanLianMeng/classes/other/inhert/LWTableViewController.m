@@ -23,6 +23,21 @@
     return _dataArray;
 }
 
+
+- (void)refreshHeader{
+    
+    
+    
+}
+
+- (void)refreshFooter{
+    
+    
+    
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,7 +47,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshHeader)];
+    self.footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshFooter)];
+    //self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.backgroundColor = LWColor(242, 242, 242);
 }
 
@@ -44,6 +61,14 @@
 #pragma mark - Table view data source
 
 
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    
+//    if (self.dataArray.count) {
+//        
+//        tableView e
+//    }
+//    return self.dataArray.count;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

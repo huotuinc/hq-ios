@@ -162,6 +162,13 @@
 		12A997DE20E0F0EE003FAA89 /* XZWaittingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A997DC20E0F0EE003FAA89 /* XZWaittingView.m */; };
 		12AA815B20E9CC8F006F87D1 /* AccountList.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA815A20E9CC8F006F87D1 /* AccountList.m */; };
 		12AA815F20EA0D90006F87D1 /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA815E20EA0D90006F87D1 /* AdViewController.m */; };
+		12AA816A20EA1A91006F87D1 /* UIView+LoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA816120EA1A91006F87D1 /* UIView+LoadView.m */; };
+		12AA816B20EA1A91006F87D1 /* XZEaseBlankPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA816220EA1A91006F87D1 /* XZEaseBlankPageView.m */; };
+		12AA816C20EA1A91006F87D1 /* XZLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA816420EA1A91006F87D1 /* XZLoadView.m */; };
+		12AA816D20EA1A91006F87D1 /* blankpage_button_reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12AA816720EA1A91006F87D1 /* blankpage_button_reload@2x.png */; };
+		12AA816E20EA1A91006F87D1 /* UIView+EaseBlankPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA816920EA1A91006F87D1 /* UIView+EaseBlankPage.m */; };
+		12AA817120EA1ABE006F87D1 /* UIView+SetLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA817020EA1ABE006F87D1 /* UIView+SetLayer.m */; };
+		12AA817420EA1ADC006F87D1 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA817320EA1ADC006F87D1 /* UIColor+FlatUI.m */; };
 		12B6C8BC20D9F28100E3B8C4 /* InComeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B6C8BB20D9F28100E3B8C4 /* InComeHeader.m */; };
 		12B6C8BF20D9FA8300E3B8C4 /* InComeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B6C8BE20D9FA8300E3B8C4 /* InComeController.m */; };
 		12B6C8C220D9FDA300E3B8C4 /* InComeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B6C8C020D9FDA200E3B8C4 /* InComeTopView.m */; };
@@ -559,6 +566,19 @@
 		12AA815A20E9CC8F006F87D1 /* AccountList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountList.m; sourceTree = "<group>"; };
 		12AA815D20EA0D90006F87D1 /* AdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdViewController.h; sourceTree = "<group>"; };
 		12AA815E20EA0D90006F87D1 /* AdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdViewController.m; sourceTree = "<group>"; };
+		12AA816120EA1A91006F87D1 /* UIView+LoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadView.m"; sourceTree = "<group>"; };
+		12AA816220EA1A91006F87D1 /* XZEaseBlankPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZEaseBlankPageView.m; sourceTree = "<group>"; };
+		12AA816320EA1A91006F87D1 /* UIView+EaseBlankPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+EaseBlankPage.h"; sourceTree = "<group>"; };
+		12AA816420EA1A91006F87D1 /* XZLoadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZLoadView.m; sourceTree = "<group>"; };
+		12AA816520EA1A91006F87D1 /* XZEaseBlankPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZEaseBlankPageView.h; sourceTree = "<group>"; };
+		12AA816620EA1A91006F87D1 /* UIView+LoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadView.h"; sourceTree = "<group>"; };
+		12AA816720EA1A91006F87D1 /* blankpage_button_reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blankpage_button_reload@2x.png"; sourceTree = "<group>"; };
+		12AA816820EA1A91006F87D1 /* XZLoadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZLoadView.h; sourceTree = "<group>"; };
+		12AA816920EA1A91006F87D1 /* UIView+EaseBlankPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+EaseBlankPage.m"; sourceTree = "<group>"; };
+		12AA816F20EA1ABE006F87D1 /* UIView+SetLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SetLayer.h"; sourceTree = "<group>"; };
+		12AA817020EA1ABE006F87D1 /* UIView+SetLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SetLayer.m"; sourceTree = "<group>"; };
+		12AA817220EA1ADC006F87D1 /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		12AA817320EA1ADC006F87D1 /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
 		12B6C8BA20D9F28100E3B8C4 /* InComeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InComeHeader.h; sourceTree = "<group>"; };
 		12B6C8BB20D9F28100E3B8C4 /* InComeHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InComeHeader.m; sourceTree = "<group>"; };
 		12B6C8BD20D9FA8300E3B8C4 /* InComeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InComeController.h; sourceTree = "<group>"; };
@@ -966,6 +986,7 @@
 		120CC17E20BD063900251FC0 /* categray */ = {
 			isa = PBXGroup;
 			children = (
+				12AA816020EA1A91006F87D1 /* EaseBlankPage */,
 				120CC20520BE7DFC00251FC0 /* UITableViewCell+CreateCell.h */,
 				120CC20620BE7DFD00251FC0 /* UITableViewCell+CreateCell.m */,
 				120CC1B220BD50E400251FC0 /* UIView+YHAdd.h */,
@@ -1686,6 +1707,26 @@
 			path = ad;
 			sourceTree = "<group>";
 		};
+		12AA816020EA1A91006F87D1 /* EaseBlankPage */ = {
+			isa = PBXGroup;
+			children = (
+				12AA817220EA1ADC006F87D1 /* UIColor+FlatUI.h */,
+				12AA817320EA1ADC006F87D1 /* UIColor+FlatUI.m */,
+				12AA816F20EA1ABE006F87D1 /* UIView+SetLayer.h */,
+				12AA817020EA1ABE006F87D1 /* UIView+SetLayer.m */,
+				12AA816120EA1A91006F87D1 /* UIView+LoadView.m */,
+				12AA816220EA1A91006F87D1 /* XZEaseBlankPageView.m */,
+				12AA816320EA1A91006F87D1 /* UIView+EaseBlankPage.h */,
+				12AA816420EA1A91006F87D1 /* XZLoadView.m */,
+				12AA816520EA1A91006F87D1 /* XZEaseBlankPageView.h */,
+				12AA816620EA1A91006F87D1 /* UIView+LoadView.h */,
+				12AA816720EA1A91006F87D1 /* blankpage_button_reload@2x.png */,
+				12AA816820EA1A91006F87D1 /* XZLoadView.h */,
+				12AA816920EA1A91006F87D1 /* UIView+EaseBlankPage.m */,
+			);
+			path = EaseBlankPage;
+			sourceTree = "<group>";
+		};
 		12B6C8B820D9F25500E3B8C4 /* 收益中心 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2217,6 +2258,7 @@
 				12FCDA4B20C2842000D0582B /* Person.storyboard in Resources */,
 				1281D93520DBA358008A255B /* TeamHeadView.xib in Resources */,
 				1205BBF820BBA96600032F3C /* Main.storyboard in Resources */,
+				12AA816D20EA1A91006F87D1 /* blankpage_button_reload@2x.png in Resources */,
 				12DAB78A20E21DD600387104 /* README.md in Resources */,
 				12A997DA20E0EFC1003FAA89 /* saveImageView.xib in Resources */,
 			);
@@ -2343,6 +2385,7 @@
 				12F1418F20D8A9EA00FDC9CA /* MiFangYaoHeader.m in Sources */,
 				1214689420DA365900E54048 /* TiXianViewController.m in Sources */,
 				126A991720C78E6E00B2723A /* HTStoryBottomView.m in Sources */,
+				12AA816B20EA1A91006F87D1 /* XZEaseBlankPageView.m in Sources */,
 				12F141A020D8E81A00FDC9CA /* YaoqingHeadView.m in Sources */,
 				120CC22220BF8ADF00251FC0 /* HomeSegementViewController.m in Sources */,
 				12FCDA4920C2822F00D0582B /* HTSettingTableViewController.m in Sources */,
@@ -2400,6 +2443,7 @@
 				12FCDA1A20C11CAD00D0582B /* PerSonTableViewController.m in Sources */,
 				1256F00620D3656600BFE766 /* MiSystemMessageCell.m in Sources */,
 				1281D94120DBCA32008A255B /* PriceBottomView.m in Sources */,
+				12AA816E20EA1A91006F87D1 /* UIView+EaseBlankPage.m in Sources */,
 				1214689D20DA3B6D00E54048 /* TiXianBottomTableViewCell.m in Sources */,
 				12DE336620DC8A2F00374AA3 /* ShouYiTableViewCell.m in Sources */,
 				1281D92420DB88C6008A255B /* TeamTableViewCell.m in Sources */,
@@ -2419,6 +2463,7 @@
 				127ED8D320C5447C0071C1FE /* DaoJishiTopView.m in Sources */,
 				120CC1A920BD4EB000251FC0 /* FocusonMainModel.m in Sources */,
 				120CC17320BCF92200251FC0 /* GTMBase64.m in Sources */,
+				12AA817120EA1ABE006F87D1 /* UIView+SetLayer.m in Sources */,
 				1250508420D26FBB006E30C4 /* MiGoodMessageBaseView.m in Sources */,
 				1256F00B20D3894500BFE766 /* VipTimeTableViewCell.m in Sources */,
 				1250506020D21D57006E30C4 /* MFPersonHeaderView.m in Sources */,
@@ -2455,6 +2500,7 @@
 				12B6C8C520DA047D00E3B8C4 /* InComeBottom.m in Sources */,
 				12DAB7A920E3309000387104 /* WCSPlayMovieController.m in Sources */,
 				12F1419C20D8E1A500FDC9CA /* YiJianViewController.m in Sources */,
+				12AA816A20EA1A91006F87D1 /* UIView+LoadView.m in Sources */,
 				12AA815B20E9CC8F006F87D1 /* AccountList.m in Sources */,
 				1281D91C20DB8116008A255B /* MyTeamController.m in Sources */,
 				12B6C8BC20D9F28100E3B8C4 /* InComeHeader.m in Sources */,
@@ -2485,6 +2531,7 @@
 				120CC1FD20BE719B00251FC0 /* HTPhoneTableViewCell.m in Sources */,
 				120CC1A320BD4DCA00251FC0 /* YYCGUtilities.m in Sources */,
 				1281D90420DB3CB3008A255B /* ACBuildTableViewCell.m in Sources */,
+				12AA817420EA1ADC006F87D1 /* UIColor+FlatUI.m in Sources */,
 				12F141A620D8FAA700FDC9CA /* YaoQingBtnCell.m in Sources */,
 				12F1419820D8DA5F00FDC9CA /* MiFangFooter.m in Sources */,
 				1281D93E20DBC9C9008A255B /* PriceJudgeCollectionViewCell.m in Sources */,
@@ -2510,6 +2557,7 @@
 				120CC19D20BD4D0800251FC0 /* FocusonModel.m in Sources */,
 				12FCDA3820C2402B00D0582B /* HTPersonTableViewCell.m in Sources */,
 				12DAB7AC20E3309000387104 /* WKMovieWriter.m in Sources */,
+				12AA816C20EA1A91006F87D1 /* XZLoadView.m in Sources */,
 				12217B0820E4E0670085B85E /* MPBannerTableViewCell.m in Sources */,
 				120CC1C920BE47A600251FC0 /* HTArticleMenuView.m in Sources */,
 				1206B4BF20E6152D000FB0D0 /* WoYaoTiXian.m in Sources */,

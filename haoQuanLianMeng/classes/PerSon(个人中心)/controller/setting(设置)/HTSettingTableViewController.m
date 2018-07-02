@@ -55,7 +55,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [HTNetworkingTool HTNetworkingToolGet:@"user/setting" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool  HTNetworkingManager]  HTNetworkingToolGet:@"user/setting" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
         self.phoneLable.text = [json[@"data"] objectForKey:@"UserMobile"];
         self.payPass.text = ([[json[@"data"] objectForKey:@"PayPassworded"] intValue] ? @"已重置" : @"未重置");
         [self.openPayPass setOn:([[json[@"data"] objectForKey:@"PayPasswordStatus"] intValue]) animated:YES];
@@ -83,7 +83,7 @@
 //    user/updatePayPasswordStatus
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     dict[@"status"] = @(sw.isOn);
-    [HTNetworkingTool HTNetworkingToolPost:@"user/updatePayPasswordStatus" parame:dict isHud:NO isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/updatePayPasswordStatus" parame:dict isHud:NO isHaseCache:NO success:^(id json) {
         if (sw.isOn) {
           [MBProgressHUD showSuccess:@"开启成功"];
         }else{

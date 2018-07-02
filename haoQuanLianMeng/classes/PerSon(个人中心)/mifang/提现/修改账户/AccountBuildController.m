@@ -56,7 +56,7 @@
     parame[@"AccountInfo"] = acc;
     parame[@"AccountId"] = (self.model ? @(self.model.AccountId) : @"0");
     parame[@"AccountType"] =  @((a == 1 ? 4 : 1));
-    [HTNetworkingTool HTNetworkingToolPost:@"user/EditAccount" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/EditAccount" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
         [MBProgressHUD showSuccess:@"添加成功"];
     } failure:nil];
     

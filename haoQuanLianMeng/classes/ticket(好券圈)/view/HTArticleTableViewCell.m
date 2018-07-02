@@ -152,6 +152,11 @@
         
     }];
     
+    
+   // LWLog(@"%@",NSStringFromClass([[[HTTool HTToolShare] getCurrentVC] class]));
+    
+                      
+    
 //    [self.contentView addSubview:self.souqi];
 //    [self.souqi mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.equalTo(self.contextlabel.mas_bottom).offset(kAdaptedWidth(5));

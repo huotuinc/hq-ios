@@ -45,14 +45,31 @@ static HTNetworkingTool * _HTNetworkingTool;
     return self;
 }
 
+
+
+
 /*账户网络请求Get*/
-+ (void)HTNetworkingToolGet:(NSString *)urlStr parame:(NSMutableDictionary *)params isHud:(BOOL)isHud isHaseCache:(BOOL)caches success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
+- (void)HTNetworkingToolGet:(NSString *)urlStr parame:(NSMutableDictionary *)params isHud:(BOOL)isHud isHaseCache:(BOOL)caches success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     AFHTTPSessionManager * manager = [HTAFHTTPSessionManager HTAFHTTPSessionShare];
     NSString * url = [HTMainIpAddress stringByAppendingPathComponent:urlStr];
     if (isHud) { // 是否显示loading
         [SVProgressHUD showWithStatus:nil];
     }
+    
+    
+    if ([[HTTool HTToolShare] requestBeforeJudgeConnect]) {
+        NSLog(@"\\n\\n----%@------\\n\\n",@"没有网络");
+        if (caches) {
+            id cacheData = [_requestCache objectForKey:urlStr];
+            if(cacheData!=nil)
+            {
+                success(cacheData);
+                return ;
+            }
+        }
+    }
+    
     LWLog(@"api url %@",url);
     [manager GET:url parameters:[[HTTool HTToolShare] HTToolSignWithParame:params] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -65,6 +82,12 @@ static HTNetworkingTool * _HTNetworkingTool;
         if([[responseObject objectForKey:@"resultCode"] integerValue] == 4003){
             [self showLogin:[responseObject objectForKey:@"resultMsg"]];
         }else{
+            
+            if (caches) {
+                //保存缓存
+                [_requestCache setObject:responseObject forKey:urlStr];
+            }
+            
             //LWLog(@"%@",json);
             success(responseObject);
         }
@@ -79,7 +102,7 @@ static HTNetworkingTool * _HTNetworkingTool;
     }];
 }
 
-+ (void)showLogin:(NSString *)alertStr{
+- (void)showLogin:(NSString *)alertStr{
 
 //    AppDelegate * appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
 //    [[HTTool HTToolShare] showAlertWithController:appDelegate.currentVC andTitle:@"账号提示" andMessage:alertStr conform:^{
@@ -93,7 +116,7 @@ static HTNetworkingTool * _HTNetworkingTool;
 //    } cancle:nil];
 }
 
-+ (void)HTNetworkingToolPost:(NSString *)urlStr parame:(NSMutableDictionary *)params isHud:(BOOL)isHud isHaseCache:(BOOL)caches success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
+- (void)HTNetworkingToolPost:(NSString *)urlStr parame:(NSMutableDictionary *)params isHud:(BOOL)isHud isHaseCache:(BOOL)caches success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
     NSString * url = [HTMainIpAddress stringByAppendingPathComponent:urlStr];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     AFHTTPSessionManager * manager = [HTAFHTTPSessionManager manager];
@@ -124,7 +147,7 @@ static HTNetworkingTool * _HTNetworkingTool;
     }];
 }
 
-+ (void)HTNetworkingGetAppleServicePost:(NSString *)urlStr parame:(NSMutableDictionary *)params isHud:(BOOL)isHud success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
+- (void)HTNetworkingGetAppleServicePost:(NSString *)urlStr parame:(NSMutableDictionary *)params isHud:(BOOL)isHud success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
     //NSString * url = [MainIpAddress stringByAppendingPathComponent:urlStr];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     AFHTTPSessionManager * manager = [HTAFHTTPSessionManager manager];
@@ -156,7 +179,7 @@ static HTNetworkingTool * _HTNetworkingTool;
 
 
 
-+ (void)HTNetworkingToolPostFile:(NSString *)urlStr parame:(IDModel *)modele success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
+- (void)HTNetworkingToolPostFile:(NSString *)urlStr parame:(IDModel *)modele success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
 //    NSString * url = [HTMainIpAddress stringByAppendingPathComponent:urlStr];
 //    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 //    AFHTTPSessionManager * manager = [HTAFHTTPSessionManager manager];
@@ -211,7 +234,7 @@ static HTNetworkingTool * _HTNetworkingTool;
 
 }
 
-+ (void)HTNetworkingToolPostFile:(NSString *)urlStr parame:(NSMutableDictionary *)modele andImages:(NSArray <UIImage *>*)images andImageParameName:(NSString *)iconName success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
+- (void)HTNetworkingToolPostFile:(NSString *)urlStr parame:(NSMutableDictionary *)modele andImages:(NSArray <UIImage *>*)images andImageParameName:(NSString *)iconName success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
     
     NSString * url = [HTMainIpAddress stringByAppendingPathComponent:urlStr];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;

@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "LWLaunchViewController.h"
 #import "JPUSHService.h"
+#import "AdViewController.h"
+
 // iOS10注册APNs所需头文件
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
@@ -64,6 +66,14 @@
 
 
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        UIViewController * vc =  [[HTTool HTToolShare] getCurrentVC];
+        LWLog(@"%@",NSStringFromClass([[[HTTool HTToolShare] getCurrentVC] class]));
+        AdViewController * ac = [[AdViewController alloc] initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, KScreenHeight)];
+        //ac.delegate = self;
+        [vc.view.window addSubview:ac];
+        [ac show];
+    });
 
     //注册远程通知
     [self setUpInit:launchOptions];

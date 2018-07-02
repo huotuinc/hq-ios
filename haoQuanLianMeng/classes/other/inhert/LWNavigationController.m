@@ -75,7 +75,7 @@
     textAttr[NSForegroundColorAttributeName] = [UIColor blackColor];
 //    //取消阴影
 //    textAttr[UITextAttributeTextShadowOffset]=[NSValue valueWithUIOffset:UIOffsetZero];
-    textAttr[NSFontAttributeName] =  [UIFont fontWithName:@"Helvetica-Bold" size:20];
+//    textAttr[NSFontAttributeName] =  [UIFont fontWithName:@"Helvetica-Bold" size:20];
     [NavBar setTitleTextAttributes:textAttr];
     
     [NavBar setTintColor:[UIColor blackColor]];
@@ -102,11 +102,37 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    //全屏滑动手势
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
+    
+    pan.delegate = self;
+    //禁止之前的手势
+    self.interactivePopGestureRecognizer.enabled = NO;
+    
+    [self.view addGestureRecognizer:pan];
+    
+    
 //    self.hidesBarsOnSwipe = YES;
 //    self.interactivePopGestureRecognizer.delegate = self;
-    self.navigationBar.topItem.title = @"";
-    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor blackColor]];
+//    self.navigationBar.topItem.title = @"";
+//    [self.navigationItem.rightBarButtonItem setTintColor:[UIColor blackColor]];
 }
+
+//消除方法警告
+-(void)handleNavigationTransition:(UIPanGestureRecognizer *)pan
+{
+    
+}
+
+
+#pragma mark - UIGestureRecognizerDelegate
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    //是否出发手势
+    return self.childViewControllers.count > 1;
+}
+
+
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
@@ -114,22 +140,25 @@
        viewController.hidesBottomBarWhenPushed = YES;
         
         // 左上角
-//        UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
-//        [backButton setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
-////        [backButton setImage:[UIImage imageNamed:@"Nav_Left_Return_Back"] forState:UIControlStateNormal];
-//        [backButton setImage:[UIImage imageNamed:@"Nav_Left_Return_White_Back"] forState:UIControlStateNormal];
-////        [backButton setTitle:@"返回" forState:UIControlStateNormal];
-//        
-//        [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-////        [backButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-//        [backButton sizeToFit];
+        UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+        [backButton setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
+//        [backButton setImage:[UIImage imageNamed:@"Nav_Left_Return_Back"] forState:UIControlStateNormal];
+        [backButton setImage:[UIImage imageNamed:@"Nav_Left_Return_White_Back"] forState:UIControlStateNormal];
+//        [backButton setTitle:@"返回" forState:UIControlStateNormal];
+        
+        [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//        [backButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+        [backButton sizeToFit];
 //        // 这句代码放在sizeToFit后面
 //        
-//        [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+        [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         
-        viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Nav_Left_Return_White_Back"] style:UIBarButtonItemStyleBordered target:self action:@selector(back)];//[[UIBarButtonItem alloc] initWithCustomView:backButton];
+//        viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];//[[UIBarButtonItem alloc] initWithCustomView:backButton];
 //
-//        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_more" hightIcon:@"navigationbar_more_highlighted" target:self action:@selector(more)];
+//        [UIBarButtonItem ]
+//        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem ba:[UIImage imageNamed:@"navigationButtonReturn"] highImage:[UIImage imageNamed:@"navigationButtonReturnClick"]  target:self action:@selector(back) title:@"返回"];
+        
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
         
        
     }

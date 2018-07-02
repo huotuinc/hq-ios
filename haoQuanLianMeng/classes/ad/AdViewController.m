@@ -86,6 +86,8 @@
 //}
 
 - (void)show{
+    
+   
         [UIView animateWithDuration:0.5f delay:0.5f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
             self.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
         } completion:^(BOOL finished) {

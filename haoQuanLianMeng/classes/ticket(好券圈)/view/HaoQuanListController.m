@@ -23,6 +23,16 @@
 }
 
 
+
+- (void)refreshHeader{
+    
+    
+    LWLog(@"xxxxx");
+    
+}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -30,11 +40,11 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+    self.tableView.contentInset = UIEdgeInsetsMake(kAdaptedWidth(41), 0, 0, 0);
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     dict[@"typeId"] = @"1";
     dict[@"pageIndex"] = @"1";
-    [HTNetworkingTool HTNetworkingToolPost:@"Material/list" parame:dict isHud:YES isHaseCache:YES success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Material/list" parame:dict isHud:YES isHaseCache:YES success:^(id json) {
         NSArray * dataArray = [HTArticleModel mj_objectArrayWithKeyValuesArray:[json objectForKey:@"data"]];
         [self.dataArray removeAllObjects];
         [self.dataArray addObjectsFromArray:dataArray];
@@ -43,6 +53,17 @@
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
     }];
+    
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        //AdViewController * ac = [[AdViewController alloc] init];
+//
+//        AdViewController * ac = [[AdViewController alloc] initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, KScreenHeight)];
+//        //ac.delegate = self;
+//        [self.view.window addSubview:ac];
+//        [ac show];
+//    });
+    
     
 //    Material/list
     // Uncomment the following line to preserve selection between presentations.
@@ -58,16 +79,6 @@
     
     
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //AdViewController * ac = [[AdViewController alloc] init];
-
-        AdViewController * ac = [[AdViewController alloc] initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, KScreenHeight)];
-        //ac.delegate = self;
-        [self.view.window addSubview:ac];
-        [ac show];
-    });
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,6 +92,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+//    [self.tableView showEmptyView];
     return self.dataArray.count;
 }
 

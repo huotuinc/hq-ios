@@ -158,10 +158,22 @@
 
 
 
+/**
+ * 获取一行文字的高低
+ */
 - (CGFloat)titleHeightWithFont:(int)font;
 
 
-
+/**
+ * 设置具体文字的高度
+ */
 - (CGFloat)titleHeightWithFont:(int)font withTitle:(NSString *)title;
 
+/**
+ * 判断网络状态
+ */
+-(BOOL)requestBeforeJudgeConnect;
+
+
+- (UIViewController *)getCurrentVC;
 @end

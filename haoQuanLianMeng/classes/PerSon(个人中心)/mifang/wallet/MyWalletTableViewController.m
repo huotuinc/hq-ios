@@ -43,7 +43,7 @@
     [super viewWillAppear:animated];
     
 //    user/MyWallet
-    [HTNetworkingTool HTNetworkingToolGet:@"user/MyWallet" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/MyWallet" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         self.youhuiquan.text = [NSString stringWithFormat:@"%d",[json[@"data"][@"CouponNum"] intValue]];
         self.midou.text = [NSString stringWithFormat:@"%d",[json[@"data"][@"UserMBean"] intValue]];

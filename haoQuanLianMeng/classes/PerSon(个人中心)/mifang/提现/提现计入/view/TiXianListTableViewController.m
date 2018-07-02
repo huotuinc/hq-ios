@@ -32,7 +32,7 @@
     dict[@"pageIndex"] = @"1";
     dict[@"pageSize"] = @"10";
     
-    [HTNetworkingTool HTNetworkingToolGet:@"user/ApplyList" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/ApplyList" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
        NSArray * data =  [MTiXianModel mj_objectArrayWithKeyValuesArray:[[json objectForKey:@"data"] objectForKey:@"list"]];
         [self.dataArray addObjectsFromArray:data];

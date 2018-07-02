@@ -44,7 +44,7 @@
 }
 
 - (void)getAccountList{
-    [HTNetworkingTool HTNetworkingToolGet:@"user/GetAccountList" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/GetAccountList" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         NSArray * data =  [AccountList mj_objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
         [self.dataArray addObjectsFromArray:data];
         [self.tableView reloadData];
@@ -105,7 +105,7 @@
     
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     dict[@"AccountId"] = @(model.AccountId);
-    [HTNetworkingTool HTNetworkingToolPost:@"user/SetDefaultAccount" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/SetDefaultAccount" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
         [self.navigationController popViewControllerAnimated:YES];
         if ([self.delegate respondsToSelector:@selector(accountSelect:)]) {
             [self.delegate accountSelect:model];

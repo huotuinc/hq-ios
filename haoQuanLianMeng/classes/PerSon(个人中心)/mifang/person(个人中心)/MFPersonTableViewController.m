@@ -106,7 +106,7 @@
          
          if (aspectInfo) {
              if (aspectInfo.arguments[0]) {
-                 [HTNetworkingTool HTNetworkingToolGet:@"user/getqrcode" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+                 [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/getqrcode" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
                      LWLog(@"%@",json);
                      self.erView.url = json[@"data"][@"QRCodeImgURL"];
                  } failure:nil];
@@ -129,7 +129,7 @@
     
     
 //    http://api.mingshz.com/mock/65/user/Index
-    [HTNetworkingTool HTNetworkingToolGet:@"user/Index" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/Index" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         MiFangUserCenterModel * model = [MiFangUserCenterModel mj_objectWithKeyValues:json[@"data"]];
         [self setUpInit:model];

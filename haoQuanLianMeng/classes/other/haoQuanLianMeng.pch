@@ -27,6 +27,8 @@
 #import <Aspects.h>
 
 
+#import "UIView+EaseBlankPage.h"
+#import "XZEaseBlankPageView.h"
 #import "AccountList.h"
 #import "HTNetworkingTool.h"
 #import "WXLoginShare.h"
