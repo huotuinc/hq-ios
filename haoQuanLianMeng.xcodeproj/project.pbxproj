@@ -10,7 +10,6 @@
 		1205BBF220BBA96600032F3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205BBF120BBA96600032F3C /* AppDelegate.m */; };
 		1205BBF820BBA96600032F3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1205BBF620BBA96600032F3C /* Main.storyboard */; };
 		1205BBFA20BBA96900032F3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1205BBF920BBA96900032F3C /* Assets.xcassets */; };
-		1205BBFD20BBA96900032F3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1205BBFB20BBA96900032F3C /* LaunchScreen.storyboard */; };
 		1205BC0020BBA96900032F3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205BBFF20BBA96900032F3C /* main.m */; };
 		1205BC0A20BBA96A00032F3C /* haoQuanLianMengTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205BC0920BBA96A00032F3C /* haoQuanLianMengTests.m */; };
 		1205BC1520BBA96A00032F3C /* haoQuanLianMengUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1205BC1420BBA96A00032F3C /* haoQuanLianMengUITests.m */; };
@@ -162,6 +161,7 @@
 		12A997DB20E0EFC1003FAA89 /* saveImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A997D920E0EFC1003FAA89 /* saveImageView.m */; };
 		12A997DE20E0F0EE003FAA89 /* XZWaittingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A997DC20E0F0EE003FAA89 /* XZWaittingView.m */; };
 		12AA815B20E9CC8F006F87D1 /* AccountList.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA815A20E9CC8F006F87D1 /* AccountList.m */; };
+		12AA815F20EA0D90006F87D1 /* AdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA815E20EA0D90006F87D1 /* AdViewController.m */; };
 		12B6C8BC20D9F28100E3B8C4 /* InComeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B6C8BB20D9F28100E3B8C4 /* InComeHeader.m */; };
 		12B6C8BF20D9FA8300E3B8C4 /* InComeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B6C8BE20D9FA8300E3B8C4 /* InComeController.m */; };
 		12B6C8C220D9FDA300E3B8C4 /* InComeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B6C8C020D9FDA200E3B8C4 /* InComeTopView.m */; };
@@ -255,7 +255,6 @@
 		1205BBF120BBA96600032F3C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1205BBF720BBA96600032F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1205BBF920BBA96900032F3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1205BBFC20BBA96900032F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1205BBFE20BBA96900032F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1205BBFF20BBA96900032F3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1205BC0520BBA96A00032F3C /* haoQuanLianMengTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = haoQuanLianMengTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -558,6 +557,8 @@
 		12A997DD20E0F0EE003FAA89 /* XZWaittingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZWaittingView.h; sourceTree = "<group>"; };
 		12AA815920E9CC8F006F87D1 /* AccountList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountList.h; sourceTree = "<group>"; };
 		12AA815A20E9CC8F006F87D1 /* AccountList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountList.m; sourceTree = "<group>"; };
+		12AA815D20EA0D90006F87D1 /* AdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdViewController.h; sourceTree = "<group>"; };
+		12AA815E20EA0D90006F87D1 /* AdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdViewController.m; sourceTree = "<group>"; };
 		12B6C8BA20D9F28100E3B8C4 /* InComeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InComeHeader.h; sourceTree = "<group>"; };
 		12B6C8BB20D9F28100E3B8C4 /* InComeHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InComeHeader.m; sourceTree = "<group>"; };
 		12B6C8BD20D9FA8300E3B8C4 /* InComeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InComeController.h; sourceTree = "<group>"; };
@@ -761,7 +762,6 @@
 				12FCDA1020C01AC300D0582B /* haoQuanLianMeng.entitlements */,
 				1205BC2220BBCDC500032F3C /* classes */,
 				1205BBF920BBA96900032F3C /* Assets.xcassets */,
-				1205BBFB20BBA96900032F3C /* LaunchScreen.storyboard */,
 				1205BBFE20BBA96900032F3C /* Info.plist */,
 				1205BBFF20BBA96900032F3C /* main.m */,
 			);
@@ -789,6 +789,7 @@
 		1205BC2220BBCDC500032F3C /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				12AA815C20EA0D79006F87D1 /* ad */,
 				12F1419920D8DD2800FDC9CA /* 反馈 */,
 				12F1418B20D8A9B400FDC9CA /* yao(邀请入驻) */,
 				12FCDA1720C11C4700D0582B /* PerSon(个人中心) */,
@@ -1676,6 +1677,15 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		12AA815C20EA0D79006F87D1 /* ad */ = {
+			isa = PBXGroup;
+			children = (
+				12AA815D20EA0D90006F87D1 /* AdViewController.h */,
+				12AA815E20EA0D90006F87D1 /* AdViewController.m */,
+			);
+			path = ad;
+			sourceTree = "<group>";
+		};
 		12B6C8B820D9F25500E3B8C4 /* 收益中心 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2201,7 +2211,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1205BBFD20BBA96900032F3C /* LaunchScreen.storyboard in Resources */,
 				1205BBFA20BBA96900032F3C /* Assets.xcassets in Resources */,
 				120CC1F320BE577600251FC0 /* MBProgressHUD.bundle in Resources */,
 				12DAB78D20E21DD600387104 /* MJPhotoBrowser.bundle in Resources */,
@@ -2493,6 +2502,7 @@
 				127ED8CC20C53C420071C1FE /* UIView+YHAdd.m in Sources */,
 				12B6C8C820DA21D400E3B8C4 /* InComeTableViewCell.m in Sources */,
 				12FCDA3420C2380B00D0582B /* HTPersonViewList.m in Sources */,
+				12AA815F20EA0D90006F87D1 /* AdViewController.m in Sources */,
 				120CC21220BE957F00251FC0 /* HTMoneyTableViewController.m in Sources */,
 				1281D90720DB42B2008A255B /* ACBuilTableViewCell.m in Sources */,
 				12DAB7AA20E3309000387104 /* WCSPreviewViewController.m in Sources */,
@@ -2554,14 +2564,6 @@
 				1205BBF720BBA96600032F3C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1205BBFB20BBA96900032F3C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1205BBFC20BBA96900032F3C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

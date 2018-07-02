@@ -7,6 +7,8 @@
 //
 
 #import "HaoQuanListController.h"
+#import "AdViewController.h"
+
 
 @interface HaoQuanListController ()<HTArticleCenterViewDelegate>
 
@@ -48,6 +50,24 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //AdViewController * ac = [[AdViewController alloc] init];
+
+        AdViewController * ac = [[AdViewController alloc] initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, KScreenHeight)];
+        //ac.delegate = self;
+        [self.view.window addSubview:ac];
+        [ac show];
+    });
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
