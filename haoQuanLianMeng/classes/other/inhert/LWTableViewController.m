@@ -33,6 +33,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.backgroundColor = LWColor(242, 242, 242);
 }
 
 - (void)didReceiveMemoryWarning {

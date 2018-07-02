@@ -10,7 +10,16 @@
 #import "ACBuildTableViewCell.h"
 #import "ACBuilTableViewCell.h"
 #import "AcFooterView.h"
-@interface AccountBuildController ()
+@interface AccountBuildController ()<AcFooterViewDelegate>
+
+
+@property (nonatomic,strong) ACBuildTableViewCell * cell;;
+
+
+@property (nonatomic,strong) ACBuilTableViewCell * name;
+
+@property (nonatomic,strong) ACBuilTableViewCell * account;
+
 
 
 @property (nonatomic,strong) AcFooterView * acFooter;
@@ -19,13 +28,51 @@
 
 @implementation AccountBuildController
 
-
+- (void)btnClick{
+    
+    LWLog(@"xxxxxx");
+    
+    int a =  [self.cell getCurrentType];
+    NSString * name = [self.name getText];
+    NSString * acc  = [self.account getText];
+    
+//    RealName    是    string    真实姓名（支付宝必传，微信钱包可不传）
+//    AccountInfo    是    string    提现账户（支付宝必传，微信钱包可不传）
+//    AccountType    是    int    提现账户类型，1支付宝 2 银行卡 4 微信零钱 5 结算通 6 API打款
+//    AccountId    是    int    默认账户Id
+    
+    if (!name.length) {
+        [MBProgressHUD showError:@"姓名为空"];
+        return;
+    }
+    
+    if (a && !acc.length) {
+        [MBProgressHUD showError:@"帐号不能为空"];
+        return;
+    }
+    
+    NSMutableDictionary * parame = [NSMutableDictionary dictionary];
+    parame[@"RealName"] = name;
+    parame[@"AccountInfo"] = acc;
+    parame[@"AccountId"] = (self.model ? @(self.model.AccountId) : @"0");
+    parame[@"AccountType"] =  @((a == 1 ? 4 : 1));
+    [HTNetworkingTool HTNetworkingToolPost:@"user/EditAccount" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
+        [MBProgressHUD showSuccess:@"添加成功"];
+    } failure:nil];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
+    
+    self.navigationItem.title = @"修改帐号";
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
+    self.tableView.sectionFooterHeight = 0;
     self.acFooter = [[AcFooterView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 60)];
+    self.acFooter.delegate = self;
     self.tableView.tableFooterView = self.acFooter;
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -61,15 +108,30 @@
     
     if (indexPath.section == 0) {
         ACBuildTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ACBuildTableViewCell" forIndexPath:indexPath];
+        self.cell = cell;
+        [cell configure:self.model];
         return cell;
     }else{
         ACBuilTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ACBuilTableViewCell" forIndexPath:indexPath];
-       
+        if (indexPath.row == 0) {
+            self.name = cell;
+        }else{
+            self.account = cell;
+        }
+        cell.indexPath = indexPath;
+        [cell configure:self.model];
         return cell;
     }
     
 }
 
+
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+//    [[NSNotificationCenter defaultCenter] removeObserver:nil name:@"accountSwich" object:nil];
+}
 
 /*
 // Override to support conditional editing of the table view.

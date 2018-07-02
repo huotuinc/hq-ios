@@ -25,6 +25,7 @@
         [_btn setTitle:@"保存" forState:UIControlStateNormal];
         _btn.layer.cornerRadius = 5;
         _btn.layer.masksToBounds = YES;
+        [_btn addTarget:self.delegate action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _btn;
 }

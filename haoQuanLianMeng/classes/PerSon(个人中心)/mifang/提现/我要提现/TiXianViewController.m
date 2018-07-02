@@ -16,13 +16,18 @@
 #import "WoYaoTiXian.h"
 
 
-@interface TiXianViewController ()<TiXianFooterViewDelegate>
+@interface TiXianViewController ()<TiXianFooterViewDelegate,AccountListControllerDelegate>
 
 
 @property (nonatomic,strong) TiXianFooterView * footer;
 
 @property (nonatomic,strong) WoYaoTiXian * model;
 
+
+
+@property (nonatomic,strong) TiXianBottomTableViewCell * cell;
+
+@property (nonatomic,strong) TiXianTopView * accountCell;
 
 @end
 
@@ -48,10 +53,16 @@
 
 //提现记录
 - (void)TiXianBtnClick{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
-    TiXianBottomTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"TiXianBottomTableViewCell" forIndexPath:indexPath];
-    int a =  [cell getTixinMoney];
-    LWLog(@"%p",&cell);
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
+//    TiXianBottomTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"TiXianBottomTableViewCell" forIndexPath:indexPath];
+    int a =  [self.cell getTixinMoney];
+    LWLog(@"%d",a);
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"AccountId"] = @(self.model.AccountId);
+    dict[@""] = @(a * 1000);
+    [HTNetworkingTool HTNetworkingToolPost:@"user/SubmitApply" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+    } failure:nil];
 }
 
 
@@ -105,6 +116,7 @@
     if (indexPath.section == 0){
         TiXianTopView * cell = [tableView dequeueReusableCellWithIdentifier:@"TiXianTopView" forIndexPath:indexPath];
         [cell configure:self.model];
+        _accountCell = cell;
         return cell;
     } else if(indexPath.section == 1 && indexPath.row == 0){
         
@@ -114,6 +126,7 @@
     }else{
         TiXianBottomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TiXianBottomTableViewCell" forIndexPath:indexPath];
         [cell configure:self.model];
+        self.cell = cell;
         LWLog(@"%p",&cell);
         return cell;
         
@@ -137,10 +150,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         AccountListController * ac = [[AccountListController alloc] initWithStyle:UITableViewStylePlain];
+        ac.delegate = self;
         [self.navigationController pushViewController:ac animated:YES];
     }
 }
 
+
+- (void)accountSelect:(AccountList *)model{
+    LWLog(@"%@",model.AccountInfo);
+    self.model.AccountId = model.AccountId;
+    self.model.AccountInfo = model.AccountInfo;
+//    self.tableView reloadRowsAtIndexPaths:@[] withRowAnimation:<#(UITableViewRowAnimation)#>
+//    [self.accountCell configure:self.model];
+    [self.tableView reloadData];
+    
+}
 /*
 #pragma mark - Navigation
 

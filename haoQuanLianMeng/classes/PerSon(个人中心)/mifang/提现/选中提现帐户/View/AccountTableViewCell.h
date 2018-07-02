@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AccountList.h"
+
+typedef void(^selectClcik)(AccountList * model);
 
 
 @protocol AccountTableViewDelegate <NSObject>
 
 
-- (void)BuildClick;
+- (void)BuildClick:(AccountList *)model;
 
 
 @end
@@ -21,6 +24,10 @@
 
 @interface AccountTableViewCell : UITableViewCell
 
+
+@property (nonatomic, copy) selectClcik selectClcik;// 点击按钮
+
+@property (nonatomic,strong) AccountList * model;
 
 @property (nonatomic,weak) id <AccountTableViewDelegate> delegate;
 

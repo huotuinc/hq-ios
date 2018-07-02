@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LWTableViewController.h"
 
-@interface AccountListController : UITableViewController
+
+@protocol AccountListControllerDelegate <NSObject>
+
+
+- (void)accountSelect:(AccountList *)model;
+
+
+@end
+
+
+
+@interface AccountListController : LWTableViewController
+
+
+@property (nonatomic,weak) id <AccountListControllerDelegate> delegate;
+
 
 @end

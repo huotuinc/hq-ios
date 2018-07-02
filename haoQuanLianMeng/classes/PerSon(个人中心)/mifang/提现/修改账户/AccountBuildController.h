@@ -10,4 +10,6 @@
 
 @interface AccountBuildController : UITableViewController
 
+@property (nonatomic,strong) AccountList * model;
+
 @end

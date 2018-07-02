@@ -40,6 +40,7 @@
         
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [self setUpInit];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }

@@ -10,4 +10,9 @@
 
 @interface ACBuildTableViewCell : UITableViewCell
 
+
+- (int)getCurrentType;
+
+
+- (void)configure:(AccountList *) model;
 @end

@@ -161,6 +161,7 @@
 		12A997DA20E0EFC1003FAA89 /* saveImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12A997D720E0EFC0003FAA89 /* saveImageView.xib */; };
 		12A997DB20E0EFC1003FAA89 /* saveImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A997D920E0EFC1003FAA89 /* saveImageView.m */; };
 		12A997DE20E0F0EE003FAA89 /* XZWaittingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A997DC20E0F0EE003FAA89 /* XZWaittingView.m */; };
+		12AA815B20E9CC8F006F87D1 /* AccountList.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AA815A20E9CC8F006F87D1 /* AccountList.m */; };
 		12B6C8BC20D9F28100E3B8C4 /* InComeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B6C8BB20D9F28100E3B8C4 /* InComeHeader.m */; };
 		12B6C8BF20D9FA8300E3B8C4 /* InComeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B6C8BE20D9FA8300E3B8C4 /* InComeController.m */; };
 		12B6C8C220D9FDA300E3B8C4 /* InComeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B6C8C020D9FDA200E3B8C4 /* InComeTopView.m */; };
@@ -555,6 +556,8 @@
 		12A997D920E0EFC1003FAA89 /* saveImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = saveImageView.m; sourceTree = "<group>"; };
 		12A997DC20E0F0EE003FAA89 /* XZWaittingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZWaittingView.m; sourceTree = "<group>"; };
 		12A997DD20E0F0EE003FAA89 /* XZWaittingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZWaittingView.h; sourceTree = "<group>"; };
+		12AA815920E9CC8F006F87D1 /* AccountList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountList.h; sourceTree = "<group>"; };
+		12AA815A20E9CC8F006F87D1 /* AccountList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountList.m; sourceTree = "<group>"; };
 		12B6C8BA20D9F28100E3B8C4 /* InComeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InComeHeader.h; sourceTree = "<group>"; };
 		12B6C8BB20D9F28100E3B8C4 /* InComeHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InComeHeader.m; sourceTree = "<group>"; };
 		12B6C8BD20D9FA8300E3B8C4 /* InComeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InComeController.h; sourceTree = "<group>"; };
@@ -1275,6 +1278,7 @@
 		121468A420DA594300E54048 /* 选中提现帐户 */ = {
 			isa = PBXGroup;
 			children = (
+				12AA815820E9CC76006F87D1 /* model */,
 				121468A520DA598800E54048 /* View */,
 				1281D8FB20DB3A8C008A255B /* AccountListController.h */,
 				1281D8FC20DB3A8C008A255B /* AccountListController.m */,
@@ -1661,6 +1665,15 @@
 				1281D93720DBC178008A255B /* TeamDetailViewController.m */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		12AA815820E9CC76006F87D1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				12AA815920E9CC8F006F87D1 /* AccountList.h */,
+				12AA815A20E9CC8F006F87D1 /* AccountList.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		12B6C8B820D9F25500E3B8C4 /* 收益中心 */ = {
@@ -2433,6 +2446,7 @@
 				12B6C8C520DA047D00E3B8C4 /* InComeBottom.m in Sources */,
 				12DAB7A920E3309000387104 /* WCSPlayMovieController.m in Sources */,
 				12F1419C20D8E1A500FDC9CA /* YiJianViewController.m in Sources */,
+				12AA815B20E9CC8F006F87D1 /* AccountList.m in Sources */,
 				1281D91C20DB8116008A255B /* MyTeamController.m in Sources */,
 				12B6C8BC20D9F28100E3B8C4 /* InComeHeader.m in Sources */,
 				120CC17420BCF92200251FC0 /* Base64Util.m in Sources */,

@@ -10,4 +10,11 @@
 
 @interface ACBuilTableViewCell : UITableViewCell
 
+@property (nonatomic,strong) NSIndexPath * indexPath;
+
+- (void)configure:(AccountList *) model;
+
+
+- (NSString * )getText;
+
 @end

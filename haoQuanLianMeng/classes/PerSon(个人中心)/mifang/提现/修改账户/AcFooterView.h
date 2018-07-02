@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol AcFooterViewDelegate <NSObject>
+
+
+- (void)btnClick;
+
+@end
+
+
 @interface AcFooterView : UIView
 
+
+@property (nonatomic,weak) id <AcFooterViewDelegate> delegate;
 @end
