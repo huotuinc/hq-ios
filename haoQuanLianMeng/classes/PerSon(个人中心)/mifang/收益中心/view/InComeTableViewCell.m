@@ -33,7 +33,7 @@
         _inComeTopView.userInteractionEnabled = YES;
         KWeakSelf(self);
         [_inComeTopView bk_whenTapped:^{
-            [weakself.delegate InComeClicl:(int)weakself.indexPath.row];
+            [weakself.delegate InComeClicl:(int)weakself.indexPath.section];
         }];
     }
     return _inComeTopView;
@@ -94,9 +94,50 @@
         make.width.mas_equalTo(self.inComeBottom.mas_width);
         make.bottom.mas_equalTo(self.inComeBottom.mas_bottom);
     }];
-    
-    
-    
 }
 
+
+- (void)setIndexPath:(NSIndexPath *)indexPath{
+    _indexPath = indexPath;
+    
+    if (indexPath.section == 0) {
+        [self.inComeBottom setTitle:@"今日收益"];
+        [self.inComeBottom1 setTitle:@"昨日收益"];
+    }else if(indexPath.section == 1){
+        [self.inComeBottom setTitle:@"本周收益"];
+        [self.inComeBottom1 setTitle:@"上周收益"];
+    }else{
+        [self.inComeBottom setTitle:@"本月收益"];
+        [self.inComeBottom1 setTitle:@"上月收益"];
+    }
+}
+- (void)configure:(InComeModel *)model{
+    if (self.indexPath.section == 0) {
+//        UserProfitByToday    int    今日收益
+//        UserOrderNumByToday    int    今日订单数
+//        UserProfitByYesterday    int    昨日收益
+//        UserOrderNumByYesterday    int    昨日订单数
+        [self.inComeBottom setMoney:model.UserProfitByToday andDan:model.UserOrderNumByToday];
+        [self.inComeBottom1 setMoney:model.UserProfitByYesterday andDan:model.UserOrderNumByYesterday];
+        
+    }else if(self.indexPath.section == 1){
+//        UserProfitByWeek    int    本周收益
+//        UserOrderNumByWeek    int    本周订单数
+//        UserProfitByLastWeek    int    上周收益
+//        UserOrderNumByLastWeek    int    上周订单数
+        [self.inComeBottom setMoney:model.UserProfitByWeek andDan:model.UserOrderNumByWeek];
+        [self.inComeBottom1 setMoney:model.UserProfitByLastWeek andDan:model.UserOrderNumByLastWeek];
+    }else{
+        
+//        UserProfitByMonth    int    本月收益
+//        UserOrderNumByMonth    int    本月订单数
+//        UserProfitByLastMonth    int    上月收益
+//        UserOrderNumByLastMonth    int    上月订单数
+        
+        
+        [self.inComeBottom setMoney:model.UserProfitByMonth andDan:model.UserOrderNumByMonth];
+        [self.inComeBottom1 setMoney:model.UserProfitByLastMonth andDan:model.UserOrderNumByLastMonth];
+    }
+    
+}
 @end

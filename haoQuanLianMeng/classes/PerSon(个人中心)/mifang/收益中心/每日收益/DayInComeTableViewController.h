@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LWTableViewController.h"
 
-@interface DayInComeTableViewController : UITableViewController
+
+@interface DayInComeTableViewController : LWTableViewController
+
+@property (nonatomic,assign) int type;
 
 @end

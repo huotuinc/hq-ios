@@ -22,6 +22,7 @@ target 'haoQuanLianMeng' do
   pod 'SVProgressHUD'
   pod 'YYCache'
   pod 'Aspects'
+  pod 'PGDatePicker'
   pod 'SDCycleScrollView'
   #pod 'NJKWebViewProgress'
   pod 'WechatOpenSDK'

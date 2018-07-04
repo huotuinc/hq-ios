@@ -104,10 +104,11 @@
         make.centerX.mas_equalTo(self.mas_centerX).multipliedBy(1.5);
         make.bottom.mas_equalTo(self.daiJieMoneyLable.mas_top).mas_offset(-1);
     }];
-    
-    
-    
-    
-    
+}
+
+
+- (void)configure:(InComeModel *)model{
+    _yuMoneyLable.text = [NSString stringWithFormat:@"%d",model.UserIntegral];
+    _daiJieMoneyLable.text = [NSString stringWithFormat:@"%d",model.UserTempIntegral];
 }
 @end

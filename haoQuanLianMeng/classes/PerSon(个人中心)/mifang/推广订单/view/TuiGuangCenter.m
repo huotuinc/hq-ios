@@ -7,6 +7,8 @@
 //
 
 #import "TuiGuangCenter.h"
+#import "TuiGuangModel.h"
+#import "OrderItemModel.h"
 
 @interface TuiGuangCenter ()
 
@@ -37,6 +39,8 @@
     if (_leftLable == nil) {
         _leftLable = [[UILabel alloc] init];
         _leftLable.text = @"女装";
+        _leftLable.textColor = LWColor(60, 60, 60);
+        _leftLable.font = kAdaptedFontSize(14);
     }
     return _leftLable;
 }
@@ -46,6 +50,7 @@
     if (_rightLable == nil) {
         _rightLable = [[UILabel alloc] init];
         _rightLable.text = @"¥1";
+        _rightLable.font = kAdaptedFontSize(14);
     }
     return _rightLable;
 }
@@ -55,6 +60,8 @@
     if (_rightDownLable == nil) {
         _rightDownLable = [[UILabel alloc] init];
         _rightDownLable.text = @"x1";
+        _rightDownLable.textColor = LWColor(160, 160, 160);
+        _rightDownLable.font = kAdaptedFontSize(12);
     }
     return _rightDownLable;
 }
@@ -83,22 +90,31 @@
     
     [self addSubview:self.leftLable];
     [self.leftLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.mas_top).mas_offset(kAdaptedWidth(10));
+        make.top.mas_equalTo(self.iconView.mas_top).mas_offset(5);
         make.left.mas_equalTo(self.iconView.mas_right).mas_offset(kAdaptedWidth(10));
     }];
     
     [self addSubview:self.rightLable];
     [self.rightLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.leftLable.mas_top);
+        make.centerY.mas_equalTo(self.leftLable.mas_centerY);
         make.right.mas_equalTo(self.mas_right).mas_offset(-kAdaptedWidth(10));
     }];
     
     [self addSubview:self.rightDownLable];
     [self.rightDownLable mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.rightLable.mas_bottom).mas_offset(5);
+        make.top.mas_equalTo(self.rightLable.mas_bottom).mas_offset(1);
         make.right.mas_equalTo(self.rightLable.mas_right);
     }];
     
+}
+
+- (void)contigure:(TuiGuangModel *)model andIndex:(int)index{
+    
+    OrderItemModel * order = [model.OrderItemInfo objectAtIndex:index];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:order.ProductImgUrl]];
+    self.leftLable.text = order.ProductName;
+    self.rightLable.text = [NSString stringWithFormat:@"¥ %@",order.ProductPrice];
+    self.rightDownLable.text = [NSString stringWithFormat:@"x%d",order.ProductNum];
 }
 
 @end

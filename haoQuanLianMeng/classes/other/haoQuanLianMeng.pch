@@ -50,5 +50,7 @@
 #import "HTAFHTTPSessionManager.h"
 #import "HTArticleTableViewCell.h"
 #import "HTArticleCellModel.h"
+#import "LWTableViewController.h"
+
 
 #endif /* haoQuanLianMeng_pch */

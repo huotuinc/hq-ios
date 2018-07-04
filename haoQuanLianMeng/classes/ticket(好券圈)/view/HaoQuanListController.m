@@ -12,6 +12,8 @@
 
 @interface HaoQuanListController ()<HTArticleCenterViewDelegate>
 
+
+
 @end
 
 @implementation HaoQuanListController
@@ -35,6 +37,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+//    [MJRefreshHeader]
+    
     
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;

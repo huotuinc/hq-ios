@@ -10,4 +10,12 @@
 
 @interface InComeBottom : UIView
 
+
+
+- (void)setTitle:(NSString *)title;
+
+
+
+- (void)setMoney:(int)money andDan:(int)dan;
+
 @end

@@ -8,27 +8,66 @@
 
 #import "TuiGuanListTableViewController.h"
 #import "ATuiGuangTableViewCell.h"
+#import "TuiGuangModel.h"
+#import "TuiGuangCellModel.h"
+
+
 @interface TuiGuanListTableViewController ()
 
+    
 @end
 
 @implementation TuiGuanListTableViewController
 
+
+
+
+- (void)getInitData{
+
+//    /Order/GetProfitOrderList
+
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"SearchTime"] = @"";
+    dict[@"ShipStatus"] = @"";
+    dict[@"SearchYear"] = @"";
+    dict[@"SearchMonth"] = @"";
+    dict[@"SearchDay"] = @"";
+    dict[@"WeekNum"] = @"";
+    dict[@"PageIndex"] = @"";
+    dict[@"PageSize"] = @"";
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Order/GetProfitOrderList" parame:dict
+                                                          isHud:YES isHaseCache:NO success:^(id json) {
+            LWLog(@"%@",json);
+
+            NSArray * data =  [TuiGuangModel mj_objectArrayWithKeyValuesArray:[json objectForKey:@"data"]];
+            [self.dataArray removeAllObjects];
+            [self.dataArray addObjectsFromArray:data];
+            [self.tableView reloadData];
+
+        } failure:^(NSError *error) {
+            LWLog(@"%@",error.description);
+
+    }];
+
+}
+    
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    [self.tableView registerClass:[ATuiGuangTableViewCell class] forCellReuseIdentifier:@"ATuiGuangTableViewCell"];
-    
+
+   // [self.tableView registerClass:[ATuiGuangTableViewCell class] forCellReuseIdentifier:@"ATuiGuangTableViewCell"];
+    self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
-    
-   self.tableView.contentInset = UIEdgeInsetsMake(kAdaptedWidth(40), 0, 0, 0 );
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.contentInset = UIEdgeInsetsMake(kAdaptedWidth(40), 0, 0, 0 );
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    [self getInitData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,22 +77,18 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Incomplete implementation, return the number of sections
-//    return 0;
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows
-    return 3;
+    return self.dataArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ATuiGuangTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ATuiGuangTableViewCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    ATuiGuangTableViewCell * cell = [TuiGuangCellModel confirmCellWithArticle:[self.dataArray objectAtIndex:indexPath.row]
+                                    slideType:self.orderStatus
+                                WithTableView:tableView
+                                 witdDelegate:self];
     return cell;
 }
 

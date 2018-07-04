@@ -23,15 +23,44 @@
 @property(nonatomic,strong) UIScrollView * scrollView;
 
 
-
+@property(nonatomic,strong) UIButton * btn;
 
 @end
 
 @implementation TuiGuangViewController
 
+    
+- (UIButton *)btn{
+    if (_btn == nil) {
+        _btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
+        NSDate * date = [NSDate date];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"YYYY年MM"];
+        
+        NSCalendar * ca = [NSCalendar currentCalendar];
+        NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth;
+        NSDateComponents *dateComponent = [ca components:unitFlags fromDate:date];
+        
+//        _year = (int)[dateComponent year];
+//        _month= (int)[dateComponent month];
+        
+        
+        
+        [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        NSString * time =  [formatter stringFromDate:date];
+        [_btn setTitle:time forState:UIControlStateNormal];
+        _btn.titleLabel.font = kAdaptedFontSize(15);
+        _btn.titleLabel.textAlignment = NSTextAlignmentRight;
+        //        [_btn sizeToFit];
+    }
+    return _btn;
+}
+    
+    
+    
 - (NSArray *)titleItems {
     if(_titleItems == nil){
-        _titleItems = @[@"爆款必发",@"圈粉文案",@"吃货必备",@"清凉一夏"];
+        _titleItems = @[@"全部",@"待发货",@"待收货",@"已完成",@"已退款"];
     }
     return _titleItems;
 }
@@ -90,10 +119,22 @@
 
 - (void)setupChildViewControllers
 {
+
     for(int i = 0; i<  self.titleItems.count; i++){
         TuiGuanListTableViewController * homeViewController = [[TuiGuanListTableViewController alloc] initWithStyle:UITableViewStylePlain];
-        
-        homeViewController.type = i;
+        TuiGuangOrderStatus status;
+        if (i == 0) {
+            status = TuiGuangOrderPlane;
+        }else if(i == 1){
+            status = TuiGuangOrderWaitSendGoood;
+        }else if(i == 2){
+            status = TuiGuangOrderWaitGetGood;
+        }else if(i == 3){
+            status = TuiGuangOrderGetGood;
+        }else {
+            status = TuiGuangOrderBackGood;
+        }
+        homeViewController.orderStatus = status;
         [self addChildViewController:homeViewController];
     }
 }
@@ -104,7 +145,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"好券联盟";
+    self.navigationItem.title = @"推广订单";
     [self setupChildViewControllers];
     
     [self setupScrollView];

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InComeModel.h"
 
 @interface InComeController : UITableViewController
+
+- (void)configure:(InComeModel *)model;
 
 @end

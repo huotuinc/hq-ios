@@ -23,6 +23,8 @@
     if (_leftLable == nil) {
         _leftLable = [[UILabel alloc] init];
         _leftLable.text = @"订单号1234561";
+        _leftLable.textColor = LWColor(91, 91, 91);
+        _leftLable.font = kAdaptedFontSize(14);
     }
     return _leftLable;
 }
@@ -31,6 +33,8 @@
     if (_rightLable == nil) {
         _rightLable = [[UILabel alloc] init];
         _rightLable.text = @"待发货";
+        _rightLable.textColor = LWColor(134, 134, 134);
+        _rightLable.font = kAdaptedFontSize(14);
     }
     return _rightLable;
 }
@@ -62,4 +66,8 @@
     
 }
 
+- (void)contigure:(TuiGuangModel *)model{
+    _leftLable.text = [NSString stringWithFormat:@"订单号: %@",model.OrderID];
+    _rightLable.text = model.OrderShipStatus;
+}
 @end

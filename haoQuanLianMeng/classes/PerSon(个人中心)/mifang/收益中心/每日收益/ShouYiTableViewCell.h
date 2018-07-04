@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DayInModel.h"
 
 @interface ShouYiTableViewCell : UITableViewCell
+
+@property (nonatomic,strong) DayInModel * dayInModel;
 
 @end

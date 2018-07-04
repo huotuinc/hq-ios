@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InComeModel.h"
 
 @interface InComeHeader : UIView
+
+- (void)configure:(InComeModel *)model;
 
 @end

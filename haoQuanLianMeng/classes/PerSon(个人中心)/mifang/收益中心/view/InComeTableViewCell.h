@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InComeModel.h"
 
 
 @protocol InComeTableViewCellDelegate <NSObject>
@@ -22,5 +23,6 @@
 
 @property (nonatomic,weak) id <InComeTableViewCellDelegate> delegate;
 
+- (void)configure:(InComeModel *)model;
 
 @end

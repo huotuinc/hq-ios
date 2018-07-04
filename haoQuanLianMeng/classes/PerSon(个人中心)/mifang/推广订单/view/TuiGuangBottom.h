@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TuiGuangModel.h"
 
 @interface TuiGuangBottom : UIView
+
+- (void)contigure:(TuiGuangModel *)model;
 
 @end

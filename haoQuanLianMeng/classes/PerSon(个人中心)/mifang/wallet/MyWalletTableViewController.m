@@ -8,6 +8,9 @@
 
 #import "MyWalletTableViewController.h"
 #import "TiXianViewController.h"
+#import "MyMiBenTableViewController.h"
+
+
 
 
 @interface MyWalletTableViewController ()
@@ -26,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     self.navigationItem.title = @"我的钱包";
     self.tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
@@ -63,6 +67,15 @@
 - (IBAction)tixianClick:(id)sender {
     
     TiXianViewController * vc = [[TiXianViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    MyMiBenTableViewController * vc = [[MyMiBenTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    vc.type = (int)indexPath.row - 1;
     [self.navigationController pushViewController:vc animated:YES];
 }
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

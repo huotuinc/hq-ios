@@ -10,11 +10,15 @@
 #import "InComeHeader.h"
 #import "InComeTableViewCell.h"
 #import "DayInComeTableViewController.h"
-
+#import "InComeModel.h"
 
 @interface InComeController ()<InComeTableViewCellDelegate>
 
 @property (nonatomic,strong) InComeHeader * inComeHeader;
+
+
+@property (nonatomic,strong) InComeModel * model;
+
 
 @end
 
@@ -30,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.navigationItem.title = @"收益中心";
     self.tableView.tableHeaderView = self.inComeHeader;
     [self.tableView registerClass:[InComeTableViewCell class] forCellReuseIdentifier:@"InComeTableViewCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -44,6 +48,26 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self getData];
+}
+
+- (void)getData{
+    
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Profit/GetProfitIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        InComeModel * model =  [InComeModel mj_objectWithKeyValues:json[@"data"]];
+        self.model = model;
+        [self.inComeHeader configure:model];
+        [self.tableView reloadData];
+        LWLog(@"%@",json);
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -52,12 +76,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+//#warning Incomplete implementation, return the number of sections
     return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+//#warning Incomplete implementation, return the number of rows
     return 1;
 }
 
@@ -67,6 +91,7 @@
     InComeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"InComeTableViewCell" forIndexPath:indexPath];
     cell.indexPath = indexPath;
     cell.delegate = self;
+    [cell configure:self.model];
     return cell;
 }
 
@@ -83,8 +108,17 @@
 -(void)InComeClicl:(int)index{
     
     DayInComeTableViewController * vc = [[DayInComeTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    vc.type = index;
     [self.navigationController pushViewController:vc animated:YES];
     LWLog(@"%d",index);
+}
+
+
+
+- (void)configure:(InComeModel *)model{
+    
+    
+    
 }
 /*
 // Override to support conditional editing of the table view.

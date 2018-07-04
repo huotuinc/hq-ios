@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TuiGuangModel;
 
 @interface TuiGuangCenter : UIView
 
+- (void)contigure:(TuiGuangModel *)model andIndex:(int)index;
 @end

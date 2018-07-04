@@ -99,6 +99,7 @@
     if (_secondleft == nil) {
         _secondleft = [[UILabel alloc] init];
         _secondleft.text = @"获取返利";
+        _secondleft.textAlignment = NSTextAlignmentCenter;
     }
     return _secondleft;
 }
@@ -107,6 +108,7 @@
     if (_secondCenter == nil) {
         _secondCenter = [[UILabel alloc] init];
         _secondCenter.text = @"获取返利";
+        _secondCenter.textAlignment = NSTextAlignmentCenter;
     }
     return _secondCenter;
 }
@@ -114,30 +116,31 @@
     if (_secondRight == nil) {
         _secondRight = [[UILabel alloc] init];
         _secondRight.text = @"获取返利";
+        _secondRight.textAlignment = NSTextAlignmentCenter;
     }
     return _secondRight;
 }
-- (UILabel *)thirdleft{
-    if (_thirdleft == nil) {
-        _thirdleft = [[UILabel alloc] init];
-        _thirdleft.text = @"获取返利";
-    }
-    return _thirdleft;
-}
-- (UILabel *)thirdCenter{
-    if (_thirdCenter == nil) {
-        _thirdCenter = [[UILabel alloc] init];
-        _thirdCenter.text = @"获取返利";
-    }
-    return _thirdCenter;
-}
-- (UILabel *)thirdRight{
-    if (_thirdRight == nil) {
-        _thirdRight = [[UILabel alloc] init];
-        _thirdRight.text = @"获取返利";
-    }
-    return _thirdRight;
-}
+//- (UILabel *)thirdleft{
+//    if (_thirdleft == nil) {
+//        _thirdleft = [[UILabel alloc] init];
+//        _thirdleft.text = @"获取返利";
+//    }
+//    return _thirdleft;
+//}
+//- (UILabel *)thirdCenter{
+//    if (_thirdCenter == nil) {
+//        _thirdCenter = [[UILabel alloc] init];
+//        _thirdCenter.text = @"获取返利";
+//    }
+//    return _thirdCenter;
+//}
+//- (UILabel *)thirdRight{
+//    if (_thirdRight == nil) {
+//        _thirdRight = [[UILabel alloc] init];
+//        _thirdRight.text = @"获取返利";
+//    }
+//    return _thirdRight;
+//}
 
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -196,7 +199,7 @@
         make.right.mas_equalTo(self.contentView.mas_right);
         make.top.mas_equalTo(self.sliederV.mas_bottom).mas_offset(1);
         make.height.mas_equalTo(kAdaptedWidth(50));
-
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(-10);
     }];
     
     [self.sliederTV addSubview:self.secondleft];
@@ -230,45 +233,53 @@
     
     
     
-    [self.contentView addSubview:self.sliederTherdTV];
-//    self.sliederTherdTV.backgroundColor = [UIColor blackColor];
-    [self.sliederTherdTV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.contentView.mas_left);
-        make.right.mas_equalTo(self.contentView.mas_right);
-        make.top.mas_equalTo(self.sliederTV.mas_bottom).mas_offset(1);
-        make.height.mas_equalTo(kAdaptedWidth(50));
-        make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(-10);
-    }];
-    
-    [self.sliederTherdTV addSubview:self.thirdleft];
-    [self.sliederTherdTV addSubview:self.thirdCenter];
-    [self.sliederTherdTV addSubview:self.thirdRight];
-
-    [self.thirdleft mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.sliederTherdTV.mas_left);
-        make.top.mas_equalTo(self.sliederTherdTV.mas_top);
-        make.bottom.mas_equalTo(self.sliederTherdTV.mas_bottom);
-        //make.right.mas_equalTo(self.thirdCenter.mas_left);
-        make.width.mas_equalTo(KScreenWidth / 3.0);
-    }];
-
-    [self.thirdCenter mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.thirdleft.mas_right);
-        make.top.mas_equalTo(self.sliederTherdTV.mas_top);
-        make.bottom.mas_equalTo(self.sliederTherdTV.mas_bottom);
-       // make.right.mas_equalTo(self.thirdRight.mas_left);
-        make.width.mas_equalTo(KScreenWidth / 3.0);
-    }];
-
-    [self.thirdRight mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.thirdCenter.mas_right);
-        make.top.mas_equalTo(self.sliederTherdTV.mas_top);
-        make.bottom.mas_equalTo(self.sliederTherdTV.mas_bottom);
-        //make.right.mas_equalTo(self.sliederTherdTV.mas_right);
-        make.width.mas_equalTo(KScreenWidth / 3.0);
-    }];
+//    [self.contentView addSubview:self.sliederTherdTV];
+////    self.sliederTherdTV.backgroundColor = [UIColor blackColor];
+//    [self.sliederTherdTV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(self.contentView.mas_left);
+//        make.right.mas_equalTo(self.contentView.mas_right);
+//        make.top.mas_equalTo(self.sliederTV.mas_bottom).mas_offset(1);
+//        make.height.mas_equalTo(kAdaptedWidth(50));
+//        make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(-10);
+//    }];
+//
+//    [self.sliederTherdTV addSubview:self.thirdleft];
+//    [self.sliederTherdTV addSubview:self.thirdCenter];
+//    [self.sliederTherdTV addSubview:self.thirdRight];
+//
+//    [self.thirdleft mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(self.sliederTherdTV.mas_left);
+//        make.top.mas_equalTo(self.sliederTherdTV.mas_top);
+//        make.bottom.mas_equalTo(self.sliederTherdTV.mas_bottom);
+//        //make.right.mas_equalTo(self.thirdCenter.mas_left);
+//        make.width.mas_equalTo(KScreenWidth / 3.0);
+//    }];
+//
+//    [self.thirdCenter mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(self.thirdleft.mas_right);
+//        make.top.mas_equalTo(self.sliederTherdTV.mas_top);
+//        make.bottom.mas_equalTo(self.sliederTherdTV.mas_bottom);
+//       // make.right.mas_equalTo(self.thirdRight.mas_left);
+//        make.width.mas_equalTo(KScreenWidth / 3.0);
+//    }];
+//
+//    [self.thirdRight mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(self.thirdCenter.mas_right);
+//        make.top.mas_equalTo(self.sliederTherdTV.mas_top);
+//        make.bottom.mas_equalTo(self.sliederTherdTV.mas_bottom);
+//        //make.right.mas_equalTo(self.sliederTherdTV.mas_right);
+//        make.width.mas_equalTo(KScreenWidth / 3.0);
+//    }];
 
     self.backgroundColor = LWColor(242, 242, 242);
+}
+
+
+- (void)setDayInModel:(DayInModel *)dayInModel{
+    _dayInModel = dayInModel;
+    self.firstleft.text = dayInModel.ProfitTime;
+    self.secondCenter.text = [NSString stringWithFormat:@"%d单",dayInModel.OrderNum];
+    self.secondRight.text = [NSString stringWithFormat:@"%d",dayInModel.ProfitIntegral];
 }
 
 @end

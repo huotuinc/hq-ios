@@ -12,6 +12,8 @@
 #import "MFPersonTableViewController.h"
 #import "HaoTickContainerViewController.h"
 #import "MiFangYaoQingController.h"
+#import "MyShopTableViewController.h"
+
 
 @interface LWTabBarController ()
 
@@ -39,28 +41,18 @@
 
 - (void)setupAllChildViewControllers
 {
-    
-    // 1.首页
     HaoTickContainerViewController * backVC = [[HaoTickContainerViewController alloc] init];
-//    backVC.view.backgroundColor = [UIColor redColor];
     [self setupChildViewController:backVC title:@"素材库" imageName:@"home" selectedImageName:@"home_hight"];
     
-    //
-//    UIViewController * menberVC = [[UIViewController alloc] init];
-//    menberVC.view.backgroundColor = [UIColor redColor];
-//    [self setupChildViewController:menberVC title:@"知识库" imageName:@"zsk" selectedImageName:@"zsk_hight"];
-    
+    MyShopTableViewController * vc = [[MyShopTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self setupChildViewController:vc title:@"我的小店" imageName:@"home" selectedImageName:@"home_hight"];
+  
     MiFangYaoQingController * menberVC1 = [[MiFangYaoQingController alloc] initWithStyle:UITableViewStyleGrouped];
-//    menberVC1.view.backgroundColor = [UIColor redColor];
     [self setupChildViewController:menberVC1 title:@"邀请入驻" imageName:@"yqlz" selectedImageName:@"yqlz_hight"];
     
-    
-    //
     MFPersonTableViewController * myVC = [[MFPersonTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-//    myVC.view.backgroundColor = [UIColor redColor];
     [self setupChildViewController:myVC title:@"个人中心" imageName:@"person" selectedImageName:@"person_hight"];
-    
-    
+
 }
 
 

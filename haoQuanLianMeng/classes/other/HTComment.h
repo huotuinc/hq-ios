@@ -58,6 +58,7 @@ return shared##classname;                           \
 #define kAdaptedFontSize(R)  kCHINESE_SYSTEM(kAdaptedWidth(R))
 #define kCHINESE_SYSTEM(x) [UIFont systemFontOfSize:x]
 
+#define AppMainColor [UIColor redColor]
 
 #define AppName @"觅方"
 #define WXAppID @"wx0aba629032d0ed6c"

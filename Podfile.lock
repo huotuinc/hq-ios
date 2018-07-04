@@ -38,6 +38,9 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.15.3)
+  - PGDatePicker (2.4.4):
+    - PGPickerView
+  - PGPickerView (1.2.6)
   - SDCycleScrollView (1.75):
     - SDWebImage (>= 4.0.0)
   - SDWebImage (4.3.3):
@@ -57,6 +60,7 @@ DEPENDENCIES:
   - Masonry
   - MJExtension
   - MJRefresh
+  - PGDatePicker
   - SDCycleScrollView
   - SDWebImage
   - SVProgressHUD
@@ -75,6 +79,8 @@ SPEC REPOS:
     - Masonry
     - MJExtension
     - MJRefresh
+    - PGDatePicker
+    - PGPickerView
     - SDCycleScrollView
     - SDWebImage
     - SVProgressHUD
@@ -92,12 +98,14 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  PGDatePicker: abe5103a83ce1f99e588308f8e39ae0b65d7c162
+  PGPickerView: 8fbbf63d0404065a43a495a0115d339455e0f819
   SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 5636e9e371b7c9ad2805ee0d51440dd0cf98f37e
+PODFILE CHECKSUM: b95c69c778bea811941f7604a9c0a465deeabbbf
 
 COCOAPODS: 1.5.0

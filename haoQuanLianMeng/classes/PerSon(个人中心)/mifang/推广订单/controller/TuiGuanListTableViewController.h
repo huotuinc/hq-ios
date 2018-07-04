@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TuiGuangModel.h"
+#import "OrderItemModel.h"
 
-@interface TuiGuanListTableViewController : UITableViewController
+@interface TuiGuanListTableViewController : LWTableViewController
 
 
-
-@property (nonatomic,assign) int type;
+//当前的选择状态
+@property (nonatomic,assign) TuiGuangOrderStatus orderStatus;
 
 
 @end

@@ -40,6 +40,7 @@
         _title = [[UILabel alloc] init];
         _title.text = @"我的钱包";
         _title.font = kAdaptedFontSize(13);
+        _title.textColor = LWColor(64, 64, 64);
     }
     return _title;
 }

@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TuiGuangListDelegate.h"
+
+@class TuiGuangCellModel;
 
 @interface ATuiGuangTableViewCell : UITableViewCell
+
+- (void)configure:(TuiGuangCellModel *) model;
+
+
+@property (nonatomic, strong) id<TuiGuangListDelegate>delegate;
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andData:(TuiGuangCellModel *)model;
+
 
 @end

@@ -101,6 +101,7 @@
 		1225BFC920C524870078D8D0 /* HaoTickContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1225BFC820C524870078D8D0 /* HaoTickContainerViewController.m */; };
 		1225BFCC20C526DB0078D8D0 /* HaoQuanListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1225BFCB20C526DB0078D8D0 /* HaoQuanListController.m */; };
 		1225BFD520C52E490078D8D0 /* HomeProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 1225BFD420C52E490078D8D0 /* HomeProduct.m */; };
+		123CCE1020EC5E1C000E9C33 /* DayInModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 123CCE0F20EC5E1C000E9C33 /* DayInModel.m */; };
 		1250505620D20F4E006E30C4 /* LWTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1250505520D20F4E006E30C4 /* LWTableViewController.m */; };
 		1250505920D20F69006E30C4 /* LWTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1250505820D20F69006E30C4 /* LWTableView.m */; };
 		1250505C20D2101F006E30C4 /* WXUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1250505B20D2101F006E30C4 /* WXUserModel.m */; };
@@ -179,6 +180,9 @@
 		12D6A47B20D0C68A00316AD3 /* LWInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D6A47A20D0C68A00316AD3 /* LWInviteViewController.m */; };
 		12D6A47E20D0CB9400316AD3 /* InviteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D6A47D20D0CB9400316AD3 /* InviteCollectionViewCell.m */; };
 		12D6A48420D10DE900316AD3 /* MyFlow.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D6A48320D10DE900316AD3 /* MyFlow.m */; };
+		12D7DBD120ECA18C00F4CD01 /* TuiGuangModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBD020ECA18C00F4CD01 /* TuiGuangModel.m */; };
+		12D7DBD420ECA7B400F4CD01 /* TuiGuangCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBD320ECA7B400F4CD01 /* TuiGuangCellModel.m */; };
+		12D7DBD820ECAC8E00F4CD01 /* OrderItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBD720ECAC8E00F4CD01 /* OrderItemModel.m */; };
 		12DAB77620E21AA600387104 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB77020E21AA600387104 /* SDPhotoBrowser.m */; };
 		12DAB77720E21AA600387104 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB77120E21AA600387104 /* SDWaitingView.m */; };
 		12DAB77820E21AA600387104 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB77220E21AA600387104 /* SDBrowserImageView.m */; };
@@ -206,6 +210,14 @@
 		12DE337120DCEFBA00374AA3 /* TuiGuangTop.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE337020DCEFBA00374AA3 /* TuiGuangTop.m */; };
 		12DE337420DCF46B00374AA3 /* TuiGuangCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE337320DCF46B00374AA3 /* TuiGuangCenter.m */; };
 		12DE337720DCF7A200374AA3 /* TuiGuangBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE337620DCF7A200374AA3 /* TuiGuangBottom.m */; };
+		12E450CC20EB126D00FB1B96 /* MyMiBenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E450CB20EB126D00FB1B96 /* MyMiBenTableViewController.m */; };
+		12E450CF20EB128400FB1B96 /* MiBenLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E450CE20EB128400FB1B96 /* MiBenLTableViewCell.m */; };
+		12E450D220EB1DE800FB1B96 /* MiBenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E450D120EB1DE800FB1B96 /* MiBenModel.m */; };
+		12E450D520EB23AA00FB1B96 /* MiFangWalletHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E450D420EB23AA00FB1B96 /* MiFangWalletHeader.m */; };
+		12E450D820EB4A0400FB1B96 /* DaiJieSuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E450D720EB4A0400FB1B96 /* DaiJieSuanViewController.m */; };
+		12E450E020EB606900FB1B96 /* ShopHomeHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E450DF20EB606900FB1B96 /* ShopHomeHeader.m */; };
+		12E450E420EB63D300FB1B96 /* MyShopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E450E320EB63D300FB1B96 /* MyShopTableViewController.m */; };
+		12E450E820EB6B6800FB1B96 /* InComeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E450E720EB6B6800FB1B96 /* InComeModel.m */; };
 		12F1418A20D898CB00FDC9CA /* EightBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1418920D898CB00FDC9CA /* EightBottomView.m */; };
 		12F1418F20D8A9EA00FDC9CA /* MiFangYaoHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1418E20D8A9EA00FDC9CA /* MiFangYaoHeader.m */; };
 		12F1419220D8B19100FDC9CA /* MiFangYaoQingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F1419120D8B19100FDC9CA /* MiFangYaoQingController.m */; };
@@ -456,6 +468,8 @@
 		1225BFD120C52C490078D8D0 /* DaoJishiView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaoJishiView.m; sourceTree = "<group>"; };
 		1225BFD320C52E490078D8D0 /* HomeProduct.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeProduct.h; sourceTree = "<group>"; };
 		1225BFD420C52E490078D8D0 /* HomeProduct.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeProduct.m; sourceTree = "<group>"; };
+		123CCE0E20EC5E1C000E9C33 /* DayInModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DayInModel.h; sourceTree = "<group>"; };
+		123CCE0F20EC5E1C000E9C33 /* DayInModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayInModel.m; sourceTree = "<group>"; };
 		1250505420D20F4E006E30C4 /* LWTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTableViewController.h; sourceTree = "<group>"; };
 		1250505520D20F4E006E30C4 /* LWTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWTableViewController.m; sourceTree = "<group>"; };
 		1250505720D20F69006E30C4 /* LWTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWTableView.h; sourceTree = "<group>"; };
@@ -599,6 +613,13 @@
 		12D6A47D20D0CB9400316AD3 /* InviteCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InviteCollectionViewCell.m; sourceTree = "<group>"; };
 		12D6A48220D10DE900316AD3 /* MyFlow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyFlow.h; sourceTree = "<group>"; };
 		12D6A48320D10DE900316AD3 /* MyFlow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyFlow.m; sourceTree = "<group>"; };
+		12D7DBCF20ECA18C00F4CD01 /* TuiGuangModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuiGuangModel.h; sourceTree = "<group>"; };
+		12D7DBD020ECA18C00F4CD01 /* TuiGuangModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TuiGuangModel.m; sourceTree = "<group>"; };
+		12D7DBD220ECA7B400F4CD01 /* TuiGuangCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuiGuangCellModel.h; sourceTree = "<group>"; };
+		12D7DBD320ECA7B400F4CD01 /* TuiGuangCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TuiGuangCellModel.m; sourceTree = "<group>"; };
+		12D7DBD520ECA8AE00F4CD01 /* TuiGuangListDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuiGuangListDelegate.h; sourceTree = "<group>"; };
+		12D7DBD620ECAC8E00F4CD01 /* OrderItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderItemModel.h; sourceTree = "<group>"; };
+		12D7DBD720ECAC8E00F4CD01 /* OrderItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderItemModel.m; sourceTree = "<group>"; };
 		12DAB76F20E21AA600387104 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
 		12DAB77020E21AA600387104 /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
 		12DAB77120E21AA600387104 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
@@ -652,6 +673,22 @@
 		12DE337320DCF46B00374AA3 /* TuiGuangCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TuiGuangCenter.m; sourceTree = "<group>"; };
 		12DE337520DCF7A200374AA3 /* TuiGuangBottom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuiGuangBottom.h; sourceTree = "<group>"; };
 		12DE337620DCF7A200374AA3 /* TuiGuangBottom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TuiGuangBottom.m; sourceTree = "<group>"; };
+		12E450CA20EB126D00FB1B96 /* MyMiBenTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMiBenTableViewController.h; sourceTree = "<group>"; };
+		12E450CB20EB126D00FB1B96 /* MyMiBenTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMiBenTableViewController.m; sourceTree = "<group>"; };
+		12E450CD20EB128400FB1B96 /* MiBenLTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiBenLTableViewCell.h; sourceTree = "<group>"; };
+		12E450CE20EB128400FB1B96 /* MiBenLTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiBenLTableViewCell.m; sourceTree = "<group>"; };
+		12E450D020EB1DE800FB1B96 /* MiBenModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiBenModel.h; sourceTree = "<group>"; };
+		12E450D120EB1DE800FB1B96 /* MiBenModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiBenModel.m; sourceTree = "<group>"; };
+		12E450D320EB23AA00FB1B96 /* MiFangWalletHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiFangWalletHeader.h; sourceTree = "<group>"; };
+		12E450D420EB23AA00FB1B96 /* MiFangWalletHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiFangWalletHeader.m; sourceTree = "<group>"; };
+		12E450D620EB4A0400FB1B96 /* DaiJieSuanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DaiJieSuanViewController.h; sourceTree = "<group>"; };
+		12E450D720EB4A0400FB1B96 /* DaiJieSuanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DaiJieSuanViewController.m; sourceTree = "<group>"; };
+		12E450DE20EB606900FB1B96 /* ShopHomeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopHomeHeader.h; sourceTree = "<group>"; };
+		12E450DF20EB606900FB1B96 /* ShopHomeHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopHomeHeader.m; sourceTree = "<group>"; };
+		12E450E220EB63D300FB1B96 /* MyShopTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyShopTableViewController.h; sourceTree = "<group>"; };
+		12E450E320EB63D300FB1B96 /* MyShopTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyShopTableViewController.m; sourceTree = "<group>"; };
+		12E450E620EB6B6800FB1B96 /* InComeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InComeModel.h; sourceTree = "<group>"; };
+		12E450E720EB6B6800FB1B96 /* InComeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InComeModel.m; sourceTree = "<group>"; };
 		12F1418820D898CB00FDC9CA /* EightBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EightBottomView.h; sourceTree = "<group>"; };
 		12F1418920D898CB00FDC9CA /* EightBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EightBottomView.m; sourceTree = "<group>"; };
 		12F1418D20D8A9EA00FDC9CA /* MiFangYaoHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiFangYaoHeader.h; sourceTree = "<group>"; };
@@ -1210,6 +1247,7 @@
 		1210877020DE0BDD00CF4D5E /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				12D7DBCE20ECA17800F4CD01 /* model */,
 				1210877120DE0C3F00CF4D5E /* TuiGuangViewController.h */,
 				1210877220DE0C3F00CF4D5E /* TuiGuangViewController.m */,
 				1210877420DE0CFC00CF4D5E /* TuiGuanListTableViewController.h */,
@@ -1446,9 +1484,19 @@
 			path = daoJishi;
 			sourceTree = "<group>";
 		};
+		123CCE0D20EC5E07000E9C33 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				123CCE0E20EC5E1C000E9C33 /* DayInModel.h */,
+				123CCE0F20EC5E1C000E9C33 /* DayInModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		1250505220D20F08006E30C4 /* mifang */ = {
 			isa = PBXGroup;
 			children = (
+				12E450D920EB596F00FB1B96 /* 我的小店 */,
 				12217AFB20E476110085B85E /* 绑定手机 */,
 				1210877720DE242800CF4D5E /* 店主课堂 */,
 				12DE336A20DCE2C300374AA3 /* 推广订单 */,
@@ -1730,6 +1778,7 @@
 		12B6C8B820D9F25500E3B8C4 /* 收益中心 */ = {
 			isa = PBXGroup;
 			children = (
+				12E450E520EB6B4800FB1B96 /* model */,
 				12DE336320DC898A00374AA3 /* 每日收益 */,
 				12B6C8B920D9F25E00E3B8C4 /* view */,
 			);
@@ -1793,6 +1842,20 @@
 			);
 			name = controller;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		12D7DBCE20ECA17800F4CD01 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				12D7DBCF20ECA18C00F4CD01 /* TuiGuangModel.h */,
+				12D7DBD020ECA18C00F4CD01 /* TuiGuangModel.m */,
+				12D7DBD220ECA7B400F4CD01 /* TuiGuangCellModel.h */,
+				12D7DBD320ECA7B400F4CD01 /* TuiGuangCellModel.m */,
+				12D7DBD520ECA8AE00F4CD01 /* TuiGuangListDelegate.h */,
+				12D7DBD620ECAC8E00F4CD01 /* OrderItemModel.h */,
+				12D7DBD720ECAC8E00F4CD01 /* OrderItemModel.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		12DAB76E20E21AA600387104 /* SDPhotoBrowser */ = {
@@ -1898,6 +1961,7 @@
 		12DE336320DC898A00374AA3 /* 每日收益 */ = {
 			isa = PBXGroup;
 			children = (
+				123CCE0D20EC5E07000E9C33 /* model */,
 				12DE336420DC8A2F00374AA3 /* ShouYiTableViewCell.h */,
 				12DE336520DC8A2F00374AA3 /* ShouYiTableViewCell.m */,
 				12DE336720DCC97200374AA3 /* DayInComeTableViewController.h */,
@@ -1928,6 +1992,75 @@
 				12DE336D20DCE30400374AA3 /* ATuiGuangTableViewCell.m */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		12E450C920EB124200FB1B96 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				12E450D620EB4A0400FB1B96 /* DaiJieSuanViewController.h */,
+				12E450D720EB4A0400FB1B96 /* DaiJieSuanViewController.m */,
+				12E450CA20EB126D00FB1B96 /* MyMiBenTableViewController.h */,
+				12E450CB20EB126D00FB1B96 /* MyMiBenTableViewController.m */,
+				12E450CD20EB128400FB1B96 /* MiBenLTableViewCell.h */,
+				12E450CE20EB128400FB1B96 /* MiBenLTableViewCell.m */,
+				12E450D020EB1DE800FB1B96 /* MiBenModel.h */,
+				12E450D120EB1DE800FB1B96 /* MiBenModel.m */,
+				12E450D320EB23AA00FB1B96 /* MiFangWalletHeader.h */,
+				12E450D420EB23AA00FB1B96 /* MiFangWalletHeader.m */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		12E450D920EB596F00FB1B96 /* 我的小店 */ = {
+			isa = PBXGroup;
+			children = (
+				12E450DA20EB597800FB1B96 /* shopHome */,
+			);
+			path = "我的小店";
+			sourceTree = "<group>";
+		};
+		12E450DA20EB597800FB1B96 /* shopHome */ = {
+			isa = PBXGroup;
+			children = (
+				12E450DD20EB598F00FB1B96 /* model */,
+				12E450DC20EB598700FB1B96 /* controller */,
+				12E450DB20EB598200FB1B96 /* view */,
+			);
+			path = shopHome;
+			sourceTree = "<group>";
+		};
+		12E450DB20EB598200FB1B96 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				12E450DE20EB606900FB1B96 /* ShopHomeHeader.h */,
+				12E450DF20EB606900FB1B96 /* ShopHomeHeader.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		12E450DC20EB598700FB1B96 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				12E450E220EB63D300FB1B96 /* MyShopTableViewController.h */,
+				12E450E320EB63D300FB1B96 /* MyShopTableViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		12E450DD20EB598F00FB1B96 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		12E450E520EB6B4800FB1B96 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				12E450E620EB6B6800FB1B96 /* InComeModel.h */,
+				12E450E720EB6B6800FB1B96 /* InComeModel.m */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		12F1418B20D8A9B400FDC9CA /* yao(邀请入驻) */ = {
@@ -1982,6 +2115,7 @@
 		12F141A720D9247700FDC9CA /* wallet */ = {
 			isa = PBXGroup;
 			children = (
+				12E450C920EB124200FB1B96 /* Detail */,
 				12F141A820D9249A00FDC9CA /* MyWalletTableViewController.h */,
 				12F141A920D9249A00FDC9CA /* MyWalletTableViewController.m */,
 			);
@@ -2344,6 +2478,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-haoQuanLianMeng/Pods-haoQuanLianMeng-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/PGDatePicker/PGDatePicker/PGDatePicker.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/iRate/iRate/iRate.bundle",
 			);
@@ -2351,6 +2486,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PGDatePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/iRate.bundle",
 			);
@@ -2367,6 +2503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1207327F20C545810057AB66 /* DaoJishiView.m in Sources */,
+				12D7DBD820ECAC8E00F4CD01 /* OrderItemModel.m in Sources */,
 				1214689020DA30C100E54048 /* TiXianCell.m in Sources */,
 				12F1418A20D898CB00FDC9CA /* EightBottomView.m in Sources */,
 				12D6A47720D0C35400316AD3 /* InviteHeader.m in Sources */,
@@ -2385,6 +2522,7 @@
 				12F1418F20D8A9EA00FDC9CA /* MiFangYaoHeader.m in Sources */,
 				1214689420DA365900E54048 /* TiXianViewController.m in Sources */,
 				126A991720C78E6E00B2723A /* HTStoryBottomView.m in Sources */,
+				12E450D220EB1DE800FB1B96 /* MiBenModel.m in Sources */,
 				12AA816B20EA1A91006F87D1 /* XZEaseBlankPageView.m in Sources */,
 				12F141A020D8E81A00FDC9CA /* YaoqingHeadView.m in Sources */,
 				120CC22220BF8ADF00251FC0 /* HomeSegementViewController.m in Sources */,
@@ -2396,6 +2534,7 @@
 				120CC18B20BD3F9000251FC0 /* HomeBannerView.m in Sources */,
 				1205BBF220BBA96600032F3C /* AppDelegate.m in Sources */,
 				12A997DB20E0EFC1003FAA89 /* saveImageView.m in Sources */,
+				12E450D520EB23AA00FB1B96 /* MiFangWalletHeader.m in Sources */,
 				1225BFCC20C526DB0078D8D0 /* HaoQuanListController.m in Sources */,
 				121B5CB920C674120049F87F /* TuiGuangTopView.m in Sources */,
 				121B5CBC20C677820049F87F /* HTTuiGuangViewController.m in Sources */,
@@ -2415,6 +2554,7 @@
 				12FCDA1F20C11D1600D0582B /* HeadIconView.m in Sources */,
 				120CC21520BE95C600251FC0 /* MoneyHeaderView.m in Sources */,
 				12FCDA2E20C1478500D0582B /* PHHeadDownDownView.m in Sources */,
+				12E450CC20EB126D00FB1B96 /* MyMiBenTableViewController.m in Sources */,
 				12DAB7AE20E3309000387104 /* WKTestAudioOutput.m in Sources */,
 				12A997DE20E0F0EE003FAA89 /* XZWaittingView.m in Sources */,
 				1210878320DE2DD300CF4D5E /* DianZhuTableViewController.m in Sources */,
@@ -2451,7 +2591,9 @@
 				12D6A47320D0C2E100316AD3 /* InviteViewController.m in Sources */,
 				1256F01B20D3ADE600BFE766 /* MyWalletTableViewCell.m in Sources */,
 				12FCDA2520C12A5C00D0582B /* PerHeadViewContainer.m in Sources */,
+				12E450E820EB6B6800FB1B96 /* InComeModel.m in Sources */,
 				120CC22920BFD84E00251FC0 /* HomeListItemView.m in Sources */,
+				12E450CF20EB128400FB1B96 /* MiBenLTableViewCell.m in Sources */,
 				120CC1F120BE577600251FC0 /* MBProgressHUD+Add.m in Sources */,
 				120CC18820BD3AD700251FC0 /* HomeFourItem.m in Sources */,
 				12DE337720DCF7A200374AA3 /* TuiGuangBottom.m in Sources */,
@@ -2491,6 +2633,8 @@
 				121B5CC520C690790049F87F /* TuiGuangViewDownView.m in Sources */,
 				1225BFD520C52E490078D8D0 /* HomeProduct.m in Sources */,
 				1256F02920D3C17800BFE766 /* EightTableViewCell.m in Sources */,
+				12E450E420EB63D300FB1B96 /* MyShopTableViewController.m in Sources */,
+				12D7DBD420ECA7B400F4CD01 /* TuiGuangCellModel.m in Sources */,
 				12DAB79820E21E0A00387104 /* YLImageView.m in Sources */,
 				1214689720DA367500E54048 /* TiXianTopView.m in Sources */,
 				1250508B20D2706B006E30C4 /* ProductMessage.m in Sources */,
@@ -2513,6 +2657,7 @@
 				120CC15620BCEA5A00251FC0 /* HTAFHTTPSessionManager.m in Sources */,
 				12DAB78F20E21DD600387104 /* MJPhotoToolbar.m in Sources */,
 				1256F01F20D3AEB500BFE766 /* MyWalletTopView.m in Sources */,
+				12D7DBD120ECA18C00F4CD01 /* TuiGuangModel.m in Sources */,
 				120CC1D420BE4F3200251FC0 /* PhoneViewCell.m in Sources */,
 				1256F02520D3B32200BFE766 /* MyWalletBottomView.m in Sources */,
 				1281D90A20DB44EB008A255B /* AcFooterView.m in Sources */,
@@ -2527,6 +2672,7 @@
 				1210877620DE0CFC00CF4D5E /* TuiGuanListTableViewController.m in Sources */,
 				1281D93320DBA34D008A255B /* TeamHeadView.m in Sources */,
 				12D6A47E20D0CB9400316AD3 /* InviteCollectionViewCell.m in Sources */,
+				123CCE1020EC5E1C000E9C33 /* DayInModel.m in Sources */,
 				12F141AA20D9249A00FDC9CA /* MyWalletTableViewController.m in Sources */,
 				120CC1FD20BE719B00251FC0 /* HTPhoneTableViewCell.m in Sources */,
 				120CC1A320BD4DCA00251FC0 /* YYCGUtilities.m in Sources */,
@@ -2536,6 +2682,7 @@
 				12F1419820D8DA5F00FDC9CA /* MiFangFooter.m in Sources */,
 				1281D93E20DBC9C9008A255B /* PriceJudgeCollectionViewCell.m in Sources */,
 				1281D93B20DBC932008A255B /* JudgeView.m in Sources */,
+				12E450E020EB606900FB1B96 /* ShopHomeHeader.m in Sources */,
 				120CC1C020BE399F00251FC0 /* HTArticleModel.m in Sources */,
 				12B6C8C220D9FDA300E3B8C4 /* InComeTopView.m in Sources */,
 				1281D92D20DB9752008A255B /* TemDetailBottom.m in Sources */,
@@ -2543,6 +2690,7 @@
 				12FCDA2220C126A200D0582B /* LWTabBarController.m in Sources */,
 				12FCDA2B20C13E0500D0582B /* PHHeadCenterDown.m in Sources */,
 				120CC22C20BFDF4C00251FC0 /* ShuListTableViewCell.m in Sources */,
+				12E450D820EB4A0400FB1B96 /* DaiJieSuanViewController.m in Sources */,
 				1256F00320D360AA00BFE766 /* ProfuctMessageCell.m in Sources */,
 				1225BFC920C524870078D8D0 /* HaoTickContainerViewController.m in Sources */,
 				12DAB79720E21E0A00387104 /* YLGIFImage.m in Sources */,
