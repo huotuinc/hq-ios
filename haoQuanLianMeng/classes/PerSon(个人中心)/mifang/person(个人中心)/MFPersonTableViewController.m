@@ -59,14 +59,14 @@
 }
 
 
-- (MFPersonHeaderView *)mpPersonHeaderView{
-    if (_mpPersonHeaderView == nil) {
-        _mpPersonHeaderView = [[MFPersonHeaderView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, kAdaptedWidth(156))];
-        _mpPersonHeaderView.delegate = self;
-//        _mpPersonHeaderView.backgroundColor = [UIColor redColor];
-    }
-    return _mpPersonHeaderView;
-}
+//- (MFPersonHeaderView *)mpPersonHeaderView{
+//    if (_mpPersonHeaderView == nil) {
+//        _mpPersonHeaderView = [[MFPersonHeaderView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, kAdaptedWidth(156))];
+//        _mpPersonHeaderView.delegate = self;
+////        _mpPersonHeaderView.backgroundColor = [UIColor redColor];
+//    }
+//    return _mpPersonHeaderView;
+//}
 
 
 
@@ -131,6 +131,12 @@
 //    http://api.mingshz.com/mock/65/user/Index
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/Index" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
+        
+        _mpPersonHeaderView = [[MFPersonHeaderView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, kAdaptedWidth(156)) withHeader:YES];
+        _mpPersonHeaderView.delegate = self;
+        self.tableView.tableHeaderView = self.mpPersonHeaderView;
+        
+        
         MiFangUserCenterModel * model = [MiFangUserCenterModel mj_objectWithKeyValues:json[@"data"]];
         [self setUpInit:model];
     } failure:^(NSError *error) {
@@ -138,7 +144,7 @@
     }];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.tableHeaderView = self.mpPersonHeaderView;
+//    self.tableView.tableHeaderView = self.mpPersonHeaderView;
     
     self.tableView.sectionHeaderHeight = 10;
     self.tableView.sectionFooterHeight = 1;
@@ -288,8 +294,11 @@
 
 - (void)xufeiClick{
   
-    BuyAccountTableViewController * vc = [[BuyAccountTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    [self.mpPersonHeaderView refresh];
+    [self.tableView reloadData];
+//    BuyAccountTableViewController * vc = [[BuyAccountTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 //HTSettingTableViewController * vc = [[UIStoryboard storyboardWithName:@"Person" bundle:nil] instantiateViewControllerWithIdentifier:@"HTSettingTableViewController"];
 //[self.navigationController pushViewController:vc animated:YES];

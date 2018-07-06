@@ -2,29 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2df199f6-29fc-47f6-a772-36b063915338" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/Model/Team.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/Model/Team.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/Model/TeamInfoModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/Model/TeamInfoModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/TeamPListModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/TeamPListModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamBaseView.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamBaseView.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/MyTeamController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/MyTeamController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/View/MyTeamHead.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/View/MyTeamHead.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/View/MyTeamHead.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/View/MyTeamHead.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/View/TeamTableViewCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/View/TeamTableViewCell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/View/TeamTableViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/View/TeamTableViewCell.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/JudgeView.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/JudgeView.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/JudgeView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/JudgeView.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamDetailViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamDetailViewController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamDetailViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamDetailViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamHeadView.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamHeadView.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamHeadView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamHeadView.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamHeadView.xib" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/团队/团队Detail/view/TeamHeadView.xib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/haoQuanLianMeng.pch" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/haoQuanLianMeng.pch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/main/LWLaunchViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/main/LWLaunchViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/HTUserModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/HTUserModel.h" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/haoQuanLianMeng-gmdmoyulaoeriabepdltglltkfgd/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,14 +20,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_7cae9741b7af849a739bb7810205631d65566b21" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TuiGuanListTableViewController.m" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/controller/TuiGuanListTableViewController.m">
+      <file leaf-file-name="MfBangDingTableViewController.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
-              <folding>
-                <element signature="e#147#189#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="498">
+              <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -98,6 +78,7 @@
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/view/TuiGuangTop.h" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/view/TuiGuangTop.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/view/ATuiGuangTableViewCell.m" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m" />
       </list>
     </option>
   </component>
@@ -110,7 +91,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="75" />
     <option name="y" value="31" />
     <option name="width" value="1365" />
@@ -121,8 +102,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Cidr.FilesView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -163,38 +142,7 @@
               <item name="classes" type="fcab9f18:XcodeViewNode" />
               <item name="PerSon(个人中心)" type="fcab9f18:XcodeViewNode" />
               <item name="mifang" type="fcab9f18:XcodeViewNode" />
-              <item name="推广订单" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="haoQuanLianMeng" type="1d218c8b:XcodeProjectNode" />
-              <item name="haoQuanLianMeng" type="fcab9f18:XcodeViewNode" />
-              <item name="classes" type="fcab9f18:XcodeViewNode" />
-              <item name="PerSon(个人中心)" type="fcab9f18:XcodeViewNode" />
-              <item name="mifang" type="fcab9f18:XcodeViewNode" />
-              <item name="推广订单" type="fcab9f18:XcodeViewNode" />
-              <item name="controller" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="haoQuanLianMeng" type="1d218c8b:XcodeProjectNode" />
-              <item name="haoQuanLianMeng" type="fcab9f18:XcodeViewNode" />
-              <item name="classes" type="fcab9f18:XcodeViewNode" />
-              <item name="PerSon(个人中心)" type="fcab9f18:XcodeViewNode" />
-              <item name="mifang" type="fcab9f18:XcodeViewNode" />
-              <item name="推广订单" type="fcab9f18:XcodeViewNode" />
-              <item name="controller" type="fcab9f18:XcodeViewNode" />
-              <item name="model" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="haoQuanLianMeng" type="1d218c8b:XcodeProjectNode" />
-              <item name="haoQuanLianMeng" type="fcab9f18:XcodeViewNode" />
-              <item name="classes" type="fcab9f18:XcodeViewNode" />
-              <item name="PerSon(个人中心)" type="fcab9f18:XcodeViewNode" />
-              <item name="mifang" type="fcab9f18:XcodeViewNode" />
-              <item name="推广订单" type="fcab9f18:XcodeViewNode" />
-              <item name="view" type="fcab9f18:XcodeViewNode" />
+              <item name="绑定手机" type="fcab9f18:XcodeViewNode" />
             </path>
             <path>
               <item name="" type="efc3779f:XcodeRootNode" />
@@ -273,6 +221,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Cidr.FilesView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -321,11 +271,12 @@
       <workItem from="1529027091695" duration="7287000" />
       <workItem from="1530001661374" duration="690000" />
       <workItem from="1530683969433" duration="6375000" />
+      <workItem from="1530856702343" duration="534000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21607000" />
+    <option name="totallyTimeSpent" value="22141000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -337,28 +288,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="31" width="1365" height="877" extended-state="1" />
+    <frame x="75" y="31" width="1365" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.0922619" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32948717" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32820514" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.67948717" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32948717" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32948717" />
-      <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3110119" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.67948717" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.6871795" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32948717" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.6871795" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32820514" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,11 +336,31 @@
           <line>47</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m</url>
+          <line>85</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m</url>
+          <line>87</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/controller/TuiGuanListTableViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#147#189#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/view/PHHeadCenterDown.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -426,13 +397,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="491">
           <caret line="80" selection-start-line="80" selection-end-line="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/HTTool.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2059">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -568,9 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
           <caret line="114" column="111" selection-start-line="114" selection-start-column="111" selection-end-line="114" selection-end-column="111" />
-          <folding>
-            <element signature="e#144#183#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -581,18 +542,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/controller/TuiGuangViewController.m">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/other/inhert/LWTableViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-300">
           <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="33" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/other/HTComment.h">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/other/haoQuanLianMeng.pch">
       <provider selected="true" editor-type-id="text-editor">
@@ -615,9 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-          <folding>
-            <element signature="e#147#170#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -628,9 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/controller/model/TuiGuangListDelegate.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/controller/model/TuiGuangCellModel.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -638,16 +587,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/controller/TuiGuangViewController.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/view/ATuiGuangTableViewCell.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#138#161#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,9 +605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="40" />
-          <folding>
-            <element signature="e#128#151#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -696,6 +636,20 @@
           <folding>
             <element signature="e#147#189#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/HTTool.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-52">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="62" column="26" selection-start-line="62" selection-start-column="26" selection-end-line="62" selection-end-column="26" />
         </state>
       </provider>
     </entry>

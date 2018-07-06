@@ -132,6 +132,7 @@
 		1256F02920D3C17800BFE766 /* EightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1256F02820D3C17800BFE766 /* EightTableViewCell.m */; };
 		126A991320C78E0A00B2723A /* HTStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126A991220C78E0A00B2723A /* HTStoryViewController.m */; };
 		126A991720C78E6E00B2723A /* HTStoryBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 126A991620C78E6E00B2723A /* HTStoryBottomView.m */; };
+		1273A58020EF415200C384DB /* MiFangPersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1273A57F20EF415200C384DB /* MiFangPersonHeaderView.m */; };
 		127ED8CC20C53C420071C1FE /* UIView+YHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 127ED8CB20C53C410071C1FE /* UIView+YHAdd.m */; };
 		127ED8D020C53D990071C1FE /* HomeContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 127ED8CF20C53D990071C1FE /* HomeContainerView.m */; };
 		127ED8D320C5447C0071C1FE /* DaoJishiTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 127ED8D220C5447C0071C1FE /* DaoJishiTopView.m */; };
@@ -526,6 +527,8 @@
 		126A991220C78E0A00B2723A /* HTStoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTStoryViewController.m; sourceTree = "<group>"; };
 		126A991520C78E6E00B2723A /* HTStoryBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTStoryBottomView.h; sourceTree = "<group>"; };
 		126A991620C78E6E00B2723A /* HTStoryBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTStoryBottomView.m; sourceTree = "<group>"; };
+		1273A57E20EF415200C384DB /* MiFangPersonHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiFangPersonHeaderView.h; sourceTree = "<group>"; };
+		1273A57F20EF415200C384DB /* MiFangPersonHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiFangPersonHeaderView.m; sourceTree = "<group>"; };
 		127ED8CA20C53C410071C1FE /* UIView+YHAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YHAdd.h"; sourceTree = "<group>"; };
 		127ED8CB20C53C410071C1FE /* UIView+YHAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YHAdd.m"; sourceTree = "<group>"; };
 		127ED8CE20C53D990071C1FE /* HomeContainerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeContainerView.h; sourceTree = "<group>"; };
@@ -1535,6 +1538,8 @@
 				12DAB7B020E37E9700387104 /* model */,
 				1250507820D26595006E30C4 /* MFPersonTableViewController.h */,
 				1250507920D26595006E30C4 /* MFPersonTableViewController.m */,
+				1273A57E20EF415200C384DB /* MiFangPersonHeaderView.h */,
+				1273A57F20EF415200C384DB /* MiFangPersonHeaderView.m */,
 				12217B0620E4E0670085B85E /* MPBannerTableViewCell.h */,
 				12217B0720E4E0670085B85E /* MPBannerTableViewCell.m */,
 				1206B4B920E5DF18000FB0D0 /* ErWeiMaView.h */,
@@ -2732,6 +2737,7 @@
 				1281D92D20DB9752008A255B /* TemDetailBottom.m in Sources */,
 				127ED8D020C53D990071C1FE /* HomeContainerView.m in Sources */,
 				12FCDA2220C126A200D0582B /* LWTabBarController.m in Sources */,
+				1273A58020EF415200C384DB /* MiFangPersonHeaderView.m in Sources */,
 				12FCDA2B20C13E0500D0582B /* PHHeadCenterDown.m in Sources */,
 				120CC22C20BFDF4C00251FC0 /* ShuListTableViewCell.m in Sources */,
 				12E450D820EB4A0400FB1B96 /* DaiJieSuanViewController.m in Sources */,

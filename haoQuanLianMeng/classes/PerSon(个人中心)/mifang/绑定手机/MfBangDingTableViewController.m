@@ -7,6 +7,7 @@
 //
 
 #import "MfBangDingTableViewController.h"
+#import "LWTabBarController.h"
 
 @interface MfBangDingTableViewController ()
 
@@ -34,12 +35,37 @@
     
     
     
+    self.navigationItem.title = @"绑定手机号";
+   
+    
     
     KWeakSelf(self);
     self.yanz.userInteractionEnabled = YES;
     [self.yanz bk_whenTapped:^{
-        [weakself begainCountDown];
+
+        [weakself getCode];
+
     }];
+}
+
+
+
+- (void)getCode{
+//    /user/sendCode
+    if(![[HTTool HTToolShare] HTToolValidateMobile:self.inPutPhone.text]){
+        [MBProgressHUD showError:@"手机号码错误"];
+    }
+
+    [self begainCountDown];
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/sendCode"
+                                                                 parame:dict isHud:NO isHaseCache:NO success:^(id json) {
+            LWLog(@"%@",json);
+#warning luohaibo  获取手机验证码
+        } failure:^(NSError *error) {
+
+        }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,9 +77,37 @@
 
 //绑定手机
 - (IBAction)btn:(id)sender {
+    
+//    user/updateMobile
+    if (!self.inputCode.text.length){
+        [MBProgressHUD showError:@"验证码错误"];
+    }
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@""] = @"13857560740";
+    dict[@""] = @"1234";
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/updateMobile" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+#warning luohaibo
+        if (self.phoneType == 0){
+            LWTabBarController * vc = [[LWTabBarController alloc] init];//
+            [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+        }
+
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error.description);
+    }];
+    
 }
 
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    if (section == 0 ) {
+        if(self.phoneType == 0)
+            return 0;
+        return 1;
+    }
+    return 2;
+}
 - (void)begainCountDown{
     __block NSInteger timeout = 60; //倒计时时间
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);

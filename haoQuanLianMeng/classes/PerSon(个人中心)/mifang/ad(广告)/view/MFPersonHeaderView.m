@@ -7,8 +7,14 @@
 //
 
 #import "MFPersonHeaderView.h"
+#import "MiFangPersonHeaderView.h"
+
+
 
 @interface MFPersonHeaderView ()
+
+@property (nonatomic,strong) MiFangPersonHeaderView  * titleHeader;
+
 
 @property (nonatomic,strong) UIImageView  * iconView;
 
@@ -20,11 +26,23 @@
 
 @property (nonatomic,strong) UIButton * erButton;
 
+@property (nonatomic,assign) BOOL  haveHeader;
+
 
 @end
 
 
 @implementation MFPersonHeaderView
+
+
+- (MiFangPersonHeaderView *)titleHeader{
+    if (_titleHeader == nil) {
+        _titleHeader = [[MiFangPersonHeaderView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 0)];
+        _titleHeader.backgroundColor = LWColor(109, 164, 242);
+    }
+    return _titleHeader;
+}
+
 
 
 - (UIImageView *)iconView{
@@ -83,13 +101,18 @@
     return _erButton;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame withHeader:(BOOL)header{
+    
     if (self = [super initWithFrame:frame]) {
-        
+        self.haveHeader = header;
         [self setUpInit];
     }
     return self;
+    
+    
 }
+
+
 
 
 - (void)configWithData:(MiFangUserCenterModel *)model{
@@ -101,12 +124,21 @@
 - (void)setUpInit{
     
     self.backgroundColor = [UIColor whiteColor];
+    [self addSubview:self.titleHeader];
+    if (self.haveHeader) {
+        self.titleHeader.frame = CGRectMake(0, 0, KScreenWidth, 30);
+    }
     
-    self.iconView.frame = CGRectMake((KScreenWidth - kAdaptedWidth(70)) * 0.5, self.frame.size.height * 0.5 - 20 - kAdaptedWidth(70) * 0.5, kAdaptedWidth(70), kAdaptedWidth(70));
-    self.iconView.layer.cornerRadius = self.iconView.frame.size.width * 0.5;
+    CGFloat a = CGRectGetMaxY(self.titleHeader.frame);
+//    self.iconView.frame = CGRectMake((KScreenWidth - kAdaptedWidth(70)) * 0.5, CGRectGetMaxY(self.titleHeader.frame) + kAdaptedWidth(21), kAdaptedWidth(70), kAdaptedWidth(70));
+    self.iconView.layer.cornerRadius = kAdaptedWidth(70) * 0.5;
     self.iconView.layer.masksToBounds = YES;
     [self addSubview:self.iconView];
-    
+    [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.width.mas_equalTo(kAdaptedWidth(70));
+        make.top.mas_equalTo(self.titleHeader.mas_bottom).mas_offset(kAdaptedWidth(21));
+        make.left.mas_equalTo(self.mas_left).mas_offset((KScreenWidth - kAdaptedWidth(70)) * 0.5);
+    }];
 //    [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.centerY.mas_equalTo(self.mas_centerY);
 //        make.height.width.mas_equalTo(kAdaptedWidth(70));
@@ -117,10 +149,14 @@
 
         LWLog(@"%@", NSStringFromCGRect(self.iconView.frame));
     CGFloat height = [HTToolShareManager titleHeightWithFont:20];
-    self.nameLabel.frame = CGRectMake(0, CGRectGetMaxY(self.iconView.frame)
-, KScreenWidth, height);
+//    self.nameLabel.frame = CGRectMake(0, CGRectGetMaxY(self.iconView.frame) + kAdaptedWidth(5)
+//, KScreenWidth, height);
     [self addSubview:self.nameLabel];
-    
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.iconView.mas_bottom).mas_offset(kAdaptedWidth(5));
+        make.height.mas_equalTo(height);
+        make.centerX.mas_equalTo(self.iconView.mas_centerX);
+    }];
     
    
     [self addSubview:self.levelLabel];
@@ -135,7 +171,7 @@
     [self addSubview:self.setLabel];
     self.setLabel.text = @"设置";
     [self.setLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.mas_top).mas_offset(10);
+        make.top.mas_equalTo(self.titleHeader.mas_bottom).mas_offset(5);
         make.left.mas_equalTo(self.mas_left).mas_offset(20);
         make.height.width.mas_equalTo(44);
 //        make.height.mas_equalTo(height);
@@ -144,11 +180,29 @@
 //    height = [HTToolShareManager titleHeightWithFont:20];
     [self addSubview:self.erButton];
     [self.erButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.mas_top).mas_offset(10);
+        make.top.mas_equalTo(self.titleHeader.mas_bottom).mas_offset(5);
         make.right.mas_equalTo(self.mas_right).mas_offset(-20);
         make.height.width.mas_equalTo(44);
     }];
-    
+    CGFloat heightx = kAdaptedWidth(21) + kAdaptedWidth(70) + kAdaptedWidth(5) + kAdaptedWidth(3) + height + height + kAdaptedWidth(20);
+    if (self.haveHeader) {
+        heightx += 20;
+    }
+    self.heightx = heightx;
+    self.frame = CGRectMake(0, 0, KScreenWidth, heightx);
+}
+
+- (CGFloat)getHeader{
+    return self.heightx;
+}
+
+
+- (void)refresh{
+    self.titleHeader.height = 0;
+    CGFloat height = [HTToolShareManager titleHeightWithFont:20];
+    CGFloat heightx = kAdaptedWidth(21) + kAdaptedWidth(70) + kAdaptedWidth(5) + kAdaptedWidth(3) + height + height + kAdaptedWidth(20);
+    self.frame = CGRectMake(0, 0, KScreenWidth, heightx);
+    [self layoutSubviews];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

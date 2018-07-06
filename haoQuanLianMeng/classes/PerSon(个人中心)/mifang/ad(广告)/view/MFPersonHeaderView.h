@@ -23,6 +23,18 @@
 @property (nonatomic,weak) id <MFPersonHeaderViewDelegate> delegate;
 
 
+- (instancetype)initWithFrame:(CGRect)frame withHeader:(BOOL)header;
+
+
 - (void)configWithData:(MiFangUserCenterModel *)model;
+
+
+- (CGFloat)getHeader;
+
+
+@property (nonatomic,assign) CGFloat heightx;
+
+
+- (void)refresh;
 
 @end

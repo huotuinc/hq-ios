@@ -69,7 +69,7 @@
 
 
 - (void)select:(NSMutableDictionary *)dict{
-    
+    [self getData:0];
     LWLog(@"%@",dict);
 }
 
@@ -83,8 +83,6 @@
             [self.view.window addSubview:self.judgeView];
             [UIView animateWithDuration:1.0f animations:^{
                 self.judgeView.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
-            } completion:^(BOOL finished) {
-               [self getData:0];
             }];
             LWLog(@"xxxx");
         }

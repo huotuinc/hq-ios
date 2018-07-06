@@ -5,6 +5,7 @@
 
 #import "LWLaunchViewController.h"
 #import "LWTabBarController.h"
+#import "MfBangDingTableViewController.h"
 
 
 
@@ -137,9 +138,20 @@
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/loginByUnionId" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
         
         LWLog(@"%@",json);
-        LWTabBarController * vc = [[LWTabBarController alloc] init];// [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LWTabBarController"];
+        //json[@"data"]
+        HTUserModel * userModel = [HTUserModel mj_objectWithKeyValues:json[@"data"]];
+        if (userModel.bindedMobile) {
+            LWTabBarController * vc = [[LWTabBarController alloc] init];//
+            [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+        }else{
+            MfBangDingTableViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MfBangDingTableViewController"];
+            vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+            vc.phoneType = 0;
+            LWNavigationController * nav = [[LWNavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:nav animated:true completion:nil];
+            
+        }
         
-        [UIApplication sharedApplication].keyWindow.rootViewController = vc;
         LWLog(@"%@",dict);
     } failure:^(NSError *error) {
         

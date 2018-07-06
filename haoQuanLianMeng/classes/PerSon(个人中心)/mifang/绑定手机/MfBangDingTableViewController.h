@@ -10,4 +10,10 @@
 
 @interface MfBangDingTableViewController : UITableViewController
 
+
+
+//0 表示绑定手机  1 表示更改手机号
+@property (nonatomic,assign) int phoneType;
+
+
 @end
