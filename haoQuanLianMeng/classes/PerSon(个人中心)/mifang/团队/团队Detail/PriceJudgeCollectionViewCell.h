@@ -13,6 +13,6 @@
 
 
 //@property (nonatomic,strong) PriceListModel * model;
-
+@property (nonatomic,strong) UILabel * titleOption;
 
 @end

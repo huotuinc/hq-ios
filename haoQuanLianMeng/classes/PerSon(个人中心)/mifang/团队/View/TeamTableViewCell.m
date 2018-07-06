@@ -28,16 +28,35 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.type = type;
         [self setUpInit];
+        if (self.type == 0) {
+            self.left.text = @"用户等级";
+            self.centerL.text = @"一级团队(人)";
+            self.right.text = @"二级团队(人)";
+        }else{
+            self.left.text = @"团队类型";
+            self.centerL.text = @"今日(人)";
+            self.right.text = @"本月(人)";
+        }
     }
     
     return self;
     
 }
 
-
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        //self.type = type;
+        [self setUpInit];
+    }
+    
+    return self;
+}
 
 - (void)setUpInit{
 
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     self.left = [[UILabel alloc] init];
     self.left.textAlignment =  NSTextAlignmentCenter;
     self.centerL = [[UILabel alloc] init];
@@ -82,18 +101,53 @@
     LWLog(@"%d",self.type)
     ;
     
-    if (self.type == 0) {
-        self.left.text = @"用户等级";
-        self.centerL.text = @"一级团队";
-        self.right.text = @"二级团队";
-    }else{
-        self.left.text = @"团队类型";
-        self.centerL.text = @"今日(人)";
-        self.right.text = @"本月(人)";
-    }
+    
     
 }
 
 
-
+- (void)configure:(Team *)model{
+    
+//    BelongOneNumByMonth = 6;
+//    BelongOneNumByToday = 1;
+//    BelongTwoNumByMonth = 13;
+//    BelongTwoNumByToday = 5;
+    
+    LWLog(@"%@",self.indexPath);
+    if (self.indexPath.section) {
+        if (self.indexPath.row == 1) {
+            self.left.text = @"一级团队";
+            self.centerL.text = [NSString stringWithFormat:@"%d",model.BelongOneNumByToday];
+            self.right.text = [NSString stringWithFormat:@"%d",model.BelongOneNumByMonth];
+        }else{
+            self.left.text = @"二级团队";
+            self.centerL.text = [NSString stringWithFormat:@"%d",model.BelongTwoNumByToday];
+            self.right.text = [NSString stringWithFormat:@"%d",model.BelongTwoNumByMonth];
+        }
+    }else{
+        
+        TeamInfoModel * modelx = model.TeamInfo[self.indexPath.row - 1];
+        if (self.indexPath.row == 1) {
+            self.left.text = @"代理商";
+        }else{
+            self.left.text = @"会员";
+        }
+        
+        self.centerL.text = [NSString stringWithFormat:@"%d",modelx.BelongOneMemberNum];
+        self.right.text = [NSString stringWithFormat:@"%d",modelx.BelongTwoMemberNum];
+    }
+    
+//    if (self.indexPath.section == 0) {
+//        if (self.indexPath.row == 1) {
+//            self.left.text = @"用户等级";
+//            self.centerL.text = @"一级团队(人)";
+//            self.right.text = @"二级团队(人)";
+//        }else{
+//
+//            self.left.text = @"会员";
+//            self.centerL.text = @"";
+//            self.right.text = @"";
+//        }
+//    }
+}
 @end

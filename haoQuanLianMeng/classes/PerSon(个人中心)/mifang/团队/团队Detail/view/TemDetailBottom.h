@@ -10,4 +10,6 @@
 
 @interface TemDetailBottom : UIView
 
+- (void)configure:(TeamPListModel *)model;
+
 @end

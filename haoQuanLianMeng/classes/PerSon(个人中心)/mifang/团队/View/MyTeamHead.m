@@ -77,4 +77,8 @@
     
     
 }
+
+- (void)setTitle:(NSString *)title{
+    self.teamLable.text = title;
+}
 @end

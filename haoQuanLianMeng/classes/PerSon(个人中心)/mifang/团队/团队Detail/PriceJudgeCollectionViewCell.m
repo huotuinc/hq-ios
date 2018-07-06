@@ -11,7 +11,7 @@
 @interface PriceJudgeCollectionViewCell()
 
 
-@property (nonatomic,strong) UILabel * titleOption;
+
 
 @end
 
@@ -31,6 +31,10 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
        
+        self.contentView.layer.borderWidth = 1.0f;
+        self.contentView.layer.borderColor = LWColor(240, 241, 242).CGColor;
+        
+        
         self.contentView.backgroundColor = LWColor(240, 241, 242);
         [self.contentView addSubview:self.titleOption];
         [self.titleOption mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -10,4 +10,7 @@
 
 @interface TeanTableViewCell : UITableViewCell
 
+@property (nonatomic,strong) TeamPListModel * model;
+
+
 @end

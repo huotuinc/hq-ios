@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TeamHeadViewDelegate <NSObject>
+
+- (void)TeamHeadViewClick:(TeamSortStatus)type;
+
+@end
+
+
 @interface TeamHeadView : UIView
 
-
-
-
-
-
 + (instancetype)TeamHeadViewCreate;
+
+
+@property (nonatomic,weak) id <TeamHeadViewDelegate> delegate;
+
 
 @end

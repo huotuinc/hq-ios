@@ -10,4 +10,7 @@
 
 @interface TeamDetailViewController : UIViewController
 
+
+@property (nonatomic,assign) int type;
+
 @end

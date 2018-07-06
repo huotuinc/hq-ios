@@ -10,10 +10,11 @@
 #import "MyTeamHead.h"
 #import "TeamTableViewCell.h"
 #import "TeamDetailViewController.h"
-
+#import "Team.h"
 
 @interface MyTeamController ()
 
+@property (nonatomic,strong) Team * model;
 @end
 
 @implementation MyTeamController
@@ -22,12 +23,28 @@
     [super viewDidLoad];
     
     self.tableView.sectionHeaderHeight = 42;
+    self.navigationItem.title = @"我的团队";
     
+    [self getInit];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+- (void)getInit{
+    
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"/User/TeamIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        
+        LWLog(@"%@",json);
+        Team * model = [Team mj_objectWithKeyValues:json[@"data"]];
+        self.model = model;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,13 +55,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
-    return 2;
+    return self.model ? 2 : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return section == 0 ? 4 : 3;
+    return section == 0 ? (self.model.TeamInfo.count + 1) : 3;
 }
 
 
@@ -57,12 +73,15 @@
             if (cell == nil) {
                 cell = [[TeamTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TeamTableViewCell" withType:0];
             }
+            cell.indexPath = indexPath;
             return cell;
         }else{
             TeamTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TeamTableViewCell"];
             if (cell == nil) {
                 cell = [[TeamTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TeamTableViewCell"];
             }
+            cell.indexPath = indexPath;
+            [cell configure:self.model];
             return cell;
         }
         
@@ -80,6 +99,8 @@
             if (cell == nil) {
                 cell = [[TeamTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TeamTableViewCell"];
             }
+            cell.indexPath = indexPath;
+            [cell configure:self.model];
             return cell;
         }
         
@@ -94,21 +115,28 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
+    KWeakSelf(self);
     if (section == 0) {
         MyTeamHead * vc = [[MyTeamHead alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, kAdaptedWidth(42))];
         vc.userInteractionEnabled = YES;
-        KWeakSelf(self);
+        
+        //[vc setTitle:@""];
         [vc bk_whenTapped:^{
             TeamDetailViewController * vc = [[TeamDetailViewController alloc] init];
+            vc.navigationItem.title = @"我的团队";
+            vc.type = 0;
             [weakself.navigationController pushViewController:vc animated:YES];
         }];
         return vc;
     }else{
         MyTeamHead * vc = [[MyTeamHead alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, kAdaptedWidth(42))];
         vc.userInteractionEnabled = YES;
+        [vc setTitle:@"团队新增"];
         [vc bk_whenTapped:^{
-            LWLog(@"xxxx");
+            TeamDetailViewController * vc = [[TeamDetailViewController alloc] init];
+            vc.navigationItem.title = @"团队新增";
+            vc.type = 1;
+            [weakself.navigationController pushViewController:vc animated:YES];
         }];
         return vc;
     }

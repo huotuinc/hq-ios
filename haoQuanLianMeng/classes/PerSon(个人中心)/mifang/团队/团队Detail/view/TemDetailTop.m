@@ -113,20 +113,34 @@
     }];
     
     [self addSubview:self.levelLable];
+    self.levelLable.backgroundColor = [UIColor redColor];
+    self.levelLable.textColor = [UIColor whiteColor];
+    self.levelLable.font = kAdaptedFontSize(12);
+    self.levelLable.layer.cornerRadius = 2;
+    self.levelLable.layer.masksToBounds = YES;
     [self.levelLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.nameLable.mas_bottom);
         make.left.mas_equalTo(self.nameLable.mas_left);
+        make.height.mas_equalTo(kAdaptedWidth(15));
     }];
     
     [self addSubview:self.teamLable];
+    self.teamLable.textColor = [UIColor whiteColor];
+    self.teamLable.backgroundColor = LWColor(239, 164, 23);
+    self.teamLable.font = kAdaptedFontSize(12);
+    self.teamLable.layer.cornerRadius = 2;
+    self.teamLable.layer.masksToBounds = YES;
     [self.teamLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.levelLable.mas_top);
         make.left.mas_equalTo(self.levelLable.mas_right).mas_offset(2);
+        make.height.mas_equalTo(kAdaptedWidth(15));
     }];
     
     
     [self addSubview:self.fanLable];
-    [self.levelLable mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.fanLable.font = kAdaptedFontSize(12);
+    _fanLable.textColor = LWColor(166, 166, 166);
+    [self.fanLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.levelLable.mas_bottom).mas_offset(2);
         make.left.mas_equalTo(self.nameLable.mas_left);
     }];
@@ -143,6 +157,21 @@
         make.centerX.mas_equalTo(self.scoreLable.mas_centerX);
         make.top.mas_equalTo(self.scoreLable.mas_bottom).mas_offset(2);
     }];
+}
+
+
+- (void)configure:(TeamPListModel *)model{
+    
+    
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.UserImage]];
+    self.nameLable.text = model.NickName;
+    self.levelLable.text = [NSString stringWithFormat:@" %@ ",model.UserLevelName];
+    if (model.Relation) {
+        self.teamLable.text = @" 二级团队 ";
+    }else{
+        self.teamLable.text = @" 一级团队 ";
+    }
+    self.fanLable.text = [NSString stringWithFormat:@"粉丝数: %d人",model.FansAmount];
 }
 
 @end

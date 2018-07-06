@@ -10,4 +10,7 @@
 
 @interface MyTeamHead : UIView
 
+
+- (void)setTitle:(NSString *)title;
+
 @end

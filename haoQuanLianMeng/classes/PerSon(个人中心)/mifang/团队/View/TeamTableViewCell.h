@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Team.h"
+
 
 @interface TeamTableViewCell : UITableViewCell
 
@@ -16,5 +18,11 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier withType:(int)type;
 
+
+@property (nonatomic,strong) NSIndexPath  * indexPath;
+
+
+
+- (void)configure:(Team *)model;
 
 @end

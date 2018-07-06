@@ -183,6 +183,12 @@
 		12D7DBD120ECA18C00F4CD01 /* TuiGuangModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBD020ECA18C00F4CD01 /* TuiGuangModel.m */; };
 		12D7DBD420ECA7B400F4CD01 /* TuiGuangCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBD320ECA7B400F4CD01 /* TuiGuangCellModel.m */; };
 		12D7DBD820ECAC8E00F4CD01 /* OrderItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBD720ECAC8E00F4CD01 /* OrderItemModel.m */; };
+		12D7DBDC20ECC8D000F4CD01 /* TeamInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBDB20ECC8D000F4CD01 /* TeamInfoModel.m */; };
+		12D7DBDF20ECCA4700F4CD01 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBDE20ECCA4700F4CD01 /* Team.m */; };
+		12D7DBE220EDB63A00F4CD01 /* TeamPListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBE120EDB63A00F4CD01 /* TeamPListModel.m */; };
+		12D7DBE520EDB95000F4CD01 /* TeamBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBE420EDB95000F4CD01 /* TeamBaseView.m */; };
+		12D7DBE820EDC93300F4CD01 /* TeamSelectList.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBE720EDC93300F4CD01 /* TeamSelectList.m */; };
+		12D7DBEB20EDF5E900F4CD01 /* ReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D7DBEA20EDF5E800F4CD01 /* ReusableView.m */; };
 		12DAB77620E21AA600387104 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB77020E21AA600387104 /* SDPhotoBrowser.m */; };
 		12DAB77720E21AA600387104 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB77120E21AA600387104 /* SDWaitingView.m */; };
 		12DAB77820E21AA600387104 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB77220E21AA600387104 /* SDBrowserImageView.m */; };
@@ -620,6 +626,18 @@
 		12D7DBD520ECA8AE00F4CD01 /* TuiGuangListDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuiGuangListDelegate.h; sourceTree = "<group>"; };
 		12D7DBD620ECAC8E00F4CD01 /* OrderItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderItemModel.h; sourceTree = "<group>"; };
 		12D7DBD720ECAC8E00F4CD01 /* OrderItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderItemModel.m; sourceTree = "<group>"; };
+		12D7DBDA20ECC8D000F4CD01 /* TeamInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamInfoModel.h; sourceTree = "<group>"; };
+		12D7DBDB20ECC8D000F4CD01 /* TeamInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamInfoModel.m; sourceTree = "<group>"; };
+		12D7DBDD20ECCA4700F4CD01 /* Team.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		12D7DBDE20ECCA4700F4CD01 /* Team.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		12D7DBE020EDB63A00F4CD01 /* TeamPListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamPListModel.h; sourceTree = "<group>"; };
+		12D7DBE120EDB63A00F4CD01 /* TeamPListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamPListModel.m; sourceTree = "<group>"; };
+		12D7DBE320EDB95000F4CD01 /* TeamBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamBaseView.h; sourceTree = "<group>"; };
+		12D7DBE420EDB95000F4CD01 /* TeamBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamBaseView.m; sourceTree = "<group>"; };
+		12D7DBE620EDC93300F4CD01 /* TeamSelectList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamSelectList.h; sourceTree = "<group>"; };
+		12D7DBE720EDC93300F4CD01 /* TeamSelectList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamSelectList.m; sourceTree = "<group>"; };
+		12D7DBE920EDF5E800F4CD01 /* ReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReusableView.h; sourceTree = "<group>"; };
+		12D7DBEA20EDF5E800F4CD01 /* ReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReusableView.m; sourceTree = "<group>"; };
 		12DAB76F20E21AA600387104 /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
 		12DAB77020E21AA600387104 /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
 		12DAB77120E21AA600387104 /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
@@ -1686,6 +1704,7 @@
 		1281D91920DB80D9008A255B /* 团队 */ = {
 			isa = PBXGroup;
 			children = (
+				12D7DBD920ECC8B200F4CD01 /* Model */,
 				1281D92620DB96F5008A255B /* 团队Detail */,
 				1281D91D20DB8244008A255B /* View */,
 				1281D91A20DB8116008A255B /* MyTeamController.h */,
@@ -1708,6 +1727,10 @@
 		1281D92620DB96F5008A255B /* 团队Detail */ = {
 			isa = PBXGroup;
 			children = (
+				12D7DBE920EDF5E800F4CD01 /* ReusableView.h */,
+				12D7DBEA20EDF5E800F4CD01 /* ReusableView.m */,
+				12D7DBE020EDB63A00F4CD01 /* TeamPListModel.h */,
+				12D7DBE120EDB63A00F4CD01 /* TeamPListModel.m */,
 				1281D93F20DBCA32008A255B /* PriceBottomView.h */,
 				1281D94020DBCA32008A255B /* PriceBottomView.m */,
 				1281D93C20DBC9C9008A255B /* PriceJudgeCollectionViewCell.h */,
@@ -1715,6 +1738,8 @@
 				1281D93920DBC932008A255B /* JudgeView.h */,
 				1281D93A20DBC932008A255B /* JudgeView.m */,
 				1281D92720DB9711008A255B /* view */,
+				12D7DBE620EDC93300F4CD01 /* TeamSelectList.h */,
+				12D7DBE720EDC93300F4CD01 /* TeamSelectList.m */,
 			);
 			path = "团队Detail";
 			sourceTree = "<group>";
@@ -1733,6 +1758,8 @@
 				1281D93420DBA358008A255B /* TeamHeadView.xib */,
 				1281D93620DBC178008A255B /* TeamDetailViewController.h */,
 				1281D93720DBC178008A255B /* TeamDetailViewController.m */,
+				12D7DBE320EDB95000F4CD01 /* TeamBaseView.h */,
+				12D7DBE420EDB95000F4CD01 /* TeamBaseView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1856,6 +1883,17 @@
 				12D7DBD720ECAC8E00F4CD01 /* OrderItemModel.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		12D7DBD920ECC8B200F4CD01 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				12D7DBDD20ECCA4700F4CD01 /* Team.h */,
+				12D7DBDE20ECCA4700F4CD01 /* Team.m */,
+				12D7DBDA20ECC8D000F4CD01 /* TeamInfoModel.h */,
+				12D7DBDB20ECC8D000F4CD01 /* TeamInfoModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		12DAB76E20E21AA600387104 /* SDPhotoBrowser */ = {
@@ -2521,6 +2559,7 @@
 				120CC19220BD424500251FC0 /* HomeViewController.m in Sources */,
 				12F1418F20D8A9EA00FDC9CA /* MiFangYaoHeader.m in Sources */,
 				1214689420DA365900E54048 /* TiXianViewController.m in Sources */,
+				12D7DBE220EDB63A00F4CD01 /* TeamPListModel.m in Sources */,
 				126A991720C78E6E00B2723A /* HTStoryBottomView.m in Sources */,
 				12E450D220EB1DE800FB1B96 /* MiBenModel.m in Sources */,
 				12AA816B20EA1A91006F87D1 /* XZEaseBlankPageView.m in Sources */,
@@ -2612,6 +2651,7 @@
 				120CC1A620BD4E9100251FC0 /* LoadingButton.m in Sources */,
 				12DAB79020E21DD600387104 /* MJPhotoProgressView.m in Sources */,
 				12DAB7AB20E3309000387104 /* WKProgressView.m in Sources */,
+				12D7DBEB20EDF5E900F4CD01 /* ReusableView.m in Sources */,
 				121B5CBF20C684610049F87F /* TuiGuangTableViewCell.m in Sources */,
 				12DAB7B320E37EB900387104 /* MiFangUserCenterModel.m in Sources */,
 				120CC20720BE7DFD00251FC0 /* UITableViewCell+CreateCell.m in Sources */,
@@ -2631,6 +2671,7 @@
 				120CC18520BD1E3300251FC0 /* LWNavigationController.m in Sources */,
 				120CC16320BCF23700251FC0 /* GCDHelper.m in Sources */,
 				121B5CC520C690790049F87F /* TuiGuangViewDownView.m in Sources */,
+				12D7DBE520EDB95000F4CD01 /* TeamBaseView.m in Sources */,
 				1225BFD520C52E490078D8D0 /* HomeProduct.m in Sources */,
 				1256F02920D3C17800BFE766 /* EightTableViewCell.m in Sources */,
 				12E450E420EB63D300FB1B96 /* MyShopTableViewController.m in Sources */,
@@ -2641,6 +2682,8 @@
 				12DE336920DCC97200374AA3 /* DayInComeTableViewController.m in Sources */,
 				1281D90F20DB4D12008A255B /* BuyAccountTableViewCell.m in Sources */,
 				121B5CAD20C63B880049F87F /* HomeOtherTableViewController.m in Sources */,
+				12D7DBDF20ECCA4700F4CD01 /* Team.m in Sources */,
+				12D7DBE820EDC93300F4CD01 /* TeamSelectList.m in Sources */,
 				12B6C8C520DA047D00E3B8C4 /* InComeBottom.m in Sources */,
 				12DAB7A920E3309000387104 /* WCSPlayMovieController.m in Sources */,
 				12F1419C20D8E1A500FDC9CA /* YiJianViewController.m in Sources */,
@@ -2648,6 +2691,7 @@
 				12AA815B20E9CC8F006F87D1 /* AccountList.m in Sources */,
 				1281D91C20DB8116008A255B /* MyTeamController.m in Sources */,
 				12B6C8BC20D9F28100E3B8C4 /* InComeHeader.m in Sources */,
+				12D7DBDC20ECC8D000F4CD01 /* TeamInfoModel.m in Sources */,
 				120CC17420BCF92200251FC0 /* Base64Util.m in Sources */,
 				1210878620DE343600CF4D5E /* Add.m in Sources */,
 				120CC21820BE95E000251FC0 /* MoneyHeaderContainer.m in Sources */,

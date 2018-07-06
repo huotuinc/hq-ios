@@ -8,6 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol JudgeViewDelegate <NSObject>
+
+
+- (void)select:(NSMutableDictionary *)dict;
+
+
+@end
+
+
+
 @interface JudgeView : UIView
 
+@property (nonatomic,weak) id <JudgeViewDelegate> delegate;
+
+@property (nonatomic,strong) NSMutableDictionary * parmae;
+
+
+- (void)show;
+
+- (void)hidden;
 @end
