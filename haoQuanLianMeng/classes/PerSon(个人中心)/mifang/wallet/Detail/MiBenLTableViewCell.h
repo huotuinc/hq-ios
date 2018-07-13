@@ -13,4 +13,8 @@
 
 @property (nonatomic,strong) MiBenIn * data;
 
+
+@property (nonatomic,assign) int type;
+
+
 @end

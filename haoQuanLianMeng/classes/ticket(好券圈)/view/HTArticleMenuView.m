@@ -11,6 +11,13 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 @implementation HTMenuButton
 
+
+- (void)setMenubuttontype:(HTMenuButtonType)menubuttontype{
+    _menubuttontype = menubuttontype;
+    if (HTMenuButtonTypeDownLoadVideo == menubuttontype) {
+        [self setTitle:@"保存视频" forState:UIControlStateNormal];
+    }
+}
 @end
 
 

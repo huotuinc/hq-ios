@@ -9,6 +9,8 @@
 #import "DianZhuViewController.h"
 #import "XTSegmentControl.h"
 #import "DianZhuTableViewController.h"
+#import "DZOption.h"
+
 
 @interface DianZhuViewController ()<UIScrollViewDelegate>
 
@@ -21,6 +23,8 @@
 @property(nonatomic,strong) UIScrollView * scrollView;
 
 
+//
+@property(nonatomic,strong) NSArray * dataTitleOption;
 
 
 @end
@@ -29,7 +33,12 @@
 
 - (NSArray *)titleItems {
     if(_titleItems == nil){
-        _titleItems = @[@"爆款必发",@"圈粉文案",@"吃货必备",@"清凉一夏"];
+        NSMutableArray * temp = [NSMutableArray array];
+        for (int i = 0; i < self.dataTitleOption.count; i++) {
+            DZOption * t = [self.dataTitleOption objectAtIndex:i];
+            [temp addObject:t.title];
+        }
+        _titleItems = [temp copy];
     }
     return _titleItems;
 }
@@ -90,19 +99,44 @@
 {
     for(int i = 0; i<  self.titleItems.count; i++){
         DianZhuTableViewController * homeViewController = [[DianZhuTableViewController alloc] initWithStyle:UITableViewStylePlain];
-        
-        homeViewController.type = i;
+        DZOption * model = [self.dataTitleOption objectAtIndex:i];
+        homeViewController.type = model.typeId;
         [self addChildViewController:homeViewController];
     }
 }
 
 
 
+- (void)initData{
+
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"ShopClassRoom/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+        NSArray * dataArray =  [DZOption mj_objectArrayWithKeyValuesArray:json[@"data"]];
+        self.dataTitleOption = dataArray;
+        [self setUpInit];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = @"好券联盟";
+    self.navigationItem.title = @"店主课堂";
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+
+    [self initData];
+    
+    
+    
+    
+}
+
+- (void)setUpInit{
+    
     [self setupChildViewControllers];
     
     [self setupScrollView];
@@ -110,10 +144,7 @@
     [self setupTitlesView];
     
     [self addChildVcView];
-    
 }
-
-
 
 
 

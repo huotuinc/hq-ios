@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShopGoodModel.h"
+
 
 @interface HomeListItemView : UIView
 
 
 + (instancetype)shareHomeListItemView;
+
+
+
+- (void)configure:(ShopGoodModel *)model;
 
 @end

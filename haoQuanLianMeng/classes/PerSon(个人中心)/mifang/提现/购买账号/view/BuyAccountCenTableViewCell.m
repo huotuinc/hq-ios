@@ -31,21 +31,29 @@
 
 - (UILabel *)nameLable{
     if (_nameLable == nil) {
-        _nameLable.text = @"选择";
+        _nameLable = [[UILabel alloc] init];
+        _nameLable.text = @"选择抵扣方式";
     }
     return _nameLable;
 }
 
 - (UILabel *)chanelLable{
     if (_chanelLable == nil) {
-        _chanelLable.text = @"选择";
+        _chanelLable = [[UILabel alloc] init];
+        _chanelLable.text = @"  现有开店帐号抵扣  ";
+        _chanelLable.font = kAdaptedFontSize(15);
+        _chanelLable.layer.cornerRadius = 5;
+        _chanelLable.layer.borderWidth = .8f;
+        _chanelLable.layer.borderColor = LWColor(206, 206, 206).CGColor;
     }
     return _chanelLable;
 }
 
 - (UILabel *)numLable{
     if (_numLable == nil) {
-        _numLable.text = @"选择";
+        _numLable = [[UILabel alloc] init];
+        _numLable.text = @"可用10个";
+        _numLable.textColor = LWColor(161, 161, 161);
     }
     return _numLable;
 }
@@ -72,6 +80,7 @@
     [self.chanelLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).mas_offset(20);
         make.top.mas_equalTo(self.nameLable.mas_bottom).mas_offset(kAdaptedWidth(13));
+        make.height.mas_equalTo(kAdaptedWidth(40));
         make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(-kAdaptedWidth(13));
     }];
     

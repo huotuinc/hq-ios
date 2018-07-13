@@ -17,6 +17,10 @@
 
 @property (nonatomic,strong) MiFangWalletHeader * headerxx;
 
+
+@property (nonatomic,assign) int pageIndex;
+
+
 @end
 
 @implementation MyMiBenTableViewController
@@ -46,14 +50,20 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
     
-    self.navigationItem.title = @"余额";
+    
 
-    if (self.type == 1) {
+    if (self.type == 1) { // 待结算
         self.headerxx.frame = CGRectMake(0, 0, KScreenWidth, 44);
         self.tableView.tableHeaderView = self.headerxx;
         self.tableView.sectionHeaderHeight = 5;
-    }else{
+        self.navigationItem.title = @"待结算";
+    }else {
         self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+        if (self.type == 0) {
+            self.navigationItem.title = @"余额";
+        }else{
+           self.navigationItem.title = @"觅豆";
+        }
     }
     
     [self getData];
@@ -68,25 +78,48 @@
 
 - (void)getData{
 //    /user/GetIntegralList
-    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-    dict[@"SearchType"] = @(self.type - 1);
-    dict[@"pageIndex"] = @"1";
-    dict[@"pageSize"] = @"10";
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/GetIntegralList" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
-        MiBenModel * model =  [MiBenModel mj_objectWithKeyValues:json[@"data"]];
-        self.model = model;
-        if (model.Items) {
-            [self.dataArray removeAllObjects];
-            [self.dataArray addObjectsFromArray:model.Items];
-            [self.tableView reloadData];
-            if (self.type) {
-                [self.headerxx configure:model];
+    if (self.type > 0) {
+        NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+        dict[@"SearchType"] = @(self.type - 1);
+        dict[@"pageIndex"] = @"1";
+        dict[@"pageSize"] = @"10";
+        [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/GetIntegralList" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+            MiBenModel * model =  [MiBenModel mj_objectWithKeyValues:json[@"data"]];
+            self.model = model;
+            if (model.Items) {
+                [self.dataArray removeAllObjects];
+                [self.dataArray addObjectsFromArray:model.Items];
+                [self.tableView reloadData];
+                if (self.type) {
+                    [self.headerxx configure:model];
+                }
             }
-        }
-        LWLog(@"%@",[model mj_keyValues]);
-    } failure:^(NSError *error) {
-        
-    }];
+            LWLog(@"%@",[model mj_keyValues]);
+        } failure:^(NSError *error) {
+            
+        }];
+    }else{
+        NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+        dict[@"pageIndex"] = @"1";
+        dict[@"pageSize"] = @"10";
+        [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"User/GetMiBeanList" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+            
+            LWLog(@"%@",json);
+            MiBenModel * model =  [MiBenModel mj_objectWithKeyValues:json[@"data"]];
+            self.model = model;
+            if (model.Items) {
+                [self.dataArray removeAllObjects];
+                [self.dataArray addObjectsFromArray:model.Items];
+                [self.tableView reloadData];
+                if (self.type) {
+                    [self.headerxx configure:model];
+                }
+            }
+            LWLog(@"%@",[model mj_keyValues]);
+        } failure:^(NSError *error) {
+            
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,6 +146,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     MiBenLTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MiBenLTableViewCell" forIndexPath:indexPath];
+    cell.type = self.type;
     cell.data = [self.dataArray objectAtIndex:indexPath.row];
     return cell;
 }

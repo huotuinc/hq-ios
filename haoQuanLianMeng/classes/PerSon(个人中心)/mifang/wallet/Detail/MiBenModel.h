@@ -13,6 +13,7 @@
 @property (nonatomic,assign) int ChangeIntegral;
 @property (nonatomic,copy) NSString * ChangeTime;
 @property (nonatomic,copy) NSString * ChangeDesc;
+@property (nonatomic,assign) int ChangeMiBean;
 @end
 
 

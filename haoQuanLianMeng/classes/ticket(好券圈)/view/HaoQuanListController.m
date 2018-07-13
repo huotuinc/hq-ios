@@ -14,6 +14,8 @@
 
 
 
+
+
 @end
 
 @implementation HaoQuanListController
@@ -25,14 +27,39 @@
 }
 
 
-
+//尾部刷新
 - (void)refreshHeader{
-    
-    
-    LWLog(@"xxxxx");
-    
+    self.refreshPageIndex = 1;
+    [self getArticleList:1];
 }
 
+
+- (void)refreshFooter{
+    self.refreshPageIndex += 1;
+    [self getArticleList:0];
+}
+
+
+//0表示头部刷新 1表示尾部刷新
+- (void)getArticleList:(int)type{
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"typeId"] = @(self.type);
+    dict[@"pageIndex"] = @(self.refreshPageIndex);
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Material/list" parame:dict isHud:YES isHaseCache:YES success:^(id json) {
+        NSArray * dataArray = [HTArticleModel mj_objectArrayWithKeyValuesArray:[json objectForKey:@"data"]];
+        if(type == 1){
+            [self.dataArray removeAllObjects];
+        }
+        [self.dataArray addObjectsFromArray:dataArray];
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    }];
+}
 
 
 - (void)viewDidLoad {
@@ -47,18 +74,7 @@
     self.tableView.estimatedRowHeight = 500;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(kAdaptedWidth(41), 0, 0, 0);
-    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-    dict[@"typeId"] = @"1";
-    dict[@"pageIndex"] = @"1";
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Material/list" parame:dict isHud:YES isHaseCache:YES success:^(id json) {
-        NSArray * dataArray = [HTArticleModel mj_objectArrayWithKeyValuesArray:[json objectForKey:@"data"]];
-        [self.dataArray removeAllObjects];
-        [self.dataArray addObjectsFromArray:dataArray];
-        [self.tableView reloadData];
-        LWLog(@"%@",json);
-    } failure:^(NSError *error) {
-        LWLog(@"%@",error);
-    }];
+    [self refreshHeader];
     
     
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

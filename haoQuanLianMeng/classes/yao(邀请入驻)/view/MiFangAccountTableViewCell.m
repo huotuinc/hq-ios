@@ -107,4 +107,29 @@
     
 }
 
+
+- (void)configure:(MiFangYaoQingModel *)model{
+    
+    
+    NSString * st = [NSString stringWithFormat:@"累计邀请店主%d人",model.InvitationMemberNum];
+    NSMutableAttributedString * str = [[NSMutableAttributedString alloc] initWithString:st];
+    
+    [str addAttribute:NSForegroundColorAttributeName
+                value:[UIColor redColor]
+                range:NSMakeRange(6 , st.length - 1-5-1)];
+    
+    
+    NSString * st1 = [NSString stringWithFormat:@"  开店帐号剩余%d个",model.SurplusNum];
+    NSMutableAttributedString * str1 = [[NSMutableAttributedString alloc] initWithString:st1];
+    [str1 addAttribute:NSForegroundColorAttributeName
+                value:[UIColor redColor]
+                range:NSMakeRange(8 , st.length - 1 - 6)];
+    
+    
+    [str appendAttributedString:[str1 copy]];
+
+    
+    self.titleLableT.attributedText = str;
+}
+
 @end

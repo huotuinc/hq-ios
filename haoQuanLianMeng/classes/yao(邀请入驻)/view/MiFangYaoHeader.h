@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MiFangYaoQingModel.h"
 
 @interface MiFangYaoHeader : UIView
 
 
 
+- (void)configure:(MiFangYaoQingModel *)model;
+
 - (CGFloat)getHeight;
+
+
 @end

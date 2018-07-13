@@ -10,4 +10,7 @@
 
 @interface BuyAccountTableViewController : UITableViewController
 
+//0 表示采购帐号  1 表示续费
+@property (nonatomic,assign) int type;
+
 @end

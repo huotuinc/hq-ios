@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface HTMessageModel : NSObject
+
+
+
+   
+
+
+
+
+
+
 
 @end

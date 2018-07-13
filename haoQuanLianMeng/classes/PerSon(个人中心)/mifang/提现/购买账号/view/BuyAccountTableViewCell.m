@@ -18,7 +18,7 @@
 
 @property (nonatomic,strong) UIImageView * addLable;
 
-@property (nonatomic,strong) UILabel * numLable;
+
 
 @property (nonatomic,strong) UIImageView * subLable;
 
@@ -70,6 +70,15 @@
         _addLable = [[UIImageView alloc] init];
         _addLable.image = [UIImage imageNamed:@"add"];
         _addLable.backgroundColor = LWColor(216, 216, 216);
+        
+        KWeakSelf(self);
+        _addLable.userInteractionEnabled = YES;
+        [_addLable bk_whenTapped:^{
+            int num =  [weakself.numLable.text intValue];
+            
+            weakself.numLable.text = [NSString stringWithFormat:@"%d",++num];
+            weakself.num = num;
+        }];
     }
     return _addLable;
 }
@@ -79,6 +88,17 @@
         _subLable = [[UIImageView alloc] init];
         _subLable.image = [UIImage imageNamed:@"sub"];
         _subLable.backgroundColor = LWColor(216, 216, 216);
+        _subLable.userInteractionEnabled = YES;
+        KWeakSelf(self);
+        [_subLable bk_whenTapped:^{
+            int num =  [weakself.numLable.text intValue];
+            if (num == 0) {
+                return ;
+            }
+            
+            weakself.numLable.text = [NSString stringWithFormat:@"%d",-- num ];
+            weakself.num = num;
+        }];
     }
     return _subLable;
 }
@@ -86,7 +106,7 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self setUpInit];
     }
     return  self;
@@ -99,23 +119,26 @@
     
     [self.contentView addSubview:self.iconView];
     [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.mas_equalTo(kAdaptedWidth(40));
+        make.width.height.mas_equalTo(kAdaptedWidth(50));
         make.top.mas_equalTo(self.contentView.mas_top).mas_offset(20);
         make.bottom.mas_equalTo(self.contentView.mas_bottom).mas_offset(-20);
         make.left.mas_equalTo(self.contentView.mas_left).mas_offset(20);
     }];
     
+    
+    
     [self.contentView addSubview:self.UpLable];
     [self.UpLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.iconView.mas_right).mas_offset(5);
-        make.top.mas_equalTo(self.iconView.mas_top);
+        make.top.mas_equalTo(self.iconView.mas_top).mas_offset(3);
     }];
     
     [self.contentView addSubview:self.downLable];
     [self.downLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.iconView.mas_right).mas_offset(5);
-        make.top.mas_equalTo(self.UpLable.mas_bottom).mas_offset(2);
+        make.top.mas_equalTo(self.UpLable.mas_bottom).mas_offset(3);
     }];
+    self.downLable.textColor = LWColor(102, 102, 102);
     
     [self.contentView addSubview:self.addLable];
     [self.addLable mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -145,6 +168,13 @@
     
 }
 
-
+- (void)configure:(BuyAccountModel * )model{
+    
+    self.iconView.layer.cornerRadius = self.iconView.frame.size.width * 0.5;
+    self.iconView.layer.masksToBounds = YES;
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.GoodsImgURL]];
+    self.UpLable.text = model.GoodsName;
+    self.downLable.text = [NSString stringWithFormat:@"单价%@/个",model.GoodsPrice];
+}
 
 @end

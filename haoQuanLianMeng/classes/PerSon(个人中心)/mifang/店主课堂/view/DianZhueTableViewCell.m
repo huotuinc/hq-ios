@@ -34,6 +34,7 @@
     if (_leftLable == nil) {
         _leftLable = [[UILabel alloc] init];
         _leftLable.text = @"女装";
+        _leftLable.font = kAdaptedFontSize(18);
     }
     return _leftLable;
 }
@@ -43,6 +44,8 @@
     if (_rightLable == nil) {
         _rightLable = [[UILabel alloc] init];
         _rightLable.text = @"¥1";
+        _rightLable.textColor = LWColor(153, 153, 153);
+        _rightLable.font = kAdaptedFontSize(17);
     }
     return _rightLable;
 }
@@ -84,5 +87,11 @@
     }];
 }
 
-
+- (void)setDataModel:(DZClassList *)dataModel{
+    _dataModel = dataModel;
+    
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo]];
+    self.leftLable.text = dataModel.title;
+    self.rightLable.text = dataModel.content;
+}
 @end

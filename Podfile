@@ -10,7 +10,7 @@ target 'haoQuanLianMeng' do
   pod 'iRate', '~> 1.10.3'
   pod 'AFNetworking'
   #pod 'MMDrawerController'
-  #pod 'FMDB'
+  pod 'FMDB'
   #pod 'mob_sharesdk'
   #pod 'mob_sharesdk/ShareSDKPlatforms/WeChat'
   pod 'IQKeyboardManager'

@@ -21,4 +21,7 @@
 
 
 @property (nonatomic,weak) id <AcFooterViewDelegate> delegate;
+
+
+- (void)settitle:(NSString *)title;
 @end

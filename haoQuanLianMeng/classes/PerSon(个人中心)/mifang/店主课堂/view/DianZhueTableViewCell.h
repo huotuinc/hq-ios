@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DZClassList.h"
+
 
 @interface DianZhueTableViewCell : UITableViewCell
+
+
+@property (nonatomic,strong) DZClassList  * dataModel;
 
 @end

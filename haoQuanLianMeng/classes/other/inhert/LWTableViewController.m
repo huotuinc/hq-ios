@@ -25,13 +25,12 @@
 
 
 - (void)refreshHeader{
-    
-    
+    //self.refreshPageIndex = 1;
     
 }
 
 - (void)refreshFooter{
-    
+    //self.refreshPageIndex += 1;
     
     
 }
@@ -57,6 +56,7 @@
 //    self.footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshFooter)];
     //self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.backgroundColor = LWColor(242, 242, 242);
+    self.refreshPageIndex = 1;
 }
 
 - (void)didReceiveMemoryWarning {

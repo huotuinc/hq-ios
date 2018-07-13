@@ -57,6 +57,7 @@
     //[self InitShareSdk];
 
 
+    [WXApi registerApp:WXAppID];
     
     self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -71,6 +72,7 @@
         LWLog(@"%@",NSStringFromClass([[[HTTool HTToolShare] getCurrentVC] class]));
         AdViewController * ac = [[AdViewController alloc] initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, KScreenHeight)];
         //ac.delegate = self;
+        [ac configureImageUrl:@"http://images.liqucn.com/img/h21/h56/img_localize_a056fdf57f1d33f64be99175b0fbfa40_400x400.png" andGoUrl:@"http://www.baidu.com"];
         [vc.view.window addSubview:ac];
         [ac show];
     });

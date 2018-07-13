@@ -349,10 +349,10 @@ static HTTool * _htTool;
 - (BOOL)HTToolArchiveRootObject:(NSObject *)object withPath:(NSString *)path{
     //2.获取文件路径
      NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
-     NSString *pathx=[docPath stringByAppendingPathComponent:path];
+     NSString *paths=[docPath stringByAppendingPathComponent:path];
      NSLog(@"path=%@",path);
     //3.将自定义的对象保存到文件中
-    return [NSKeyedArchiver archiveRootObject:object toFile:pathx];
+    return [NSKeyedArchiver archiveRootObject:object toFile:paths];
 }
 
 /**
@@ -360,10 +360,10 @@ static HTTool * _htTool;
  **/
 - (NSObject *)HTToolUnArchiveObject:(NSString *)path{
     NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
-    NSString *pathx=[docPath stringByAppendingPathComponent:path];
+    NSString *paths=[docPath stringByAppendingPathComponent:path];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if([fileManager fileExistsAtPath:pathx]){
-       return [NSKeyedUnarchiver unarchiveObjectWithFile:pathx];
+    if([fileManager fileExistsAtPath:paths]){
+       return [NSKeyedUnarchiver unarchiveObjectWithFile:paths];
     }
     return nil;
 }
@@ -373,10 +373,11 @@ static HTTool * _htTool;
  **/
 - (void)HTToolDeleteObject:(NSString *)path{
     NSString *docPath=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
-    NSString *pathx=[docPath stringByAppendingPathComponent:path];
+    NSString *paths=[docPath stringByAppendingPathComponent:path];
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    [fileManager removeItemAtPath:pathx error:nil];
-    
+    if([fileManager fileExistsAtPath:paths]){
+        [fileManager removeItemAtPath:paths error:nil];
+    }
 }
 
 - (void)showAlertWithController:(UIViewController *)vc andTitle:(NSString *)title andMessage:(NSString *)message conform:(void(^)(void))conformBlock cancle:(void(^)(void))cancleBlock{

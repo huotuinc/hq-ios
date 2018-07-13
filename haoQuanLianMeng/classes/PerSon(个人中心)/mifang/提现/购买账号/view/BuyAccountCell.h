@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BuyAccountModel.h"
+
 
 @interface BuyAccountCell : UITableViewCell
+
+- (void)configure:(int)account andAccountInfo:(int)price;
 
 @end

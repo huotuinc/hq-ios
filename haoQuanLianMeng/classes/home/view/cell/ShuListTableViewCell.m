@@ -24,14 +24,16 @@
 
 - (HomeListItemView *)homeListLeft{
     if (_homeListLeft == nil) {
-        _homeListLeft = [HomeListItemView shareHomeListItemView];
+        _homeListLeft = [[HomeListItemView alloc] init];
+//        _homeListLeft.backgroundColor = [UIColor blueColor];
     }
     return _homeListLeft;
 }
 
 - (HomeListItemView *)homeListSecond{
     if (_homeListSecond == nil) {
-        _homeListSecond = [HomeListItemView shareHomeListItemView];
+        _homeListSecond = [[HomeListItemView alloc] init];
+//        _homeListSecond.backgroundColor = [UIColor yellowColor];
     }
     return _homeListSecond;
 }
@@ -48,28 +50,55 @@
 - (void)setupInit{
     
     [self.contentView addSubview:self.homeListLeft];
-    CGRect aa = self.homeListLeft.bounds;
+//    CGFloat aa = (KScreenWidth - 14 * 3) * 0.5;
+    [self.contentView addSubview:self.homeListSecond];
     
     [self.homeListLeft mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.contentView).mas_offset(14);
-        make.top.mas_equalTo(self.contentView);
-        make.height.mas_equalTo(aa.size.height);
-        make.width.mas_equalTo(aa.size.width);
-        make.bottom.mas_equalTo(self.contentView);
+        make.left.mas_equalTo(self.contentView.mas_left).mas_offset(kAdaptedWidth(14));
+        make.top.mas_equalTo(self.contentView.mas_top);
+        //make.height.mas_equalTo(aa.size.height);
+        make.right.mas_equalTo(self.homeListSecond.mas_left).mas_offset(kAdaptedWidth(-14));
+        make.width.mas_equalTo(self.homeListSecond.mas_width);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom);
     }];
     
-    [self.contentView addSubview:self.homeListSecond];
+    
     [self.homeListSecond mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.homeListLeft.mas_right).mas_offset(14);
-        make.top.mas_equalTo(self.contentView);
-        make.height.mas_equalTo(aa.size.height);
-        make.width.mas_equalTo(aa.size.width);
-        make.bottom.mas_equalTo(self.contentView);
+        make.left.mas_equalTo(self.homeListLeft.mas_right).mas_offset(kAdaptedWidth(14));
+        make.top.mas_equalTo(self.homeListLeft.mas_top);
+        //make.height.mas_equalTo(aa.size.height);
+        make.right.mas_equalTo(self.contentView.mas_right).mas_offset(kAdaptedWidth(-14));
+        make.width.mas_equalTo(self.homeListLeft.mas_width);
+        make.bottom.mas_equalTo(self.homeListLeft.mas_bottom);
     }];
     
+    
+    LWLog(@"xxxxxxx");
 //    self.contentView.backgroundColor = [UIColor redColor];
     
     
 }
 
+
+- (void)setRightdataModel:(ShopGoodModel *)rightdataModel{
+    _rightdataModel = rightdataModel;
+    
+    [self.homeListSecond configure:rightdataModel];
+}
+
+
+- (void)setLeftdataModel:(ShopGoodModel *)leftdataModel{
+    _leftdataModel = leftdataModel;
+    [self.homeListLeft configure:leftdataModel];
+}
+
+
+- (void)setHaveRight:(bool)haveRight{
+    _haveRight = haveRight;
+    if (haveRight) {
+        self.homeListSecond.hidden = NO;
+    }else{
+        self.homeListSecond.hidden = YES;
+    }
+}
 @end

@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BuyAccountModel.h"
+
 
 @interface BuyAccountTableViewCell : UITableViewCell
+
+- (void)configure:(BuyAccountModel * )model;
+
+@property (nonatomic,strong) UILabel * numLable;
+
+
+@property (nonatomic,assign) int  num;
 
 @end

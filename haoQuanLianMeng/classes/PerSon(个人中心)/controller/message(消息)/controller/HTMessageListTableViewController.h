@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTMessageCellModel.h"
 
-@interface HTMessageListTableViewController : UITableViewController
+@interface HTMessageListTableViewController : LWTableViewController
 
 
 // 0 表示 业务  1 系统
-@property (nonatomic,assign) int type;
+@property (nonatomic,assign) MessageSlideType type;
 
 
 

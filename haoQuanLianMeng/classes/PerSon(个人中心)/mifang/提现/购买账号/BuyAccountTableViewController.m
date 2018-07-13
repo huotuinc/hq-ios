@@ -12,32 +12,105 @@
 #import "BuyAccountCenTableViewCell.h"
 #import "BuyAccountCell.h"
 #import "AcFooterView.h"
-@interface BuyAccountTableViewController ()
+#import "BuyAccountModel.h"
+#import "BuyAccountPayChanel.h"
+
+@interface BuyAccountTableViewController ()<AcFooterViewDelegate>
 
 
 @property (nonatomic,strong) AcFooterView * acFooter;
+
+//帐号
+@property (nonatomic,strong) BuyAccountTableViewCell *cell1;
+
+@property (nonatomic,strong) ACBuildTableViewCell *cell12;
+
+
+@property (nonatomic,strong) BuyAccountCell * bottom;
+@property (nonatomic,strong) BuyAccountModel * accountInfo;
+
 @end
 
 @implementation BuyAccountTableViewController
 
+
+- (void)btnClick{
+    
+    LWLog(@"xxxx");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+
     self.acFooter = [[AcFooterView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 60)];
+    self.acFooter.delegate = self;
     self.tableView.tableFooterView = self.acFooter;
-    
+    self.acFooter.backgroundColor = [UIColor clearColor]; 
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
     [self.tableView registerClass:[BuyAccountTableViewCell class] forCellReuseIdentifier:@"BuyAccountTableViewCell"];
     [self.tableView registerClass:[ACBuildTableViewCell class] forCellReuseIdentifier:@"ACBuildTableViewCell"];
-    [self.tableView registerClass:[BuyAccountCenTableViewCell class] forCellReuseIdentifier:@"BuyAccountCenTableViewCell"];
+    if (self.type == 1) {
+       [self.tableView registerClass:[BuyAccountCenTableViewCell class] forCellReuseIdentifier:@"BuyAccountCenTableViewCell"];
+    }
+    
     [self.tableView registerClass:[BuyAccountCell class] forCellReuseIdentifier:@"BuyAccountCell"];    // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.acFooter settitle:@"立即付款"];
+    
+    if (self.type == 0) {
+        self.navigationItem.title = @"购买开店帐号";
+    }else{
+        self.navigationItem.title = @"续费";
+    }
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0);
+    [self getAccountPrice];
+    [self getPayChanle];
+    
+    self.tableView.sectionFooterHeight = 0;
+}
+
+
+- (void)getAccountPrice{
+    //采购帐号
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Order/GetRenewGoods" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        BuyAccountModel * model = [BuyAccountModel mj_objectWithKeyValues:json[@"data"]];
+        LWLog(@"%@",json);
+        [self.cell1 configure:model];
+        self.accountInfo = model;
+        [self.cell1 addObserver:self forKeyPath:@"num" options:NSKeyValueObservingOptionNew context:nil];
+        [self.bottom configure:0 andAccountInfo:0];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+ 
+    //NSLog(@"keyPath=%@,object=%@,change=%@,context=%@",keyPath,object,change,context);
+    int num = [[change objectForKey:@"new"] intValue];
+    [self.bottom configure:num andAccountInfo:[self.accountInfo.GoodsPrice intValue]];
+}
+
+
+- (void)getPayChanle{
+    // 获取支付方式
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Order/GetPaymentItem" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+//        BuyAccountModel * model = [BuyAccountModel mj_objectWithKeyValues:json[@"data"]];
+        LWLog(@"%@",json);
+        
+        NSArray * Paylist =  [BuyAccountPayChanel mj_objectArrayWithKeyValuesArray:[[json objectForKey:@"data"] objectForKey:@"list"]];
+        [self.cell12 configure:Paylist];
+//        [self.cell1 configure:model];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,78 +127,48 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return section == 0 ? 1 : 3;
+    return section == 0 ? 1 : (self.type == 0 ? 2 : 3);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
         BuyAccountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuyAccountTableViewCell" forIndexPath:indexPath];
-        
+        self.cell1 = cell;
         return cell;
     }else{
         
         if (indexPath.row == 0) {
             ACBuildTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ACBuildTableViewCell" forIndexPath:indexPath];
-            
+            self.cell12 = cell;
             return cell;
-        }else if(indexPath.row == 1){
-            BuyAccountCenTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuyAccountCenTableViewCell" forIndexPath:indexPath];
-            
-            return cell;
-            
         }else{
-            BuyAccountCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuyAccountCell" forIndexPath:indexPath];
             
-            return cell;
+            if (self.type == 0) {
+                BuyAccountCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuyAccountCell" forIndexPath:indexPath];
+                cell.backgroundColor = [UIColor clearColor];
+                self.bottom = cell;
+                return cell;
+            }else{
+                
+                if(indexPath.row == 1){
+                    BuyAccountCenTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuyAccountCenTableViewCell" forIndexPath:indexPath];
+                    cell.height = 0;
+                    return cell;
+                    
+                }else{
+                    BuyAccountCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BuyAccountCell" forIndexPath:indexPath];
+                    cell.backgroundColor = [UIColor clearColor];
+                    return cell;
+                }
+            }
         }
-        
     }
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)dealloc
+{
+    [self.cell1 removeObserver:self forKeyPath:@"num"];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -75,7 +75,12 @@
 - (void)setData:(MiBenIn *)data{
     _data = data;
     
-    self.benLable.text = [NSString stringWithFormat:@"%d",data.ChangeIntegral];
+    if (self.type == -1) {
+        self.benLable.text = [NSString stringWithFormat:@"%d",data.ChangeMiBean];
+    }else{
+       self.benLable.text = [NSString stringWithFormat:@"%d",data.ChangeIntegral];
+    }
+    
     
     self.nameLable.text = data.ChangeDesc;
     self.timeLable.text = data.ChangeTime;

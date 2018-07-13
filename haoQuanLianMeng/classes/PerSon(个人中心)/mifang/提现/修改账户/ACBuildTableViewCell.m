@@ -20,10 +20,22 @@
 
 @property (nonatomic,assign) int currentSelect;
 
+
+
+@property (nonatomic,strong) NSArray * lableArrays;
+
 @end
 
 
 @implementation ACBuildTableViewCell
+
+
+- (NSArray *)lableArrays{
+    if (_lableArrays == nil) {
+        _lableArrays = @[self.aliPay,self.wechat];
+    }
+    return _lableArrays;
+}
 
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -42,8 +54,16 @@
 }
 
 
-- (void)configure:(AccountList *) model{
+- (void)configure:(NSArray<BuyAccountPayChanel *> *) accountList{
     
+    for (int i = 0; i < accountList.count; i++) {
+        
+        UILabel * title =  [self.lableArrays objectAtIndex:i];
+        BuyAccountPayChanel * a = [accountList objectAtIndex:i];
+        title.text = a.PaymentName;
+        title.tag = 1000 + a.PaymentType;
+        title.hidden = NO;
+    }
     
 }
 
@@ -95,7 +115,8 @@
         [weakself addNote];
     }];
     
-    
+    self.aliPay.hidden = 1;
+    self.wechat.hidden = 1;
     [self.contentView addSubview:self.chanelL];
     [self.chanelL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.contentView.mas_top).mas_offset(20);

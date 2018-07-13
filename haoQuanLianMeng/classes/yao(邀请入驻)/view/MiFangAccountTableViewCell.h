@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MiFangYaoQingModel.h"
 
 
 @protocol MiFangAccountTableViewDelegate <NSObject>
@@ -18,6 +19,8 @@
 
 @interface MiFangAccountTableViewCell : UITableViewCell
 
+- (void)configure:(MiFangYaoQingModel *)model;
 
 @property (nonatomic,weak) id  <MiFangAccountTableViewDelegate> delegate;
+
 @end

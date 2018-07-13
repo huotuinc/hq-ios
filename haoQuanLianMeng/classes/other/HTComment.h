@@ -61,8 +61,8 @@ return shared##classname;                           \
 #define AppMainColor [UIColor redColor]
 
 #define AppName @"觅方"
-#define WXAppID @"wx0aba629032d0ed6c"
-#define WXAPPSecret @"5b09c81e595800f6d23048d4386ea373"
+#define WXAppID @"wx39f5c1402223a602"
+#define WXAPPSecret @"17410824682424d5cb0f6d07e644774e"
 //#define WX_REFRESH_TOKEN @"wx_REFRESH_TOKEN"
 //#define OPENID @"openID"
 

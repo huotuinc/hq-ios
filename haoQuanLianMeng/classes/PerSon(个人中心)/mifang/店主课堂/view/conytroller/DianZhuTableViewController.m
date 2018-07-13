@@ -8,9 +8,13 @@
 
 #import "DianZhuTableViewController.h"
 #import "DianZhueTableViewCell.h"
+#import "DZClassList.h"
+
 
 
 @interface DianZhuTableViewController ()
+
+@property (nonatomic,assign) int pageIndex;
 
 @end
 
@@ -23,6 +27,49 @@
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.pageIndex = 1;
+    self.tableView.contentInset = UIEdgeInsetsMake(kAdaptedWidth(40)+1, 0, 0, 0  );
+    
+    [self dataInitWith:1];
+}
+
+
+
+- (void)refreshHeader{
+    
+    self.pageIndex = 1;
+    [self dataInitWith:1];
+}
+
+- (void)refreshFooter{
+    self.pageIndex ++;
+    [self dataInitWith:0];
+    
+}
+
+
+
+- (void)dataInitWith:(int)header{
+//    #import "DZClassList.h"
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"typeId"] = @(self.type);
+    dict[@"pageIndex"] = @(self.pageIndex);
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"ShopClassRoom/list" parame:dict isHud:YES isHaseCache:YES success:^(id json) {
+        NSArray * dataArray =  [DZClassList mj_objectArrayWithKeyValuesArray:json[@"data"]];
+        if (header) {
+            [self.dataArray removeAllObjects];
+        }
+        [self.dataArray addObjectsFromArray:dataArray];
+        [self.tableView reloadData];
+        LWLog(@"%@",json);
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,15 +82,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 8;
+    return self.dataArray.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DianZhueTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DianZhueTableViewCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    cell.dataModel = [self.dataArray objectAtIndex:indexPath.row];
     return cell;
 }
 

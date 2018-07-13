@@ -7,6 +7,9 @@
 //
 
 #import "AdViewController.h"
+#import "WKWebViewController.h"
+
+
 
 @interface AdViewController ()
 
@@ -23,6 +26,8 @@
     if (_adV == nil) {
         _adV = [[UIImageView alloc] initWithFrame:CGRectMake(KScreenWidth * 0.3 * 0.5, (KScreenHeight - KScreenWidth * 0.7 * 1.51) * 0.5, KScreenWidth * 0.7, KScreenWidth * 0.7 * 1.51)];
         _adV.backgroundColor = [UIColor redColor];
+        _adV.layer.cornerRadius = 5;
+
     }
     return _adV;
 }
@@ -52,48 +57,29 @@
         
         self.userInteractionEnabled = YES;
         self.closeV.userInteractionEnabled = YES;
+
         KWeakSelf(self);
         [self.closeV bk_whenTapped:^{
             [weakself close];
         }];
-        
-        
-        [self.adV bk_whenTapped:^{
-            if ([weakself.delegate respondsToSelector:@selector(btnClick:)]) {
-                [weakself.delegate btnClick:nil];
-            }
-            
-        }];
+
+//        [self.adV bk_whenTapped:^{
+//            if ([weakself.delegate respondsToSelector:@selector(btnClick:)]) {
+//                [weakself.delegate btnClick:nil];
+//            }
+//
+//        }];
     }
     return self;
 }
 
-
-
-//- (void)viewDidAppear:(BOOL)animated{
-//    [super viewDidAppear:animated];
-//
-//
-//
-////    [UIView animateWithDuration:0.7f delay:0.5f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-////
-//////        self.view.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5];
-////    } completion:^(BOOL finished) {
-////        self.closeV.frame = CGRectMake((KScreenWidth - kAdaptedWidth(34)) * 0.5 , ((KScreenHeight - KScreenWidth * 0.7 * 1.51) * 0.5 + KScreenWidth * 0.7 * 1.51 + 10), kAdaptedWidth(34), kAdaptedWidth(34));
-////    }];
-////
-//
-//}
-
 - (void)show{
-    
-   
-        [UIView animateWithDuration:0.5f delay:0.5f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            self.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
-        } completion:^(BOOL finished) {
-            
-        }];
-    
+
+    [UIView animateWithDuration:0.5f delay:0.5f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.frame = CGRectMake(0, 0, KScreenWidth, KScreenHeight);
+    } completion:^(BOOL finished) {
+
+    }];
 }
 
 - (void)close{
@@ -102,22 +88,29 @@
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
-    
 }
 
-//- (void)didReceiveMemoryWarning {
-////    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)configureImageUrl:(NSString *)imageUrl andGoUrl:(NSString *)goUrl{
+    if(imageUrl != nil || !imageUrl.length){
+        [self.adV sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:nil options:SDWebImageProgressiveDownload];
+    }
+    _adV.userInteractionEnabled = YES;
+    KWeakSelf(self);
+    [_adV bk_whenTapped:^{
+        WKWebViewController * vc = [[WKWebViewController alloc] init];
+        vc.funUrl = [goUrl copy];
+        UIViewController * vcx = [[HTTool HTToolShare] getCurrentVC];
+        
+        if ([vcx isKindOfClass:[UITabBarController class]]) {
+            UITabBarController *tabBarVc = (UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+            UINavigationController *nav = (UINavigationController *)tabBarVc.selectedViewController;
+            [nav pushViewController:vc animated:YES];
+        }else{
+           [vcx.navigationController pushViewController:vc animated:YES];
+        }
+        [weakself close];
+    }];
+    LWLog(@"%@",NSStringFromClass([self.topMostController class]));
 }
-*/
-
 @end

@@ -6,7 +6,7 @@
 #import "LWLaunchViewController.h"
 #import "LWTabBarController.h"
 #import "MfBangDingTableViewController.h"
-
+#import <WXApi.h>
 
 
 @interface LWLaunchViewController ()<WXLoginDelegate>
@@ -14,17 +14,53 @@
 
 @property(nonatomic,strong) UIImageView * backImageView;
 
+
+@property(nonatomic,strong) UIButton * loginBtn;
+
+
 @end
 
 
 @implementation LWLaunchViewController
 
+- (UIButton *)loginBtn {
+    if (_loginBtn == nil){
+        _loginBtn = [[UIButton alloc] init];
+        _loginBtn.center = CGPointMake(KScreenWidth * 0.5, KScreenHeight * 0.5 + kAdaptedHeight(100));
+        _loginBtn.bounds = CGRectMake(0, 0, KScreenWidth * 0.6, 44);
+        _loginBtn.backgroundColor = [UIColor blackColor];
+        
+        if ([WXApi isWXAppInstalled]) {
+            [_loginBtn setTitle:@"微信授权登录" forState:UIControlStateNormal];
+        }else{
+            [_loginBtn setTitle:@"立即体验" forState:UIControlStateNormal];
+        }
+        _loginBtn.layer.cornerRadius = 22;
+        [_loginBtn addTarget:self action:@selector(loginIn) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _loginBtn;
+}
 
 - (UIImageView *)backImageView{
     if (_backImageView == nil) {
         _backImageView = [[UIImageView alloc] initWithFrame:self.view.frame];
     }
     return _backImageView;
+}
+
+//登录操作
+- (void)loginIn{
+
+    if ([WXApi isWXAppInstalled]) { //正常的登录逻辑
+        WXLoginShare * share = [WXLoginShare shareInstance];
+        share.delegate = self;
+        if ([share wxLoginShareRegisterApp]) {
+            [share WXLogin];
+        }
+    }else{ //没安装微信  和 面对苹果审核
+
+
+    }
 }
 
 //- (void)networkStateChange{
@@ -74,29 +110,29 @@
     UILabel * version = [[UILabel alloc] init];
     version.text = [NSString stringWithFormat:@"%@V%@",AppName,AppVersion];
     [self.view addSubview:version];
+    [version mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(self.view.mas_centerX);
+        make.bottom.mas_equalTo(self.view.mas_bottom).mas_offset(kAdaptedHeight(-30));;
+    }];
+
+
     
-    
-    
-    
+  
+
+
 //    [self checkNetwork];
     
     //ReachabilityChangedNotification
     //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     
     
-    [version mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self.view.mas_centerX);
-        make.bottom.mas_equalTo(self.view.mas_bottom).mas_offset(kAdaptedHeight(-30));;
-    }];
-    [self loadInitData];
+
+    [self getInitDate];
 }
 
 
 
-- (void)loadInitData {
-    
-    
-}
+
 
 //处理白屏问题
 - (void)setImage {
@@ -126,40 +162,77 @@
     
     
 }
+
+
+//获取初始化数据
+- (void)getInitDate{
+
+    [[HTNetworkingTool HTNetworkingManager]
+        HTNetworkingToolPost:@"user/appInit" parame:nil
+                       isHud:YES isHaseCache:NO success:^(id json) {
+                           HTUserModel * model = [HTUserModel mj_objectWithKeyValues:json[@"data"]];
+                           if (model == nil || !model.userId) {
+                               [self showLoginBtn];
+                           } else{
+                               [[HTTool HTToolShare] HTToolArchiveRootObject:model withPath:NSStringFromClass([HTUserModel class])];
+                               [self getInApp];
+                           }
+            LWLog(@"%@",json);
+        } failure:^(NSError *error) {
+            LWLog(@"%@",error);
+        }];
+}
+
+
+//显示登录按钮
+- (void)showLoginBtn{
+    
+    [self.view addSubview:self.loginBtn];
+    [UIView animateWithDuration:5
+                          delay:1
+         usingSpringWithDamping:0.01f
+          initialSpringVelocity:0.5
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         _loginBtn.bounds = CGRectMake(0, 0, KScreenWidth * 0.6, 44);
+                     } completion:^(BOOL finished) {
+                         
+                     }];
+}
+
+
 //微信授权登录回调方法
 - (void)wxLoginShareSuccess:(NSDictionary *)dict{
-
-    
     NSMutableDictionary * parame = [NSMutableDictionary dictionary];
     parame[@"openId"] = dict[@"openid"];
     parame[@"unionId"] = dict[@"unionid"];
     parame[@"nickName"] = dict[@"nickname"];
     parame[@"userHead"] = dict[@"headimgurl"];
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/loginByUnionId" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
-        
         LWLog(@"%@",json);
-        //json[@"data"]
         HTUserModel * userModel = [HTUserModel mj_objectWithKeyValues:json[@"data"]];
-        if (userModel.bindedMobile) {
-            LWTabBarController * vc = [[LWTabBarController alloc] init];//
-            [UIApplication sharedApplication].keyWindow.rootViewController = vc;
-        }else{
+        [[HTTool HTToolShare] HTToolArchiveRootObject:userModel withPath:NSStringFromClass([HTUserModel class])];
+         if (userModel.bindedMobile) { //绑定手机了
+            [self getInApp];
+        }else{ //未绑定手机
             MfBangDingTableViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MfBangDingTableViewController"];
             vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
             vc.phoneType = 0;
             LWNavigationController * nav = [[LWNavigationController alloc] initWithRootViewController:vc];
             [self presentViewController:nav animated:true completion:nil];
-            
         }
-        
         LWLog(@"%@",dict);
     } failure:^(NSError *error) {
         
     }];
-    
-    
-    
 }
+
+
+- (void)getInApp{
+    LWTabBarController * vc = [[LWTabBarController alloc] init];//
+    [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+}
+
 
 - (void)wxLoginShareFail:(NSDictionary *)dict{
     
@@ -170,11 +243,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
 
-    WXLoginShare * share = [WXLoginShare shareInstance];
-    share.delegate = self;
-    if ([share wxLoginShareRegisterApp]) {
-        [share WXLogin];
-    }
+
    
     
     

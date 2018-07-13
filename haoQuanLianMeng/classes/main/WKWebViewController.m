@@ -103,11 +103,11 @@
 //    LWLog(@"%@",[self resetUserAgent]);
     self.view = _webView;
     
-    if (!self.funUrl) {
-        
-//        OutFitUserModel * usermodel = [OutFitUserModel outFitUserModelGetFromCache];
-//        self.funUrl = [NSString stringWithFormat:@"http://m.xingzhuangmall.com/UserCenter/Index.aspx?customerid=4886&userType=%d&userid=%d",usermodel.userType,usermodel.userId];
-    }
+//    if (!self.funUrl) {
+//
+////        OutFitUserModel * usermodel = [OutFitUserModel outFitUserModelGetFromCache];
+////        self.funUrl = [NSString stringWithFormat:@"http://m.xingzhuangmall.com/UserCenter/Index.aspx?customerid=4886&userType=%d&userid=%d",usermodel.userType,usermodel.userId];
+//    }
     //gh_credit://authTaobao
     //NSURL * urlStr = [NSURL URLWithString:@"gh_credit_authtaobao"
 //                      ];
@@ -126,7 +126,7 @@
     NSMutableURLRequest * req = [[HTNSMutableURLRequest alloc] initWithURL:urlStr];
 //    req.allHTTPHeaderFields = [[HTTool HTToolShare] NHToolSetCookes];
     
-    
+//    [self.webView loadRequest:req];
     //加载刷新控件
 //    [self AddMjRefresh];
     
@@ -308,7 +308,7 @@
 //    }else{
 //        decisionHandler(WKNavigationResponsePolicyAllow);
 //    }
-decisionHandler(WKNavigationResponsePolicyAllow);
+    decisionHandler(WKNavigationResponsePolicyAllow);
 }
 
 

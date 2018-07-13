@@ -7,7 +7,7 @@
 //
 
 #import "HTMessageListTableViewController.h"
-//#import "HTMessageTableViewCell.h"
+#import "HTMessageModel.h"
 
 
 @interface HTMessageListTableViewController ()
@@ -56,14 +56,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 2;
+    return self.dataArray.count;
 }
 
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    HTMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HTMessageTableViewCell" forIndexPath:indexPath];
-//    return cell;
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    HTMessageModel * model =  [self.dataArray objectAtIndex:indexPath.row];
+    return [HTMessageCellModel confirmCellWithArticle:model slideType:self.type WithTableView:tableView witdDelegate:nil];
+}
 
 
 /*

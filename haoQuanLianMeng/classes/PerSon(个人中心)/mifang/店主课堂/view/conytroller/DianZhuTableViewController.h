@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DianZhuTableViewController : UITableViewController
+@interface DianZhuTableViewController : LWTableViewController
 
 
 @property (nonatomic,assign)  int  type;

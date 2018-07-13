@@ -21,6 +21,8 @@
 @property (nonatomic,strong)  MJRefreshAutoFooter * footer;
 
 
+//获取当前列表的页面
+@property (nonatomic, assign) int refreshPageIndex;
 
 
 @end

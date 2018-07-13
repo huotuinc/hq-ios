@@ -10,4 +10,5 @@
 
 @implementation HTUserModel
 
+MJCodingImplementation
 @end

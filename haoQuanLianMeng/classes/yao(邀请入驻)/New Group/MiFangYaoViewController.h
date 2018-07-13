@@ -10,4 +10,7 @@
 
 @interface MiFangYaoViewController : UIViewController
 
+//0 是采购  1 成为代理商
+@property (nonatomic,assign) int  type;
+
 @end

@@ -27,6 +27,6 @@
 
 @property (nonatomic,weak) id <AdViewControllerDelegate> delegate;
 
-
+- (void)configureImageUrl:(NSString *)imageUrl andGoUrl:(NSString *)goUrl;
 
 @end

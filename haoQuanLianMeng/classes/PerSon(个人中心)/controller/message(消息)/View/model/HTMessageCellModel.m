@@ -8,43 +8,42 @@
 
 #import "HTMessageCellModel.h"
 #import "HTMessageModel.h"
-#import "ProfuctMessageCell.h"
 
 
 @implementation HTMessageCellModel
 
-- (instancetype)initWithSlideType:(int)selectType articleType:(HTArticleType)articleType isDiscover:(BOOL)isDiscove article:(HTArticleModel *)article{
+- (instancetype)initWithSlideType:(int)selectType articleType:(HTMessgaeType)articleType  article:(HTMessageModel *)article{
     self = [super init];
     if (self) {
-        self.articleType = articleType;
-        self.article = article;
+//        self.articleType = articleType;
+//        self.article = article;
     }
     return self;
 
 }
 
 
-+ (HTArticleTableViewCell *)confirmCellWithArticle:(HTArticleModel *)article isDiscover:(BOOL)isDiscove slideType:(SlideType)selectType WithTableView:(UITableView *)tableView witdDelegate:(id<HTArticleCenterViewDelegate>)delegate{
-    HTArticleType type = [self configArticleTypeWithArticle:article];
-    HTArticleCellModel * cellModel = [[self alloc] initWithSlideType:selectType articleType:type isDiscover:isDiscove article:article];
-    HTArticleTableViewCell * cell = nil;
-    switch (type) {
++ (UITableViewCell *)confirmCellWithArticle:(HTMessageModel *)article  slideType:(MessageSlideType)selectType WithTableView:(UITableView *)tableView witdDelegate:(id<HTArticleCenterViewDelegate>)delegate{
+//    HTArticleType type = [self configArticleTypeWithArticle:article];
+//    HTArticleCellModel * cellModel = [[self alloc] initWithSlideType:selectType articleType:type isDiscover:isDiscove article:article];
+//    HTArticleTableViewCell * cell = nil;
+//    switch (type) {
+//
+//        case HTArticleTypeMoreImage:
+//            cell = (HTArticleTableViewCell *)[ProfuctMessageCell cellGetTableView:tableView];
+//            break;
+//        case HTArticleTypeVideo:
+//            cell = (HTArticleTableViewCell *)[ProfuctMessageCell cellGetTableView:tableView];
+//            break;
+//
+//        default:
+//            cell = (HTArticleTableViewCell *)[ProfuctMessageCell cellGetTableView:tableView];
+//            break;
+//    }
+//    cell.delegate = delegate;
+//    [cell configCellWithCellModel:cellModel];
 
-        case HTArticleTypeMoreImage:
-            cell = (HTArticleTableViewCell *)[ProfuctMessageCell cellGetTableView:tableView];
-            break;
-        case HTArticleTypeVideo:
-            cell = (HTArticleTableViewCell *)[ProfuctMessageCell cellGetTableView:tableView];
-            break;
-
-        default:
-            cell = (HTArticleTableViewCell *)[ProfuctMessageCell cellGetTableView:tableView];
-            break;
-    }
-    cell.delegate = delegate;
-    [cell configCellWithCellModel:cellModel];
-
-    return cell;
+    return nil;
 
 }
 

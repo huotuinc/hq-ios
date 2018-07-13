@@ -11,6 +11,7 @@
 #import "MiFangAccountTableViewCell.h"
 #import "MiFangFooter.h"
 #import "MiFangYaoViewController.h"
+#import "MiFangYaoQingModel.h"
 
 
 @interface MiFangYaoQingController ()<MiFangAccountTableViewDelegate>
@@ -18,6 +19,10 @@
 @property (nonatomic,strong) MiFangYaoHeader * miFangYaoHeader;
 
 @property (nonatomic,strong) MiFangFooter * miFangYaoFooter;
+
+
+@property (nonatomic,strong) MiFangAccountTableViewCell *cell;
+
 @end
 
 @implementation MiFangYaoQingController
@@ -57,6 +62,22 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self getData];
+}
+
+
+- (void)getData{
+//
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Profit/Invitations" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+        
+        MiFangYaoQingModel * model = [MiFangYaoQingModel mj_objectWithKeyValues:[json objectForKey:@"data"]];
+        [self.miFangYaoHeader configure:model];
+        [self.cell configure:model];
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +99,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MiFangAccountTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MiFangAccountTableViewCell" forIndexPath:indexPath];
     cell.delegate = self;
+    self.cell = cell;
     return cell;
 }
 

@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BuyAccountPayChanel.h"
 @interface ACBuildTableViewCell : UITableViewCell
 
 
 - (int)getCurrentType;
 
 
-- (void)configure:(AccountList *) model;
+- (void)configure:(NSArray<BuyAccountPayChanel *> *) accountList;
+
+
+
 @end

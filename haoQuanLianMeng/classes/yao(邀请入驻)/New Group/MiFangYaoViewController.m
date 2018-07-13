@@ -9,6 +9,7 @@
 #import "MiFangYaoViewController.h"
 #import "YaoqingHeadView.h"
 #import "YaoQingBtnCell.h"
+#import "BuyAccountTableViewController.h"
 
 @interface MiFangYaoViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -24,7 +25,8 @@
 - (UIButton *)btn{
     if (_btn == nil) {
         _btn = [[UIButton alloc] initWithFrame:CGRectMake(0, KScreenHeight - 50, KScreenWidth, 50)];
-        _btn.backgroundColor = [UIColor redColor];
+        [_btn addTarget:self action:@selector(buyAccount) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     return _btn;
 }
@@ -69,12 +71,26 @@
     }];
     
     
+    if (self.type == 0) {
+       _btn.backgroundColor = [UIColor redColor];
+        [_btn setTitle:@"采购帐号" forState:UIControlStateNormal];
+    }else{
+        _btn.backgroundColor = [UIColor blueColor];
+         [_btn setTitle:@"成为代理商" forState:UIControlStateNormal];
+    }
     
     
-    
+//
     
 }
 
+
+- (void)buyAccount{
+    
+    BuyAccountTableViewController * vc = [[BuyAccountTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    vc.type = 0;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

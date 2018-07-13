@@ -53,7 +53,7 @@
 //            [url addValue:@"" forHTTPHeaderField:@"cityName"];
 //        }
     }
-    return nil;
+    return url;
 }
 
 

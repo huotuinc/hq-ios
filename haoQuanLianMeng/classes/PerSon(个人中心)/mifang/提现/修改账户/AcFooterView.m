@@ -17,6 +17,10 @@
 
 @implementation AcFooterView
 
+- (void)settitle:(NSString *)title{
+    [_btn setTitle:title forState:UIControlStateNormal];
+}
+
 
 - (UIButton *)btn{
     

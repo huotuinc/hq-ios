@@ -35,7 +35,7 @@
     self.content.layer.borderColor = LWColor(238, 238, 238).CGColor;
     self.content.delegate = self;
     
-    
+    self.phone.keyboardType = UIKeyboardTypePhonePad;
     [self setUpInit];
 }
 
@@ -104,7 +104,31 @@
 
 - (IBAction)btnClick:(id)sender {
     
+    
+    if (!self.content.text.length || [self.content.text isEqualToString:@"感谢您的使用及支持,您反馈的意见和问题将会帮助我们持续进步,谢谢。"]) {
+        [MBProgressHUD showError:@"请填写的反馈与建议"];
+        return;
+    }
+    
+    if (![[HTTool HTToolShare] HTToolValidateMobile:self.phone.text]) {
+        [MBProgressHUD showError:@"手机号不对"];
+        return;
+    }
+    
+    
+    
     LWLog(@"sdsds");
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"SubmitType"] = @(self.type);
+    dict[@"Memo"] = self.content.text;
+    dict[@"UserMobile"] = self.phone.text;
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"User/FeedbackSuggestion" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+        [MBProgressHUD showSuccess:@"提交成功"];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error.description);
+    }];
+
 }
 
 
