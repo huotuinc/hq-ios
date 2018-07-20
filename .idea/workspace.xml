@@ -2,140 +2,146 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2df199f6-29fc-47f6-a772-36b063915338" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopNavLeft.imageset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopNavLeft.imageset/shopNavLeft@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopNavLeft.imageset/shopNavLeft@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageBottom.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageBottom.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCell.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCell.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageHeader.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageHeader.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/代理商升级通知/HTMessageUpdateModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/代理商升级通知/HTMessageUpdateModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/代理订单支付成功通知/HTDaiLiOrderPayModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/代理订单支付成功通知/HTDaiLiOrderPayModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/会员注册通知/HTMessageInModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/会员注册通知/HTMessageInModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/好友升级通知/HTMessageUpdate.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/好友升级通知/HTMessageUpdate.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/系统通知/HTSysMessageModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/系统通知/HTSysMessageModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/营养师到期通知/HTYinYangShiModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/营养师到期通知/HTYinYangShiModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/订单处理成功通知/OrderPayModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/订单处理成功通知/OrderPayModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/货款不足通知/HTMessageNoMoney.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/货款不足通知/HTMessageNoMoney.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/model/DZClassList.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/model/DZClassList.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/model/DZOption.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/model/DZOption.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/model/BuyAccountModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/model/BuyAccountModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/model/BuyAccountPayChanel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/model/BuyAccountPayChanel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/model/MiFangYaoQingModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/model/MiFangYaoQingModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/Shop.storyboard" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/model/ShopGoodModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/model/ShopGoodModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/view/ShopAccountModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/view/ShopAccountModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/店铺设置/ShopSettingTableViewController.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/店铺设置/ShopSettingTableViewController.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/SelectLable.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopHuoKuanController.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopHuoKuanController.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyBottomCell.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyBottomCell.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyCenterCellCell.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyCenterCellCell.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyTopCell.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyTopCell.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyListCell.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyListCell.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyModel.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyModel.m" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyTableViewController.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyTableViewController.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/Person/headerMoren.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/Person/headerMoren.imageset/headerMoren.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/TableViewDe/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/TableViewDe/内容空白100.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/TableViewDe/内容空白100.imageset/内容空白100@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/TableViewDe/内容空白100.imageset/内容空白100@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/TableViewDe/列表空白100.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/TableViewDe/列表空白100.imageset/列表空白100@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/TableViewDe/列表空白100.imageset/列表空白100@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/TableViewDe/统计空白100.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/TableViewDe/统计空白100.imageset/统计空白100@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/TableViewDe/统计空白100.imageset/统计空白100@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopHuoKuanLiuShui.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopHuoKuanLiuShui.imageset/shopHuoKuanLiuShui@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopHuoKuanLiuShui.imageset/shopHuoKuanLiuShui@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopInMoney.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopInMoney.imageset/shopInMoney@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopInMoney.imageset/shopInMoney@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopShare.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopShare.imageset/shopShare@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/shopShare.imageset/shopShare@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/xiTong.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/xiTong.imageset/xiTong@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/myshop/xiTong.imageset/xiTong@3x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/pay/headerMoren.imageset/Contents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/pay/headerMoren.imageset/headerMoren.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/HTMessageTableViewCell.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/HTMessageTableViewCell.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/MessageBaseCenterView.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/MessageBottomView.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCenterView.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCenterView.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessageXiCenter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessageXiCenter.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/model/MessageContainerModel.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/model/MessageContainerModel.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/ToBeAgentTableViewController.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/ToBeAgentTableViewController.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/TurePayModel.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/TurePayModel.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/AlipayTool.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/AlipayTool.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/controller/quanDetail(详情页)/Model/QuanDetailModel.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/controller/quanDetail(详情页)/Model/QuanDetailModel.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/店铺设置/ShopSettModel.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/店铺设置/ShopSettModel.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/model/ShopHuoKuanPage.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/model/ShopHuoKuanPage.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/店铺设置详情/ShopSettingInTableViewController.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/店铺设置详情/ShopSettingInTableViewController.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Podfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/1024X1024.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/1024X1024.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/20@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/20@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/20@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/20@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/29@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/29@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/29@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/29@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/40@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/40@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/40@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/40@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/60@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/60@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/60@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/AppIcon.appiconset/60@3x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/Person/p-7.imageset/p-7@2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/Person/p-7.imageset/p-7@2x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/Person/p-7.imageset/p-7@3x.png" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Assets.xcassets/Person/p-7.imageset/p-7@3x.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/LWMessageHeaderView.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/LWMessageHeaderView.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/LWMessageHeaderView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/LWMessageHeaderView.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/MiGoodMessageBaseView.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/MiGoodMessageBaseView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/SelectLable.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/MiGoodMessageCell.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/MiGoodMessageCell.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MiSystemMessageCell.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MiSystemMessageCell.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MiSystemMessgaeView.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MiSystemMessgaeView.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/ProductMessage.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/ProductMessage.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/ProfuctMessageCell.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/ProfuctMessageCell.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageBottom.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/MessageBaseCenterView.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageBottom.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCell.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageHeader.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/MessageBottomView.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageHeader.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/LWMessageHeaderView.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/LWMessageHeaderView.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/LWMessageHeaderView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/LWMessageHeaderView.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageCellModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageCellModel.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageCellModel.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageCellModel.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageModel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageModel.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageModel.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/代理订单支付成功通知/HTDaiLiOrderPayModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/代理订单支付成功通知/HTDaiLiOrderPayModel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/代理订单支付成功通知/HTDaiLiOrderPayModel.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/代理订单支付成功通知/HTDaiLiOrderPayModel.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/会员注册通知/HTMessageInModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/会员注册通知/HTMessageInModel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/会员注册通知/HTMessageInModel.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/会员注册通知/HTMessageInModel.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/好友升级通知/HTMessageUpdate.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/好友升级通知/HTMessageUpdate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/好友升级通知/HTMessageUpdate.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/好友升级通知/HTMessageUpdate.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/营养师到期通知/HTYinYangShiModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/营养师到期通知/HTYinYangShiModel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/营养师到期通知/HTYinYangShiModel.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/营养师到期通知/HTYinYangShiModel.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/订单处理成功通知/OrderPayModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/订单处理成功通知/OrderPayModel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/订单处理成功通知/OrderPayModel.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/订单处理成功通知/OrderPayModel.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/货款不足通知/HTMessageNoMoney.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/货款不足通知/HTMessageNoMoney.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/货款不足通知/HTMessageNoMoney.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/货款不足通知/HTMessageNoMoney.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/controller/HTMessageListTableViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/controller/HTMessageListTableViewController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/controller/HTMessageListTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/controller/HTMessageListTableViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/wallet/Detail/MiBenLTableViewCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/wallet/Detail/MiBenLTableViewCell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/wallet/Detail/MiBenLTableViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/wallet/Detail/MiBenLTableViewCell.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/wallet/Detail/MiBenModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/wallet/Detail/MiBenModel.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/wallet/Detail/MyMiBenTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/wallet/Detail/MyMiBenTableViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/view/DianZhueTableViewCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/view/DianZhueTableViewCell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/view/DianZhueTableViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/view/DianZhueTableViewCell.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/view/conytroller/DianZhuTableViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/view/conytroller/DianZhuTableViewController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/view/conytroller/DianZhuTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/view/conytroller/DianZhuTableViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/view/conytroller/DianZhuViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/店主课堂/view/conytroller/DianZhuViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/我的小店/shopHome/controller/MyShopTableViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/controller/MyShopTableViewController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/我的小店/shopHome/controller/MyShopTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/controller/MyShopTableViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/我的小店/shopHome/view/ShopHomeHeader.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/view/ShopHomeHeader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/我的小店/shopHome/view/ShopHomeHeader.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/view/ShopHomeHeader.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/修改账户/ACBuildTableViewCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/修改账户/ACBuildTableViewCell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/修改账户/ACBuildTableViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/修改账户/ACBuildTableViewCell.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/修改账户/AcFooterView.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/修改账户/AcFooterView.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/修改账户/AcFooterView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/修改账户/AcFooterView.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/BuyAccountTableViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/BuyAccountTableViewController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/BuyAccountTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/BuyAccountTableViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/view/BuyAccountCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/view/BuyAccountCell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/view/BuyAccountCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/view/BuyAccountCell.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/view/BuyAccountCenTableViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/view/BuyAccountCenTableViewCell.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/view/BuyAccountTableViewCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/view/BuyAccountTableViewCell.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/view/BuyAccountTableViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/提现/购买账号/view/BuyAccountTableViewCell.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/ad/AdViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/ad/AdViewController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/ad/AdViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/ad/AdViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/home/view/cell/HomeListItemView.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/home/view/cell/HomeListItemView.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/controller/MessageContainViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/controller/MessageContainViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/ad(广告)/view/B/EightBottomView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/ad(广告)/view/B/EightBottomView.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/ad(广告)/view/MFPersonHeaderView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/ad(广告)/view/MFPersonHeaderView.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/MFPersonTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/MFPersonTableViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/MiFangPersonHeaderView.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/MiFangPersonHeaderView.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/MiFangPersonHeaderView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/MiFangPersonHeaderView.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/model/MiFangUserCenterModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/model/MiFangUserCenterModel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/home/view/cell/HomeListItemView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/home/view/cell/HomeListItemView.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/home/view/cell/ShuListTableViewCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/home/view/cell/ShuListTableViewCell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/home/view/cell/ShuListTableViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/home/view/cell/ShuListTableViewCell.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/main/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/main/AppDelegate.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/main/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/main/Base.lproj/Main.storyboard" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/main/LWLaunchViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/main/LWLaunchViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/main/WKWebViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/main/WKWebViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/HTUserModel.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/HTUserModel.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/HTAppSettingModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/HTAppSettingModel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/HTAppSettingModel.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/HTAppSettingModel.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/HTUserModel.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/model(全局数据模型)/HTUserModel.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/HTComment.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/HTComment.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/NetWork/HTNSMutableURLRequest.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/NetWork/HTNSMutableURLRequest.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/NetWork/HTAFHTTPSessionManager.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/NetWork/HTAFHTTPSessionManager.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/NetWork/HTApiHelper.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/NetWork/HTApiHelper.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/NetWork/HTNetworkingTool.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/NetWork/HTNetworkingTool.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/HTTool.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/HTTool.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/HTTool.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/HTTool.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/inhert/LWTableViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/inhert/LWTableViewController.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/inhert/LWTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/inhert/LWTableViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/WXLoginShare.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/WXLoginShare.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/WXLoginShare.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/Tool/WXLoginShare.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/haoQuanLianMeng.pch" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/other/haoQuanLianMeng.pch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/HTArticleMenuView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/HTArticleMenuView.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/HaoQuanListController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/HaoQuanListController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/HaoTickContainerViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/HaoTickContainerViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/Phone/HTPhotosView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/Phone/HTPhotosView.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/Video/HTViedoView.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/Video/HTViedoView.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/New Group/MiFangYaoViewController.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/New Group/MiFangYaoViewController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/New Group/MiFangYaoViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/New Group/MiFangYaoViewController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/MiFangAccountTableViewCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/MiFangAccountTableViewCell.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/MiFangAccountTableViewCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/MiFangAccountTableViewCell.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/MiFangYaoHeader.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/MiFangYaoHeader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/MiFangYaoHeader.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/MiFangYaoHeader.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/MiFangYaoQingController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/yao(邀请入驻)/view/MiFangYaoQingController.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/反馈/YiJianViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/反馈/YiJianViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/Shop.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/Shop.storyboard" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/controller/MyShopTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/controller/MyShopTableViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/店铺设置/ShopSettingTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/店铺设置/ShopSettingTableViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/SelectLable.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/SelectLable.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopHuoKuanController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopHuoKuanController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyBottomCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyBottomCell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyBottomCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyBottomCell.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyCenterCellCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyCenterCellCell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyCenterCellCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyCenterCellCell.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyTopCell.h" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyTopCell.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyTopCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款充值/ShopMoneyTopCell.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyTableViewController.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyTableViewController.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/haoQuanLianMengTests/haoQuanLianMengTests.m" beforeDir="false" afterPath="$PROJECT_DIR$/haoQuanLianMengTests/haoQuanLianMengTests.m" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/haoQuanLianMeng-gmdmoyulaoeriabepdltglltkfgd/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -148,11 +154,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_bcda53fb57cd8f4d398022fcd9bf918bdd535ed5" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GoodMoneyModel.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyModel.h">
+      <file leaf-file-name="AppDelegate.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/main/AppDelegate.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+            <state relative-caret-position="-62">
+              <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
+              <folding>
+                <element signature="e#128#151#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,6 +171,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>updateCell</find>
+      <find>webView</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,13 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Podfile" />
-        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/LWMessageHeaderView.m" />
-        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/LWMessageBottomView.h" />
-        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/LWMessageBottomView.m" />
-        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/HTMessageTableViewCell.m" />
-        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/other/inhert/LWTabBarController.m" />
-        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/controller/HTMessageListTableViewController.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ProductMessage.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/ProductMessage.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/LWMessageHeaderView.m" />
@@ -187,7 +190,6 @@
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/ProfuctMessageCell.h" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageCellModel.h" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/ProfuctMessageCell.m" />
-        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageCellModel.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/view/MFPersonHeaderView.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/view/two/MyWalletTableViewCell.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/person(个人中心)/MFPersonTableViewController.m" />
@@ -209,16 +211,26 @@
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/other/inhert/LWTableViewController.h" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/ticket(好券圈)/view/HaoQuanListController.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/ad/AdViewController.h" />
-        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/main/AppDelegate.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/ad/AdViewController.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/controller/MyShopTableViewController.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/home/view/cell/HomeListItemView.m" />
-        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyModel.h" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/other/inhert/LWTableViewController.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyListCell.h" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyTableViewController.m" />
         <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyListCell.m" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.h" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.m" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/HTMessageTableViewCell.h" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/HTMessageTableViewCell.m" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCell.h" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCell.m" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/controller/HTMessageListTableViewController.m" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageCellModel.m" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/MessageBaseCenterView.h" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessageXiCenter.m" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCenterView.m" />
+        <option value="$PROJECT_DIR$/haoQuanLianMeng/classes/main/AppDelegate.m" />
       </list>
     </option>
   </component>
@@ -233,9 +245,9 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="323" />
-    <option name="y" value="773" />
-    <option name="width" value="1418" />
+    <option name="x" value="133" />
+    <option name="y" value="165" />
+    <option name="width" value="1421" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectView">
@@ -268,15 +280,7 @@
               <item name="haoQuanLianMeng" type="1d218c8b:XcodeProjectNode" />
               <item name="haoQuanLianMeng" type="fcab9f18:XcodeViewNode" />
               <item name="classes" type="fcab9f18:XcodeViewNode" />
-              <item name="我的小店" type="fcab9f18:XcodeViewNode" />
-            </path>
-            <path>
-              <item name="" type="efc3779f:XcodeRootNode" />
-              <item name="haoQuanLianMeng" type="1d218c8b:XcodeProjectNode" />
-              <item name="haoQuanLianMeng" type="fcab9f18:XcodeViewNode" />
-              <item name="classes" type="fcab9f18:XcodeViewNode" />
-              <item name="我的小店" type="fcab9f18:XcodeViewNode" />
-              <item name="货款流水" type="fcab9f18:XcodeViewNode" />
+              <item name="main" type="fcab9f18:XcodeViewNode" />
             </path>
             <path>
               <item name="" type="efc3779f:XcodeRootNode" />
@@ -314,6 +318,11 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.haoQuanLianMeng">
+    <configuration name="BRPickerView" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="BRPickerView" CONFIG_NAME="Debug" SCHEME_NAME="BRPickerView" IS_LOCATION_SIMULATION_ALLOWED="true" MAKE_ACTIVE="TRUE">
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+    </configuration>
     <configuration name="FMDB" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="FMDB" CONFIG_NAME="Debug" SCHEME_NAME="FMDB" IS_LOCATION_SIMULATION_ALLOWED="true" MAKE_ACTIVE="TRUE">
       <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
         <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
@@ -327,6 +336,7 @@
     <list>
       <item itemvalue="Application.haoQuanLianMeng" />
       <item itemvalue="Application.FMDB" />
+      <item itemvalue="Application.BRPickerView" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -352,12 +362,14 @@
       <workItem from="1530856702343" duration="1234000" />
       <workItem from="1531273930738" duration="789000" />
       <workItem from="1531374976769" duration="6580000" />
-      <workItem from="1531395415754" duration="3908000" />
+      <workItem from="1531395415754" duration="4485000" />
+      <workItem from="1531808070779" duration="4023000" />
+      <workItem from="1532068322181" duration="630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34118000" />
+    <option name="totallyTimeSpent" value="39348000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -369,21 +381,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="84" y="78" width="1418" height="877" extended-state="0" />
+    <frame x="133" y="165" width="1421" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2190408" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17214286" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32948717" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32820514" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6423077" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32948717" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.6423077" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32948717" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.6871795" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.6871795" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -391,6 +402,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.32820514" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,12 +431,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m</url>
-          <line>88</line>
+          <line>89</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/绑定手机/MfBangDingTableViewController.m</url>
-          <line>96</line>
+          <line>99</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
@@ -437,52 +449,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/controller/MyShopTableViewController.m">
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/main/WKWebViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="77" column="29" selection-start-line="77" selection-start-column="29" selection-end-line="77" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/controller/TuiGuanListTableViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/controller/model/TuiGuangCellModel.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/controller/model/TuiGuangCellModel.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/view/ATuiGuangTableViewCell.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/main.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/mifang/推广订单/view/TuiGuangTop.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="40" />
+        <state relative-caret-position="2070">
+          <caret line="115" column="4" selection-start-line="115" selection-start-column="4" selection-end-line="134" selection-end-column="35" />
+          <folding>
+            <element signature="e#145#176#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -614,20 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/main/AppDelegate.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="74" column="126" selection-start-line="74" selection-start-column="126" selection-end-line="74" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/main/WKWebViewController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/ad/AdViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -652,9 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/controller/MyShopTableViewController.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/shopHome/controller/MyShopTableViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -673,13 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9">
           <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -704,13 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyListCell.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyTableViewController.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -722,26 +664,131 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
           <caret line="85" column="62" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
-          <folding>
-            <element signature="e#145#185#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyModel.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyListCell.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyListCell.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
-          <caret line="97" column="25" lean-forward="true" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
+          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/MessageBottomView.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/HTMessageTableViewCell.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="67" lean-forward="true" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/HTMessageTableViewCell.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="100" column="32" lean-forward="true" selection-start-line="98" selection-start-column="21" selection-end-line="100" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-394">
+          <caret line="25" selection-start-line="25" selection-end-line="35" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessgeXiTableViewCell.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="57" lean-forward="true" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCell.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCell.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="141" selection-start-line="141" selection-end-line="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/controller/HTMessageListTableViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="176" column="27" selection-start-line="176" selection-start-column="27" selection-end-line="176" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/model/HTMessageCellModel.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="40" column="18" lean-forward="true" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/MessageBaseCenterView.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="55" lean-forward="true" selection-start-line="13" selection-end-line="13" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/xitong/MessageXiCenter.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="58" selection-start-line="58" selection-end-line="62" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/PerSon(个人中心)/controller/message(消息)/View/mfMessage/de/ad/MallMessageCenterView.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/main/WKWebViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="115" column="4" selection-start-line="115" selection-start-column="4" selection-end-line="134" selection-end-column="35" />
           <folding>
-            <element signature="e#134#163#0" expanded="true" />
+            <element signature="e#145#176#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/我的小店/货款流水/GoodMoneyModel.h">
+    <entry file="file://$PROJECT_DIR$/haoQuanLianMeng/classes/main/AppDelegate.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        <state relative-caret-position="-62">
+          <caret line="174" column="5" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
+          <folding>
+            <element signature="e#128#151#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

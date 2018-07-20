@@ -41,4 +41,6 @@
 @property (nonatomic,strong) NSNumber * ProfitAmount;
 
 
+- (NSString *)getContentString;
+
 @end

@@ -176,4 +176,7 @@
 
 
 - (UIViewController *)getCurrentVC;
+
+//显示提升
+- (void)showInfo:(NSString *)message withBlock:(void(^)(void))conformBlock;
 @end

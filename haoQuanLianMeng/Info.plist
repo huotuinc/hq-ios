@@ -22,18 +22,23 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>weixin</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wx39f5c1402223a602</string>
 			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array/>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>wechat</string>
 		<string>weixin</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
@@ -43,6 +48,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许此App使用你的相机功能？</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>是否允许此App访问你的媒体资料库？</string>
 	<key>NSPhotoLibraryUsageDescription</key>

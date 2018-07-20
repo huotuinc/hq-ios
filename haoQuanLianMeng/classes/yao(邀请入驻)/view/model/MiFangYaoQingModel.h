@@ -24,4 +24,16 @@
 //等级Id
 @property (nonatomic,assign) int LevelId;
 
+
+
+//购买帐号
+@property (nonatomic,copy) NSString * BuyBuddyNumURL;
+
+
+@property (nonatomic,copy) NSString * UpgradeAgentURL; // string    邀请好友升级代理商地址
+
+
+@property (nonatomic,copy) NSString * ApplyAgentURL; // string    邀请好友升级代理
+
+
 @end

@@ -56,6 +56,10 @@
             NSLog(@"微信的回调方法333---%@",aresp.state);
             return;
         }
+    }else if([resp isKindOfClass:[PayResp class]]){ //支付成功
+        PayResp *aresp = (PayResp *)resp;
+        NSLog(@"微信的回调方法333---%@-----%d",aresp.returnKey,aresp.type);
+        
     }
 }
 
@@ -194,6 +198,64 @@
             }
         });
     });
+    
+}
+
+
+-(void)WXOpenXiaoChengXu{
+    WXLaunchMiniProgramReq *launchMiniProgramReq = [WXLaunchMiniProgramReq object];
+    launchMiniProgramReq.userName = WXXiaoChenXu;//拉起的小程序的username
+    launchMiniProgramReq.path=@"pages/index/index";//拉起小程序页面的可带参路径，不填默认拉起小
+    launchMiniProgramReq.miniProgramType=WXMiniProgramTypePreview; //拉起小程序的类型
+    [WXApi sendReq:launchMiniProgramReq];
+}
+
+
+- (void)WXShareXiaoChengXu:(NSString *)des{
+    
+
+    
+    WXMiniProgramObject * wxMiniObject =  [WXMiniProgramObject object];
+    wxMiniObject.webpageUrl = @"http://www.baidu.com";
+    wxMiniObject.userName = WXXiaoChenXu;
+    wxMiniObject.path = @"pages/index/index";
+    wxMiniObject.miniProgramType = WXMiniProgramTypePreview;
+    //        [NSData da]
+//    NSString *file2 = [[NSBundle mainBundle] pathForResource:@"cccccccc" ofType:@"png"];
+    NSString *file2 = [[NSBundle mainBundle] pathForResource:@"mf" ofType:@"bundle"];
+    NSString *imageName = @"cccccccc@3x.png";
+    imageName = [file2 stringByAppendingPathComponent:imageName];
+
+
+    NSData *imageData = [NSData dataWithContentsOfFile:imageName];
+    wxMiniObject.hdImageData = imageData;
+
+    WXMediaMessage * message = [WXMediaMessage message];
+    message.title = @"觅方";
+    message.description = @"京达达大厦";
+    message.mediaObject = wxMiniObject;
+//    [message setThumbImage:[UIImage imageNamed:@"headerMoren"]];
+//    message.thumbData = nil;
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.scene = WXSceneSession;
+    req.bText = NO;
+    req.message = message;
+    [WXApi sendReq:req];
+}
+
+
+//微信支付
+-(void)WXWeChatPay{
+    
+    
+    PayReq *request = [[PayReq alloc] init];
+    request.partnerId = @"10000100";
+    request.prepayId= @"1101000000140415649af9fc314aa427";
+    request.package = @"Sign=WXPay";
+    request.nonceStr= @"a462b76e7436e98e0ed6e13c64b4fd1c";
+//    request.timeStamp= [[[HTTool HTToolShare] HTToolGetTimeStap] longLongValue];
+    request.sign= @"582282D72DD2B03AD892830965F428CB16E7A256";
+    [WXApi sendReq:request];
     
 }
 @end

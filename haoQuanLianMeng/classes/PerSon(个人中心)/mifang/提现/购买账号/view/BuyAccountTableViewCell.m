@@ -172,7 +172,8 @@
     
     self.iconView.layer.cornerRadius = self.iconView.frame.size.width * 0.5;
     self.iconView.layer.masksToBounds = YES;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.GoodsImgURL]];
+    
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.GoodsImgURL] placeholderImage:[UIImage imageNamed:@"caiGou"] options:SDWebImageLowPriority];
     self.UpLable.text = model.GoodsName;
     self.downLable.text = [NSString stringWithFormat:@"单价%@/个",model.GoodsPrice];
 }

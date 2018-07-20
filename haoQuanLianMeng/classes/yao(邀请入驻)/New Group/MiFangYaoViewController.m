@@ -10,10 +10,13 @@
 #import "YaoqingHeadView.h"
 #import "YaoQingBtnCell.h"
 #import "BuyAccountTableViewController.h"
+#import <WebKit/WebKit.h>
+#import "ToBeAgentTableViewController.h"
 
-@interface MiFangYaoViewController ()<UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic,strong) UITableView * contentTableview;
+@interface MiFangYaoViewController ()<UITableViewDelegate,WKUIDelegate,WKNavigationDelegate>
+
+@property (strong, nonatomic) WKWebView *webView;
 
 @property (nonatomic,strong) UIButton  * btn;
 
@@ -32,22 +35,6 @@
 }
 
 
-- (UITableView *)contentTableview{
-    if (_contentTableview == nil) {
-        _contentTableview = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
-        _contentTableview.delegate = self;
-        _contentTableview.dataSource = self;
-        _contentTableview.rowHeight = UITableViewAutomaticDimension;
-        _contentTableview.estimatedRowHeight = 500;
-        [_contentTableview registerClass:[YaoqingHeadView class] forCellReuseIdentifier:@"YaoqingHeadView"];
-        [_contentTableview registerClass:[YaoQingBtnCell class] forCellReuseIdentifier:@"YaoQingBtnCell"];
-        
-//        _contentTableview.contentInset = UIEdgeInsetsMake(0, 0, 44, 0);
-        _contentTableview.sectionFooterHeight  = 10;
-        _contentTableview.sectionHeaderHeight = 0;
-    }
-    return _contentTableview;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,8 +49,17 @@
     }];
     
     
-    [self.view addSubview:self.contentTableview];
-    [self.contentTableview mas_makeConstraints:^(MASConstraintMaker *make) {
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.navigationController.navigationBar.hidden = NO;
+    
+    WKWebViewConfiguration * internalConfig = [[WKWebViewConfiguration alloc] init];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) configuration:internalConfig];
+    self.webView.UIDelegate = self;
+    self.webView.navigationDelegate = self;
+    
+    
+    [self.view addSubview:self.webView];
+    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.view.mas_left);
         make.right.mas_equalTo(self.view.mas_right);
         make.top.mas_equalTo(self.view.mas_top);
@@ -79,6 +75,27 @@
          [_btn setTitle:@"成为代理商" forState:UIControlStateNormal];
     }
     
+//    self.funUrl = @"http://www.baidu.com";
+    NSString * encodeUrl;
+    if (self.needEnCode) {
+        encodeUrl = [self.funUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+    }else{
+        encodeUrl = [self.funUrl copy];
+    }
+    //
+    LWLog(@"%@",self.funUrl);
+    NSURL * urlStr = [NSURL URLWithString:encodeUrl];
+    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:urlStr];
+    //    req.allHTTPHeaderFields = [[HTTool HTToolShare] NHToolSetCookes];
+    
+    //    [self.webView loadRequest:req];
+    //加载刷新控件
+    //    [self AddMjRefresh];
+    
+//    [self initWebViewProgress];
+    
+    [self.webView loadRequest:req];
     
 //
     
@@ -87,9 +104,18 @@
 
 - (void)buyAccount{
     
-    BuyAccountTableViewController * vc = [[BuyAccountTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    vc.type = 0;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.type == 0) {
+        BuyAccountTableViewController * vc = [[BuyAccountTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+        vc.type = 0;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{ //成为代理
+        
+        
+        ToBeAgentTableViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ToBeAgentTableViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+    
 }
 
 

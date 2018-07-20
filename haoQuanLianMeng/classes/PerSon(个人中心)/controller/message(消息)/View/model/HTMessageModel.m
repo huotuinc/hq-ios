@@ -10,4 +10,13 @@
 
 @implementation HTMessageModel
 
+
+- (NSString *)getContentString{
+    
+    
+    return @"";
+}
+
+
+
 @end

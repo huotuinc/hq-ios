@@ -10,7 +10,7 @@
 #define HTApiHelper_h
 
 #ifdef DEBUG  //测试地址
-#define HTMainIpAddress @"http://api.mingshz.com/mock/65/"
+#define HTMainIpAddress @"http:\/\/mfapi.mifangtest.com" //@"http://mfapi.mfmall.com"
 #else //正式地址
 #define HTMainIpAddress @"http://zhengxin2.51morecash.com/api"
 #endif
@@ -23,6 +23,6 @@
 #define OSVersion [[UIDevice currentDevice] systemVersion]
 #define ServiceMerchantId @"4886" //服务端商户ID
 
-#define HTSecretKey @"" //网络请求的Key
+#define HTSecretKey @"3ab0d4e6a8bf9b5b1cb1d38d00bcf339" //网络请求的Key
 
 #endif /* HTApiHelper_h */

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTSysMessageModel.h"
+#import "HTMessageTableViewCell.h"
 
-@interface MessgeXiTableViewCell : UITableViewCell
+@interface MessgeXiTableViewCell : HTMessageTableViewCell
+
+
 
 @end

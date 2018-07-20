@@ -10,7 +10,11 @@
 
 @interface MiFangYaoViewController : UIViewController
 
-//0 是采购  1 成为代理商
+//0 是采购  1 成为代理  2代理商
 @property (nonatomic,assign) int  type;
+
+@property (nonatomic,copy) NSString * needEnCode;
+
+@property (nonatomic,copy) NSString * funUrl;
 
 @end

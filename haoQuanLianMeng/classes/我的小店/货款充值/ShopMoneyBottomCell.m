@@ -7,9 +7,24 @@
 //
 
 #import "ShopMoneyBottomCell.h"
+#import "BuyAccountPayChanel.h"
+
+@interface ShopMoneyBottomCell ()
+
+
+@property (nonatomic,strong) NSArray * payArray;
+@end
+
 
 @implementation ShopMoneyBottomCell
 
+
+- (NSArray *)payArray{
+    if (_payArray == nil) {
+        _payArray = @[self.zhifubao,self.weixinLable,self.lianlianPay];
+    }
+    return _payArray;
+}
 
 - (UILabel *)payChanel{
     if (_payChanel == nil) {
@@ -42,6 +57,17 @@
     return _weixinLable;
 }
 
+- (SelectLable *)lianlianPay{
+    if (_lianlianPay == nil) {
+        _lianlianPay = [[SelectLable alloc] init];
+        _lianlianPay.text = @"连连支付";
+        _lianlianPay.layer.borderWidth = .3f;
+        _lianlianPay.textAlignment = NSTextAlignmentCenter;
+        _lianlianPay.layer.borderColor = LWColor(205, 205, 205).CGColor;
+    }
+    return _lianlianPay;
+}
+
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
@@ -71,8 +97,29 @@
             make.width.mas_equalTo(80);
             make.bottom.mas_equalTo(self.zhifubao.mas_bottom);
         }];
+        
+        [self.contentView addSubview:self.lianlianPay];
+        [self.lianlianPay mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(self.zhifubao.mas_top);
+            make.left.mas_equalTo(self.weixinLable.mas_right).mas_offset(10);
+            make.height.mas_equalTo(kAdaptedWidth(35));
+            make.width.mas_equalTo(80);
+            make.bottom.mas_equalTo(self.zhifubao.mas_bottom);
+        }];
+        
          
     }
     return self;
+}
+
+- (void)configure:(NSArray *)dataArray{
+
+    for (int i = 0; i < dataArray.count; i++) {
+        SelectLable * tt = [self.payArray objectAtIndex:i];
+        tt.hidden = NO;
+        BuyAccountPayChanel * chanel = [dataArray objectAtIndex:i];
+        tt.text = chanel.PaymentName;
+    }
+    
 }
 @end

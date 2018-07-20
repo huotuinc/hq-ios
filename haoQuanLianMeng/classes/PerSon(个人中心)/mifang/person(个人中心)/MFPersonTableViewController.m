@@ -23,7 +23,7 @@
 #import "MiFangUserCenterModel.h"
 #import "ErWeiMaView.h"
 #import "MPBannerTableViewCell.h"
-
+#import "WKWebViewController.h"
 
 @interface MFPersonTableViewController ()<MFPersonHeaderViewDelegate,MyWalletTableViewDelegate,VipTimeTableViewDelegate>
 
@@ -129,7 +129,7 @@
     
     
 //    http://api.mingshz.com/mock/65/user/Index
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/Index" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/Index" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         
         _mpPersonHeaderView = [[MFPersonHeaderView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, kAdaptedWidth(156)) withHeader:YES];
@@ -261,7 +261,8 @@
             break;
         }
         case 7:{
-            HTSettingTableViewController * vc = [[UIStoryboard storyboardWithName:@"Person" bundle:nil] instantiateViewControllerWithIdentifier:@"HTSettingTableViewController"];
+            WKWebViewController * vc = [[WKWebViewController alloc] init];
+            vc.funUrl = self.model.MiFangModelURL;
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShopHuoKuanPage.h"
+
 
 @interface ShopMoneyTopCell : UITableViewCell
 
@@ -15,5 +17,8 @@
 @property (strong, nonatomic)  UILabel *huokanMoney;
 
 @property (strong, nonatomic)  UILabel *subMoney;
+
+
+- (void)configure:(ShopHuoKuanPage *)model;
 
 @end

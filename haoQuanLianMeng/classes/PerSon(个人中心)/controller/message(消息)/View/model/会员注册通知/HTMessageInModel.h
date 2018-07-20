@@ -43,6 +43,8 @@
 /// </summary>
 @property (nonatomic,copy) NSString   * RefereeNickName;
 
+@property (nonatomic,copy) NSString   * UserLoginName;
 
+- (NSString *)getContent;
 
 @end

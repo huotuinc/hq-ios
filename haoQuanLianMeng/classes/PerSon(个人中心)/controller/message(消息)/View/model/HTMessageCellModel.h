@@ -19,8 +19,18 @@ typedef enum : NSUInteger {
 
 //推广类型(0普通1图片2视频)
 typedef enum : NSUInteger {
-    HTProductMessage,
-    HTImagetMessage,
+    MessgaeMallNotice = 0, //系统消息
+    MessgaeNutritionistExpire = 1, //营养师续费
+    MessgaeNutritionisContinue = 2, //营养师续费
+    MessgaeAgentMoneyNotEnough = 3, //代理商货款不足
+    MessgaeDownMenberRegist = 4, //下线会员注册成功通知
+    MessgaeUserBecomeAgent = 5, //升级为代理商
+    MessageInviteBecomeNutritionis = 6, //邀请用户成为营养师
+    MessageInviteBecomeAgent = 7, //邀请用户成为代理商
+    //MessageMemberOrderPaySuccess = 8,
+    MessageDownMemberPayOrder = 9, //下线会员支付成功通知
+    MessageBuyGoodSuccess = 10  //代理商用户购买成功通知
+    
 } HTMessgaeType;
 
 
@@ -29,11 +39,11 @@ typedef enum : NSUInteger {
 
 
 //服务端返回的数据的真实数据
-@property (nonatomic,strong) HTMessageModel * messageModel;
+@property (nonatomic,strong) id  messageModel;
 
 
 //当前消息分类
-@property (nonatomic,assign) HTMessgaeType articleType;
+@property (nonatomic,assign) HTMessgaeType messageType;
 
 
 // 当前标题分类选项
@@ -41,9 +51,9 @@ typedef enum : NSUInteger {
 
 
 
-- (instancetype)initWithSlideType:(int)selectType articleType:(HTMessgaeType)articleType  article:(HTMessageModel *)article;
+- (instancetype)initWithSlideType:(MessageSlideType)selectType messageType:(HTMessgaeType)articleType  message:(id)message;
 
-+ (UITableViewCell *)confirmCellWithArticle:(HTMessageModel *)article  slideType:(MessageSlideType)selectType WithTableView:(UITableView *)tableView witdDelegate:(id<HTArticleCenterViewDelegate>)delegate;
+- (UITableViewCell *)confirmCellWithTableView:(UITableView *)tableView withIndexPaht:(NSIndexPath *)indexPath witdDelegate:(id<HTArticleCenterViewDelegate>)delegate;
 
 
 

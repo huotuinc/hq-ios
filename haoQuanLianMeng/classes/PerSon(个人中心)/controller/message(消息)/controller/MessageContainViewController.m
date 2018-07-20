@@ -90,7 +90,7 @@
 {
     for(int i = 0; i<  self.titleItems.count; i++){
         HTMessageListTableViewController * homeViewController = [[HTMessageListTableViewController alloc] init];
-        homeViewController.type = i;
+        homeViewController.type = i - 1;
 //        homeViewController.content = CGRectGetMaxY(self.navigationController.navigationBar.frame);
         [self addChildViewController:homeViewController];
     }

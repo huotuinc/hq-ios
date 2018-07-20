@@ -120,6 +120,7 @@
     self.nameLabel.text = model.WxNickName;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.WxHeadImg] placeholderImage:nil];
     self.levelLabel.text = [NSString stringWithFormat:@"  %@  ",model.LevelName];
+    [self.titleHeader configWithData:model];
 }
 - (void)setUpInit{
     

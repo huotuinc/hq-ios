@@ -30,4 +30,8 @@
 @property (nonatomic,assign) int UserTempIntegral;
 //觅豆
 @property (nonatomic,assign) int UserMBean;
+
+@property (nonatomic,copy) NSString * MiFangModelURL;
+
+@property (nonatomic,copy) NSString * TipStr;
 @end

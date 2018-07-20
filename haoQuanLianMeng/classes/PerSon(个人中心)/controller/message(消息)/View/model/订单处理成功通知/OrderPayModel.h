@@ -38,4 +38,8 @@
 
 
 
+- (NSString *)getContentString;
+
+
+
 @end

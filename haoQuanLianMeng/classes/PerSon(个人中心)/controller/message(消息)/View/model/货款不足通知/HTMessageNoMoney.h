@@ -46,5 +46,7 @@
 @property (nonatomic,strong) NSNumber * OweDeposit;
 
 
+- (NSString *)getContentString;
+
 
 @end

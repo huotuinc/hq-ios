@@ -24,6 +24,7 @@
            forCellReuseIdentifier:@"GoodMoneyListCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
+    self.tableView.tableFooterView = [[UIView alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     

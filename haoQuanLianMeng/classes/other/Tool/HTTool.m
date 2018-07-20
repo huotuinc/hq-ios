@@ -295,7 +295,7 @@ static HTTool * _htTool;
         //parame[@"userId"] = @(usermodel.userId);
     }
 
-    
+    parame[@"customerId"] = ServiceMerchantId;
     //1、加入时间戳
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     NSTimeInterval a=[dat timeIntervalSince1970]*1000;
@@ -330,6 +330,8 @@ static HTTool * _htTool;
     NSString * sign = [[MD5Encryption md5by32:cc] uppercaseString];
     //LWLog(@"签名的后的字符串%@",sign);
     parame[@"sign"] = sign;
+    [parame removeObjectForKey:@"customerId"];
+    [parame removeObjectForKey:@"userToken"];
     return parame;
 }
 
@@ -760,5 +762,31 @@ static HTTool * _htTool;
     return result;
 }
 
+
+- (void)showInfo:(NSString *)message withBlock:(void(^)(void))conformBlock
+{
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(50, (height-50)/2, width-2*50, 50)];
+    label.backgroundColor = [UIColor grayColor];
+    label.textColor = [UIColor whiteColor];
+    label.text = message;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.clipsToBounds = YES;
+    label.adjustsFontSizeToFitWidth = YES;
+    label.minimumScaleFactor = 0.6;
+    label.layer.cornerRadius = 7;
+    [[UIApplication sharedApplication].keyWindow addSubview:label];
+    
+    [UIView animateWithDuration:1 delay:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        label.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [label removeFromSuperview];
+        if (conformBlock != nil) {
+            conformBlock();
+        }
+    }];
+}
 
 @end

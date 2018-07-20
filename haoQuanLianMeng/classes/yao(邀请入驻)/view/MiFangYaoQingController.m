@@ -23,6 +23,9 @@
 
 @property (nonatomic,strong) MiFangAccountTableViewCell *cell;
 
+
+//邀请页面数据
+@property (nonatomic,strong) MiFangYaoQingModel * model;
 @end
 
 @implementation MiFangYaoQingController
@@ -68,12 +71,13 @@
 
 - (void)getData{
 //
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Profit/Invitations" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Profit/Invitations" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         
         MiFangYaoQingModel * model = [MiFangYaoQingModel mj_objectWithKeyValues:[json objectForKey:@"data"]];
         [self.miFangYaoHeader configure:model];
         [self.cell configure:model];
+        self.model = model;
         
     } failure:^(NSError *error) {
         
@@ -112,9 +116,12 @@
 
 
 
-- (void)MiFangAccountClick:(NSUInteger)index{
+- (void)MiFangAccountClick:(NSUInteger)index andUrl:(NSString *)url{
+    
     
     MiFangYaoViewController * vc = [[MiFangYaoViewController alloc] init];
+    vc.type = (int)index;
+    vc.funUrl = [url copy];
     [self.navigationController pushViewController:vc animated:YES];
     
 }

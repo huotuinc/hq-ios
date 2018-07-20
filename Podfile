@@ -11,6 +11,7 @@ target 'haoQuanLianMeng' do
   pod 'AFNetworking'
   #pod 'MMDrawerController'
   pod 'FMDB'
+  pod 'BRPickerView'
   #pod 'mob_sharesdk'
   #pod 'mob_sharesdk/ShareSDKPlatforms/WeChat'
   pod 'IQKeyboardManager'

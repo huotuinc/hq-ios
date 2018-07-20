@@ -44,4 +44,5 @@
 @property (nonatomic,copy) NSString * SurplusDay;
 
 
+- (NSString *)getContentString;
 @end

@@ -18,6 +18,12 @@
 }
 */
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    
+    self.layer.borderWidth = .8;
+    self.layer.cornerRadius = 5;
+}
 - (void)setSelect:(int)select{
     _select = select;
     if (select) {

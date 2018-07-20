@@ -11,8 +11,10 @@
 
 @interface HTMessageListTableViewController : LWTableViewController
 
-
-// 0 表示 业务  1 系统
+// 默认 = -1
+//  系统消息 = 0,
+//注册通知 = 1,
+//支付通知 = 2
 @property (nonatomic,assign) MessageSlideType type;
 
 

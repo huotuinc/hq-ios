@@ -51,8 +51,24 @@
             make.left.mas_equalTo(self.huokuanTitle.mas_left);
             make.bottom.mas_equalTo(self.huokuanTitle.superview.mas_bottom).mas_offset(-10);
         }];
+        
+        [self.contentView addSubview:self.subMoney];
+        [self.subMoney mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.mas_equalTo(self.huokuanTitle.mas_bottom).mas_offset(kAdaptedWidth(10));
+            make.left.mas_equalTo(self.huokanMoney.mas_right).mas_offset(5);
+            make.centerY.mas_equalTo(self.huokanMoney.mas_centerY);
+        }];
+        
     }
     return self;
+}
+
+- (void)configure:(ShopHuoKuanPage *)model{
+    self.huokanMoney.text = [NSString stringWithFormat:@"¥ %.2f",model.MyDeposit];
+    
+    self.subMoney.text = [NSString stringWithFormat:@"(欠款¥%.2f元)",model.OweDeposit];
+    
+    
 }
 
 @end

@@ -37,4 +37,16 @@
 -(void)WXLogin;
 
 
+//分享小程序
+- (void)WXShareXiaoChengXu:(NSString *)des;
+
+
+//调用小程序
+-(void)WXOpenXiaoChengXu;
+
+
+//调用微信支付
+-(void)WXWeChatPay;
+
+
 @end

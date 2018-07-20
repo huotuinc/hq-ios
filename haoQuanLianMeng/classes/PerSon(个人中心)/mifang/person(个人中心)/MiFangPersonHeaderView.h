@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MiFangUserCenterModel.h"
+
 
 @interface MiFangPersonHeaderView : UIView
+
+- (void)configWithData:(MiFangUserCenterModel *)model;
 
 @end

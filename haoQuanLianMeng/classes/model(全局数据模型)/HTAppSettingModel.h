@@ -14,4 +14,9 @@
  */
 @interface HTAppSettingModel : NSObject
 
+@property (nonatomic,strong) NSString * aboutUs;
+
+@property (nonatomic,assign) int iosCheck;
+
+
 @end

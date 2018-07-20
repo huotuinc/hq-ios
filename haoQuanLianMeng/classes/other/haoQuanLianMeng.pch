@@ -41,6 +41,8 @@
 #import "HTComment.h"
 #import "HTUserModel.h"
 #import "HTAppSettingModel.h"
+#import <BRPickerView.h>
+#import "TurePayModel.h"
 //网络配置
 #import "HTApiHelper.h"
 //单利

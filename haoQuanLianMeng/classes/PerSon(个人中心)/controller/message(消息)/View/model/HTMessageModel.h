@@ -17,7 +17,7 @@
 
 
 
-
+- (NSString *)getContentString;
 
 
 

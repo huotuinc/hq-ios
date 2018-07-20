@@ -37,4 +37,6 @@
 @property (nonatomic,assign) int NoticeScene;
 
 
+- (NSString *)getContentString;
+
 @end

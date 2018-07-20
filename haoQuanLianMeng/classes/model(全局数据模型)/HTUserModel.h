@@ -22,4 +22,12 @@
 //是否开启快捷支付
 @property (nonatomic,assign) int paySwichStudent;
 
+
+@property (nonatomic,copy) NSString  * mobile;
+@property (nonatomic,assign) int userRoleType;
+@property (nonatomic,copy) NSString  * userRoleName;
+
+
+
+
 @end

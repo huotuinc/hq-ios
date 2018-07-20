@@ -169,8 +169,11 @@
 
     [[HTNetworkingTool HTNetworkingManager]
         HTNetworkingToolPost:@"user/appInit" parame:nil
-                       isHud:YES isHaseCache:NO success:^(id json) {
+                       isHud:NO isHaseCache:NO success:^(id json) {
+                           LWLog(@"%@",json);
                            HTUserModel * model = [HTUserModel mj_objectWithKeyValues:json[@"data"]];
+                           HTAppSettingModel * sett = [HTAppSettingModel mj_objectWithKeyValues:json[@"data"]];
+                           [[HTTool HTToolShare] HTToolArchiveRootObject:sett withPath:NSStringFromClass([HTAppSettingModel class])];
                            if (model == nil || !model.userId) {
                                [self showLoginBtn];
                            } else{
@@ -180,6 +183,7 @@
             LWLog(@"%@",json);
         } failure:^(NSError *error) {
             LWLog(@"%@",error);
+//            [self getInitDate];
         }];
 }
 
@@ -205,10 +209,11 @@
 - (void)wxLoginShareSuccess:(NSDictionary *)dict{
     NSMutableDictionary * parame = [NSMutableDictionary dictionary];
     parame[@"openId"] = dict[@"openid"];
-    parame[@"unionId"] = dict[@"unionid"];
+#warning luohaibo 修改unionid
+    parame[@"unionId"] = @"ovFVjwxPntkPKCv4taywvyW9DgnE";//dict[@"unionid"];
     parame[@"nickName"] = dict[@"nickname"];
     parame[@"userHead"] = dict[@"headimgurl"];
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/loginByUnionId" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/loginByUnionId" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         HTUserModel * userModel = [HTUserModel mj_objectWithKeyValues:json[@"data"]];
         [[HTTool HTToolShare] HTToolArchiveRootObject:userModel withPath:NSStringFromClass([HTUserModel class])];

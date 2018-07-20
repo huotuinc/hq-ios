@@ -131,7 +131,7 @@ static NSString* const kIdentifier = @"Identifier";
 {
     
     LWLog(@"%@",self.smallPhotosArray[indexPath.row]);
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.smallPhotosArray[indexPath.row]] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.smallPhotosArray[indexPath.row]] placeholderImage:[UIImage imageNamed:@"headerMoren"]];
     //cell.imageView.tag = indexPath.row;
 }
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath

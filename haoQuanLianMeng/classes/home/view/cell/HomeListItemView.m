@@ -7,6 +7,8 @@
 //
 
 #import "HomeListItemView.h"
+#import "QuanDetailViewController.h"
+
 
 #define Margin 14
 
@@ -22,6 +24,7 @@
 
 @property (nonatomic, strong) UILabel * dailiMoneyLabel;
 
+@property (nonatomic, strong) ShopGoodModel * model;
 
 @end
 
@@ -150,13 +153,27 @@
 //        make.bottom.mas_equalTo(self.daiLiLabel.superview.mas_bottom).mas_offset(kAdaptedWidth(-5));
     }];
 
+    
+    KWeakSelf(self);
+    self.userInteractionEnabled = YES;
+    [self bk_whenTapped:^{
+        [weakself cellClick];
+    }];
 
+}
+
+
+- (void)cellClick{
+    
+    QuanDetailViewController * vc = [[QuanDetailViewController alloc] init];
+    [self.viewContainingController.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (void)configure:(ShopGoodModel *)model{
     
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.PicUrl]];
-    
+    self.model = model;
     self.headTitleLabel.text = model.Name;
 }
 @end

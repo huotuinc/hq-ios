@@ -10,14 +10,18 @@
 #import "LWLaunchViewController.h"
 #import "JPUSHService.h"
 #import "AdViewController.h"
+#import "WXLoginShare.h"
+#include <WXApi.h>
+
+
+//#import <UserNotifications/UserNotifications.h>
+
 
 // iOS10注册APNs所需头文件
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
-#import "WXLoginShare.h"
 
-#include <WXApi.h>
 
 
 @interface AppDelegate ()<JPUSHRegisterDelegate>
@@ -37,7 +41,7 @@
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
 
     
-    [JPUSHService setupWithOption:launchOptions appKey:@"" channel:nil apsForProduction:Production advertisingIdentifier:nil];
+    [JPUSHService setupWithOption:launchOptions appKey:APPJupushKey channel:@"App Store" apsForProduction:Production advertisingIdentifier:nil];
     
     [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
         if(resCode == 0){
@@ -53,9 +57,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
-    //[self InitShareSdk];
-
 
     [WXApi registerApp:WXAppID];
     
@@ -67,15 +68,7 @@
 
 
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        UIViewController * vc =  [[HTTool HTToolShare] getCurrentVC];
-        LWLog(@"%@",NSStringFromClass([[[HTTool HTToolShare] getCurrentVC] class]));
-        AdViewController * ac = [[AdViewController alloc] initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, KScreenHeight)];
-        //ac.delegate = self;
-        [ac configureImageUrl:@"http://images.liqucn.com/img/h21/h56/img_localize_a056fdf57f1d33f64be99175b0fbfa40_400x400.png" andGoUrl:@"http://www.baidu.com"];
-        [vc.view.window addSubview:ac];
-        [ac show];
-    });
+    
 
     //注册远程通知
     [self setUpInit:launchOptions];
@@ -97,6 +90,9 @@
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     /// Required - 注册 DeviceToken
     [JPUSHService registerDeviceToken:deviceToken];
+    
+    NSString * rehest  = [JPUSHService registrationID];
+    [[NSUserDefaults standardUserDefaults] setObject:rehest forKey:@"registrationID"];
 }
 
 //注册远程推送失败
@@ -157,50 +153,105 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
     [WXApi handleOpenURL:url delegate:(id)[WXLoginShare shareInstance]];
     
+    
     return YES;
     
 }
 
 #pragma mark- JPUSHRegisterDelegate
 
-
-#ifdef NSFoundationVersionNumber_iOS_9_x_Max
-#pragma mark- JPUSHRegisterDelegate
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
-    NSDictionary * userInfo = notification.request.content.userInfo;
-    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [self logDic:userInfo];
-        [JPUSHService handleRemoteNotification:userInfo];
-    }
-    else {
-        // 判断为本地通知
-        LWLog(@"iOS10 前台收到本地通知");
-    }
-    completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
-}
-
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    
+    
+    
+    // Required
+    
     NSDictionary * userInfo = response.notification.request.content.userInfo;
+    
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [self logDic:userInfo];
-        [JPUSHService handleRemoteNotification:userInfo];
-        //NSLog(@"iOS10 收到远程通知:%@", [self logDic:userInfo]);
+        
+        //UNPushNotificationTrigger 远程（通知类型）
+        
+        [JPUSHService handleRemoteNotification:userInfo];//userInfo消息数据，包含jump。
+        
+        if ([UIApplication sharedApplication].applicationState == UIApplicationStateInactive ) {
+            
+//            [self jumpToViewctroller:userInfo];
+            
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0; //本地消息清0
+            
+            [JPUSHService setBadge:0];//极光消息清0
+            
+        }
+        
     }
-    else {
-        // 判断为本地通知
-        NSLog(@"iOS10 收到本地通");
-    }
+    
     completionHandler();  // 系统要求执行这个方法
+    
 }
-#else
+
+
+
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
-    [self logDic:userInfo];
     // Required, iOS 7 Support
+    
     [JPUSHService handleRemoteNotification:userInfo];
+    
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateInactive ) {
+        
+//        [self jumpToViewctroller:userInfo];
+        
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        [JPUSHService setBadge:0];
+        
+    }
+    
     completionHandler(UIBackgroundFetchResultNewData);
+    
+    
+    
 }
-#endif
+
+
+
+//#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+//#pragma mark- JPUSHRegisterDelegate
+//- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+//    NSDictionary * userInfo = notification.request.content.userInfo;
+//    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+//        [self logDic:userInfo];
+//        [JPUSHService handleRemoteNotification:userInfo];
+//    }
+//    else {
+//        // 判断为本地通知
+//        LWLog(@"iOS10 前台收到本地通知");
+//    }
+//    completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
+//}
+//
+//- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+//    NSDictionary * userInfo = response.notification.request.content.userInfo;
+//    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+//        [self logDic:userInfo];
+//        [JPUSHService handleRemoteNotification:userInfo];
+//        //NSLog(@"iOS10 收到远程通知:%@", [self logDic:userInfo]);
+//    }
+//    else {
+//        // 判断为本地通知
+//        NSLog(@"iOS10 收到本地通");
+//    }
+//    completionHandler();  // 系统要求执行这个方法
+//}
+//#else
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+//
+//    [self logDic:userInfo];
+//    // Required, iOS 7 Support
+//    [JPUSHService handleRemoteNotification:userInfo];
+//    completionHandler(UIBackgroundFetchResultNewData);
+//}
+//#endif
 
 
 - (NSString *)logDic:(NSDictionary *)dic {

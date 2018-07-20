@@ -61,6 +61,7 @@
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/sendCode"
                                                                  parame:dict isHud:NO isHaseCache:NO success:^(id json) {
             LWLog(@"%@",json);
+                                                                     [MBProgressHUD  showMessage:@"验证码请求成功"];
 #warning luohaibo  获取手机验证码
         } failure:^(NSError *error) {
 
@@ -83,14 +84,16 @@
         [MBProgressHUD showError:@"验证码错误"];
     }
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-    dict[@""] = @"13857560740";
-    dict[@""] = @"1234";
+    dict[@"mobile"] = self.inPutPhone.text;
+    dict[@"code"] = self.inputCode.text;
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/updateMobile" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
 #warning luohaibo
         if (self.phoneType == 0){
             LWTabBarController * vc = [[LWTabBarController alloc] init];//
             [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+        }else{
+            [MBProgressHUD showSuccess:json[@"msg"]];
         }
 
     } failure:^(NSError *error) {

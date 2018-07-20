@@ -4,13 +4,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HTMessageCellModel.h"
 
 
 @interface LWMessageHeaderView : UIView
 
 
 //设置数据
-- (void)configArticleView:(HTArticleCellModel * )model;
+- (void)configArticleView:(HTMessageCellModel * )model;
 
 
 @end

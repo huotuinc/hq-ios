@@ -9,5 +9,5 @@
 #import "HTAppSettingModel.h"
 
 @implementation HTAppSettingModel
-
+MJCodingImplementation
 @end

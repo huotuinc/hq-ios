@@ -10,6 +10,7 @@
 #import "XTSegmentControl.h"
 #import "HaoQuanListController.h"
 #import "HomeCateModel.h"
+#import "AdViewController.h"
 
 
 
@@ -34,7 +35,28 @@
 
 
 
-
+- (void)getAd{
+//    other/pop
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"other/pop" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
+        
+        NSString * picUrl =  json[@"data"][@"pictureUrl"];
+        NSString * linkUrl =  json[@"data"][@"linkUrl"];
+        if (picUrl.length) {
+            UIViewController * vc =  [[HTTool HTToolShare] getCurrentVC];
+            LWLog(@"%@",NSStringFromClass([[[HTTool HTToolShare] getCurrentVC] class]));
+            AdViewController * ac = [[AdViewController alloc] initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, KScreenHeight)];
+            //ac.delegate = self;
+            [ac configureImageUrl:picUrl andGoUrl:linkUrl];
+            [vc.view.window addSubview:ac];
+            [ac show];
+        }
+  
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 //- (NSArray *)titleItems {
 //    if(_titleItems == nil){
 //        _titleItems = @[@"爆款必发",@"圈粉文案",@"吃货必备",@"清凉一夏"];
@@ -75,7 +97,7 @@
     
     self.segmentControl = [[XTSegmentControl alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth , kAdaptedWidth(40)) Items:[t copy] andSelectColor:[UIColor orangeColor] andDefault:[UIColor blackColor] selectedBlock:^(NSInteger index) {
         
-        //        [self selectCurrentOption:index];
+        [self selectCurrentOption:index];
     }];
     [self.segmentControl setDefaultColor:[UIColor blackColor]];
     [self.segmentControl setDefaultColor:[UIColor orangeColor]];
@@ -120,9 +142,10 @@
     
 
     LWLog(@"1111111111");
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Material/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Material/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         //sleep(10);
 //        LWLog(@"%@",json);
+        LWLog(@"%@",json);
         LWLog(@"222222222");
         NSArray * titles =  [HomeCateModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
         self.titleItems = titles;
@@ -141,22 +164,26 @@
 
 
 - (void)setUpInit{
-        self.navigationItem.title = @"好券联盟";
     
-        [self setupChildViewControllers];
+    self.navigationItem.title = @"好券联盟";
 
-        [self setupScrollView];
+    [self setupChildViewControllers];
 
-        [self setupTitlesView];
+    [self setupScrollView];
 
-        [self addChildVcView];
+    [self setupTitlesView];
+
+    [self addChildVcView];
+    
+    [self getAd];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     LWLog(@"1111111111");
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Material/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Material/categorys" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+         LWLog(@"%@",json);
         NSArray * titles =  [HomeCateModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
         self.titleItems = titles;
         [self setUpInit];
@@ -168,7 +195,13 @@
 
 
 
-
+- (void)selectCurrentOption:(NSInteger) index{
+    
+    // 让UIScrollView滚动到对应位置
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x = index * self.scrollView.frame.size.width;
+    [self.scrollView setContentOffset:offset animated:YES];
+}
 
 
 /**

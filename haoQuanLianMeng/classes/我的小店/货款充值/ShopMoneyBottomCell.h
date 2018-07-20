@@ -17,5 +17,8 @@
 @property (strong, nonatomic)  SelectLable *zhifubao;
 @property (strong, nonatomic)  SelectLable *weixinLable;
 
+@property (strong, nonatomic)  SelectLable * lianlianPay;
 
+
+- (void)configure:(NSArray *)dataArray;
 @end

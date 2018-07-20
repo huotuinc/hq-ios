@@ -12,11 +12,20 @@
 #import "ShopMoneyCenterCellCell.h"
 #import "ShopHuoKuanController.h"
 #import "AcFooterView.h"
+#import "ShopHuoKuanPage.h"
+#import "BuyAccountPayChanel.h"
+
 
 @interface ShopHuoKuanController ()<AcFooterViewDelegate>
 
 
 @property (nonatomic,strong) AcFooterView * acFooter;
+
+
+@property (nonatomic,strong) ShopMoneyTopCell * cellFirst;
+@property (nonatomic,strong) ShopMoneyCenterCellCell * cellSecond;
+@property (nonatomic,strong) ShopMoneyBottomCell * cellThird;
+
 @end
 
 @implementation ShopHuoKuanController
@@ -44,6 +53,41 @@
     self.tableView.sectionFooterHeight = 0;
 }
 
+//货款充值页面
+- (void)getData{
+//    /
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Order/GetDepositGoods" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+        ShopHuoKuanPage * model = [ShopHuoKuanPage mj_objectWithKeyValues:json[@"data"]];
+        [_cellFirst configure:model];
+        [_cellSecond configure:model];
+        
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+}
+
+
+- (void)getPayChanel{
+//    Order/GetPaymentItem
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Order/GetPaymentItem" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+        NSArray * data =  [BuyAccountPayChanel mj_objectArrayWithKeyValuesArray:json[@"data"]];
+        [self.cellThird configure:data];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    int num = [[change objectForKey:@"new"] intValue];
+    
+    NSLog(@"keyPath=%@,object=%@,change=%@,context=%@ -- %d",keyPath,object,change,context,num);
+    LWLog(@"ssss999---%d",num);
+//    [self.bottom configure:num andAccountInfo:[self.accountInfo.GoodsPrice intValue]];
+}
+
 
 
 - (void)viewDidLoad {
@@ -58,6 +102,8 @@
     self.tableView.tableFooterView = self.acFooter;
     [self.acFooter settitle:@"立即充值"];
     
+    [self getPayChanel];
+    [self getData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -88,15 +134,19 @@
     if (indexPath.section == 0) {
         
        ShopMoneyTopCell * cell =  [tableView dequeueReusableCellWithIdentifier:@"ShopMoneyTopCell" forIndexPath:indexPath];
+        self.cellFirst = cell;
         return cell;
     }else{
         
         if (indexPath.row == 0) {
             ShopMoneyCenterCellCell * cell =  [tableView dequeueReusableCellWithIdentifier:@"ShopMoneyCenterCellCell" forIndexPath:indexPath];
+            self.cellSecond = cell;
             LWLog(@"xxxxxx");
+            [cell addObserver:self forKeyPath:@"selectNum" options:NSKeyValueObservingOptionNew context:nil];
             return cell;
         }else{
             ShopMoneyBottomCell * cell =  [tableView dequeueReusableCellWithIdentifier:@"ShopMoneyBottomCell" forIndexPath:indexPath];
+            self.cellThird = cell;
             LWLog(@"xxxxxx");
             return cell;
         }

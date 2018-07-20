@@ -14,7 +14,9 @@
 #import "ShopAccountModel.h"
 #import "ShopHuoKuanController.h"
 #import "ShopHomeRight.h"
-
+#import "XDMenuView.h"
+#import "GoodMoneyTableViewController.h"
+#import <WXApi.h>
 
 @interface MyShopTableViewController ()<ShopHomeHeaderDelegate>
 
@@ -25,29 +27,56 @@
 
 @property (nonatomic,strong) UIButton * leftBtn;
 
-@property (nonatomic,strong) ShopHomeRight * rightBtn;
+@property (nonatomic,strong) UIButton * rightBtn;
 
 @end
 
 @implementation MyShopTableViewController
 
-- (ShopHomeRight *)rightBtn{
+- (UIButton *)rightBtn{
     if (_rightBtn == nil) {
-        _rightBtn = [[ShopHomeRight alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-        UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightClicl)];
-        _rightBtn.userInteractionEnabled = YES;
-        [_rightBtn addGestureRecognizer:ges];
-//        [_rightBtn setImage:[UIImage imageNamed:@"shopNavLeft"] forState:UIControlStateNormal];
-//        [_rightBtn addTarget:self action:@selector(btnclick) forControlEvents:UIControlEventTouchUpInside];
+        _rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        [_rightBtn setImage:[UIImage imageNamed:@"shopMore"] forState:UIControlStateNormal];
+        [_rightBtn addTarget:self action:@selector(rightClicl:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightBtn;
 }
 
-- (void)rightClicl{
+
+
+- (void)shareXiaoChengXu{
     
-    [self.rightBtn setredHidden];
-    LWLog(@"xxxxx");
 }
+
+- (void)rightClicl:(UIButton *)btn{
+    
+    XDMenuView * menu = [XDMenuView menuViewWithSender:btn];
+    menu.backColor = LWColor(63, 66, 79);
+    XDMenuItem * item1 = [XDMenuItem item:@"小店充值" icon:@"shopInMoney" clickBlock:^(XDMenuItem *item, XDMenuView *menu) {
+        ShopHuoKuanController * vc = [[ShopHuoKuanController alloc] initWithStyle:UITableViewStyleGrouped];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }];
+    XDMenuItem * item2 = [XDMenuItem item:@"分享小店" icon:@"shopShare" clickBlock:^(XDMenuItem *item, XDMenuView *menu) {
+        
+        [[WXLoginShare shareInstance] WXShareXiaoChengXu:@""];
+   
+    }];
+    XDMenuItem * item3 = [XDMenuItem item:@"货款流水" icon:@"shopHuoKuanLiuShui" clickBlock:^(XDMenuItem *item, XDMenuView *menu) {
+        GoodMoneyTableViewController * vc = [[GoodMoneyTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        vc.title = @"货款流水";
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+
+    [menu addItem:item1];
+    [menu addItem:item2];
+    [menu addItem:item3];
+    //弹出
+    [self presentViewController:menu animated:YES completion:nil];
+}
+
+
+
 - (UIButton *)leftBtn{
     if (_leftBtn == nil) {
         _leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
@@ -60,15 +89,14 @@
 
 - (void)btnclick{
     
-    ShopHuoKuanController * vc = [[ShopHuoKuanController alloc] initWithStyle:UITableViewStyleGrouped];
-    [self.navigationController pushViewController:vc animated:YES];
+    ShopSettingTableViewController * cx = [[UIStoryboard storyboardWithName:@"Shop" bundle:nil] instantiateViewControllerWithIdentifier:@"ShopSettingTableViewController"];
+    [self.navigationController pushViewController:cx animated:YES];
 }
 
 
 - (void)ShopHomeHeaderClick:(int)option{
     
-    ShopSettingTableViewController * cx = [[UIStoryboard storyboardWithName:@"Shop" bundle:nil] instantiateViewControllerWithIdentifier:@"ShopSettingTableViewController"];
-    [self.navigationController pushViewController:cx animated:YES];
+    
 }
 
 
@@ -104,6 +132,9 @@
     
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.leftBtn];
+    
+    
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightBtn];
     
     self.Shopheader.frame = CGRectMake(0, 0, KScreenWidth, 44);

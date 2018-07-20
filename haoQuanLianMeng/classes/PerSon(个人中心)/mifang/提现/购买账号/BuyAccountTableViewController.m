@@ -28,7 +28,9 @@
 
 @property (nonatomic,strong) BuyAccountCell * bottom;
 @property (nonatomic,strong) BuyAccountModel * accountInfo;
+@property (assign,nonatomic) int num;
 
+@property (nonatomic,strong) NSArray * Paylist;
 @end
 
 @implementation BuyAccountTableViewController
@@ -36,6 +38,9 @@
 
 - (void)btnClick{
     
+    int price = [self.accountInfo.GoodsPrice intValue];
+    
+    int c =  [self.cell12 getCurrentType];
     LWLog(@"xxxx");
 }
 
@@ -78,7 +83,7 @@
 
 - (void)getAccountPrice{
     //采购帐号
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Order/GetRenewGoods" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Order/GetRenewGoods" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
         BuyAccountModel * model = [BuyAccountModel mj_objectWithKeyValues:json[@"data"]];
         LWLog(@"%@",json);
         [self.cell1 configure:model];
@@ -95,17 +100,19 @@
  
     //NSLog(@"keyPath=%@,object=%@,change=%@,context=%@",keyPath,object,change,context);
     int num = [[change objectForKey:@"new"] intValue];
+    self.num = num;
     [self.bottom configure:num andAccountInfo:[self.accountInfo.GoodsPrice intValue]];
 }
 
 
 - (void)getPayChanle{
     // 获取支付方式
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Order/GetPaymentItem" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"order/paytypelist" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
 //        BuyAccountModel * model = [BuyAccountModel mj_objectWithKeyValues:json[@"data"]];
         LWLog(@"%@",json);
         
-        NSArray * Paylist =  [BuyAccountPayChanel mj_objectArrayWithKeyValuesArray:[[json objectForKey:@"data"] objectForKey:@"list"]];
+        NSArray * Paylist =  [BuyAccountPayChanel mj_objectArrayWithKeyValuesArray:[json objectForKey:@"data"]];
+        self.Paylist = Paylist;
         [self.cell12 configure:Paylist];
 //        [self.cell1 configure:model];
     } failure:^(NSError *error) {

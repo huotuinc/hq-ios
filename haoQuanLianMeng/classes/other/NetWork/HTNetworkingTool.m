@@ -9,6 +9,7 @@
 
 #import "HTNetworkingTool.h"
 #import "HTTool.h"
+#import "MBProgressHUD.h"
 
 
 //YYCache缓存文件存放的文件夹
@@ -119,30 +120,32 @@ static HTNetworkingTool * _HTNetworkingTool;
 - (void)HTNetworkingToolPost:(NSString *)urlStr parame:(NSMutableDictionary *)params isHud:(BOOL)isHud isHaseCache:(BOOL)caches success:(void (^)(id json))success failure:(void (^)(NSError *error))failure{
     NSString * url = [HTMainIpAddress stringByAppendingPathComponent:urlStr];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    AFHTTPSessionManager * manager = [HTAFHTTPSessionManager manager];
+    AFHTTPSessionManager * manager = [HTAFHTTPSessionManager HTAFHTTPSessionShare];
     
     LWLog(@"api url %@",url);
     if (isHud) { // 是否显示loading
-       [SVProgressHUD showWithStatus:nil];
+       [MBProgressHUD showMessage:nil];
     }
     [manager POST:url parameters:[[HTTool HTToolShare] HTToolSignWithParame:params] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *  _Nullable responseObject) {
         LWLog(@"%@",task);
-        [SVProgressHUD dismiss];
+        [MBProgressHUD hideHUD];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 //        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
         
-        if([[responseObject objectForKey:@"resultCode"] integerValue] == 4003){
+        if ([[responseObject objectForKey:@"code"] integerValue] == 200) {
+            success(responseObject);
+        }else if([[responseObject objectForKey:@"code"] integerValue] == 4003){
             [self showLogin:[responseObject objectForKey:@"resultMsg"]];
             failure(nil);
         }else{
-            LWLog(@"%@",responseObject);
-            success(responseObject);
+            [MBProgressHUD showError:[responseObject objectForKey:@"msg"]];
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         LWLog(@"%@",error);
-        [SVProgressHUD dismiss];
+        [MBProgressHUD hideHUD];
+        [MBProgressHUD showError:@"服务错误"];
         failure(error);
     }];
 }

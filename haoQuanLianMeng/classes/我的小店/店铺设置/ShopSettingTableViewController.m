@@ -5,10 +5,12 @@
 //  Created by 罗海波 on 2018/7/9.
 //  Copyright © 2018年 HT. All rights reserved.
 //
-
+#import "ShopSettingInTableViewController.h"
 #import "ShopSettingTableViewController.h"
+#import "ShopSettModel.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface ShopSettingTableViewController ()
+@interface ShopSettingTableViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *shopHeadLable;
 @property (weak, nonatomic) IBOutlet UIImageView *shopIcon;
 @property (weak, nonatomic) IBOutlet UILabel *shopNameLable;
@@ -19,13 +21,40 @@
 @property (weak, nonatomic) IBOutlet UILabel *shareContenName;
 @property (weak, nonatomic) IBOutlet UIButton *yulan;
 
+
+@property (strong, nonatomic) ShopSettModel * model;
+
 @end
 
 @implementation ShopSettingTableViewController
 
 - (IBAction)yulanclick:(id)sender {
     
+    [[WXLoginShare shareInstance] WXOpenXiaoChengXu];
     
+}
+
+
+
+- (void)getInitMessage{
+//
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"store/info" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+        
+        [self.shopIcon sd_setImageWithURL:[NSURL URLWithString:json[@"data"][@"logo"]]];
+        self.shopName.text = json[@"data"][@"name"];
+        self.shareName.text = json[@"data"][@"shareTitle"];
+        self.shareContenName.text = json[@"data"][@"shareContent"];
+        self.model = [ShopSettModel mj_objectWithKeyValues:json[@"data"]];
+//        logo = "http://images.liqucn.com/img/h21/h56/img_localize_a056fdf57f1d33f64be99175b0fbfa40_400x400.png";
+//        name = "\U8428\U8fbe\U5927\U53a6";
+//        shareContent = "\U6253\U6253\U6492\U5b9e\U6253\U5b9e\U7684";
+//        shareTitle = "\U6253\U6253";
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 
@@ -35,17 +64,18 @@
     self.yulan.layer.masksToBounds = YES;
     
     [self.shopIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.width.mas_equalTo(kAdaptedWidth(60));
-        make.top.mas_equalTo(self.shopIcon.superview.mas_top).mas_offset(10);
-        make.bottom.mas_equalTo(self.shopIcon.superview.mas_bottom).mas_offset(-10);
+        make.height.width.mas_equalTo(60);
+        make.top.mas_equalTo(self.shopIcon.superview.mas_top).mas_offset(20);
+        make.bottom.mas_equalTo(self.shopIcon.superview.mas_bottom).mas_offset(-20);
         
         make.right.mas_equalTo(self.shopIcon.superview.mas_right).mas_equalTo(-10);
     }];
+    self.shopIcon.backgroundColor = LWColor(201, 205, 201);
     
     
     [self.shopHeadLable mas_makeConstraints:^(MASConstraintMaker *make) {
         
-        make.centerY.mas_equalTo(self.shopIcon.centerY);
+        make.centerY.mas_equalTo(self.shopIcon.mas_centerY);
         make.left.mas_equalTo(self.shopHeadLable.superview.mas_left).mas_equalTo(10);
     }];
     
@@ -95,14 +125,84 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self getInitMessage];
+}
+
+
+
+- (void)pickImage{
+    
+    UIImagePickerController * imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.editing = YES;
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];//读取设备授权状态
+    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+        NSString *errorStr = @"应用相机权限受限,请在设置中启用";
+        [MBProgressHUD showError:errorStr toView:self.view];
+        return;
+    }
+    
+    
+    
+    UIAlertController * vc = [UIAlertController alertControllerWithTitle:@"图片选择" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction * ac = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
+        imagePicker.modalPresentationStyle = UIModalPresentationFullScreen;
+        imagePicker.mediaTypes = @[(NSString *)kUTTypeImage];
+        imagePicker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        //跳转到UIImagePickerController控制器弹出相机
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }];
+    
+    UIAlertAction * ac1 = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //选择相册时，设置UIImagePickerController对象相关属性
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        //跳转到UIImagePickerController控制器弹出相册
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }];
+    
+    [vc addAction:ac];
+    
+    [vc addAction:ac1];
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+//    //获取到的图片
+//    UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
+//    _imageView.image = image;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    [self setUpInit];
     
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44.0; // 设置为一个接近“平均”行高的值
     self.navigationItem.title = @"店铺设置";
     self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+    
+    
+    [self getInitMessage];
+    
+    KWeakSelf(self);
+    self.shopIcon.userInteractionEnabled = YES;
+    [self.shopIcon bk_whenTapped:^{
+        [weakself pickImage];
+    }];
+//    [self setUpInit];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -137,6 +237,33 @@
 }
 */
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        
+        ShopSettingInTableViewController * vc = [[UIStoryboard storyboardWithName:@"Shop" bundle:nil] instantiateViewControllerWithIdentifier:@"ShopSettingInTableViewController"];
+        vc.navigationItem.title = @"店铺名称";
+        vc.type = 1;
+        vc.title = self.model.name;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 0){
+        ShopSettingInTableViewController * vc = [[UIStoryboard storyboardWithName:@"Shop" bundle:nil] instantiateViewControllerWithIdentifier:@"ShopSettingInTableViewController"];
+        vc.navigationItem.title = @"分享标题";
+        vc.type = 2;
+        vc.title = self.model.shareTitle;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }else if (indexPath.section == 1 && indexPath.row == 1){
+        ShopSettingInTableViewController * vc = [[UIStoryboard storyboardWithName:@"Shop" bundle:nil] instantiateViewControllerWithIdentifier:@"ShopSettingInTableViewController"];
+        vc.navigationItem.title = @"分享内容";
+        vc.type = 3;
+        vc.title = self.model.shareContent;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+    LWLog(@"xxxxx");
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

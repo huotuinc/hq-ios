@@ -18,6 +18,8 @@
 
 @property (nonatomic,strong) UIImageView  * downIconView;
 
+
+@property (nonatomic,strong) MiFangYaoQingModel * inmodel;
 @end
 
 
@@ -46,11 +48,18 @@
 
 - (void)caiGou{
     
-    [self.delegate MiFangAccountClick:0];
+    [self.delegate MiFangAccountClick:0 andUrl:self.inmodel.BuyBuddyNumURL];
 }
 
 - (void)daiLi{
-    [self.delegate MiFangAccountClick:1];
+    
+    NSString * tt;
+    if (self.inmodel.IsAgent) {
+        tt = self.inmodel.UpgradeAgentURL;
+    }else{
+        tt = self.inmodel.ApplyAgentURL;
+    }
+    [self.delegate MiFangAccountClick:((int)self.inmodel.IsAgent  + 1) andUrl:tt];
 }
 
 - (UIImageView *)downIconView{
@@ -60,7 +69,7 @@
         _downIconView.contentMode = UIViewContentModeScaleAspectFill;
         _downIconView.userInteractionEnabled = YES;
         UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(daiLi)];
-        [_upIconView addGestureRecognizer:ges];
+        [_downIconView addGestureRecognizer:ges];
         
     }
     return _downIconView;
@@ -110,6 +119,7 @@
 
 - (void)configure:(MiFangYaoQingModel *)model{
     
+    self.inmodel = model;
     
     NSString * st = [NSString stringWithFormat:@"累计邀请店主%d人",model.InvitationMemberNum];
     NSMutableAttributedString * str = [[NSMutableAttributedString alloc] initWithString:st];

@@ -8,22 +8,51 @@
 
 #import "HTMessageCellModel.h"
 #import "HTMessageModel.h"
+#import "MessgeXiTableViewCell.h"
+#import "HTMessageInModel.h"
+#import "MallMessageCell.h"
 
 
 @implementation HTMessageCellModel
 
-- (instancetype)initWithSlideType:(int)selectType articleType:(HTMessgaeType)articleType  article:(HTMessageModel *)article{
+- (instancetype)initWithSlideType:(int)selectType messageType:(HTMessgaeType)articleType  message:(id)message{
     self = [super init];
     if (self) {
-//        self.articleType = articleType;
-//        self.article = article;
+        self.messageType = articleType;
+        self.messageSlideType = selectType;
+        self.messageModel = message;
     }
     return self;
 
 }
 
 
-+ (UITableViewCell *)confirmCellWithArticle:(HTMessageModel *)article  slideType:(MessageSlideType)selectType WithTableView:(UITableView *)tableView witdDelegate:(id<HTArticleCenterViewDelegate>)delegate{
+- (UITableViewCell *)confirmCellWithTableView:(UITableView *)tableView withIndexPaht:(NSIndexPath *)indexPath witdDelegate:(id<HTArticleCenterViewDelegate>)delegate{
+    
+    LWLog(@"%lu",(unsigned long)self.messageType);
+
+    HTMessageTableViewCell * cell = nil;
+    switch (self.messageType) {
+        case MessgaeMallNotice:{
+            cell =  (MessgeXiTableViewCell *)[MessgeXiTableViewCell cellGetTableView:tableView];
+            break;
+        }
+            
+        case MessgaeDownMenberRegist:{
+            cell =  (MallMessageCell *)[MallMessageCell cellGetTableView:tableView];
+            break;
+        }
+            
+        default:{
+            cell =  (MallMessageCell *)[MallMessageCell cellGetTableView:tableView];
+            break;
+        }
+    }
+    [cell configCellWithCellModel:self];
+    return cell;
+    
+    
+    
 //    HTArticleType type = [self configArticleTypeWithArticle:article];
 //    HTArticleCellModel * cellModel = [[self alloc] initWithSlideType:selectType articleType:type isDiscover:isDiscove article:article];
 //    HTArticleTableViewCell * cell = nil;

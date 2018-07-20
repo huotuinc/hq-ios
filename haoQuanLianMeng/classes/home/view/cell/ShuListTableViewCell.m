@@ -41,6 +41,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self setupInit];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -73,11 +74,24 @@
     }];
     
     
-    LWLog(@"xxxxxxx");
+    
+//    self.homeListLeft.userInteractionEnabled = YES;
+//    [self.homeListLeft bk_whenTapped:^{
+//        LWLog(@"xxxxxxx");
+//    }];
+//
+//    self.homeListSecond.userInteractionEnabled = YES;
+//    [self.homeListSecond bk_whenTapped:^{
+//       LWLog(@"xxxxxxx");
+//    }];
+    
+    
 //    self.contentView.backgroundColor = [UIColor redColor];
     
     
 }
+
+
 
 
 - (void)setRightdataModel:(ShopGoodModel *)rightdataModel{

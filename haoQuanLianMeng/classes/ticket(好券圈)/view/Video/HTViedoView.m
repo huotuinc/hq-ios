@@ -89,7 +89,8 @@
     NSString * url =  [model.article.VideoPictureUrls firstObject];
 //#warning luohaibi  设置视频图片
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:url]];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"headerMoren"]];
 }
 
 - (CGFloat)getHeight

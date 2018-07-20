@@ -12,7 +12,7 @@
 
 @protocol MiFangAccountTableViewDelegate <NSObject>
 
-- (void)MiFangAccountClick:(NSUInteger)index;
+- (void)MiFangAccountClick:(NSUInteger)index andUrl:(NSString *)url;
 
 @end
 

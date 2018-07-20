@@ -67,7 +67,7 @@
         _firstBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
         [_firstBtn setImageEdgeInsets:UIEdgeInsetsMake(0, kAdaptedWidth(-5), 0, 0)];
         [_firstBtn setImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];
-        [_firstBtn setTitle:@"保存图片" forState:UIControlStateNormal];
+        [_firstBtn setTitle:@"下载图片" forState:UIControlStateNormal];
         [_firstBtn setTitleColor:LWColor(117, 117, 117) forState:UIControlStateNormal];
         [_firstBtn addTarget:self action:@selector(selectMenu:) forControlEvents:UIControlEventTouchUpInside];
         [_firstBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
@@ -87,7 +87,6 @@
         [_secondBtn setImage:[UIImage imageNamed:@"turn"] forState:UIControlStateNormal];
         [_secondBtn setTitle:@"一键转发" forState:UIControlStateNormal];
         [_secondBtn setTitleColor:LWColor(117, 117, 117) forState:UIControlStateNormal];
-
         [_secondBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
         [_secondBtn addTarget:self action:@selector(shareMenuClick:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -163,26 +162,33 @@
 - (void)selectMenu:(HTMenuButton *)btn{
     
     LWLog(@"%lu",(unsigned long)btn.menubuttontype);
-    switch (btn.menubuttontype) {
+    switch (btn.menubuttontype) { //图片
         case HTMenuButtonTypeDownLoadImage:
-            [self downLoadImages];
+            [self downLoadImagesWithShare:0];
             break;
         
-
+        case HTMenuButtonTypeDownLoadVideo: //下载视频
+            [self downVedio];
+            break;
         default:
             break;
     }
 }
 
 
+- (void)downVedio{
+    
+    
+}
 
-- (void)shareClick {
+
+- (void)shareClick:(NSMutableArray * )imageArray {
     
     // 设置分享内容
     NSString *text = @"分享内容";
     UIImage *image = [UIImage imageNamed:@"play"];
     NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
-    NSArray *activityItems = @[text,image,image,image,@"dadasdasdasd"];
+    NSArray *activityItems = [imageArray copy];
     LWLog(@"xxxxxxx");
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
 //    activityViewController.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter, UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop,UIActivityTypeOpenInIBooks];
@@ -194,28 +200,43 @@
     }];
 }
 
-
+//右边的分享
 - (void)shareMenuClick:(HTMenuButton *)btn{
     
-    [self shareClick];
+    UIPasteboard * tt = [UIPasteboard generalPasteboard];
+    tt.string = [self.cellModel.article.Content copy];
+    
+    [[HTTool HTToolShare] showInfo:@"文案已付之" withBlock:^{
+        [self downLoadImagesWithShare:1];
+    }];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//        //    [self shareClick];
+//    });
+    
 //    if ([self.delegate respondsToSelector:@selector(shareADKWithCellModel:)]) {
 //        [self.delegate shareADKWithCellModel:self.cellModel];
 //    }
 }
 
 
-- (void)downLoadImages
+- (void)downLoadImagesWithShare:(int) type //1 表示分享下载
 {
     //[MobClick event:kUmeng_event_saveImages label:[NSString stringWithFormat:@"%d",self.cellModel.article.goodsId]];
     //saveImageView *save = [MBProgressHUD showSaveImageProgress];
     NSArray * imagesPath = self.cellModel.article.ImageUrls;
     MBProgressHUD * hub = [MBProgressHUD showWaittingView:[NSString stringWithFormat:@"正在下载%lu张图片到本地",(unsigned long)imagesPath.count]];
-    
+    KWeakSelf(self);
     [self downloadImages:imagesPath completion:^(NSMutableArray* obj) {
 //        [self writeImages:obj completion:^(id error) {
         [hub hide:YES];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD showSuccess:@"下载成功"];
+            if (type == 1) {
+                [weakself shareClick:obj];
+                
+               
+            }
         });
 //            [MBProgressHUD showXZSuecceView:[NSString stringWithFormat:@"成功保存%lu张图到本地相册",(unsigned long)imagesPath.count] image:[UIImage imageNamed:@"成功"] iconImage:[UIImage imageNamed:@"下载_黑色"]];
 //
