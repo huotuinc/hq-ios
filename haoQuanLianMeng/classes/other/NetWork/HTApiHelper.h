@@ -10,7 +10,7 @@
 #define HTApiHelper_h
 
 #ifdef DEBUG  //测试地址
-#define HTMainIpAddress @"http:\/\/mfapi.mifangtest.com" //@"http://mfapi.mfmall.com"
+#define HTMainIpAddress @"http://mfapi.mifangtest.com" //@"http://mfapi.mfmall.com"
 #else //正式地址
 #define HTMainIpAddress @"http://zhengxin2.51morecash.com/api"
 #endif

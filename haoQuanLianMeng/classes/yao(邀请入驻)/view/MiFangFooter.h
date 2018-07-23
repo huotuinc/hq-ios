@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MiFangFooterDelegate <NSObject>
+
+
+- (void)btnClcik;
+
+
+@end
+
+
 @interface MiFangFooter : UIView
 
 
+@property (nonatomic,weak) id <MiFangFooterDelegate>delegate;
 
 @end

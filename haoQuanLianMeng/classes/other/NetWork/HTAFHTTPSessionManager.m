@@ -18,7 +18,7 @@ static HTAFHTTPSessionManager * _HTAFHTTPSessionManager;
 + (instancetype)HTAFHTTPSessionShare{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _HTAFHTTPSessionManager = [[self alloc] init];
+        _HTAFHTTPSessionManager = [[super alloc] init];
         [_HTAFHTTPSessionManager.securityPolicy setAllowInvalidCertificates:YES];
         _HTAFHTTPSessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
 //        _HTAFHTTPSessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -26,15 +26,15 @@ static HTAFHTTPSessionManager * _HTAFHTTPSessionManager;
         _HTAFHTTPSessionManager.requestSerializer.timeoutInterval = 30;
         // 开始设置请求头
         [_HTAFHTTPSessionManager.requestSerializer setValue:AppVersion forHTTPHeaderField:@"appVersion"];
-        
+        [_HTAFHTTPSessionManager.requestSerializer setValue:UUIDString forHTTPHeaderField:@"hwid"];
         [_HTAFHTTPSessionManager.requestSerializer setValue:[[HTTool HTToolShare] HTToolGetIphoneType] forHTTPHeaderField:@"mobileType"];
         [_HTAFHTTPSessionManager.requestSerializer setValue:@"2" forHTTPHeaderField:@"osType"];
         [_HTAFHTTPSessionManager.requestSerializer setValue:OSVersion forHTTPHeaderField:@"osVersion"];
         [_HTAFHTTPSessionManager.requestSerializer setValue:ServiceMerchantId forHTTPHeaderField:@"customerId"];
     });
     HTUserModel * usermodel = (HTUserModel *)[HTToolShareManager HTToolUnArchiveObject:@"HTUserModel"];
-    NSString * tt =  [[NSUserDefaults standardUserDefaults] objectForKey:@"registrationID"];
-    [_HTAFHTTPSessionManager.requestSerializer setValue:tt forHTTPHeaderField:@"hwid"];
+//    NSString * tt =  [[NSUserDefaults standardUserDefaults] objectForKey:@"registrationID"];
+//    [_HTAFHTTPSessionManager.requestSerializer setValue:tt forHTTPHeaderField:@"hwid"];
     if(usermodel == nil){
         [_HTAFHTTPSessionManager.requestSerializer setValue:@"" forHTTPHeaderField:@"userToken"];
         [_HTAFHTTPSessionManager.requestSerializer setValue:@"0" forHTTPHeaderField:@"userId"];

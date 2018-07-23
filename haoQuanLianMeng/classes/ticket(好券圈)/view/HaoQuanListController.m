@@ -49,6 +49,12 @@
         NSArray * dataArray = [HTArticleModel mj_objectArrayWithKeyValuesArray:[json objectForKey:@"data"]];
         if(type == 1){
             [self.dataArray removeAllObjects];
+            //添加空白
+            if (!dataArray.count) {
+                [self.tableView showEmptyViewClickImageViewBlock:^(id sender) {
+                    [self getArticleList:1];
+                }];
+            }
         }
         [self.dataArray addObjectsFromArray:dataArray];
         [self.tableView reloadData];

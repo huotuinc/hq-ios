@@ -140,4 +140,14 @@
     }
     
 }
+
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    [webView evaluateJavaScript:@"document.title" completionHandler:^(id _Nullable title, NSError * _Nullable error) {
+        if (!error) {
+            self.navigationItem.title = title;
+        }else{
+        }
+    }];
+}
 @end

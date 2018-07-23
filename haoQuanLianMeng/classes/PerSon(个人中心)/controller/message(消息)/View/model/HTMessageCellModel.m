@@ -15,7 +15,7 @@
 
 @implementation HTMessageCellModel
 
-- (instancetype)initWithSlideType:(int)selectType messageType:(HTMessgaeType)articleType  message:(id)message{
+- (instancetype)initWithSlideType:(MessageSlideType)selectType messageType:(HTMessgaeType)articleType  message:(id)message{
     self = [super init];
     if (self) {
         self.messageType = articleType;
@@ -83,7 +83,7 @@
     //为什么要转化防止服务器改变游戏规则  但是转化之后XZArticleType的游戏规则就是我们自己定  如果他改变游戏规则 我们可以改这个config
     switch (article.Type) {
         case 0:
-            return HTArticleTypeLink;
+            return HTArticleTypeTitle;
         case 1:
             return HTArticleTypeMoreImage;
         case 2:

@@ -14,15 +14,13 @@
 #import "MiFangYaoQingModel.h"
 
 
-@interface MiFangYaoQingController ()<MiFangAccountTableViewDelegate>
+typedef void(^downImageFinsh)(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished);
+
+@interface MiFangYaoQingController ()<MiFangAccountTableViewDelegate,MiFangFooterDelegate>
 
 @property (nonatomic,strong) MiFangYaoHeader * miFangYaoHeader;
-
 @property (nonatomic,strong) MiFangFooter * miFangYaoFooter;
-
-
 @property (nonatomic,strong) MiFangAccountTableViewCell *cell;
-
 
 //邀请页面数据
 @property (nonatomic,strong) MiFangYaoQingModel * model;
@@ -30,11 +28,121 @@
 
 @implementation MiFangYaoQingController
 
+- (void)btnClcik{
+    
+    if (!self.model.BuddyPoster.length  || !self.model.ProgramBuddyURL.length) {
+        [MBProgressHUD showError:@"图片地址为空"];
+        return;
+    }
+    
+    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:self.model.BuddyPoster] options:SDWebImageDownloaderLowPriority progress:nil completed:^(UIImage * _Nullable imaget, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+        LWLog(@"%@",error);
+        if (!error) {
+            KWeakSelf(self);
+//            NSString * cc =  @"http://res.mifangtest.com/resource/images/PageQRCode/4886/470537/fcb236cbc0c50375e9373d2a132e539f.png";
+//            self.model.ProgramBuddyURL
+            [self downErMar:[NSURL URLWithString:self.model.ProgramBuddyURL] finish:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+                if (!error) {
+                    [weakself addImage:imaget withImage:image];
+                }
+            }];
+        }
+    }];
+    
+    //ProgramBuddyURL
+}
+
+
+- (void)downErMar:(NSURL *)url finish:(downImageFinsh)block{
+    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:url options:SDWebImageDownloaderLowPriority progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+        
+        LWLog(@"%@",error);
+        if (!error) {
+            if (block) {
+                block(image,data,error,finished);
+            }
+        }
+    }];
+}
+
+
+- (void)addImage:(UIImage *)imageName1 withImage:(UIImage *)imageName2 {
+    
+    UIImage *image1 = imageName1;
+    UIImage *image2 = imageName2;
+    
+    UIGraphicsBeginImageContext(image1.size);
+    
+    [image1 drawInRect:CGRectMake(0, 0, image1.size.width, image1.size.height)];
+    
+    [image2 drawInRect:CGRectMake((image1.size.width - image2.size.width)/2,(image1.size.height - image2.size.height)/2, image2.size.width, image2.size.height)];
+    
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    NSMutableArray * cc = [NSMutableArray array];
+    [cc addObject:resultingImage];
+    [self shareClick:cc];
+}
+
+
+
+//- (void)composeImg:(UIImage *)bgImage andUpImage:(UIImage *)upImage {
+//
+//    UIImage *img = upImage;
+//    CGImageRef imgRef = img.CGImage;
+//    CGFloat w = CGImageGetWidth(imgRef);
+//    CGFloat h = CGImageGetHeight(imgRef);
+//
+//    //以1.png的图大小为底图
+//    UIImage *img1 = bgImage;
+//    CGImageRef imgRef1 = img1.CGImage;
+//    CGFloat w1 = CGImageGetWidth(imgRef1);
+//    CGFloat h1 = CGImageGetHeight(imgRef1);
+//
+//    //以1.png的图大小为画布创建上下文
+//    UIGraphicsBeginImageContext(CGSizeMake(w1, h1));
+//    [img1 drawInRect:CGRectMake(0, 0, w1, h1)];//先把1.png 画到上下文中
+//    [img drawInRect:CGRectMake(100, 100, w, h)];//再把小图放在上下文中
+//    UIImage *resultImg = UIGraphicsGetImageFromCurrentImageContext();//从当前上下文中获得最终图片
+//    UIGraphicsEndImageContext();//关闭上下文
+//
+//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *filePath = [path stringByAppendingPathComponent:@"01.png"];
+//    [UIImagePNGRepresentation(resultImg) writeToFile:filePath atomically:YES];//保存图片到沙盒
+//
+////    CGImageRelease(imgRef1);
+////    CGImageRelease(imgRef);
+//
+//
+//
+//}
+
+- (void)shareClick:(NSMutableArray * )imageArray {
+    
+    // 设置分享内容
+//    NSString *text = @"分享内容";
+//    UIImage *image = [UIImage imageNamed:@"play"];
+//    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
+    NSArray *activityItems = [imageArray copy];
+    LWLog(@"xxxxxxx");
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+//    activityViewController
+    //    activityViewController.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter, UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop,UIActivityTypeOpenInIBooks];
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    
+    // 选中活动列表类型
+    [activityViewController setCompletionWithItemsHandler:^(NSString * __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
+        NSLog(@"act type %@",activityType);
+    }];
+}
 
 
 - (MiFangFooter *)miFangYaoFooter{
     if (_miFangYaoFooter == nil) {
         _miFangYaoFooter = [[MiFangFooter alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, 60)];
+        _miFangYaoFooter.delegate = self;
         
     }
     return _miFangYaoFooter;

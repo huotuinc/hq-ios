@@ -9,6 +9,8 @@
 #import "HTArticleCellModel.h"
 #import "HTPhoneTableViewCell.h"
 #import "HTViedoTableViewCell.h"
+#import "HTTitleViewCell.h"
+
 
 @interface HTArticleCellModel ()
 
@@ -36,19 +38,15 @@
     HTArticleCellModel * cellModel = [[self alloc] initWithSlideType:selectType articleType:type isDiscover:isDiscove article:article];
     HTArticleTableViewCell * cell = nil;
     switch (type) {
-       
+        case HTArticleTypeTitle:
+            cell = (HTArticleTableViewCell *)[HTTitleViewCell cellGetTableView:tableView];
+            break;
         case HTArticleTypeMoreImage:
-            
-//            cell = [tableView dequeueReusableCellWithIdentifier:@"HTArticleTableViewCell"];
-//            if (cell == nil) {
-//                cell = [[HTArticleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HTArticleTableViewCell"];
-//            }
             cell = (HTArticleTableViewCell *)[HTPhoneTableViewCell cellGetTableView:tableView];
             break;
         case HTArticleTypeVideo:
             cell = (HTArticleTableViewCell *)[HTViedoTableViewCell cellGetTableView:tableView];
             break;
-            
         default:
             cell = (HTViedoTableViewCell *)[HTViedoTableViewCell cellGetTableView:tableView];
             break;
@@ -70,7 +68,7 @@
 
     switch (article.Type) {
         case 0:
-            return HTArticleTypeLink;
+            return HTArticleTypeTitle;
         case 1:
             return HTArticleTypeMoreImage;
         case 2:

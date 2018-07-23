@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+
+@protocol ShopSettingDelegate <NSObject>
+
+
+- (void)ShopInfo:(int)type withContent:(NSString *)content;
+
+
+@end
+
+
+
 @interface ShopSettingInTableViewController : UIViewController
 
 
@@ -15,7 +26,11 @@
 
 @property (nonatomic,assign) int type;
 
-@property (nonatomic,copy) NSString * title;
+@property (nonatomic,copy) NSString * titleTT;
+
+
+@property (nonatomic,weak) id <ShopSettingDelegate> delegate;
+
 
 
 @end

@@ -12,6 +12,15 @@
 #define  HTToolShareManager [HTTool HTToolShare]
 
 
+typedef enum : NSUInteger {
+    HTNetWorkStatusReachabilityStatusUnknown          = -1,
+    HTNetWorkStatusReachabilityStatusNotReachable     = 0,
+    HTNetWorkStatusReachabilityStatusReachableViaWWAN = 1,
+    HTNetWorkStatusReachabilityStatusReachableViaWiFi = 2,
+} HTNetWorkStatus;
+
+
+
 @interface HTTool : NSObject
 
 + (instancetype)HTToolShare;
@@ -179,4 +188,10 @@
 
 //显示提升
 - (void)showInfo:(NSString *)message withBlock:(void(^)(void))conformBlock;
+
+
+
+//网络状态改变监测 reachable
+- (void)NetWorkChangeWithBlock:(void(^)(HTNetWorkStatus stauts))block;
+- (BOOL)HTNetWorkReachable;
 @end

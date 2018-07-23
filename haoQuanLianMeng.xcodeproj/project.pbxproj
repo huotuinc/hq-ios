@@ -244,6 +244,14 @@
 		12DAB7AE20E3309000387104 /* WKTestAudioOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB7A520E3309000387104 /* WKTestAudioOutput.m */; };
 		12DAB7AF20E3309000387104 /* WKMovieRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB7A620E3309000387104 /* WKMovieRecorder.m */; };
 		12DAB7B320E37EB900387104 /* MiFangUserCenterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DAB7B220E37EB900387104 /* MiFangUserCenterModel.m */; };
+		12DDF99621056D7D00FB554A /* HTArticleTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DDF99521056D7D00FB554A /* HTArticleTitleView.m */; };
+		12DDF99921056DC500FB554A /* HTTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DDF99821056DC500FB554A /* HTTitleViewCell.m */; };
+		12DDF99D2105C3F900FB554A /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12DDF99B2105C3F900FB554A /* AlipaySDK.framework */; };
+		12DDF99E2105C3F900FB554A /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 12DDF99C2105C3F900FB554A /* AlipaySDK.bundle */; };
+		12DDF9A02105C42D00FB554A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 12DDF99F2105C42D00FB554A /* libc++.tbd */; };
+		12DDF9A22105C44900FB554A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12DDF9A12105C44900FB554A /* QuartzCore.framework */; };
+		12DDF9A42105C45800FB554A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12DDF9A32105C45700FB554A /* CoreText.framework */; };
+		12DDF9A62105C47C00FB554A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12DDF9A52105C47C00FB554A /* CoreMotion.framework */; };
 		12DE336620DC8A2F00374AA3 /* ShouYiTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE336520DC8A2F00374AA3 /* ShouYiTableViewCell.m */; };
 		12DE336920DCC97200374AA3 /* DayInComeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE336820DCC97200374AA3 /* DayInComeTableViewController.m */; };
 		12DE336E20DCE30400374AA3 /* ATuiGuangTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE336D20DCE30400374AA3 /* ATuiGuangTableViewCell.m */; };
@@ -788,6 +796,16 @@
 		12DAB7A820E3309000387104 /* WKMovieWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMovieWriter.h; sourceTree = "<group>"; };
 		12DAB7B120E37EB900387104 /* MiFangUserCenterModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MiFangUserCenterModel.h; sourceTree = "<group>"; };
 		12DAB7B220E37EB900387104 /* MiFangUserCenterModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiFangUserCenterModel.m; sourceTree = "<group>"; };
+		12DDF99421056D7D00FB554A /* HTArticleTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTArticleTitleView.h; sourceTree = "<group>"; };
+		12DDF99521056D7D00FB554A /* HTArticleTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTArticleTitleView.m; sourceTree = "<group>"; };
+		12DDF99721056DC500FB554A /* HTTitleViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTitleViewCell.h; sourceTree = "<group>"; };
+		12DDF99821056DC500FB554A /* HTTitleViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTitleViewCell.m; sourceTree = "<group>"; };
+		12DDF99B2105C3F900FB554A /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		12DDF99C2105C3F900FB554A /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		12DDF99F2105C42D00FB554A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		12DDF9A12105C44900FB554A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		12DDF9A32105C45700FB554A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		12DDF9A52105C47C00FB554A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		12DE336420DC8A2F00374AA3 /* ShouYiTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShouYiTableViewCell.h; sourceTree = "<group>"; };
 		12DE336520DC8A2F00374AA3 /* ShouYiTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShouYiTableViewCell.m; sourceTree = "<group>"; };
 		12DE336720DCC97200374AA3 /* DayInComeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DayInComeTableViewController.h; sourceTree = "<group>"; };
@@ -903,15 +921,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12DDF99D2105C3F900FB554A /* AlipaySDK.framework in Frameworks */,
+				12DDF9A62105C47C00FB554A /* CoreMotion.framework in Frameworks */,
+				1250506420D258E8006E30C4 /* CFNetwork.framework in Frameworks */,
+				1250506E20D25913006E30C4 /* Foundation.framework in Frameworks */,
+				12DDF9A42105C45800FB554A /* CoreText.framework in Frameworks */,
+				12DDF9A22105C44900FB554A /* QuartzCore.framework in Frameworks */,
 				1250507420D2592F006E30C4 /* libz.tbd in Frameworks */,
+				12DDF9A02105C42D00FB554A /* libc++.tbd in Frameworks */,
 				1250507220D25922006E30C4 /* Security.framework in Frameworks */,
 				1250507020D2591D006E30C4 /* UIKit.framework in Frameworks */,
-				1250506E20D25913006E30C4 /* Foundation.framework in Frameworks */,
 				1250506C20D2590D006E30C4 /* CoreGraphics.framework in Frameworks */,
 				1250506A20D25904006E30C4 /* SystemConfiguration.framework in Frameworks */,
 				1250506820D258FE006E30C4 /* CoreTelephony.framework in Frameworks */,
 				1250506620D258F3006E30C4 /* CoreFoundation.framework in Frameworks */,
-				1250506420D258E8006E30C4 /* CFNetwork.framework in Frameworks */,
 				1250506220D258A1006E30C4 /* UserNotifications.framework in Frameworks */,
 				E86F392991485C8CD57942DE /* libPods-haoQuanLianMeng.a in Frameworks */,
 			);
@@ -1112,6 +1135,7 @@
 		120CC16920BCF90000251FC0 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				12DDF99A2105C3E300FB554A /* AliPay */,
 				12DAB79920E3307900387104 /* Vedio */,
 				12DAB79220E21E0A00387104 /* YLGIFImage */,
 				12DAB77920E21DD600387104 /* MJPhotoBrowser */,
@@ -1282,6 +1306,7 @@
 		120CC1B920BD6CBF00251FC0 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				12DDF99321056CD800FB554A /* ontitle */,
 				1225BFC620C5243A0078D8D0 /* controller */,
 				120CC1CE20BE4D1D00251FC0 /* Phone */,
 				120CC1CA20BE495C00251FC0 /* Video */,
@@ -2383,6 +2408,26 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		12DDF99321056CD800FB554A /* ontitle */ = {
+			isa = PBXGroup;
+			children = (
+				12DDF99421056D7D00FB554A /* HTArticleTitleView.h */,
+				12DDF99521056D7D00FB554A /* HTArticleTitleView.m */,
+				12DDF99721056DC500FB554A /* HTTitleViewCell.h */,
+				12DDF99821056DC500FB554A /* HTTitleViewCell.m */,
+			);
+			path = ontitle;
+			sourceTree = "<group>";
+		};
+		12DDF99A2105C3E300FB554A /* AliPay */ = {
+			isa = PBXGroup;
+			children = (
+				12DDF99C2105C3F900FB554A /* AlipaySDK.bundle */,
+				12DDF99B2105C3F900FB554A /* AlipaySDK.framework */,
+			);
+			path = AliPay;
+			sourceTree = "<group>";
+		};
 		12DE336320DC898A00374AA3 /* 每日收益 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2649,6 +2694,10 @@
 		78193B13D0BCF5F2F1F47083 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12DDF9A52105C47C00FB554A /* CoreMotion.framework */,
+				12DDF9A32105C45700FB554A /* CoreText.framework */,
+				12DDF9A12105C44900FB554A /* QuartzCore.framework */,
+				12DDF99F2105C42D00FB554A /* libc++.tbd */,
 				1250507320D2592F006E30C4 /* libz.tbd */,
 				1250507120D25922006E30C4 /* Security.framework */,
 				1250506F20D2591D006E30C4 /* UIKit.framework */,
@@ -2787,6 +2836,9 @@
 					1205BBEC20BBA96600032F3C = {
 						CreatedOnToolsVersion = 9.3.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -2833,6 +2885,7 @@
 				12DAB78D20E21DD600387104 /* MJPhotoBrowser.bundle in Resources */,
 				12FCDA4B20C2842000D0582B /* Person.storyboard in Resources */,
 				1281D93520DBA358008A255B /* TeamHeadView.xib in Resources */,
+				12DDF99E2105C3F900FB554A /* AlipaySDK.bundle in Resources */,
 				1205BBF820BBA96600032F3C /* Main.storyboard in Resources */,
 				129CE5F320F32D4B0085C82A /* Shop.storyboard in Resources */,
 				12AA816D20EA1A91006F87D1 /* blankpage_button_reload@2x.png in Resources */,
@@ -3089,6 +3142,7 @@
 				1281D8FD20DB3A8C008A255B /* AccountListController.m in Sources */,
 				120CC18120BD064700251FC0 /* UIView+YZCategory.m in Sources */,
 				12A997D620E0EE38003FAA89 /* MBProgressHUD+MJ.m in Sources */,
+				12DDF99621056D7D00FB554A /* HTArticleTitleView.m in Sources */,
 				12DAB78C20E21DD600387104 /* MJPhotoView.m in Sources */,
 				123587BC20FAEC51000DA9A6 /* ShopHuoKuanPage.m in Sources */,
 				121B5CB120C65D0F0049F87F /* HomeOtherSectionHeaderView.m in Sources */,
@@ -3127,6 +3181,7 @@
 				1210878620DE343600CF4D5E /* Add.m in Sources */,
 				120CC21820BE95E000251FC0 /* MoneyHeaderContainer.m in Sources */,
 				1225BFC220C51AB20078D8D0 /* HTDuiHuanTableViewController.m in Sources */,
+				12DDF99921056DC500FB554A /* HTTitleViewCell.m in Sources */,
 				12FCDA3C20C260B100D0582B /* MessageContainViewController.m in Sources */,
 				1210877B20DE245600CF4D5E /* DianZhueTableViewCell.m in Sources */,
 				120CC15620BCEA5A00251FC0 /* HTAFHTTPSessionManager.m in Sources */,
@@ -3377,6 +3432,10 @@
 				CODE_SIGN_ENTITLEMENTS = haoQuanLianMeng/haoQuanLianMeng.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EBUKM38G9D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/haoQuanLianMeng/classes/other/libs/AliPay",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/haoQuanLianMeng/classes/other/haoQuanLianMeng.pch";
 				INFOPLIST_FILE = haoQuanLianMeng/Info.plist;
@@ -3411,6 +3470,10 @@
 				CODE_SIGN_ENTITLEMENTS = haoQuanLianMeng/haoQuanLianMeng.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EBUKM38G9D;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/haoQuanLianMeng/classes/other/libs/AliPay",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/haoQuanLianMeng/classes/other/haoQuanLianMeng.pch";
 				INFOPLIST_FILE = haoQuanLianMeng/Info.plist;

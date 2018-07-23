@@ -36,4 +36,8 @@
 @property (nonatomic,copy) NSString * ApplyAgentURL; // string    邀请好友升级代理
 
 
+@property (nonatomic,copy) NSString * BuddyPoster; // string    邀请好友升级代理
+@property (nonatomic,copy) NSString * ProgramBuddyURL; // string    邀请好友升级代理
+
+
 @end

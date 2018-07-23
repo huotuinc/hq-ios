@@ -122,12 +122,28 @@
 
 //    [self checkNetwork];
     
-    //ReachabilityChangedNotification
-    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+//    ReachabilityChangedNotification
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     
-    
+    if (![[HTTool HTToolShare] HTNetWorkReachable]) {
+       [self getInitDate];
+    }else{
+        
+        
+        [[HTTool HTToolShare] showAlertWithController:self andTitle:@"网络错误" andMessage:@"当前网络不可用,请检查您的网络" conform:^{
+            [[HTTool HTToolShare] NetWorkChangeWithBlock:^(HTNetWorkStatus stauts) {
+                if (stauts == HTNetWorkStatusReachabilityStatusUnknown) {
+                    //[MBProgressHUD showError:@"当前网络未知"];
+                }else if (stauts == HTNetWorkStatusReachabilityStatusNotReachable) {
+                    //[MBProgressHUD showError:@"当前网络不可用"];
+                }else{
+                    [self getInitDate];
+                }
+            }];
+        } cancle:nil];
+        
+    }
 
-    [self getInitDate];
 }
 
 
@@ -145,7 +161,7 @@
         for (NSDictionary* dict in imagesDict)
         {
             
-            LWLog(@"%@",dict);
+//            LWLog(@"%@",dict);
             CGSize imageSize = CGSizeFromString(dict[@"UILaunchImageSize"]);
             if (CGSizeEqualToSize(imageSize, viewSize) && [viewOrientation isEqualToString:dict[@"UILaunchImageOrientation"]])
             {
@@ -210,14 +226,16 @@
     NSMutableDictionary * parame = [NSMutableDictionary dictionary];
     parame[@"openId"] = dict[@"openid"];
 #warning luohaibo 修改unionid
-    parame[@"unionId"] = @"ovFVjwxPntkPKCv4taywvyW9DgnE";//dict[@"unionid"];
+    parame[@"unionId"] = @"ovFVjwxlVODpKkZzck6HaJfY7U_I";//dict[@"unionid"];
     parame[@"nickName"] = dict[@"nickname"];
     parame[@"userHead"] = dict[@"headimgurl"];
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/loginByUnionId" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         HTUserModel * userModel = [HTUserModel mj_objectWithKeyValues:json[@"data"]];
         [[HTTool HTToolShare] HTToolArchiveRootObject:userModel withPath:NSStringFromClass([HTUserModel class])];
-         if (userModel.bindedMobile) { //绑定手机了
+#warning luohaibi
+        
+         if (!userModel.bindedMobile) { //绑定手机了
             [self getInApp];
         }else{ //未绑定手机
             MfBangDingTableViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MfBangDingTableViewController"];

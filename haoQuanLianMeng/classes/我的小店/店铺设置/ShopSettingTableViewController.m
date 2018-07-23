@@ -10,7 +10,7 @@
 #import "ShopSettModel.h"
 #import <AVFoundation/AVFoundation.h>
 
-@interface ShopSettingTableViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ShopSettingTableViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate,ShopSettingDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *shopHeadLable;
 @property (weak, nonatomic) IBOutlet UIImageView *shopIcon;
 @property (weak, nonatomic) IBOutlet UILabel *shopNameLable;
@@ -41,11 +41,14 @@
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"store/info" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         
-        [self.shopIcon sd_setImageWithURL:[NSURL URLWithString:json[@"data"][@"logo"]]];
-        self.shopName.text = json[@"data"][@"name"];
-        self.shareName.text = json[@"data"][@"shareTitle"];
-        self.shareContenName.text = json[@"data"][@"shareContent"];
-        self.model = [ShopSettModel mj_objectWithKeyValues:json[@"data"]];
+//        if ([json objectForKey:@"data"]) {
+//            [self.shopIcon sd_setImageWithURL:[NSURL URLWithString:json[@"data"][@"logo"]]];
+//            self.shopName.text = json[@"data"][@"name"];
+//            self.shareName.text = json[@"data"][@"shareTitle"];
+//            self.shareContenName.text = json[@"data"][@"shareContent"];
+//            self.model = [ShopSettModel mj_objectWithKeyValues:json[@"data"]];
+//        }
+        
 //        logo = "http://images.liqucn.com/img/h21/h56/img_localize_a056fdf57f1d33f64be99175b0fbfa40_400x400.png";
 //        name = "\U8428\U8fbe\U5927\U53a6";
 //        shareContent = "\U6253\U6253\U6492\U5b9e\U6253\U5b9e\U7684";
@@ -158,7 +161,7 @@
         [self presentViewController:imagePicker animated:YES completion:nil];
     }];
     
-    UIAlertAction * ac1 = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction * ac1 = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //选择相册时，设置UIImagePickerController对象相关属性
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         //跳转到UIImagePickerController控制器弹出相册
@@ -176,10 +179,44 @@
     
     [picker dismissViewControllerAnimated:YES completion:nil];
 //    //获取到的图片
-//    UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
-//    _imageView.image = image;
+    UIImage * image = [info valueForKey:UIImagePickerControllerEditedImage];
+    
+    
+    [self upLoadImage:image];
 }
 
+
+//上传用户头像
+- (void)upLoadImage:(UIImage *)image{
+    
+    //
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPostFile:@"other/uploadPicture" parame:nil andImages:@[image] andImageParameName:nil success:^(id json) {
+        LWLog(@"%@",json);
+        _shopIcon.image = image;
+        [self updateImageUtl:json[@"url"]];
+    } failure:^(NSError *error) {
+        LWLog(@"%@",error);
+    }];
+    
+}
+
+
+//修改头像
+- (void)updateImageUtl:(NSString *)content{
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"type"] = @"0";
+    dict[@"content"] = content;
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"store/setting" parame:dict isHud:NO isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+//取消图片选择
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -245,24 +282,38 @@
         ShopSettingInTableViewController * vc = [[UIStoryboard storyboardWithName:@"Shop" bundle:nil] instantiateViewControllerWithIdentifier:@"ShopSettingInTableViewController"];
         vc.navigationItem.title = @"店铺名称";
         vc.type = 1;
-        vc.title = self.model.name;
+        vc.titleTT = self.model.name;
+        vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 0){
         ShopSettingInTableViewController * vc = [[UIStoryboard storyboardWithName:@"Shop" bundle:nil] instantiateViewControllerWithIdentifier:@"ShopSettingInTableViewController"];
         vc.navigationItem.title = @"分享标题";
         vc.type = 2;
-        vc.title = self.model.shareTitle;
+        vc.titleTT = self.model.shareTitle;
+        vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
         
     }else if (indexPath.section == 1 && indexPath.row == 1){
         ShopSettingInTableViewController * vc = [[UIStoryboard storyboardWithName:@"Shop" bundle:nil] instantiateViewControllerWithIdentifier:@"ShopSettingInTableViewController"];
         vc.navigationItem.title = @"分享内容";
         vc.type = 3;
-        vc.title = self.model.shareContent;
+        vc.titleTT = self.model.shareContent;
+        vc.delegate = self;
         [self.navigationController pushViewController:vc animated:YES];
         
     }
     LWLog(@"xxxxx");
+}
+
+
+- (void)ShopInfo:(int)type withContent:(NSString *)content{
+    if (type == 1) {
+       self.shopName.text = content;
+    }else if(type == 2){
+       self.shareName.text = content;
+    }else{
+       self.shareContenName.text = content;
+    }
 }
 /*
 // Override to support conditional editing of the table view.

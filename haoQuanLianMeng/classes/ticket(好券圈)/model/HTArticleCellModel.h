@@ -23,7 +23,7 @@ typedef enum : NSUInteger {
 
 //推广类型(0普通1图片2视频)
 typedef enum : NSUInteger {
-    HTArticleTypeLink,
+    HTArticleTypeTitle,
     HTArticleTypeMoreImage,
     HTArticleTypeVideo,
     HTArticleTypeNotKnow,

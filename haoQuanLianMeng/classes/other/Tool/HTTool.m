@@ -410,7 +410,8 @@ static HTTool * _htTool;
         [alerController addAction:ac1];
     }
     
-    [vc presentViewController:alerController animated:YES completion:nil];
+    
+    [[self getCurrentVC] presentViewController:alerController animated:YES completion:nil];
 }
 
 
@@ -787,6 +788,43 @@ static HTTool * _htTool;
             conformBlock();
         }
     }];
+}
+
+
+//网络状态监测
+- (void)NetWorkChangeWithBlock:(void(^)(HTNetWorkStatus stauts))block{
+    
+    AFNetworkReachabilityManager * manager = [AFNetworkReachabilityManager sharedManager];
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (block) {
+            switch (status) {
+                case AFNetworkReachabilityStatusUnknown:
+                    block(HTNetWorkStatusReachabilityStatusUnknown);
+                    break;
+                case AFNetworkReachabilityStatusNotReachable:
+                    block(HTNetWorkStatusReachabilityStatusNotReachable);
+                    break;
+                case  AFNetworkReachabilityStatusReachableViaWWAN:
+                    block(HTNetWorkStatusReachabilityStatusReachableViaWWAN);
+                    break;
+                case AFNetworkReachabilityStatusReachableViaWiFi:
+                    block(HTNetWorkStatusReachabilityStatusReachableViaWiFi);
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+    }];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
+
+
+- (BOOL)HTNetWorkReachable{
+    
+    LWLog(@"%d",[[AFNetworkReachabilityManager sharedManager] isReachable]);
+    return  [[AFNetworkReachabilityManager sharedManager] isReachable];
 }
 
 @end

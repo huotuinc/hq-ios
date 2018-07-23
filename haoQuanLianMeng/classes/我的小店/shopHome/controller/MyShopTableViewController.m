@@ -182,6 +182,15 @@
                          NSArray * dataArray = [ShopGoodModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
                          if (type == 0) {
                              [self.dataArray removeAllObjects];
+                             
+                             if (!dataArray.count) {
+                                 [self.tableView showEmptyViewClickImageViewBlock:^(id sender) {
+                                     [self getInitData:0];
+                                 }];
+                             }else{
+                                 [self.tableView dissmissEmptyView];
+                             }
+                             
                          }
                          [self.dataArray addObjectsFromArray:dataArray];
                          [self.tableView reloadData];

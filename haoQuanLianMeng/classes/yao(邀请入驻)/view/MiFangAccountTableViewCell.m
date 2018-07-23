@@ -136,10 +136,16 @@
                 range:NSMakeRange(8 , st.length - 1 - 6)];
     
     
+    
     [str appendAttributedString:[str1 copy]];
 
     
     self.titleLableT.attributedText = str;
+    
+    
+    if (model.IsAgent) {
+        _downIconView.image =  [UIImage imageNamed:@"k3"];
+    }
 }
 
 @end

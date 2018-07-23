@@ -57,7 +57,7 @@
 
 - (void)getData{
     
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Profit/GetProfitIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Profit/GetProfitIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         InComeModel * model =  [InComeModel mj_objectWithKeyValues:json[@"data"]];
         self.model = model;
         [self.inComeHeader configure:model];

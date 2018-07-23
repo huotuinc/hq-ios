@@ -245,7 +245,7 @@ static HTNetworkingTool * _HTNetworkingTool;
     [SVProgressHUD showWithStatus:@"资料上传中"];
     
     [manager POST:url parameters:[[HTTool HTToolShare] HTToolSignWithParame:modele] constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < images.count; i++) {
         
             UIImage * upLoadImage =  [images objectAtIndex:i];
             NSData * imageData = UIImagePNGRepresentation(upLoadImage);
@@ -254,18 +254,29 @@ static HTNetworkingTool * _HTNetworkingTool;
             formatter.dateFormat = @"yyyyMMddHHmmss";
             NSString *str = [formatter stringFromDate:[NSDate date]];
             NSString *fileName = [NSString stringWithFormat:@"%@.png", str];
-            [formData appendPartWithFileData:imageData name:iconName fileName:fileName mimeType:@"image/png"];
+            [formData appendPartWithFileData:imageData name:@"" fileName:fileName mimeType:@"image/png"];
         }
         
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [SVProgressHUD dismiss];
-        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
-        if([[json objectForKey:@"resultCode"] integerValue] == 4003){
-            [self showLogin:[json objectForKey:@"resultMsg"]];
+//        NSDictionary * json = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+//        if([[json objectForKey:@"resultCode"] integerValue] == 4003){
+//            [self showLogin:[json objectForKey:@"resultMsg"]];
+//        }else{
+//            LWLog(@"%@",json);
+//            success(json);
+//        }
+        
+        if ([[responseObject objectForKey:@"code"] integerValue] == 200) {
+            success(responseObject);
+        }else if([[responseObject objectForKey:@"code"] integerValue] == 4003){
+            [self showLogin:[responseObject objectForKey:@"resultMsg"]];
+            failure(nil);
         }else{
-            LWLog(@"%@",json);
-            success(json);
+            [MBProgressHUD showError:[responseObject objectForKey:@"msg"]];
         }
+        
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD dismiss];
         failure(error);

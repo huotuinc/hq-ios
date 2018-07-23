@@ -17,6 +17,9 @@
     if (HTMenuButtonTypeDownLoadVideo == menubuttontype) {
         [self setTitle:@"保存视频" forState:UIControlStateNormal];
     }
+    if (HTMenuButtonTypeCopy == menubuttontype) {
+        [self setTitle:@"复制文本" forState:UIControlStateNormal];
+    }
 }
 @end
 
@@ -154,6 +157,9 @@
         case HTArticleTypeVideo:
             self.firstBtn.menubuttontype = HTMenuButtonTypeDownLoadVideo;
             break;
+        case HTArticleTypeTitle:
+            self.firstBtn.menubuttontype = HTMenuButtonTypeCopy;
+            break;
         default:
             break;
     }
@@ -181,24 +187,116 @@
     
 }
 
+- (void)downLoadVideo
+{
+    
+    
+    
+////    programView * VedioDownView = [[programView alloc] initWithFrame:CGRectMake(0,0, kScreenWidth , kScreenHeight)];
+////    //            pc.bounds = CGRectMake(0, 0, KScreenWidth * 0.8, KScreenHeight * 0.3);
+////    //            pc.center = CGPointMake(KScreenWidth * 0.5, KScreenHeight * 0.5);
+////    _VedioDownView = VedioDownView;
+////    VedioDownView.delegate = self;
+////    [[UIApplication sharedApplication].keyWindow addSubview:VedioDownView];
+//    
+//    
+//    NSString * vedioUrl = [self.cellModel.article.VideoUrls firstObject];
+//    //  下载视频
+//    //1.创建会话管理者
+//    AFHTTPSessionManager *manager =[AFHTTPSessionManager manager];
+//    NSURL *url = [NSURL URLWithString:vedioUrl];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    __weak typeof(self) wself = self;
+//    
+//    //2.下载文件
+//    /*
+//     
+//     第一个参数:请求对象
+//     
+//     第二个参数:progress 进度回调 downloadProgress
+//     
+//     第三个参数:destination 回调(目标位置)
+//     
+//     有返回值
+//     
+//     targetPath:临时文件路径
+//     
+//     response:响应头信息
+//     
+//     第四个参数:completionHandler 下载完成之后的回调
+//     
+//     filePath:最终的文件路径
+//     
+//     */
+//    NSURLSessionDownloadTask *download = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+//        //监听下载进度
+//        //completedUnitCount 已经下载的数据大小
+//        //totalUnitCount     文件数据的中大小
+//        CGFloat aa = 1.0 *downloadProgress.completedUnitCount / downloadProgress.totalUnitCount;
+//        LWLog(@"%f",aa);
+//        wself.VedioDownView.progressBarRoundedSlim.progress = aa;
+//    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+//        NSString *fullPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:response.suggestedFilename];
+//        NSLog(@"targetPath:%@",targetPath);
+//        
+//        NSLog(@"fullPath:%@",fullPath);
+//        return [NSURL fileURLWithPath:fullPath];
+//        
+//    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+//        NSLog(@"%@",[filePath.absoluteString substringFromIndex:7]);
+//        if (!error) {
+//            
+//            wself.VedioDownView.titlex.text = @"视频下载成功";
+//            [wself saveVedio:[filePath.absoluteString substringFromIndex:8]];
+//        }else{
+//            [UIView animateWithDuration:0.5 animations:^{
+//                [self.VedioDownView removeFromSuperview];
+//            } completion:^(BOOL finished) {
+//                [MBProgressHUD showMessage:@"视频保存失败"];
+//            }];
+//        }
+//        
+//    }];
+//    _download = download;
+//    //3.执行Task
+//    [download resume];
+}
+
 
 - (void)shareClick:(NSMutableArray * )imageArray {
     
     // 设置分享内容
-    NSString *text = @"分享内容";
-    UIImage *image = [UIImage imageNamed:@"play"];
-    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
+//    NSString *text = @"分享内容";
+//    UIImage *image = [UIImage imageNamed:@"play"];
+//    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com"];
     NSArray *activityItems = [imageArray copy];
     LWLog(@"xxxxxxx");
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
 //    activityViewController.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter, UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop,UIActivityTypeOpenInIBooks];
+    activityViewController.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter, UIActivityTypePostToWeibo,UIActivityTypeMessage,UIActivityTypeMail,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop,UIActivityTypeOpenInIBooks];
     [self.viewContainingController presentViewController:activityViewController animated:YES completion:nil];
     
     // 选中活动列表类型
     [activityViewController setCompletionWithItemsHandler:^(NSString * __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
         NSLog(@"act type %@",activityType);
+        if (!activityError) {
+           [self shareStatus];
+        }
+        
     }];
 }
+
+
+- (void)shareStatus{
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"dataId"] = @(self.model.article.dataId);
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Material/success" parame:dict isHud:NO isHaseCache:NO success:^(id json) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 
 //右边的分享
 - (void)shareMenuClick:(HTMenuButton *)btn{

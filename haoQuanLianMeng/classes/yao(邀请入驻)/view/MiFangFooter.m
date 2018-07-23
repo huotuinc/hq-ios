@@ -23,12 +23,20 @@
         _btn = [[UIButton alloc] initWithFrame:CGRectMake(20, 10, KScreenWidth - 40, 44)];
         [_btn setTitle:@"邀请好友开店" forState:UIControlStateNormal];
         [_btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [_btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         _btn.backgroundColor = [UIColor whiteColor];
         _btn.layer.cornerRadius = 5;
         _btn.layer.masksToBounds = YES;
     }
     return _btn;
 }
+
+
+- (void)btnClick:(UIButton *)btn{
+    
+    [self.delegate btnClcik];
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {

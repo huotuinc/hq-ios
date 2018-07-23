@@ -23,7 +23,7 @@
     
    self.navigationItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveSett)];
     if(self.title.length){
-        self.settingTextField.text = self.title;
+        self.settingTextField.text = self.titleTT;
     }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -35,17 +35,22 @@
 
 
 - (void)saveSett{
-    
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     dict[@"type"] = @(self.type);
     dict[@"content"] = self.settingTextField.text;
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"store/setting" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
+        if ([self.delegate respondsToSelector:@selector(ShopInfo:withContent:)]) {
+            [self.delegate ShopInfo:self.type withContent:self.settingTextField.text];
+        }
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSError *error) {
         
     }];
 }
 
+
+//- (void)ShopInfo:(int)type withContent:(NSString *)content{}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
