@@ -24,5 +24,5 @@
 @property (nonatomic,weak) id <ShopHomeHeaderDelegate> delegate;
 
 
-- (void)configure:(ShopAccountModel *)model;
+- (void)configure:(NSString *)model;
 @end

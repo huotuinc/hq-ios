@@ -16,30 +16,61 @@
 
 @implementation TiXianListTableViewController
 
+
+- (void)refreshHeader{
+    self.refreshPageIndex = 1;
+    [self getDate:1];
+}
+
+- (void)refreshFooter{
+    self.refreshPageIndex += 1;
+    [self getDate:0];
+    
+}
+
+
+- (void)getDate:(int)type{
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"pageIndex"] = @(self.refreshPageIndex);
+    dict[@"pageSize"] = @"10";
+    
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/ApplyList" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+        LWLog(@"%@",json);
+        NSArray * data =  [MTiXianModel mj_objectArrayWithKeyValuesArray:[json objectForKey:@"data"] ];
+        if (type == 1) {
+            [self.dataArray removeAllObjects];
+            
+            if(data.count){
+                [self.tableView dissmissEmptyView];
+            }else{
+                [self.tableView showEmptyViewClickImageViewBlock:^(id sender) {
+                    
+                }];
+            }
+        }
+        [self.dataArray addObjectsFromArray:data];
+        [self.tableView reloadData];
+        
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationItem.title = @"提现记录";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
-    
+    self.tableView.tableFooterView = [[UIView alloc] init];
     
     [self.tableView registerClass:[TiXianCell class] forCellReuseIdentifier:@"TiXianCell"];
     
     self.tableView.backgroundColor = LWColor(239, 239, 244);
     
-    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-    dict[@"pageIndex"] = @"1";
-    dict[@"pageSize"] = @"10";
-    
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/ApplyList" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
-        LWLog(@"%@",json);
-       NSArray * data =  [MTiXianModel mj_objectArrayWithKeyValuesArray:[[json objectForKey:@"data"] objectForKey:@"list"]];
-        [self.dataArray addObjectsFromArray:data];
-        [self.tableView reloadData];
-    } failure:^(NSError *error) {
-        
-    }];
+    [self getDate:1];
     
     
     // Uncomment the following line to preserve selection between presentations.

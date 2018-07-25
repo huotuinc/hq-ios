@@ -84,7 +84,7 @@
 - (UILabel *)downLeftLablel{
     if (_downLeftLablel == nil) {
         _downLeftLablel = [[UILabel alloc] init];
-        _downLeftLablel.text = @"夏季";
+//        _downLeftLablel.text = @"夏季";
         _downLeftLablel.numberOfLines = 2;
         _downLeftLablel.font = kAdaptedFontSize(15);
         _downLeftLablel.textColor = LWColor(61, 61, 61);
@@ -96,7 +96,7 @@
 - (UILabel *)downRightLablel{
     if (_downRightLablel == nil) {
         _downRightLablel = [[UILabel alloc] init];
-        _downRightLablel.text = @"夏季男";
+//        _downRightLablel.text = @"夏季男";
         _downRightLablel.numberOfLines = 2;
         _downRightLablel.font = kAdaptedFontSize(15);
         _downRightLablel.textColor = LWColor(61, 61, 61);
@@ -111,7 +111,9 @@
         _titleLablel = [[UILabel alloc] init];
         _titleLablel.text = @"夏季男士五分裤夏季男士五分裤夏季男士五分裤夏季男士五分裤夏季男士五分裤夏季男士五分裤夏季男士五分裤夏季男士五分裤夏季男士五分裤夏季男士五分裤";
         _titleLablel.numberOfLines = 2;
-        _titleLablel.font = kAdaptedFontSize(15);
+        [_titleLablel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+        
+//        _titleLablel.font = kAdaptedFontSize(15);
         _titleLablel.textColor = LWColor(61, 61, 61);
     }
     return _titleLablel;
@@ -169,6 +171,33 @@
     return titleSize;
 }
 
+
+- (void)configure:(QuanDetailModel *)model{
+    self.titleLablel.text = model.title;
+    self.oldPriceLablel.text = [NSString stringWithFormat:@"¥ %@",model.price];
+    
+    NSString * firstPrice = [NSString stringWithFormat:@"%@",model.agentPrcie];
+    NSString * secondPrice = [NSString stringWithFormat:@"%@",model.commission];
+    
+    NSString * dd = [NSString stringWithFormat:@"代理价 %@元 佣金: ",firstPrice];
+    NSString * cc = [NSString stringWithFormat:@"%@%@元",dd,secondPrice];
+    
+    NSMutableAttributedString * str = [[NSMutableAttributedString alloc] initWithString:cc];
+    
+    [str addAttribute:NSForegroundColorAttributeName
+                value:[UIColor redColor]
+                range:NSMakeRange(4 , firstPrice.length)];
+    
+    [str addAttribute:NSForegroundColorAttributeName
+                value:[UIColor redColor]
+                range:NSMakeRange(dd.length , secondPrice.length)];
+    
+    
+    self.downLeftLablel.attributedText = str;
+    
+}
+
+
 - (void)setUpinit{
     
 //    CGFloat  margin = 15;
@@ -178,7 +207,7 @@
 //    self.oldPriceLablel.x = 15;
 //    self.oldPriceLablel.y = 15;
     
-    CGFloat t =  [self caclu:15].height * 2;
+    CGFloat t =  [self caclu:20].height * 2;
     [self addSubview:self.titleLablel];
     [self.titleLablel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.mas_top).mas_offset(5);

@@ -60,8 +60,21 @@
         PayResp *aresp = (PayResp *)resp;
         NSLog(@"微信的回调方法333---%@-----%d",aresp.returnKey,aresp.type);
         
+    }else if([resp isKindOfClass:[SendMessageToWXResp class]]){
+        [self shareStatus];
     }
 }
+
+- (void)shareStatus{
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"dataId"] = @(self.goodId);
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Material/success" parame:dict isHud:NO isHaseCache:NO success:^(id json) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 
 // *  获取access_token
 - (void)getAccessTokenWithCode:(NSString *)code
@@ -210,6 +223,16 @@
     [WXApi sendReq:launchMiniProgramReq];
 }
 
+
+- (void)WXShareText:(int)goodId andStr:(NSString *)str{
+    
+    SendMessageToWXReq * req = [[SendMessageToWXReq alloc] init];
+    //    req.message = message;
+    req.text = [str copy];
+    req.bText = YES;
+    [WXApi sendReq:req];
+    
+}
 
 - (void)WXShareXiaoChengXu:(NSString *)des{
     

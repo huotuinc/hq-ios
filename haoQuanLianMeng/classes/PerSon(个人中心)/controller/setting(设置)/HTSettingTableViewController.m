@@ -8,6 +8,7 @@
 
 #import "HTSettingTableViewController.h"
 #import "MfBangDingTableViewController.h"
+#import "PayMiMaTableViewController.h"
 
 @interface HTSettingTableViewController ()
 
@@ -22,6 +23,14 @@
 @property (weak, nonatomic) IBOutlet UISwitch *openPayPass;
 
 @property (weak, nonatomic) IBOutlet UIButton *accountBtn;
+
+
+
+@property (copy, nonatomic)  NSString * phoneNumver;
+
+
+
+
 
 @end
 
@@ -55,12 +64,12 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [[HTNetworkingTool  HTNetworkingManager]  HTNetworkingToolGet:@"user/setting" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool  HTNetworkingManager]  HTNetworkingToolPost:@"user/setting" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
         self.phoneLable.text = [json[@"data"] objectForKey:@"UserMobile"];
         self.payPass.text = ([[json[@"data"] objectForKey:@"PayPassworded"] intValue] ? @"已重置" : @"未重置");
         [self.openPayPass setOn:([[json[@"data"] objectForKey:@"PayPasswordStatus"] intValue]) animated:YES];
 //        self.openPayPass.isOn = ([[json[@"data"] objectForKey:@"PayPasswordStatus"] intValue]);
-        
+        self.phoneNumver =  [[json[@"data"] objectForKey:@"UserMobile"] copy];
         LWLog(@"%@",json);
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
@@ -96,9 +105,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0 && indexPath.row == 0) {
         
         MfBangDingTableViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MfBangDingTableViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 0) {
+        PayMiMaTableViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PayMiMaTableViewController"];
+        vc.phoneNumber = self.phoneNumver;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

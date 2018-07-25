@@ -49,13 +49,14 @@
         [self.left mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.mas_left).mas_offset(12);
             make.top.mas_equalTo(self.mas_top).mas_offset(10);
-            make.bottom.mas_equalTo(self.mas_bottom).mas_offset(-10);
+            
         }];
         
         [self addSubview:self.right];
         [self.right mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.mas_equalTo(self.left.mas_centerY);
-            make.right.mas_equalTo(self.mas_right).mas_offset(-10);
+            make.top.mas_equalTo(self.left.mas_bottom).mas_offset(5);
+            make.left.mas_equalTo(self.left.mas_left);
+            make.bottom.mas_equalTo(self.mas_bottom).mas_offset(-10);
         }];
     }
     return self;
@@ -65,7 +66,12 @@
     LWLog(@"%@",[NSString stringWithFormat:@"推荐人: %@ 注册时间: %@",model.Recommender,model.RegisterTime]);
     
     self.left.text = [NSString stringWithFormat:@"推荐人: %@ 注册时间: %@",model.Recommender,model.RegisterTime];
-    self.right.text = [NSString stringWithFormat:@"最后登录时间: %@",model.LastLoginTime];
+    
+    
+    NSDate * t = [NSDate dateWithTimeIntervalSince1970:[model.LastLoginTime longLongValue] / 1000];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    self.right.text = [NSString stringWithFormat:@"最后登录时间: %@",[formatter stringFromDate:t]];
     
 }
 

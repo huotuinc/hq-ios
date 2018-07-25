@@ -44,8 +44,15 @@
 }
 
 - (void)getAccountList{
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/GetAccountList" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
-        NSArray * data =  [AccountList mj_objectArrayWithKeyValuesArray:json[@"data"][@"list"]];
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/GetAccountList" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+        NSArray * data =  [AccountList mj_objectArrayWithKeyValuesArray:json[@"data"]];
+        if (data.count) {
+            [self.tableView dissmissEmptyView];
+        }else{
+            [self.tableView showEmptyViewClickImageViewBlock:^(id sender) {
+                
+            }];
+        }
         [self.dataArray addObjectsFromArray:data];
         [self.tableView reloadData];
         LWLog(@"%@",json);
@@ -62,7 +69,7 @@
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
-    
+    self.tableView.tableFooterView = [[UIView alloc] init];
     [self getAccountList];
     
     self.navigationItem.rightBarButtonItem =

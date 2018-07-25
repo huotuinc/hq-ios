@@ -33,7 +33,9 @@
 - (UIImageView *)iconView {
     if (_iconView == nil){
         _iconView = [[UIImageView alloc] init];
-        _iconView.backgroundColor = [UIColor redColor];
+//        _iconView.backgroundColor = [UIColor redColor];
+        _iconView.image = [UIImage imageNamed:@"headerMoren"];
+        
     }
     return _iconView;
 }
@@ -45,7 +47,7 @@
     if(_headTitleLabel == nil){
         _headTitleLabel = [[UILabel alloc] init];
         _headTitleLabel.textColor = LWColor(67, 67, 67);
-        _headTitleLabel.font = kAdaptedFontSize(18);
+        _headTitleLabel.font = kAdaptedFontSize(16);
     }
     return _headTitleLabel;
 }
@@ -166,14 +168,17 @@
 - (void)cellClick{
     
     QuanDetailViewController * vc = [[QuanDetailViewController alloc] init];
+    vc.goodId = self.model.GoodsId;
     [self.viewContainingController.navigationController pushViewController:vc animated:YES];
     
 }
 
 - (void)configure:(ShopGoodModel *)model{
     
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.PicUrl]];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.PicUrl] placeholderImage:[UIImage imageNamed:@"headerMoren"]];
     self.model = model;
     self.headTitleLabel.text = model.Name;
+    self.sellLabel.text = [NSString stringWithFormat:@"¥ %@",model.Price];
+    self.dailiMoneyLabel.text = [NSString stringWithFormat:@"¥ %@",model.UserPrice];
 }
 @end

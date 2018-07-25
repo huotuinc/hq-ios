@@ -8,6 +8,8 @@
 
 #import "MPBannerTableViewCell.h"
 #import <SDCycleScrollView.h>
+#import "WKWebViewController.h"
+
 
 @interface MPBannerTableViewCell()<SDCycleScrollViewDelegate>
 
@@ -36,7 +38,7 @@
     self.model = model;
    
     NSMutableArray * arr = [NSMutableArray array];
-    for (NSDictionary * dict in model.ADList) {
+    for (NSDictionary * dict in model.ADLists) {
         [arr addObject:[dict objectForKey:@"ImgURL"]];
     }
     self.banner.imageURLStringsGroup = arr;
@@ -57,4 +59,12 @@
     return self;
 }
 
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    NSDictionary * dict = [self.model.ADLists objectAtIndex:index];
+    NSString * tt =  [dict objectForKey:@"LinkURL"];
+    WKWebViewController * vc = [[WKWebViewController alloc] init];
+    vc.funUrl = [tt copy];
+    [self.viewContainingController.navigationController pushViewController:vc animated:YES];
+    
+}
 @end

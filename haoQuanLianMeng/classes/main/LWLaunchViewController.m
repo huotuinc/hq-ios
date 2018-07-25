@@ -226,7 +226,7 @@
     NSMutableDictionary * parame = [NSMutableDictionary dictionary];
     parame[@"openId"] = dict[@"openid"];
 #warning luohaibo 修改unionid
-    parame[@"unionId"] = @"ovFVjwxlVODpKkZzck6HaJfY7U_I";//dict[@"unionid"];
+    parame[@"unionId"] = @"ovFVjw7BF5u9VQBDdecRRdqKEGHA";//@"ovFVjwxlVODpKkZzck6HaJfY7U_I";//dict[@"unionid"];
     parame[@"nickName"] = dict[@"nickname"];
     parame[@"userHead"] = dict[@"headimgurl"];
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/loginByUnionId" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
@@ -235,7 +235,7 @@
         [[HTTool HTToolShare] HTToolArchiveRootObject:userModel withPath:NSStringFromClass([HTUserModel class])];
 #warning luohaibi
         
-         if (!userModel.bindedMobile) { //绑定手机了
+         if (userModel.bindedMobile) { //绑定手机了
             [self getInApp];
         }else{ //未绑定手机
             MfBangDingTableViewController * vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MfBangDingTableViewController"];

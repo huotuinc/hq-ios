@@ -10,7 +10,7 @@
 
 @interface MiFangUserCenterModel : NSObject
 
-@property (nonatomic,strong) NSArray<NSDictionary *> * ADList;
+@property (nonatomic,strong) NSArray<NSDictionary *> * ADLists;
 //售后订单数
 @property (nonatomic,strong)NSString * AftermarketCount;
 @property (nonatomic,strong)NSString * ExpireTime;

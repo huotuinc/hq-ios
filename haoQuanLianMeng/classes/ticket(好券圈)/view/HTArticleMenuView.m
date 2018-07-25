@@ -9,6 +9,9 @@
 #import "HTArticleMenuView.h"
 #import "HTArticleCellModel.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <WXApi.h>
+//#import "programView.h"
+
 @implementation HTMenuButton
 
 
@@ -33,7 +36,7 @@
 
 @property (nonatomic ,strong) UIView * sliderCenterView;
 
-
+//@property (nonatomic ,strong) programView * VedioDownView;
 //数据模型
 @property (nonatomic,strong) HTArticleCellModel * model;
 
@@ -153,12 +156,16 @@
     
     switch (cellModel.articleType) {
         case HTArticleTypeMoreImage:
-            self.firstBtn.menubuttontype = HTMenuButtonTypeDownLoadImage;            break;
+            self.firstBtn.menubuttontype = HTMenuButtonTypeDownLoadImage;
+            //self.secondBtn.menubuttontype = HTMenuButtonTypeDownLoadImage;
+            break;
         case HTArticleTypeVideo:
             self.firstBtn.menubuttontype = HTMenuButtonTypeDownLoadVideo;
+            //self.secondBtn.menubuttontype = HTMenuButtonTypeDownLoadVideo;
             break;
         case HTArticleTypeTitle:
             self.firstBtn.menubuttontype = HTMenuButtonTypeCopy;
+            //self.secondBtn.menubuttontype = HTMenuButtonTypeCopy;
             break;
         default:
             break;
@@ -174,95 +181,107 @@
             break;
         
         case HTMenuButtonTypeDownLoadVideo: //下载视频
-            [self downVedio];
+            [self downLoadVideoWithType:0 Completion:nil];
+            break;
+        case HTMenuButtonTypeCopy: //下载视频
+            [self copyContentWithType:0];
             break;
         default:
             break;
     }
 }
 
-
-- (void)downVedio{
+//复制文本
+- (void)copyContentWithType:(int)type{
     
+    UIPasteboard * tt = [UIPasteboard generalPasteboard];
+    NSString * cc =  [NSString stringWithFormat:@"%@/n%@",self.cellModel.article.ShareTitle,self.cellModel.article.ShareDescription];
+    tt.string = cc;
     
+    [[HTTool HTToolShare] showInfo:@"文案已复制" withBlock:^{
+//        [self downLoadImagesWithShare:1];
+        if (type) {
+            NSMutableArray * tt = [NSMutableArray array];
+            [tt addObject:self.cellModel.article.ShareTitle];
+            [tt addObject:self.cellModel.article.ShareImage];
+            [tt addObject:self.cellModel.article.ShareDescription];
+            [self shareContent:self.cellModel.article.ShareDescription];
+        }
+    }];
 }
 
-- (void)downLoadVideo
-{
+//分享图片
+- (void)shareContent:(NSString * )imageArray {
+    
+    // 设置分享内容
+    //    NSString *text = @"分享内容";
+//        UIImage *image = [UIImage ima];
+//    WXMediaMessage * message = [WXMediaMessage message];
+//    message.title = @"觅方";
+//    message.description = @"京达达大厦";
+    
+    
+    [[[WXLoginShare alloc] init] WXShareText:self.model.article.dataId andStr:imageArray];;
+//    wx.goodId = self.model.article.dataId;
+//    [wx WXShareText:<#(int)#> andStr:imageArray]
     
     
     
-////    programView * VedioDownView = [[programView alloc] initWithFrame:CGRectMake(0,0, kScreenWidth , kScreenHeight)];
-////    //            pc.bounds = CGRectMake(0, 0, KScreenWidth * 0.8, KScreenHeight * 0.3);
-////    //            pc.center = CGPointMake(KScreenWidth * 0.5, KScreenHeight * 0.5);
-////    _VedioDownView = VedioDownView;
-////    VedioDownView.delegate = self;
-////    [[UIApplication sharedApplication].keyWindow addSubview:VedioDownView];
+//    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];
+//    NSArray *activityItems = @[@"12312",url,@"12312"];
+//    LWLog(@"xxxxxxx");
+//    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+//    //    activityViewController.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter, UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop,UIActivityTypeOpenInIBooks];
+//    activityViewController.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter, UIActivityTypePostToWeibo,UIActivityTypeMessage,UIActivityTypeMail,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop,UIActivityTypeOpenInIBooks];
+//    [self.viewContainingController presentViewController:activityViewController animated:YES completion:nil];
 //    
-//    
-//    NSString * vedioUrl = [self.cellModel.article.VideoUrls firstObject];
-//    //  下载视频
-//    //1.创建会话管理者
-//    AFHTTPSessionManager *manager =[AFHTTPSessionManager manager];
-//    NSURL *url = [NSURL URLWithString:vedioUrl];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    __weak typeof(self) wself = self;
-//    
-//    //2.下载文件
-//    /*
-//     
-//     第一个参数:请求对象
-//     
-//     第二个参数:progress 进度回调 downloadProgress
-//     
-//     第三个参数:destination 回调(目标位置)
-//     
-//     有返回值
-//     
-//     targetPath:临时文件路径
-//     
-//     response:响应头信息
-//     
-//     第四个参数:completionHandler 下载完成之后的回调
-//     
-//     filePath:最终的文件路径
-//     
-//     */
-//    NSURLSessionDownloadTask *download = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
-//        //监听下载进度
-//        //completedUnitCount 已经下载的数据大小
-//        //totalUnitCount     文件数据的中大小
-//        CGFloat aa = 1.0 *downloadProgress.completedUnitCount / downloadProgress.totalUnitCount;
-//        LWLog(@"%f",aa);
-//        wself.VedioDownView.progressBarRoundedSlim.progress = aa;
-//    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-//        NSString *fullPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:response.suggestedFilename];
-//        NSLog(@"targetPath:%@",targetPath);
-//        
-//        NSLog(@"fullPath:%@",fullPath);
-//        return [NSURL fileURLWithPath:fullPath];
-//        
-//    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-//        NSLog(@"%@",[filePath.absoluteString substringFromIndex:7]);
-//        if (!error) {
-//            
-//            wself.VedioDownView.titlex.text = @"视频下载成功";
-//            [wself saveVedio:[filePath.absoluteString substringFromIndex:8]];
-//        }else{
-//            [UIView animateWithDuration:0.5 animations:^{
-//                [self.VedioDownView removeFromSuperview];
-//            } completion:^(BOOL finished) {
-//                [MBProgressHUD showMessage:@"视频保存失败"];
-//            }];
+//    // 选中活动列表类型
+//    [activityViewController setCompletionWithItemsHandler:^(NSString * __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
+//        NSLog(@"act type %@",activityType);
+//        if (!activityError) {
+//            [self shareStatus];
 //        }
 //        
 //    }];
-//    _download = download;
-//    //3.执行Task
-//    [download resume];
 }
 
 
+
+
+// type 1 下载加分享
+- (void)downLoadVideoWithType:(int)type Completion:(void(^)(id obj))completionHandler
+{
+    NSString * vedioUrl = [self.cellModel.article.VideoUrls firstObject];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager * manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:vedioUrl]];
+    NSURLSessionDownloadTask * downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        NSString *fullPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:response.suggestedFilename];
+        NSLog(@"targetPath:%@",targetPath);
+        NSLog(@"fullPath:%@",fullPath);
+        return [NSURL fileURLWithPath:fullPath];
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        
+        LWLog(@"%@",filePath.absoluteString);
+        
+        if (error) {
+            [MBProgressHUD showError:@"下载视频失败 "];
+        }else{
+            [MBProgressHUD showError:@"下载视频成功 "];
+            if (type == 1 && completionHandler) {
+                NSMutableArray * tt = [NSMutableArray array];
+                [tt addObject:[NSURL fileURLWithPath:[filePath.absoluteString substringFromIndex:8]]];
+                completionHandler(tt);
+            }
+        }
+    }];
+    
+    [downloadTask resume];
+}
+
+
+
+//分享图片
 - (void)shareClick:(NSMutableArray * )imageArray {
     
     // 设置分享内容
@@ -301,20 +320,31 @@
 //右边的分享
 - (void)shareMenuClick:(HTMenuButton *)btn{
     
+//    HTArticleTypeTitle,
+//    HTArticleTypeMoreImage,
+//    HTArticleTypeVideo,
+    
     UIPasteboard * tt = [UIPasteboard generalPasteboard];
-    tt.string = [self.cellModel.article.Content copy];
+    tt.string = [NSString stringWithFormat:@"%@/%@",self.cellModel.article.ShareTitle,self.cellModel.article.ShareDescription];
     
-    [[HTTool HTToolShare] showInfo:@"文案已付之" withBlock:^{
-        [self downLoadImagesWithShare:1];
-    }];
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
-//        //    [self shareClick];
-//    });
+    if (self.cellModel.articleType == HTArticleTypeMoreImage) {
+        [[HTTool HTToolShare] showInfo:@"文案已复制" withBlock:^{
+            [self downLoadImagesWithShare:1];
+        }];
+    }else if(self.cellModel.articleType == HTArticleTypeVideo){
+        [[HTTool HTToolShare] showInfo:@"文案已复制" withBlock:^{
+            KWeakSelf(self);
+            [self downLoadVideoWithType:1 Completion:^(NSMutableArray * obj) {
+                [weakself shareClick:obj];
+            }];
+        }];
+    }else if(self.cellModel.articleType == HTArticleTypeTitle){
+        [self copyContentWithType:1];
+    }
     
-//    if ([self.delegate respondsToSelector:@selector(shareADKWithCellModel:)]) {
-//        [self.delegate shareADKWithCellModel:self.cellModel];
-//    }
+    
+    
+    
 }
 
 
@@ -332,8 +362,6 @@
             [MBProgressHUD showSuccess:@"下载成功"];
             if (type == 1) {
                 [weakself shareClick:obj];
-                
-               
             }
         });
 //            [MBProgressHUD showXZSuecceView:[NSString stringWithFormat:@"成功保存%lu张图到本地相册",(unsigned long)imagesPath.count] image:[UIImage imageNamed:@"成功"] iconImage:[UIImage imageNamed:@"下载_黑色"]];

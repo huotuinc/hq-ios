@@ -29,10 +29,10 @@
     [self.first setValue:model.UserTempIntegral];
     
     
-    [self.first setValue:model.UserIntegral];
+    [self.second setValue:model.UserIntegral];
     
     
-    [self.first setValue:model.UserMBean];
+    [self.third setValue:model.UserMBean];
     
 }
 

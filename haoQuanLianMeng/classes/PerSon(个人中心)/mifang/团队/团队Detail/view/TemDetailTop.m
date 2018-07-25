@@ -163,8 +163,9 @@
 - (void)configure:(TeamPListModel *)model{
     
     
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.UserImage]];
-    self.nameLable.text = model.NickName;
+    
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:model.UserImage] placeholderImage:[UIImage imageNamed:@"headerMoren"]];
+    self.nameLable.attributedText = [[NSAttributedString alloc] initWithString:model.NickName];
     self.levelLable.text = [NSString stringWithFormat:@" %@ ",model.UserLevelName];
     if (model.Relation) {
         self.teamLable.text = @" 二级团队 ";

@@ -9,9 +9,11 @@
 #import "TuiGuangViewController.h"
 #import "XTSegmentControl.h"
 #import "TuiGuanListTableViewController.h"
+#import "NavRightImage.h"
+#import <PGDatePicker.h>
+#import <PGDatePickManager.h>
 
-
-@interface TuiGuangViewController ()<UIScrollViewDelegate>
+@interface TuiGuangViewController ()<UIScrollViewDelegate,PGDatePickerDelegate,NavRightImageDelegate>
 
 
 @property (nonatomic, strong) NSArray * titleItems;
@@ -23,40 +25,55 @@
 @property(nonatomic,strong) UIScrollView * scrollView;
 
 
-@property(nonatomic,strong) UIButton * btn;
+@property(nonatomic,strong) NavRightImage * btn;
 
+
+@property (nonatomic,strong) PGDatePicker *datePicker;
+
+@property (nonatomic,assign) NSUInteger index;
 @end
 
 @implementation TuiGuangViewController
 
     
-- (UIButton *)btn{
+- (NavRightImage *)btn{
     if (_btn == nil) {
-        _btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
-        NSDate * date = [NSDate date];
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"YYYY年MM"];
-        
-        NSCalendar * ca = [NSCalendar currentCalendar];
-        NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth;
-        NSDateComponents *dateComponent = [ca components:unitFlags fromDate:date];
-        
-//        _year = (int)[dateComponent year];
-//        _month= (int)[dateComponent month];
-        
-        
-        
-        [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        NSString * time =  [formatter stringFromDate:date];
-        [_btn setTitle:time forState:UIControlStateNormal];
-        _btn.titleLabel.font = kAdaptedFontSize(15);
-        _btn.titleLabel.textAlignment = NSTextAlignmentRight;
-        //        [_btn sizeToFit];
+        _btn = [[NavRightImage alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
+        _btn.userInteractionEnabled = YES;
+        _btn.delegate = self;
     }
     return _btn;
 }
     
+
+
+
+- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents{
+    int month = (int)dateComponents.month;
+    int year = (int)dateComponents.year;
     
+    TuiGuanListTableViewController * childVc = self.childViewControllers[self.index];
+    childVc.month = month;
+    childVc.year = year;
+    [childVc timePick];
+    
+}
+
+// 点击时间选择
+- (void)btnRightClick{
+    
+    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+    PGDatePicker *datePicker = datePickManager.datePicker;
+    datePicker.datePickerMode = PGDatePickerModeYearAndMonth;
+    datePicker.datePickerType =  PGDatePickerType1;
+    datePicker.delegate = self;
+    [self presentViewController:datePickManager animated:false completion:nil];
+    
+
+}
+
+
+
     
 - (NSArray *)titleItems {
     if(_titleItems == nil){
@@ -120,8 +137,20 @@
 - (void)setupChildViewControllers
 {
 
+    NSDate * date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY年MM"];
+    NSCalendar * ca = [NSCalendar currentCalendar];
+    NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth;
+    NSDateComponents *dateComponent = [ca components:unitFlags fromDate:date];
+    
+    int year = (int)[dateComponent year];
+    int month= (int)[dateComponent month];
+
     for(int i = 0; i<  self.titleItems.count; i++){
         TuiGuanListTableViewController * homeViewController = [[TuiGuanListTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        homeViewController.year = year;
+        homeViewController.month = month;
         TuiGuangOrderStatus status;
         if (i == 0) {
             status = TuiGuangOrderPlane;
@@ -145,6 +174,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.btn];
+ 
     self.navigationItem.title = @"推广订单";
     [self setupChildViewControllers];
     
@@ -180,7 +211,7 @@
     NSUInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
     //    HomeTitleButton *titleButton = self.titleView.subviews[index];
     //    [self.titleView titleClick:titleButton];
-    
+    self.index = index;
     [self.segmentControl selectIndex:index];
     // 添加子控制器的view
     [self addChildVcView];

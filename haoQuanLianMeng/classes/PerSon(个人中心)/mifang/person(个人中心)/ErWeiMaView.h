@@ -8,10 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ErWeiMaViewDelegate <NSObject>
+
+
+- (void)shareBtnClick:(UIImage * )im;
+
+
+@end
+
+
 @interface ErWeiMaView : UIView
 
 
 
 @property (nonatomic,copy) NSString  * url;
 
+
+@property (nonatomic,weak) id  <ErWeiMaViewDelegate> delegate;
+
+- (void)dis;
 @end

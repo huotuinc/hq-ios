@@ -11,8 +11,8 @@
 //排序：0注册时间顺序 1注册时间倒序 2积分倒序 3积分顺序 4粉丝数倒序 5粉丝数顺序 6 最后登录时间倒序 7 最后登录时间顺序
 
 typedef enum : NSUInteger {
-    TeamSortByTimeStatus = 0,
-    TeamSortByTimeFlashBackStatus = 1,
+    TeamSortByTimeStatus = 1,
+    TeamSortByTimeFlashBackStatus = 0,
     TeamSortByScoreStatus = 2,
     TeamSortByScoreFlashBackStatus = 3,
     TeamSortByFansStatus = 4,

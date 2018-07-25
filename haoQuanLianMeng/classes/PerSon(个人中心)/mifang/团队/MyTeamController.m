@@ -36,7 +36,7 @@
 
 - (void)getInit{
     
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"/User/TeamIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"User/TeamIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         
         LWLog(@"%@",json);
         Team * model = [Team mj_objectWithKeyValues:json[@"data"]];
@@ -123,7 +123,7 @@
         //[vc setTitle:@""];
         [vc bk_whenTapped:^{
             TeamDetailViewController * vc = [[TeamDetailViewController alloc] init];
-            vc.navigationItem.title = @"我的团队";
+            vc.navigationItem.title = @"团队详情";
             vc.type = 0;
             [weakself.navigationController pushViewController:vc animated:YES];
         }];

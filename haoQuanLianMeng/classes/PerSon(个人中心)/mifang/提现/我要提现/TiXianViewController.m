@@ -14,15 +14,18 @@
 #import "TiXianListTableViewController.h"
 #import "AccountListController.h"
 #import "WoYaoTiXian.h"
+#import "PopPasswordView.h"
 
 
-@interface TiXianViewController ()<TiXianFooterViewDelegate,AccountListControllerDelegate>
+@interface TiXianViewController ()<TiXianFooterViewDelegate,AccountListControllerDelegate,PopPasswordViewDelegate>
 
 
 @property (nonatomic,strong) TiXianFooterView * footer;
 
 @property (nonatomic,strong) WoYaoTiXian * model;
 
+
+@property (nonatomic,strong) PopPasswordView * passwordView;
 
 
 @property (nonatomic,strong) TiXianBottomTableViewCell * cell;
@@ -51,26 +54,51 @@
     LWLog(@"xxx");
 }
 
+
+-(void)useStoreCode:(NSString *)code{
+
+    LWLog(@"%@",code);
+    [self.passwordView removeFromSuperview];
+    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+    dict[@"PassWord"] = [MD5Encryption md5by32:code];
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/JudgePayWord" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)disAction{
+    
+    [self.passwordView removeFromSuperview];
+    
+}
 //提现记录
 - (void)TiXianBtnClick{
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
-//    TiXianBottomTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:@"TiXianBottomTableViewCell" forIndexPath:indexPath];
+    self.passwordView=[[PopPasswordView alloc]initViewwithtype:@"open"];
+    self.passwordView.delegate=self;
+    self.passwordView.type=@"open";
+    [[UIApplication sharedApplication].keyWindow addSubview:self.passwordView];
+}
+
+
+- (void)tixintijiao{
     int a =  [self.cell getTixinMoney];
     LWLog(@"%d",a);
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     dict[@"AccountId"] = @(self.model.AccountId);
-    dict[@""] = @(a * 1000);
+    dict[@"ApplyMoney"] = @(a * 1000);
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/SubmitApply" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
+        [MBProgressHUD showSuccess:@"提现申请成功"];
     } failure:nil];
 }
-
 
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/ApplyIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/ApplyIndex" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         WoYaoTiXian * model = [WoYaoTiXian mj_objectWithKeyValues:json[@"data"]];
         LWLog(@"%@",[model mj_keyValues]);
         self.model = model;

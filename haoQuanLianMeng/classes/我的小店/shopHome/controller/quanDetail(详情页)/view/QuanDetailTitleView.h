@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QuanDetailModel.h"
+
+
 
 @interface QuanDetailTitleView : UIView
+
+
+
+- (void)configure:(QuanDetailModel *)model;
+
 
 @end

@@ -27,6 +27,8 @@
 
 @property (nonatomic,weak) id <WXLoginDelegate> delegate;
 
+@property (nonatomic,assign) int goodId;
+
 
 +(WXLoginShare *)shareInstance;
 
@@ -35,6 +37,9 @@
 
 
 -(void)WXLogin;
+
+
+- (void)WXShareText:(int)goodId andStr:(NSString *)str;
 
 
 //分享小程序

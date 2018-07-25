@@ -127,11 +127,9 @@
     }else{
         
         TeamInfoModel * modelx = model.TeamInfo[self.indexPath.row - 1];
-        if (self.indexPath.row == 1) {
-            self.left.text = @"代理商";
-        }else{
-            self.left.text = @"会员";
-        }
+       
+        self.left.text = modelx.LevelName;
+        
         
         self.centerL.text = [NSString stringWithFormat:@"%d",modelx.BelongOneMemberNum];
         self.right.text = [NSString stringWithFormat:@"%d",modelx.BelongTwoMemberNum];

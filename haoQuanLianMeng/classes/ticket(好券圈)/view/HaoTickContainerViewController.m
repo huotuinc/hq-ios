@@ -41,7 +41,7 @@
         
         NSString * picUrl =  json[@"data"][@"pictureUrl"];
         NSString * linkUrl =  json[@"data"][@"linkUrl"];
-        if (picUrl.length) {
+        if (![picUrl isKindOfClass:[NSNull class]]  &&  picUrl.length ) {
             UIViewController * vc =  [[HTTool HTToolShare] getCurrentVC];
             LWLog(@"%@",NSStringFromClass([[[HTTool HTToolShare] getCurrentVC] class]));
             AdViewController * ac = [[AdViewController alloc] initWithFrame:CGRectMake(0, KScreenHeight, KScreenWidth, KScreenHeight)];

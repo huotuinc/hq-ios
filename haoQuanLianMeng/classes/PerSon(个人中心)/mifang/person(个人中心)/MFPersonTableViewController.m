@@ -25,7 +25,7 @@
 #import "MPBannerTableViewCell.h"
 #import "WKWebViewController.h"
 
-@interface MFPersonTableViewController ()<MFPersonHeaderViewDelegate,MyWalletTableViewDelegate,VipTimeTableViewDelegate>
+@interface MFPersonTableViewController ()<MFPersonHeaderViewDelegate,MyWalletTableViewDelegate,VipTimeTableViewDelegate,ErWeiMaViewDelegate>
 
 
 @property (nonatomic,strong) MFPersonHeaderView * mpPersonHeaderView;
@@ -37,6 +37,10 @@
 
 
 @property (nonatomic,strong) NSMutableArray * bannerList;
+
+
+//我的钱包cell
+@property (nonatomic,strong) MyWalletTableViewCell * cell;
 
 @end
 
@@ -54,9 +58,37 @@
 - (ErWeiMaView *)erView{
     if (_erView == nil) {
         _erView = [[ErWeiMaView alloc] initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight)];
+        _erView.delegate = self;
     }
     return _erView;
 }
+
+- (void)shareBtnClick:(UIImage * )im{
+    
+    [self.erView dis];
+    LWLog(@"cccc");
+    
+    NSArray *activityItems = @[im];
+    LWLog(@"xxxxxxx");
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter, UIActivityTypePostToWeibo,UIActivityTypeMessage,UIActivityTypeMail,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop,UIActivityTypeOpenInIBooks];
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    
+    // 选中活动列表类型
+    [activityViewController setCompletionWithItemsHandler:^(NSString * __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
+        NSLog(@"act type %@",activityType);
+        if (!activityError) {
+           
+        }
+        
+    }];
+    
+    
+    
+    
+}
+
+
 
 
 //- (MFPersonHeaderView *)mpPersonHeaderView{
@@ -92,6 +124,8 @@
     LWLog(@"%@",model.UserName);
     [self.mpPersonHeaderView configWithData:model];
     self.model = model;
+    
+    [self.cell configWithData:model];
     [self.tableView reloadData];
 }
 
@@ -106,9 +140,9 @@
          
          if (aspectInfo) {
              if (aspectInfo.arguments[0]) {
-                 [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/getqrcode" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+                 [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/getqrcode" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
                      LWLog(@"%@",json);
-                     self.erView.url = json[@"data"][@"QRCodeImgURL"];
+                     self.erView.url = json[@"data"];
                  } failure:nil];
              }
          }
@@ -139,6 +173,7 @@
         
         MiFangUserCenterModel * model = [MiFangUserCenterModel mj_objectWithKeyValues:json[@"data"]];
         [self setUpInit:model];
+        //[self.tableView reloadData];
     } failure:^(NSError *error) {
         LWLog(@"%@",error);
     }];
@@ -180,7 +215,7 @@
 
     if (section == 2 ) {
         
-        return self.model.ADList.count ? 1 : 0;
+        return self.model.ADLists.count ? 1 : 0;
         //return 0;
     }
     return 1;
@@ -199,7 +234,8 @@
 
             MyWalletTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MyWalletTableViewCell" forIndexPath:indexPath];
             cell.delegate = self;
-            [cell configWithData:self.model];
+            self.cell = cell;
+            
             return cell;
         }else if(indexPath.section == 2){
             

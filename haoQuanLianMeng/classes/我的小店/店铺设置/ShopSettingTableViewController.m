@@ -41,13 +41,13 @@
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"store/info" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         
-//        if ([json objectForKey:@"data"]) {
-//            [self.shopIcon sd_setImageWithURL:[NSURL URLWithString:json[@"data"][@"logo"]]];
-//            self.shopName.text = json[@"data"][@"name"];
-//            self.shareName.text = json[@"data"][@"shareTitle"];
-//            self.shareContenName.text = json[@"data"][@"shareContent"];
-//            self.model = [ShopSettModel mj_objectWithKeyValues:json[@"data"]];
-//        }
+        if ([json objectForKey:@"data"]) {
+            [self.shopIcon sd_setImageWithURL:[NSURL URLWithString:json[@"data"][@"Logo"]]];
+            self.shopName.text = json[@"data"][@"Name"];
+            self.shareName.text = json[@"data"][@"ShareTitle"];
+            self.shareContenName.text = json[@"data"][@"ShareContent"];
+            self.model = [ShopSettModel mj_objectWithKeyValues:json[@"data"]];
+        }
         
 //        logo = "http://images.liqucn.com/img/h21/h56/img_localize_a056fdf57f1d33f64be99175b0fbfa40_400x400.png";
 //        name = "\U8428\U8fbe\U5927\U53a6";

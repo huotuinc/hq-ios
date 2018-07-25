@@ -25,6 +25,7 @@
 - (UIImageView *)iconView{
     if (_iconView == nil) {
         _iconView = [[UIImageView alloc] init];
+        _iconView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _iconView;
 }
@@ -55,6 +56,8 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
         [self setUpInit];
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -62,7 +65,7 @@
 - (void)setUpInit{
     
     [self.contentView addSubview:self.iconView];
-    self.iconView.backgroundColor = [UIColor redColor];
+//    self.iconView.backgroundColor = [UIColor redColor];
     [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.contentView.mas_top).mas_offset(kAdaptedWidth(15));
         make.left.mas_equalTo(self.contentView.mas_left).mas_offset(10);
@@ -90,7 +93,7 @@
 - (void)setDataModel:(DZClassList *)dataModel{
     _dataModel = dataModel;
     
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo]];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:dataModel.logo] placeholderImage:[UIImage imageNamed:@"headerMoren"]];
     self.leftLable.text = dataModel.title;
     self.rightLable.text = dataModel.content;
 }

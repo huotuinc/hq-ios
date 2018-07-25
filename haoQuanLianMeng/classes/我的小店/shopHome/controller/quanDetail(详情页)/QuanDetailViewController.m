@@ -31,6 +31,8 @@
 
 @property (nonatomic,strong) NSMutableArray * lastView;
 
+
+@property (nonatomic,strong) QuanDetailModel * model;
 @end
 
 @implementation QuanDetailViewController
@@ -69,9 +71,51 @@
 - (QuanDetailBottomView *)quanBottom{
     if (_quanBottom == nil) {
         _quanBottom = [[QuanDetailBottomView alloc] init];
+        [_quanBottom setTitle:@"立即分享"];
+        _quanBottom.userInteractionEnabled = YES;
+        UITapGestureRecognizer * ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareClick)];
+        [_quanBottom addGestureRecognizer:ges];
     }
     return _quanBottom;
 }
+
+
+- (void)shareClick{
+    
+    LWLog(@"xxxx");
+    [self shareClickTT];
+}
+
+
+- (void)shareClickTT{
+    
+    // 设置分享内容
+    NSString *text = self.model.title;
+    NSArray * cc =  [self.model.pictures componentsSeparatedByString:@","];
+    NSString * image;
+    if (cc) {
+        image = [cc firstObject];
+    }
+    
+//    UIImage *image = [UIImage imageNamed:@"play"];
+    NSURL *url = [NSURL URLWithString:self.model.shareUrl];
+    NSArray *activityItems = @[text,url];
+    LWLog(@"xxxxxxx");
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    //    activityViewController.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter, UIActivityTypePostToWeibo,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop,UIActivityTypeOpenInIBooks];
+    activityViewController.excludedActivityTypes = @[UIActivityTypePostToFacebook,UIActivityTypePostToTwitter, UIActivityTypePostToWeibo,UIActivityTypeMessage,UIActivityTypeMail,UIActivityTypePrint,UIActivityTypeCopyToPasteboard,UIActivityTypeAssignToContact,UIActivityTypeSaveToCameraRoll,UIActivityTypeAddToReadingList,UIActivityTypePostToFlickr,UIActivityTypePostToVimeo,UIActivityTypePostToTencentWeibo,UIActivityTypeAirDrop,UIActivityTypeOpenInIBooks];
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    
+    // 选中活动列表类型
+    [activityViewController setCompletionWithItemsHandler:^(NSString * __nullable activityType, BOOL completed, NSArray * __nullable returnedItems, NSError * __nullable activityError){
+        NSLog(@"act type %@",activityType);
+//        if (!activityError) {
+//            [self shareStatus];
+//        }
+        
+    }];
+}
+
 
 - (UIScrollView *)container{
     if (_container == nil) {
@@ -97,11 +141,12 @@
 
 //    /store/goodsInfo
     NSMutableDictionary * parame = [NSMutableDictionary dictionary];
-    parame[@"goodId"] = @(self.goodId);
+    parame[@"goodsId"] = @(self.goodId);
     [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"store/goodsInfo" parame:parame isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         QuanDetailModel * model = [QuanDetailModel mj_objectWithKeyValues:json[@"data"]];
         [self setUpInit:model];
+        self.model = model;
     } failure:^(NSError *error) {
         
     }];
@@ -122,7 +167,7 @@
     [self.container addSubview:self.headIconView];
     
     
-    
+    [self.centerHeaderView configure:model];
     CGFloat height = 0;
     if (self.isDaiLi) {
         height = kAdaptedWidth(40) + kAdaptedWidth(30) + kAdaptedWidth(30) + 20;
@@ -183,7 +228,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.quanBottom];
     self.quanBottom.backgroundColor = [UIColor redColor];
-    [self.quanBottom setTitle:@"立即购买"];
+    [self.quanBottom setTitle:@"立即分享"];
     [self.quanBottom mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(50);
         make.left.mas_equalTo(self.view.mas_left);

@@ -103,9 +103,9 @@
     }];
 }
 
-- (void)configure:(ShopAccountModel *)model{
+- (void)configure:(NSString *)model{
     
-    NSString * name = [NSString stringWithFormat:@"贷款 %d",model.goodsDeposit];
+    NSString * name = [NSString stringWithFormat:@"贷款 %@",model];
     
     NSMutableAttributedString * str = [[NSMutableAttributedString alloc] initWithString:name];
     

@@ -60,11 +60,21 @@
         
         self.red.layer.cornerRadius = 2;
         self.red.layer.masksToBounds = YES;
+        
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"redICon"] boolValue]) {
+           self.red.hidden = YES;
+        }
+        
+//        if ([[NSUserDefaults standardUserDefaults]forKey:@"redICon"];) {
+//            self.red.hidden = YES;
+//        }
     }
     return self;
 }
 
 - (void)setredHidden{
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(YES) forKey:@"redICon"];
     self.red.hidden = YES;
 }
 

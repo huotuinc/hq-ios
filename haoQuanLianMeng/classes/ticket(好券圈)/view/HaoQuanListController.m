@@ -51,9 +51,12 @@
             [self.dataArray removeAllObjects];
             //添加空白
             if (!dataArray.count) {
+                KWeakSelf(self);
                 [self.tableView showEmptyViewClickImageViewBlock:^(id sender) {
-                    [self getArticleList:1];
+                    [weakself getArticleList:1];
                 }];
+            }else{
+                [self.tableView dissmissEmptyView];
             }
         }
         [self.dataArray addObjectsFromArray:dataArray];

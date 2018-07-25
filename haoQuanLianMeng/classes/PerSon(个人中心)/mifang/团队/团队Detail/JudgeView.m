@@ -215,7 +215,7 @@
 
 - (void)getUserLevel{
 //    User/GetLevelList
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"User/GetLevelList" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"User/GetLevelList" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         NSArray * data =  [json objectForKey:@"data"];
         if (data.count) {

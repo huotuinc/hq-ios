@@ -22,6 +22,7 @@
 - (UILabel *)titleLable{
     if (_titleLable == nil) {
         _titleLable = [[UILabel alloc] init];
+        _titleLable.text = @"立即分享";
         _titleLable.textColor = [UIColor whiteColor];
     }
     return _titleLable;

@@ -10,4 +10,8 @@
 
 @implementation MessageContainerModel
 
+
+- (NSString *)JpushType{
+    return _NoticeScene;
+}
 @end

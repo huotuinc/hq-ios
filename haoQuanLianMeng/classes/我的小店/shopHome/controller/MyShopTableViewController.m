@@ -27,17 +27,20 @@
 
 @property (nonatomic,strong) UIButton * leftBtn;
 
-@property (nonatomic,strong) UIButton * rightBtn;
+@property (nonatomic,strong) ShopHomeRight * rightBtn;
 
 @end
 
 @implementation MyShopTableViewController
 
-- (UIButton *)rightBtn{
+- (ShopHomeRight *)rightBtn{
     if (_rightBtn == nil) {
-        _rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-        [_rightBtn setImage:[UIImage imageNamed:@"shopMore"] forState:UIControlStateNormal];
-        [_rightBtn addTarget:self action:@selector(rightClicl:) forControlEvents:UIControlEventTouchUpInside];
+        _rightBtn = [[ShopHomeRight alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+//        [_rightBtn setImage:[UIImage imageNamed:@"shopMore"] forState:UIControlStateNormal];
+        _rightBtn.userInteractionEnabled = YES;
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightClicl:)];
+        [_rightBtn addGestureRecognizer:tap];
+//        [_rightBtn addTarget:self action:@selector(rightClicl:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _rightBtn;
 }
@@ -48,9 +51,12 @@
     
 }
 
-- (void)rightClicl:(UIButton *)btn{
+- (void)rightClicl:(UITapGestureRecognizer *)ges{
     
-    XDMenuView * menu = [XDMenuView menuViewWithSender:btn];
+    
+    [self.rightBtn setredHidden];
+    
+    XDMenuView * menu = [XDMenuView menuViewWithSender:ges.view];
     menu.backColor = LWColor(63, 66, 79);
     XDMenuItem * item1 = [XDMenuItem item:@"小店充值" icon:@"shopInMoney" clickBlock:^(XDMenuItem *item, XDMenuView *menu) {
         ShopHuoKuanController * vc = [[ShopHuoKuanController alloc] initWithStyle:UITableViewStyleGrouped];
@@ -112,12 +118,10 @@
 
 - (void)getShopAccount{
 
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/userAccountInfo" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
-        
-        ShopAccountModel * model = [ShopAccountModel mj_objectWithKeyValues:json[@"data"]];
-        if (model != nil) {
-            [self.Shopheader configure:model];
-        }
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/walletaccount" parame:nil isHud:NO isHaseCache:NO success:^(id json) {
+//        ShopAccountModel * model = [ShopAccountModel mj_objectWithKeyValues:json[@"data"]];
+        NSString * cc = [NSString stringWithFormat:@"%@",[json[@"data"] objectForKey:@"GoodsDeposit"]];
+        [self.Shopheader configure:cc];
         LWLog(@"%@",json);
     } failure:^(NSError *error) {
         
@@ -179,13 +183,14 @@
                        isHud:YES isHaseCache:NO
                      success:^(id json) {
                          
-                         NSArray * dataArray = [ShopGoodModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
+                         NSArray * dataArray = [ShopGoodModel mj_objectArrayWithKeyValuesArray:json[@"data"][@"Rows"]];
                          if (type == 0) {
                              [self.dataArray removeAllObjects];
                              
                              if (!dataArray.count) {
+                                 KWeakSelf(self);
                                  [self.tableView showEmptyViewClickImageViewBlock:^(id sender) {
-                                     [self getInitData:0];
+                                     [weakself getInitData:0];
                                  }];
                              }else{
                                  [self.tableView dissmissEmptyView];

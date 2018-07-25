@@ -10,7 +10,7 @@
 
 @interface MyWalletTitleView : UIView
 
-
+@property (nonatomic,strong) UILabel * upLabel;
 
 - (void)setTitle:(NSString *) title;
 

@@ -10,7 +10,7 @@
 
 @interface MyWalletTitleView ()
 
-@property (nonatomic,strong) UILabel * upLabel;
+
 
 @property (nonatomic,strong) UILabel * downLabel;
 

@@ -19,31 +19,58 @@
 
 @implementation TuiGuanListTableViewController
 
+- (void)refreshHeader{
+    self.refreshPageIndex = 1;
+    [self getInitData:1];
+}
 
+- (void)refreshFooter{
+    
+    self.refreshPageIndex += 1;
+    [self getInitData:0];
+    
+}
 
+- (void)timePick{
+    
+    [self refreshHeader];
+}
 
-- (void)getInitData{
+// 1 是头 
+- (void)getInitData:(int)type{
 
 //    /Order/GetProfitOrderList
 
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-    dict[@"SearchTime"] = @"";
-    dict[@"ShipStatus"] = @"";
-    dict[@"SearchYear"] = @"";
-    dict[@"SearchMonth"] = @"";
-    dict[@"SearchDay"] = @"";
-    dict[@"WeekNum"] = @"";
-    dict[@"PageIndex"] = @"";
-    dict[@"PageSize"] = @"";
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Order/GetProfitOrderList" parame:dict
+    dict[@"SearchTime"] = @"2";
+    dict[@"ShipStatus"] = @(_orderStatus);
+    dict[@"SearchYear"] = @(self.year);
+    dict[@"SearchMonth"] = @(self.month);
+    dict[@"SearchDay"] = @"-1";
+    dict[@"WeekNum"] = @"-1";
+    dict[@"PageIndex"] = @(self.refreshPageIndex);
+    dict[@"PageSize"] = @"10";
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Order/GetProfitOrderList" parame:dict
                                                           isHud:YES isHaseCache:NO success:^(id json) {
             LWLog(@"%@",json);
 
             NSArray * data =  [TuiGuangModel mj_objectArrayWithKeyValuesArray:[json objectForKey:@"data"]];
-            [self.dataArray removeAllObjects];
+                                                              if (type == 1) {
+                                                                  [self.dataArray removeAllObjects];
+                                                                  if (data.count) {
+                                                                      [self.tableView dissmissEmptyView];
+                                                                  }else{
+                                                                      KWeakSelf(self);
+                                                                      [self.tableView showEmptyViewClickImageViewBlock:^(id sender) {
+                                                                          [weakself getInitData:1];
+                                                                      }];
+                                                                  }
+                                                            }
             [self.dataArray addObjectsFromArray:data];
             [self.tableView reloadData];
 
+                                                              [self.tableView.mj_header endRefreshing];
+                                                              [self.tableView.mj_footer endRefreshing];
         } failure:^(NSError *error) {
             LWLog(@"%@",error.description);
 
@@ -67,7 +94,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    [self getInitData];
+    [self getInitData:1];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -103,11 +103,14 @@
     if (indexPath.section == 0) {
         [self.inComeBottom setTitle:@"今日收益"];
         [self.inComeBottom1 setTitle:@"昨日收益"];
+        [self.inComeTopView setTitle:@"每日收益" and:YES];
     }else if(indexPath.section == 1){
         [self.inComeBottom setTitle:@"本周收益"];
+        [self.inComeTopView setTitle:@"每周收益" and:YES];
         [self.inComeBottom1 setTitle:@"上周收益"];
     }else{
         [self.inComeBottom setTitle:@"本月收益"];
+        [self.inComeTopView setTitle:@"每月收益" and:YES];
         [self.inComeBottom1 setTitle:@"上月收益"];
     }
 }

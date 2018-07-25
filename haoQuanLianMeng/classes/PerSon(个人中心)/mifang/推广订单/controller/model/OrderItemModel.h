@@ -24,6 +24,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString * ProductName;
 @property (nonatomic, assign) int ProductNum;
 @property (nonatomic, strong) NSNumber * ProductPrice;
-@property (nonatomic, strong) NSNumber *  ProductSpec;
+@property (nonatomic, strong) NSString *  ProductSpec;
 
 @end

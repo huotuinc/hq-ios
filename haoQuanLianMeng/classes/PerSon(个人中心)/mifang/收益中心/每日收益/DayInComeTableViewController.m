@@ -11,11 +11,13 @@
 #import "DayInModel.h"
 #import <PGDatePicker.h>
 #import <PGDatePickManager.h>
+#import "NavRightImage.h"
 
-@interface DayInComeTableViewController ()<PGDatePickerDelegate>
+
+@interface DayInComeTableViewController ()<PGDatePickerDelegate,NavRightImageDelegate>
 
 
-@property (nonatomic,strong) UIButton  * btn;
+//@property (nonatomic,strong) UIButton  * btn;
 
 @property (nonatomic,strong) PGDatePicker *datePicker;
     
@@ -23,49 +25,60 @@
 @property (nonatomic,assign) int year;
   
 @property (nonatomic,assign) int month;
-    
+
+
+@property (nonatomic,strong) NavRightImage * btn;
+
+
 @end
 
 @implementation DayInComeTableViewController
 
 
-- (UIButton *)btn{
+- (void)refreshHeader{
+    self.refreshPageIndex = 1;
+    [self getInitData:1];
+}
+
+- (NavRightImage *)btn{
     if (_btn == nil) {
-        _btn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
+        _btn = [[NavRightImage alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
+        
         NSDate * date = [NSDate date];
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"YYYY年MM"];
-        
+
         NSCalendar * ca = [NSCalendar currentCalendar];
         NSUInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth;
         NSDateComponents *dateComponent = [ca components:unitFlags fromDate:date];
-        
+
         _year = (int)[dateComponent year];
         _month= (int)[dateComponent month];
-
         
         
-        [_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        NSString * time =  [formatter stringFromDate:date];
-        [_btn setTitle:time forState:UIControlStateNormal];
-        _btn.titleLabel.font = kAdaptedFontSize(15);
-        _btn.titleLabel.textAlignment = NSTextAlignmentRight;
-//        [_btn sizeToFit];
+        _btn.userInteractionEnabled = YES;
+        _btn.delegate = self;
     }
     return _btn;
 }
 
+
 - (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents{
+    int month = (int)dateComponents.month;
+    int year = (int)dateComponents.year;
     
-    LWLog(@"%ld---%ld",(long)dateComponents.year,(long)dateComponents.year);
-   
-    _month = (int)dateComponents.month;
-    _year = (int)dateComponents.year;
-     [self.btn setTitle:[NSString stringWithFormat:@"%d年%02d",(int)dateComponents.year,(int)dateComponents.month] forState:UIControlStateNormal];
+    
+    self.month = month;
+    self.year = year;
+    
+    
+    [self.btn setTimeString:[NSString stringWithFormat:@"%d年%0d",year,month]];
+    [self getInitData:1];
     
 }
+
 // 点击时间选择
-- (void)timePick{
+- (void)btnRightClick{
     
     PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
     PGDatePicker *datePicker = datePickManager.datePicker;
@@ -73,27 +86,13 @@
     datePicker.datePickerType =  PGDatePickerType1;
     datePicker.delegate = self;
     [self presentViewController:datePickManager animated:false completion:nil];
-    
-    
-//#pragma PGDatePickerDelegate
-//    - (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
-//        NSLog(@"dateComponents = %@", dateComponents);
-//    }
-    
-    
-//    HSDatePickerVC * vc = [[HSDatePickerVC alloc] init];
-//    [self presentViewController:vc animated:YES completion:^{
-//        
-//    }];
-//    [BRDatePickerView showDatePickerWithTitle:@"时间" dateType:UIDatePickerModeDate defaultSelValue:nil minDateStr:nil maxDateStr:nil isAutoSelect:YES resultBlock:^(NSString *selectValue) {
-//
-//    }];
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.mj_footer = nil;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.btn];
     [self.tableView registerClass:[ShouYiTableViewCell class] forCellReuseIdentifier:@"ShouYiTableViewCell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 500;
@@ -102,10 +101,10 @@
     
     
     
-    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ssg"] style:UIBarButtonItemStylePlain target:self action:@selector(timePick)];
-    UIBarButtonItem * item1 = [[UIBarButtonItem alloc] initWithCustomView:self.btn];
+//    UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ssg"] style:UIBarButtonItemStylePlain target:self action:@selector(timePick)];
+//    UIBarButtonItem * item1 = [[UIBarButtonItem alloc] initWithCustomView:self.btn];
     
-    self.navigationItem.rightBarButtonItems = @[item,item1];
+    
     
     if (self.type == 0) {
         self.navigationItem.title = @"每日收益";
@@ -115,7 +114,7 @@
         self.navigationItem.title = @"每月收益";
     }
     
-    [self getInitData];
+    [self getInitData:1];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -125,21 +124,34 @@
 }
 
 
-- (void)getInitData{
+//1 表示  0 表示尾部
+- (void)getInitData:(int)type{
     
 //    CountType    是    int    查询类型（0-日,1-周,2-月）
 //    SearchYear    是    int    查询年份
 //    SearchMonth    是    int    查询月份
     
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-    dict[@"type"] = @(self.type);
+    dict[@"CountType"] = @(self.type);
     dict[@"SearchYear"] = @(self.year);
     dict[@"SearchMonth"] = @(self.month);
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"Profit/GetProfitItems" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
-        
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"Profit/GetProfitItems" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
         NSArray * array =  [DayInModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
+        
+        if (array.count) {
+            [self.tableView dissmissEmptyView];
+        }else{
+            
+            KWeakSelf(self);
+            [self.tableView showEmptyViewClickImageViewBlock:^(id sender) {
+                [weakself getInitData:1];
+            }];
+        }
+        [self.dataArray removeAllObjects];
         [self.dataArray addObjectsFromArray:array];
         [self.tableView reloadData];
+        
+        [self.tableView.mj_header endRefreshing];
         LWLog(@"%@",json);
     } failure:^(NSError *error) {
         LWLog(@"%@",[error description]);

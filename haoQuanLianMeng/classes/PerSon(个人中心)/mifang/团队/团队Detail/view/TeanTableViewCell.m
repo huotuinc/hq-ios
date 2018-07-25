@@ -47,6 +47,7 @@
         
         [self setUpInit];
         self.contentView.backgroundColor = LWColor(240, 239, 244);
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }

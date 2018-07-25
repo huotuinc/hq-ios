@@ -137,6 +137,13 @@
 		1250507420D2592F006E30C4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1250507320D2592F006E30C4 /* libz.tbd */; };
 		1250507720D2656F006E30C4 /* LWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1250507620D2656F006E30C4 /* LWViewController.m */; };
 		1250507A20D26595006E30C4 /* MFPersonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1250507920D26595006E30C4 /* MFPersonTableViewController.m */; };
+		12538BF621070EF100AB8D75 /* NavRightImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 12538BF521070EF100AB8D75 /* NavRightImage.m */; };
+		12538BFA210855A800AB8D75 /* PayMiMaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12538BF9210855A800AB8D75 /* PayMiMaTableViewController.m */; };
+		12538BFE210855D200AB8D75 /* NNValidationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12538BFD210855D200AB8D75 /* NNValidationView.m */; };
+		12538C0121085BE200AB8D75 /* SettPayPassTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12538C0021085BE200AB8D75 /* SettPayPassTableViewController.m */; };
+		12538C2821086E0400AB8D75 /* PopPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12538C2221086E0300AB8D75 /* PopPasswordView.m */; };
+		12538C2921086E0400AB8D75 /* TTPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12538C2521086E0300AB8D75 /* TTPasswordView.m */; };
+		12538C2A21086E0400AB8D75 /* 关闭.png in Resources */ = {isa = PBXBuildFile; fileRef = 12538C2621086E0300AB8D75 /* 关闭.png */; };
 		1256F00B20D3894500BFE766 /* VipTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1256F00A20D3894500BFE766 /* VipTimeTableViewCell.m */; };
 		1256F01B20D3ADE600BFE766 /* MyWalletTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1256F01920D3ADE600BFE766 /* MyWalletTableViewCell.m */; };
 		1256F01F20D3AEB500BFE766 /* MyWalletTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1256F01E20D3AEB500BFE766 /* MyWalletTopView.m */; };
@@ -587,6 +594,20 @@
 		1250507620D2656F006E30C4 /* LWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWViewController.m; sourceTree = "<group>"; };
 		1250507820D26595006E30C4 /* MFPersonTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFPersonTableViewController.h; sourceTree = "<group>"; };
 		1250507920D26595006E30C4 /* MFPersonTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFPersonTableViewController.m; sourceTree = "<group>"; };
+		12538BF421070EF100AB8D75 /* NavRightImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavRightImage.h; sourceTree = "<group>"; };
+		12538BF521070EF100AB8D75 /* NavRightImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavRightImage.m; sourceTree = "<group>"; };
+		12538BF8210855A800AB8D75 /* PayMiMaTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayMiMaTableViewController.h; sourceTree = "<group>"; };
+		12538BF9210855A800AB8D75 /* PayMiMaTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayMiMaTableViewController.m; sourceTree = "<group>"; };
+		12538BFC210855D200AB8D75 /* NNValidationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNValidationView.h; sourceTree = "<group>"; };
+		12538BFD210855D200AB8D75 /* NNValidationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNValidationView.m; sourceTree = "<group>"; };
+		12538BFF21085BE200AB8D75 /* SettPayPassTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettPayPassTableViewController.h; sourceTree = "<group>"; };
+		12538C0021085BE200AB8D75 /* SettPayPassTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettPayPassTableViewController.m; sourceTree = "<group>"; };
+		12538C2221086E0300AB8D75 /* PopPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopPasswordView.m; sourceTree = "<group>"; };
+		12538C2321086E0300AB8D75 /* TTConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTConst.h; sourceTree = "<group>"; };
+		12538C2421086E0300AB8D75 /* TTPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPasswordView.h; sourceTree = "<group>"; };
+		12538C2521086E0300AB8D75 /* TTPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPasswordView.m; sourceTree = "<group>"; };
+		12538C2621086E0300AB8D75 /* 关闭.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "关闭.png"; sourceTree = "<group>"; };
+		12538C2721086E0400AB8D75 /* PopPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopPasswordView.h; sourceTree = "<group>"; };
 		1256F00920D3894500BFE766 /* VipTimeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VipTimeTableViewCell.h; sourceTree = "<group>"; };
 		1256F00A20D3894500BFE766 /* VipTimeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VipTimeTableViewCell.m; sourceTree = "<group>"; };
 		1256F01820D3ADE600BFE766 /* MyWalletTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyWalletTableViewCell.h; sourceTree = "<group>"; };
@@ -1499,6 +1520,7 @@
 		1214689120DA35AA00E54048 /* 我要提现 */ = {
 			isa = PBXGroup;
 			children = (
+				12538C2121086DDD00AB8D75 /* password */,
 				1206B4BC20E61511000FB0D0 /* model */,
 				1214689220DA365900E54048 /* TiXianViewController.h */,
 				1214689320DA365900E54048 /* TiXianViewController.m */,
@@ -1759,6 +1781,7 @@
 		1250505220D20F08006E30C4 /* mifang */ = {
 			isa = PBXGroup;
 			children = (
+				12538BF72108558900AB8D75 /* 设置支付密码 */,
 				12217AFB20E476110085B85E /* 绑定手机 */,
 				1210877720DE242800CF4D5E /* 店主课堂 */,
 				12DE336A20DCE2C300374AA3 /* 推广订单 */,
@@ -1833,6 +1856,49 @@
 				12E7C31E20FDC1AC0030536F /* MessageBottomView.m */,
 			);
 			path = de;
+			sourceTree = "<group>";
+		};
+		12538BF321070ED200AB8D75 /* NavRight */ = {
+			isa = PBXGroup;
+			children = (
+				12538BF421070EF100AB8D75 /* NavRightImage.h */,
+				12538BF521070EF100AB8D75 /* NavRightImage.m */,
+			);
+			path = NavRight;
+			sourceTree = "<group>";
+		};
+		12538BF72108558900AB8D75 /* 设置支付密码 */ = {
+			isa = PBXGroup;
+			children = (
+				12538BFB210855D200AB8D75 /* NNValidationView */,
+				12538BF8210855A800AB8D75 /* PayMiMaTableViewController.h */,
+				12538BF9210855A800AB8D75 /* PayMiMaTableViewController.m */,
+				12538BFF21085BE200AB8D75 /* SettPayPassTableViewController.h */,
+				12538C0021085BE200AB8D75 /* SettPayPassTableViewController.m */,
+			);
+			path = "设置支付密码";
+			sourceTree = "<group>";
+		};
+		12538BFB210855D200AB8D75 /* NNValidationView */ = {
+			isa = PBXGroup;
+			children = (
+				12538BFC210855D200AB8D75 /* NNValidationView.h */,
+				12538BFD210855D200AB8D75 /* NNValidationView.m */,
+			);
+			path = NNValidationView;
+			sourceTree = "<group>";
+		};
+		12538C2121086DDD00AB8D75 /* password */ = {
+			isa = PBXGroup;
+			children = (
+				12538C2621086E0300AB8D75 /* 关闭.png */,
+				12538C2721086E0400AB8D75 /* PopPasswordView.h */,
+				12538C2221086E0300AB8D75 /* PopPasswordView.m */,
+				12538C2321086E0300AB8D75 /* TTConst.h */,
+				12538C2421086E0300AB8D75 /* TTPasswordView.h */,
+				12538C2521086E0300AB8D75 /* TTPasswordView.m */,
+			);
+			path = password;
 			sourceTree = "<group>";
 		};
 		1256EFFA20D3524400BFE766 /* xitong */ = {
@@ -2452,6 +2518,7 @@
 		12DE336B20DCE2DE00374AA3 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				12538BF321070ED200AB8D75 /* NavRight */,
 				12DE337520DCF7A200374AA3 /* TuiGuangBottom.h */,
 				12DE337620DCF7A200374AA3 /* TuiGuangBottom.m */,
 				12DE337220DCF46B00374AA3 /* TuiGuangCenter.h */,
@@ -2879,6 +2946,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12538C2A21086E0400AB8D75 /* 关闭.png in Resources */,
 				1205BBFA20BBA96900032F3C /* Assets.xcassets in Resources */,
 				12942E442101C7BE000DB716 /* mf.bundle in Resources */,
 				120CC1F320BE577600251FC0 /* MBProgressHUD.bundle in Resources */,
@@ -3011,7 +3079,9 @@
 				1231E3F120F8A9F200057115 /* ShopHomeRight.m in Sources */,
 				12C610FD20F78EC5000A4525 /* ShopAccountModel.m in Sources */,
 				120CC1C320BE3B8D00251FC0 /* HTArticleBaseView.m in Sources */,
+				12538C2821086E0400AB8D75 /* PopPasswordView.m in Sources */,
 				120CC15E20BCEB5A00251FC0 /* HTUserModel.m in Sources */,
+				12538BFA210855A800AB8D75 /* PayMiMaTableViewController.m in Sources */,
 				1205BC0020BBA96900032F3C /* main.m in Sources */,
 				1225BFC520C521BC0078D8D0 /* HTAddAliPayTableViewController.m in Sources */,
 				12DE336E20DCE30400374AA3 /* ATuiGuangTableViewCell.m in Sources */,
@@ -3053,6 +3123,7 @@
 				1207328320C558590057AB66 /* RowItemContainView.m in Sources */,
 				120CC17220BCF92200251FC0 /* MD5Encryption.m in Sources */,
 				12DAB79120E21DD600387104 /* MJPhotoBrowser.m in Sources */,
+				12538C0121085BE200AB8D75 /* SettPayPassTableViewController.m in Sources */,
 				120CC21B20BEA01100251FC0 /* MoneyHeaderCenterView.m in Sources */,
 				120CC15420BCEA5A00251FC0 /* HTNetworkingTool.m in Sources */,
 				12DAB77620E21AA600387104 /* SDPhotoBrowser.m in Sources */,
@@ -3062,6 +3133,7 @@
 				1250507720D2656F006E30C4 /* LWViewController.m in Sources */,
 				1225BFBE20C5114B0078D8D0 /* HTMoneyListTableViewCell.m in Sources */,
 				12D6A47B20D0C68A00316AD3 /* LWInviteViewController.m in Sources */,
+				12538C2921086E0400AB8D75 /* TTPasswordView.m in Sources */,
 				12FCDA1F20C11D1600D0582B /* HeadIconView.m in Sources */,
 				120CC21520BE95C600251FC0 /* MoneyHeaderView.m in Sources */,
 				12FCDA2E20C1478500D0582B /* PHHeadDownDownView.m in Sources */,
@@ -3099,6 +3171,7 @@
 				1281D94120DBCA32008A255B /* PriceBottomView.m in Sources */,
 				12AA816E20EA1A91006F87D1 /* UIView+EaseBlankPage.m in Sources */,
 				1214689D20DA3B6D00E54048 /* TiXianBottomTableViewCell.m in Sources */,
+				12538BFE210855D200AB8D75 /* NNValidationView.m in Sources */,
 				1243CDFE20FC47F5000A28CE /* QuanDetailBottomView.m in Sources */,
 				12DE336620DC8A2F00374AA3 /* ShouYiTableViewCell.m in Sources */,
 				129CE5FB20F33DC50085C82A /* ShopHuoKuanController.m in Sources */,
@@ -3172,6 +3245,7 @@
 				1243CE0C20FCB072000A28CE /* ShopSettModel.m in Sources */,
 				12F1419C20D8E1A500FDC9CA /* YiJianViewController.m in Sources */,
 				12AA816A20EA1A91006F87D1 /* UIView+LoadView.m in Sources */,
+				12538BF621070EF100AB8D75 /* NavRightImage.m in Sources */,
 				12AA815B20E9CC8F006F87D1 /* AccountList.m in Sources */,
 				1231E3DF20F8940F00057115 /* ShopMoneyCenterCellCell.m in Sources */,
 				1281D91C20DB8116008A255B /* MyTeamController.m in Sources */,

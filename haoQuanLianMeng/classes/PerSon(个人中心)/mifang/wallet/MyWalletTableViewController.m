@@ -47,7 +47,7 @@
     [super viewWillAppear:animated];
     
 //    user/MyWallet
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"user/MyWallet" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"user/MyWallet" parame:nil isHud:YES isHaseCache:NO success:^(id json) {
         LWLog(@"%@",json);
         self.youhuiquan.text = [NSString stringWithFormat:@"%d",[json[@"data"][@"CouponNum"] intValue]];
         self.midou.text = [NSString stringWithFormat:@"%d",[json[@"data"][@"UserMBean"] intValue]];
@@ -64,6 +64,10 @@
 
 #pragma mark - Table view data source
 
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 3;
+}
 - (IBAction)tixianClick:(id)sender {
     
     TiXianViewController * vc = [[TiXianViewController alloc] initWithStyle:UITableViewStyleGrouped];

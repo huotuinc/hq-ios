@@ -9,7 +9,7 @@
 #import "DianZhuTableViewController.h"
 #import "DianZhueTableViewCell.h"
 #import "DZClassList.h"
-
+#import "WKWebViewController.h"
 
 
 @interface DianZhuTableViewController ()
@@ -92,6 +92,13 @@
     return cell;
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DZClassList  * dataModel = [self.dataArray objectAtIndex:indexPath.row];
+    WKWebViewController * vc = [[WKWebViewController alloc] init];
+    vc.funUrl = dataModel.outerLink;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

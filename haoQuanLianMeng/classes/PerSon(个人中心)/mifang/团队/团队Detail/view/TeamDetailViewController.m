@@ -50,7 +50,7 @@
     if (_parmae == nil) {
         _parmae = [NSMutableDictionary dictionary];
         [_parmae setObject:@(-1) forKey:@"Relation"];
-        [_parmae setObject:@(0) forKey:@"BuyNum"];
+        [_parmae setObject:@(-1) forKey:@"BuyNum"];
         [_parmae setObject:@(-1) forKey:@"BindMobile"];
         [_parmae setObject:@(-1) forKey:@"LevelId"];
         [_parmae setObject:@(-1) forKey:@"Activate"];
@@ -99,8 +99,8 @@
 //
 //    SearchDayType    是    int    查询时间类型,默认-1全部,0-今日,1-本月
 //    BuyNum    是    int    购买次数 默认全部-1,无订单0,以上为传入个数
-//    LevelId    是    int    用户身份等级 默认全部-1,其他传入用户等级Id
-//    Relation    是    int    直接、间接团队，默认全部-1，直接0，间接1
+//  *  LevelId    是    int    用户身份等级 默认全部-1,其他传入用户等级Id
+//  *  Relation    是    int    直接、间接团队，默认全部-1，直接0，间接1
 //    BindMobile    是    int    绑定手机号 默认-1 1绑定 0不绑定
 //    Activate    是    int    是否活跃,默认全部-1,活跃1,不活跃0
 //    ActivateHour    是    int    多少时间内活跃
@@ -113,7 +113,7 @@
     if (self.type == 0) {
         [dict setObject:@(-1) forKey:@"SearchDayType"];
     }else{
-        
+        [dict setObject:@(0) forKey:@"SearchDayType"];
     }
     [dict addEntriesFromDictionary:[self.parmae copy]];
     if ([[self.parmae objectForKey:@"Activate"] intValue] == 1) {
@@ -131,12 +131,20 @@
     }
     
     [dict setObject:@(20) forKey:@"PageSize"];
-    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolGet:@"User/GetMemberList" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
+    [[HTNetworkingTool HTNetworkingManager] HTNetworkingToolPost:@"User/GetMemberList" parame:dict isHud:YES isHaseCache:NO success:^(id json) {
     
         NSArray * dataArray =  [TeamPListModel
                                 mj_objectArrayWithKeyValuesArray:json[@"data"][@"TeamItem"]];
         if (hf == 0) {
            [self.dataArray removeAllObjects];
+            if (dataArray.count) {
+                [self.content dissmissEmptyView];
+            }else{
+                KWeakSelf(self);
+                [self.content showEmptyViewClickImageViewBlock:^(id sender) {
+                    [weakself getData:1];
+                }];
+            }
         }
         [self.dataArray addObjectsFromArray:dataArray];
         [self.content reloadData];

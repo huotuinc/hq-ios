@@ -105,7 +105,11 @@
     
     self.leftTopLable.text = model.wxNickName;
     
-    self.leftLable.text = model.CreatTime;
+    NSDate *da = [NSDate dateWithTimeIntervalSince1970:[model.CreatTime longLongValue] / 1000];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    
+    self.leftLable.text = [formatter stringFromDate:da];
     
     NSString * old =  [NSString stringWithFormat:@"获取%d积分",model.Integral];
     NSString * le =  [NSString stringWithFormat:@"%d",model.Integral];

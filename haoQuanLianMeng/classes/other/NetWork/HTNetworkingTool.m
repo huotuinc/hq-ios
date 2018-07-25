@@ -146,7 +146,10 @@ static HTNetworkingTool * _HTNetworkingTool;
         LWLog(@"%@",error);
         [MBProgressHUD hideHUD];
         [MBProgressHUD showError:@"服务错误"];
-        failure(error);
+        if(failure){
+           failure(error);
+        }
+        
     }];
 }
 

@@ -55,6 +55,15 @@
         NSArray * t =  [GoodMoneyModel mj_objectArrayWithKeyValuesArray:json[@"data"]];
         if (type == 0) {
             [self.dataArray removeAllObjects];
+            
+            if (t.count) {
+                [self.tableView dissmissEmptyView];
+            }else{
+                KWeakSelf(self);
+                [self.tableView showEmptyViewClickImageViewBlock:^(id sender) {
+                    [weakself getDate:0];
+                }];
+            }
         }
         [self.dataArray addObjectsFromArray:t];
         [self.tableView reloadData];
